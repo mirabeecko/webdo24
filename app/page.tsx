@@ -8,9 +8,9 @@ import FAQ from '@/components/sections/FAQ';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Webdozitra.cz — Profesionální web do 7 dnů | od 24 900 Kč',
+  title: 'Webdozitra.cz — Web hotový do 24 hodin | od 11 900 Kč',
   description:
-    'Postavíme vám profesionální web do 7 dnů. Moderní design, SEO, kontaktní formulář. Pro živnostníky a firmy. Balíčky od 24 900 Kč.',
+    'Profesionální web hotový do 24 hodin — garantovaně nebo vracíme zálohu. Moderní design, SEO, kontaktní formulář. Od 11 900 Kč.',
 };
 
 export default function HomePage() {

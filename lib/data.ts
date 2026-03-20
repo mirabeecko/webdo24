@@ -4,92 +4,110 @@ export const packages: Package[] = [
   {
     id: 'start',
     name: 'START',
-    price: '24 900',
-    priceNote: 'jednorázově',
-    target: 'Živnostníci a malé firmy, kteří potřebují funkční online prezentaci.',
-    description: 'Vše, co potřebujete pro solidní online přítomnost — rychle a bez zbytečností.',
+    price: '11 900',
+    priceNote: 'jednorázově · bez DPH',
+    target: 'Landing page nebo jednoduchá prezentace pro živnostníky.',
+    description: 'Hotová jednostránkový web do 24 hodin. Ideální pro rychlý start.',
     features: [
-      'Web do 5 podstránek',
-      'Responzivní design (mobil/tablet/PC)',
+      'Jednostránkový web (landing page)',
+      'Moderní responzivní design',
       'Kontaktní formulář',
-      'Základní SEO nastavení',
-      'Google Maps integrace',
-      'Napojení na sociální sítě',
+      'Napojení na Google Maps',
+      'Základní SEO (meta tagy, rychlost)',
       'SSL certifikát',
-      'Spuštění do 7 dnů',
+      'Spuštění do 24 hodin',
     ],
     highlighted: false,
-    cta: 'Objednat START',
+    cta: 'Chci START web',
   },
   {
     id: 'business',
     name: 'BUSINESS',
-    price: '39 900',
-    priceNote: 'jednorázově',
-    target: 'Firmy, které chtějí web, který aktivně přivádí zákazníky.',
-    description: 'Profesionální web s pokročilou strukturou, obsahem a základní marketingovou výbavou.',
+    price: '22 900',
+    priceNote: 'jednorázově · bez DPH',
+    target: 'Firmy, které chtějí web, který aktivně generuje zákazníky.',
+    description: 'Firemní web do 5 stránek s pokročilým SEO a marketingovou výbavou.',
     features: [
-      'Web do 10 podstránek',
+      'Web do 5 stránek',
       'Prémiový design na míru',
-      'Pokročilá SEO optimalizace',
+      'Pokročilé SEO + Google Analytics',
       'Blog / aktuality',
       'Galerie a portfolio',
-      'Analytika (GA4)',
-      'Rychlostní optimalizace',
       'Copywriting klíčových stránek',
-      'SSL + zabezpečení',
-      'Spuštění do 7 dnů',
+      'Rychlostní optimalizace (Core Web Vitals)',
+      'Spuštění do 24 hodin',
     ],
     highlighted: true,
     badge: 'Nejpopulárnější',
-    cta: 'Objednat BUSINESS',
+    cta: 'Chci BUSINESS web',
   },
   {
     id: 'pro',
     name: 'PRO',
-    price: '64 900',
-    priceNote: 'jednorázově',
-    target: 'Firmy, které potřebují komplexní digitální řešení a výsledky.',
-    description: 'Plnohodnotný web s e-shopem, rezervačním systémem nebo zákaznickou zónou.',
+    price: '42 900',
+    priceNote: 'jednorázově · bez DPH',
+    target: 'Ambiciózní firmy, které potřebují komplexní digitální přítomnost.',
+    description: 'Až 10 stránek, e-shop nebo rezervace — spuštění do 48 hodin.',
     features: [
-      'Neomezený počet stránek',
-      'E-shop nebo rezervace',
-      'Unikátní UX/UI design',
+      'Web do 10 stránek',
+      'E-shop nebo rezervační systém',
+      'Unikátní UX/UI design na míru',
       'Pokročilá SEO strategie',
-      'Marketingové vstupní stránky',
+      'Marketingové landing pages',
       'CRM integrace',
-      'Výkonový hosting první rok zdarma',
-      'Analytika + konverzní měření',
       'Kompletní copywriting',
-      'Prioritní spuštění do 5 dnů',
+      'Výkonový hosting 1. rok zdarma',
+      'Spuštění do 48 hodin',
     ],
     highlighted: false,
-    cta: 'Objednat PRO',
+    cta: 'Chci PRO web',
   },
 ];
 
 export const addons = [
-  { name: 'Expresní dodání', description: 'Prioritní zpracování, spuštění do 3 dnů', price: '+40 %' },
-  { name: 'Copywriting extra', description: 'Kompletní texty pro celý web od copywritera', price: '4 900 Kč' },
-  { name: 'Logo a brand', description: 'Profesionální logo + základní vizuální identita', price: '7 900 Kč' },
-  { name: 'Fotografie produktů', description: 'Profesionální produktové foto (Praha/okolí)', price: 'dle rozsahu' },
+  {
+    name: 'Expresní do 6 hodin',
+    description: 'Spuštění ještě dnes — prioritní zpracování',
+    price: '+60 %',
+  },
+  {
+    name: 'Copywriting',
+    description: 'Prodejní texty pro celý web od copywritera',
+    price: '3 900 Kč',
+  },
+  {
+    name: 'Logo a brand',
+    description: 'Profesionální logo + základní vizuální identita',
+    price: '5 900 Kč',
+  },
+  {
+    name: 'Google reklama',
+    description: 'Nastavení Google Ads kampaně včetně správy',
+    price: 'od 2 900 Kč',
+  },
 ];
 
 export const maintenance = [
   {
     name: 'Základní péče',
-    price: '990 Kč/měs',
-    features: ['Zálohy', 'Aktualizace systému', 'Drobné úpravy (1h/měs)', 'E-mailová podpora'],
+    price: '390 Kč/měs',
+    features: [
+      'Zálohy každý den',
+      'Aktualizace systému',
+      'Drobné úpravy (1h/měs)',
+      'Hosting + SSL',
+      'E-mailová podpora',
+    ],
   },
   {
     name: 'Aktivní péče',
-    price: '2 990 Kč/měs',
+    price: '990 Kč/měs',
     features: [
       'Vše ze Základní péče',
       'Úpravy obsahu (3h/měs)',
-      'Měsíční report výkonu',
-      'Prioritní podpora',
-      'SEO monitoring',
+      'Měsíční SEO report',
+      'Prioritní podpora do 2h',
+      'Bezpečnostní monitoring',
     ],
   },
 ];
@@ -97,81 +115,81 @@ export const maintenance = [
 export const benefits: Benefit[] = [
   {
     icon: '⚡',
-    title: 'Spuštění do 7 dnů',
+    title: 'Web do 24 hodin — garantováno',
     description:
-      'Žádné týdny čekání. Po schválení podkladů máte funkční web do 7 pracovních dnů. Garantujeme.',
+      'Ráno odešlete poptávku — večer máte web online. Pokud nestihneme, vracíme 100 % zálohy.',
+  },
+  {
+    icon: '💰',
+    title: 'Cena pevná od začátku',
+    description:
+      'Cenu znáte ještě před podpisem. Žádné hodiny navíc, žádné skryté poplatky. Platíte přesně to, co bylo domluveno.',
   },
   {
     icon: '🎯',
-    title: 'Web, který prodává',
+    title: 'Web, který přivádí zákazníky',
     description:
-      'Nestavíme vizuálky pro ocenění. Stavíme weby, které konvertují návštěvníky na zákazníky.',
+      'Nestavíme vizuální díla do šuplíku. Každý web je navržený tak, aby konvertoval návštěvníky na zákazníky.',
   },
   {
     icon: '📱',
-    title: 'Perfektní na každém zařízení',
+    title: 'Perfektní na mobilu',
     description:
-      '60 % vašich zákazníků přijde z mobilu. Každý náš web je navržen mobile-first.',
+      '70 % vašich zákazníků přijde z telefonu. Každý náš web je mobile-first — bez kompromisů.',
   },
   {
     icon: '🔍',
-    title: 'Viditelný na Googlu',
+    title: 'Viditelný na Googlu od prvního dne',
     description:
-      'Technické SEO, rychlost a správná struktura — základ pro to, aby vás zákazníci našli.',
-  },
-  {
-    icon: '💬',
-    title: 'Komunikace bez zbytečností',
-    description:
-      'Jeden kontaktní bod. Žádné přehazování mezi oddělení. Jasné termíny a zpětná vazba.',
-  },
-  {
-    icon: '🛡️',
-    title: 'Bezpečnost a spolehlivost',
-    description:
-      'SSL, zálohy, aktualizace. Váš web běží bez výpadků a je chráněný.',
-  },
-  {
-    icon: '🚀',
-    title: 'Výkon na úrovni top firem',
-    description:
-      'Rychlý loading, čistý kód, moderní technologie — stejný stack jako používají startupy.',
+      'Technické SEO, rychlost a správná struktura jsou standardem. Zákazníci vás najdou dřív než konkurenci.',
   },
   {
     icon: '🤝',
-    title: 'Férová cena bez skrytých poplatků',
+    title: 'Jeden člověk, plná zodpovědnost',
     description:
-      'Cenu znáte předem. Žádné surprise faktury. Platíte za výsledek, ne za hodiny.',
+      'Žádné přehazování mezi oddělení. Máte jeden kontaktní bod, který zná váš projekt od začátku do konce.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Záruka výsledku',
+    description:
+      'Technické chyby opravujeme 30 dnů zdarma po spuštění. Váš web musí fungovat — jinak pracujeme bez nároku na odměnu.',
+  },
+  {
+    icon: '🚀',
+    title: 'Stack jako velké firmy',
+    description:
+      'Next.js, moderní kód, bez zbytečných pluginů. Rychlý, bezpečný a snadno rozšiřitelný web.',
   },
 ];
 
 export const steps: Step[] = [
   {
     number: '01',
-    title: 'Vyplníte formulář',
+    title: 'Odešlete poptávku (5 min)',
     description:
-      'Řeknete nám o svém podnikání, cíli webu a preferencích. Zabere to 5 minut.',
+      'Vyplníte formulář. Řeknete nám o podnikání, cíli a designu. Ihned dostanete potvrzení.',
     icon: '📋',
   },
   {
     number: '02',
-    title: 'Dostanete nabídku',
+    title: 'Do 2 hodin dostanete nabídku',
     description:
-      'Do 24 hodin vám pošleme konkrétní návrh, termín a cenovou nabídku.',
+      'Pošleme vám přesnou cenu, termín spuštění a případné otázky. Vše emailem.',
     icon: '📨',
   },
   {
     number: '03',
-    title: 'Schválíte design',
+    title: 'Schválíte design (online)',
     description:
-      'Ukážeme vám wireframe a první návrh. Zapracujeme vaše připomínky.',
+      'Ukážeme návrh. Jedno kolo revizí. Pak jdeme stavět.',
     icon: '✏️',
   },
   {
     number: '04',
-    title: 'Spustíme web',
+    title: 'Do 24 hodin jste online',
     description:
-      'Hotový web nasadíme na vaši doménu. Předáme správu, hesla a krátkou instruktáž.',
+      'Web nasadíme na vaši doménu. Předáme přístupy, hesla a video návod.',
     icon: '🚀',
   },
 ];
@@ -181,105 +199,105 @@ export const testimonials: Testimonial[] = [
     name: 'Tomáš Novák',
     company: 'Řemeslné práce Novák',
     role: 'živnostník',
-    text: 'Do týdne jsem měl web, který vypadá lépe než konkurence se svými weby za 200 tisíc. Hned v prvním měsíci mi přišly 3 poptávky přes kontaktní formulář.',
+    text: 'Ráno jsem odeslal formulář, odpoledne schválil design a druhý den ráno jsem měl web online. Přesně jak slibují. Hned v prvním měsíci mi přišly 3 poptávky přes kontaktní formulář.',
     result: '+3 zakázky v 1. měsíci',
     initials: 'TN',
-    color: 'from-blue-500 to-indigo-500',
+    color: 'from-orange-500 to-red-500',
   },
   {
     name: 'Petra Horáková',
     company: 'Kosmetické studio Petra',
     role: 'majitelka salonu',
-    text: 'Měla jsem starý web, který nikdo nenašel. Teď jsem na Googlu první stránka pro svůj obor v Brně a rezervace mi chodí online. Skvělá investice.',
+    text: 'Čekala jsem, že to bude trvat týdny. Realita? Web jsem měla do druhého dne a vypadá líp než weby konkurence, za které platili 3× víc. Na Googlu jsem skočila na první stránku pro Brno.',
     result: 'Na 1. stránce Google v Brně',
     initials: 'PH',
-    color: 'from-rose-500 to-pink-500',
+    color: 'from-orange-400 to-amber-500',
   },
   {
     name: 'Martin Blaha',
     company: 'Blaha Účetnictví s.r.o.',
     role: 'ředitel',
-    text: 'Hledal jsem agenturu, která to prostě udělá bez zdlouhavých schůzek a čekání. Tady to přesně tak fungovalo. Spokojený zákazník.',
-    result: 'Spuštění do 6 dnů',
+    text: 'Žádné zbytečné schůzky, žádné čekání. Odeslal jsem poptávku v pondělí ráno, v úterý jsem měl hotový web. To je přesně ten přístup, který u dodavatelů hledám.',
+    result: 'Web spuštěn do 24 hodin',
     initials: 'MB',
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-red-500 to-orange-500',
   },
 ];
 
 export const faqs: FAQItem[] = [
   {
-    question: 'Jak dlouho opravdu trvá výroba webu?',
+    question: 'Opravdu do 24 hodin? To není možné.',
     answer:
-      'Standardní weby dodáváme do 7 pracovních dnů od schválení podkladů a obsahu. Expresní dodání (příplatek 40 %) zkracuje termín na 3 pracovní dny. Balíček PRO je standardně do 5 dnů.',
+      'Je. Pracujeme přesně na to. Ráno obdržíme vaše podklady → do 2 hodin pošleme návrh → po schválení spustíme web. Standardní START a BUSINESS balíčky dodáváme do 24 hodin. PRO balíček do 48 hodin. Pokud termín nedodržíme z naší strany, vracíme 100 % zálohy.',
   },
   {
-    question: 'Co potřebuji mít připraveno před začátkem?',
+    question: 'Co musím mít připraveno před začátkem?',
     answer:
-      'Ideálně: logo (nebo zájem o tvorbu loga), základní texty o firmě a službách, případné fotografie. Pokud nic z toho nemáte — nevadí. Pomůžeme s copywritingem a doporučíme fotobanky.',
+      'Ideálně: logo, základní texty o firmě, pár fotek nebo ochota použít fotobanku. Pokud nemáte nic — nevadí. Pomůžeme s texty a doporučíme vizuály. Neblokujte projekt tím, že nemáte "vše připravené".',
+  },
+  {
+    question: 'Proč jsou vaše ceny nižší než u jiných agentur?',
+    answer:
+      'Pracujeme efektivně — moderní technologie, jasné procesy, žádný nadbytečný overhead. Netočíme drahé prezentace, nechodíme na "strategické schůzky na kávě". Výsledek jde přímo k vám — rychle a za férovau cenu.',
   },
   {
     question: 'Mohu si web sám upravovat?',
     answer:
-      'Ano. Předáváme web se správcovským přístupem a krátkým videonávodem. Úpravy textů, fotek a základního obsahu zvládnete sami bez technických znalostí.',
+      'Ano. Předáváme správcovský přístup a video návod. Texty, fotky a základní obsah upravíte sami bez programování. Pro větší změny nabízíme měsíční péči.',
   },
   {
-    question: 'Co je součástí ceny a co není?',
+    question: 'Co je v ceně a co není?',
     answer:
-      'V ceně je design, vývoj, základní SEO nastavení, SSL, responzivita a spuštění. Není v ceně doménové jméno (cca 250 Kč/rok) a webhosting (doporučujeme náš hosting od 390 Kč/měs).',
-  },
-  {
-    question: 'Poskytujete také e-shop?',
-    answer:
-      'Ano, e-shopy jsou součástí balíčku PRO. Pokud chcete e-shop s menším katalogem, můžeme se domluvit i v balíčku BUSINESS s příplatkem.',
+      'V ceně je: design, vývoj, SEO nastavení, SSL, responzivita, spuštění a 30 dnů technické záruky. Není v ceně: doménové jméno (cca 250 Kč/rok) a webhosting (od 390 Kč/měs — nabízíme vlastní).',
   },
   {
     question: 'Jak funguje platba?',
     answer:
-      'Fakturujeme 50 % zálohu před zahájením práce a 50 % před spuštěním. Platba převodem nebo online kartou.',
-  },
-  {
-    question: 'Co se stane po spuštění webu?',
-    answer:
-      'Předáme vám přístupy, instruktáž a záruka na technické chyby je 30 dnů zdarma. Poté nabízíme plány měsíční péče (990 nebo 2 990 Kč/měs) pro aktualizace a podporu.',
+      '50 % záloha před zahájením, 50 % po schválení webu před spuštěním. Platba převodem nebo kartou online. Faktura do 24 hodin.',
   },
   {
     question: 'Děláte weby i mimo Prahu?',
     answer:
-      'Ano, pracujeme plně online. Máme klienty po celé ČR i v zahraničí. Veškerou komunikaci zvládneme přes email, Zoom nebo telefon.',
+      'Pracujeme 100 % online — máme klienty po celé ČR. Veškerou komunikaci zvládneme přes email nebo Zoom. Lokalita nehraje roli.',
   },
   {
-    question: 'Je vaše práce zaručena?',
+    question: 'Co se stane po spuštění?',
     answer:
-      'Garantujeme spuštění v dohodnutém termínu. Pokud termín nesplníme z naší strany, vracíme 20 % z ceny. Technické chyby opravujeme zdarma 30 dní po spuštění.',
+      'Dostanete přístupy, video návod a 30 dnů záruky zdarma. Poté si vyberete plán péče (390 nebo 990 Kč/měs) nebo nás kontaktujete jednorázově dle potřeby.',
   },
   {
-    question: 'Budete web hostovat nebo ho dostanu k sobě?',
+    question: 'Poskytujete e-shop?',
     answer:
-      'Oboje je možné. Doporučujeme náš hosting — je optimalizovaný pro naše weby a zahrnuje zálohy a monitoring. Nebo vám web předáme k hostingu na vámi zvoleném serveru.',
+      'Ano, e-shop je součástí balíčku PRO (42 900 Kč). Pro menší katalogy produktů (do 50 položek) ho lze přidat i do BUSINESS balíčku za příplatek.',
   },
   {
-    question: 'Pomůžete mi i s obsahem (texty, fotky)?',
+    question: 'Je garantována záruka na výsledek?',
     answer:
-      'Základní copywriting klíčových stránek je součástí balíčku BUSINESS a PRO. Kompletní copywriting pro celý web je k dispozici jako doplněk (+4 900 Kč). Fotografie doporučíme nebo zajistíme.',
+      'Ano. Pokud nedodáme web v dohodnutém termínu — vracíme zálohu. Technické chyby opravujeme 30 dnů zdarma. Pokud s výsledkem nebudete spokojeni, pracujeme na úpravách bez příplatku.',
   },
   {
-    question: 'Optimalizujete web pro Google (SEO)?',
+    question: 'Pomůžete mi s texty (copywriting)?',
     answer:
-      'Základní technické SEO je součástí každého balíčku (meta tagy, rychlost, struktura). Pokročilá SEO strategie, keyword research a linkbuilding jsou dostupné jako samostatná služba nebo součást péče.',
+      'Copywriting klíčových stránek je zahrnutý v BUSINESS a PRO. Kompletní texty pro celý web jsou dostupné jako doplněk (3 900 Kč). Na textu závisí výsledek webu — doporučujeme to neřešit svépomocí.',
   },
   {
-    question: 'Co když nejsem spokojený s výsledkem?',
+    question: 'Optimalizujete web pro Google?',
     answer:
-      'Pracujeme iterativně — design i obsah schvalujete průběžně, takže finální výsledek nikdy nepřijde jako překvapení. Připomínky zapracujeme. Pokud stále nejste spokojeni, najdeme řešení.',
+      'Základní technické SEO je standardem v každém balíčku. Pokročilá SEO strategie s keyword research a obsahovým plánem je součástí BUSINESS a PRO nebo jako samostatná služba.',
   },
   {
-    question: 'Jak se liší váš přístup od levných šablonovacích nástrojů (Wix, Webflow)?',
+    question: 'Jak se liší vaše práce od Wix nebo Webflow šablon?',
     answer:
-      'Šablonovací nástroje jsou OK pro hobby projekty. Pro podnikání potřebujete web bez kompromisů — vlastní kód, plnou kontrolu nad SEO, bezpečnost a výkon, který šablony neumožní.',
+      'Šablonovací nástroje jsou OK pro koníčky. Pro podnikání potřebujete web bez kompromisů — vlastní kód, plnou SEO kontrolu, rychlost a bezpečnost. A výsledek za 24 hodin — ne za "několik týdnů nastavování šablony".',
   },
   {
-    question: 'Pracujete na větších projektech nebo jen pro živnostníky?',
+    question: 'Můžete web hostovat nebo ho dostanu k sobě?',
     answer:
-      'Pracujeme pro živnostníky, malé i střední firmy. Balíček PRO zahrnuje komplexní řešení pro e-shopy, portály nebo firemní weby s více pobočkami.',
+      'Obojí. Nabízíme vlastní hosting optimalizovaný pro naše weby od 390 Kč/měs. Nebo web předáme na vámi zvolený server — bez příplatku.',
+  },
+  {
+    question: 'Pro jaké firmy to není vhodné?',
+    answer:
+      'Nejsme správná volba pro: enterprise systémy s desítkami integrací, firmy hledající nejlevnější řešení bez ohledu na kvalitu, projekty kde klient nemá čas se vůbec zapojit do předání podkladů.',
   },
 ];

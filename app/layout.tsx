@@ -5,14 +5,14 @@ import Footer from '@/components/layout/Footer';
 import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
 
 export const metadata: Metadata = {
-  title: 'Webdozitra.cz — Profesionální web do 7 dnů',
+  title: 'Webdozitra.cz — Profesionální web do 24 hodin | od 11 900 Kč',
   description:
-    'Postavíme vám profesionální web, který přivádí zákazníky — do 7 dnů. Bez kompromisů, bez čekání. Balíčky od 24 900 Kč.',
+    'Profesionální web hotový do 24 hodin. Garantovaně. Balíčky od 11 900 Kč. Žádné čekání, žádné skryté poplatky.',
   metadataBase: new URL('https://webdozitra.cz'),
   openGraph: {
-    title: 'Webdozitra.cz — Profesionální web do 7 dnů',
+    title: 'Webdozitra.cz — Web hotový do 24 hodin',
     description:
-      'Postavíme vám profesionální web, který přivádí zákazníky — do 7 dnů. Bez kompromisů, bez čekání.',
+      'Profesionální web do 24 hodin. Garantovaně nebo vracíme zálohu. Od 11 900 Kč.',
     url: 'https://webdozitra.cz',
     siteName: 'Webdozitra.cz',
     locale: 'cs_CZ',
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
         url: '/assets/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Webdozitra.cz — Profesionální web do 7 dnů',
+        alt: 'Webdozitra.cz — Web hotový do 24 hodin',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Webdozitra.cz — Profesionální web do 7 dnů',
-    description: 'Profesionální web do 7 dnů. Balíčky od 24 900 Kč.',
+    title: 'Webdozitra.cz — Web hotový do 24 hodin',
+    description: 'Profesionální web do 24 hodin. Od 11 900 Kč.',
   },
   robots: {
     index: true,

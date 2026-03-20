@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Pro koho je Webdozitra.cz | Ideální klient',
   description:
-    'Web do 7 dnů je ideální pro živnostníky, řemeslníky, kosmetičky, poradce, agentury a malé firmy, kteří potřebují rychle fungující online prezentaci.',
+    'Web do 24 hodin je ideální pro živnostníky, řemeslníky, kosmetičky, poradce a malé firmy, kteří potřebují rychle fungující online prezentaci.',
 };
 
 const segments = [

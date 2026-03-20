@@ -4,9 +4,9 @@ import CTASection from '@/components/sections/CTASection';
 import FAQ from '@/components/sections/FAQ';
 
 export const metadata: Metadata = {
-  title: 'Ceník — Webdozitra.cz | Weby od 24 900 Kč',
+  title: 'Ceník — Webdozitra.cz | Weby od 11 900 Kč do 24 hodin',
   description:
-    'Transparentní ceník webových balíčků. START od 24 900 Kč, BUSINESS od 39 900 Kč, PRO od 64 900 Kč. Žádné skryté poplatky.',
+    'Transparentní ceník. START od 11 900 Kč, BUSINESS od 22 900 Kč, PRO od 42 900 Kč. Spuštění do 24 hodin. Žádné skryté poplatky.',
 };
 
 export default function PricingPage() {
