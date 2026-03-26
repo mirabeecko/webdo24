@@ -135,7 +135,7 @@ export default function ForWhomPage() {
 
           <div className="text-center mt-10">
             <Link href="/objednat" className="btn-primary inline-flex items-center gap-2 px-8 py-4 text-base">
-              Odeslat poptávku
+              Odeslat objednávku
             </Link>
           </div>
         </div>

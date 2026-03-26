@@ -5,14 +5,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Kontakt — Webdozitra.cz',
   description:
-    'Spojte se s námi. Telefon, email nebo rovnou poptávkový formulář. Odpovídáme do 2 hodin.',
+    'Spojte se s námi. Telefon, email nebo rovnou objednávkový formulář. Odpovídáme do 2 hodin.',
 };
 
 const contactItems = [
   {
     icon: Phone,
     label: 'Telefon',
-    value: '+420 777 000 111',
+    value: '+420 777 734 389',
     href: 'tel:+420777000111',
     note: 'Po–Pá 9:00–18:00',
   },
@@ -53,7 +53,7 @@ export default function ContactPage() {
               <span className="gradient-text">pobavit</span>
             </h1>
             <p className="text-[#A0A0C0] text-lg">
-              Napište, zavolejte nebo rovnou odešlete poptávku. Ozveme se rychle.
+              Napište, zavolejte nebo rovnou odešlete objednávku. Ozveme se rychle.
             </p>
           </div>
         </div>
@@ -98,12 +98,12 @@ export default function ContactPage() {
                 <div className="absolute inset-0 border border-[#6C63FF]/20 rounded-2xl" />
                 <div className="relative p-7">
                   <div className="text-2xl mb-3">🚀</div>
-                  <h3 className="font-bold text-white text-lg mb-2">Odeslat poptávku</h3>
+                  <h3 className="font-bold text-white text-lg mb-2">Odeslat objednávku</h3>
                   <p className="text-[#A0A0C0] text-sm mb-5 leading-relaxed">
                     Vyplňte formulář (5 minut) a my se vám ozveme do 24 hodin s konkrétní nabídkou.
                   </p>
                   <Link href="/objednat" className="btn-primary flex items-center gap-2 px-6 py-3 text-sm w-fit">
-                    Odeslat poptávku
+                    Odeslat objednávku
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   Radši mluvíte? Volejte v pracovní době — rádi si probereme vaši situaci.
                 </p>
                 <a href="tel:+420777000111" className="btn-secondary flex items-center gap-2 px-6 py-3 text-sm w-fit">
-                  +420 777 000 111
+                  +420 777 734 389
                 </a>
               </div>
 

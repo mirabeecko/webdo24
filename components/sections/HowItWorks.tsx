@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <div className="text-center mb-16">
           <div className="tag mb-5">Jak to funguje</div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
-            Od poptávky k webu{' '}
+            Od objednávky k webu{' '}
             <span className="gradient-text">za 24 hodin</span>
           </h2>
           <p className="text-[#606060] text-lg max-w-xl mx-auto">
@@ -54,7 +54,7 @@ export default function HowItWorks() {
         <div className="mt-10 rounded-2xl p-6 text-center"
           style={{ background: 'rgba(255,77,0,0.06)', border: '1px solid rgba(255,77,0,0.2)' }}>
           <p className="text-white font-bold text-lg">
-            Výsledek: <span className="gradient-text">funkční web do 24 hodin od poptávky.</span>
+            Výsledek: <span className="gradient-text">funkční web do 24 hodin od objednávky.</span>
           </p>
           <p className="text-[#606060] text-sm mt-1">Nebo vracíme zálohu — bez diskuze.</p>
         </div>

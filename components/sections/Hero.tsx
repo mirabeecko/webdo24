@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#080808]">
       {/* Urgency top bar */}
       <div className="urgency-bar pt-20 pb-3 relative z-10">
-        ⚡ Dnes přijatá poptávka = web online do zítřejšího rána — garantováno
+        ⚡ Dnes přijatá objednávka = web online do zítřejšího rána — garantováno
       </div>
 
       {/* Background fire glow */}

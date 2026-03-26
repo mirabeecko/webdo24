@@ -7,14 +7,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Jak to funguje — Webdozitra.cz | Web do 24 hodin',
   description:
-    'Celý proces tvorby webu od poptávky po spuštění. Transparentně, předvídatelně — do 24 hodin.',
+    'Celý proces tvorby webu od objednávky po spuštění. Transparentně, předvídatelně — do 24 hodin.',
 };
 
 const timeline = [
   {
     time: 'Hodina 0',
     icon: FileText,
-    title: 'Odešlete poptávku (5 min)',
+    title: 'Odešlete objednávku (5 min)',
     desc: 'Vyplníte formulář — řeknete nám o podnikání, cíli a designu. Ihned dostanete potvrzení.',
   },
   {
@@ -59,7 +59,7 @@ export default function HowItWorksPage() {
           <div className="max-w-3xl mx-auto text-center">
             <div className="tag mx-auto mb-6">Průhledný proces</div>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Od poptávky k webu{' '}
+              Od objednávky k webu{' '}
               <span className="gradient-text">za 24 hodin</span>
             </h1>
             <p className="text-[#606060] text-xl leading-relaxed">
@@ -101,7 +101,7 @@ export default function HowItWorksPage() {
             <div className="mt-10 rounded-2xl p-6 text-center"
               style={{ background: 'rgba(255,77,0,0.07)', border: '1px solid rgba(255,77,0,0.2)' }}>
               <p className="text-white font-bold text-lg">
-                Celkem: <span className="gradient-text">web live do 24 hodin od poptávky.</span>
+                Celkem: <span className="gradient-text">web live do 24 hodin od objednávky.</span>
               </p>
               <p className="text-[#505050] text-sm mt-1">Garantovaně — nebo vracíme zálohu.</p>
             </div>

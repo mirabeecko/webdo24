@@ -4,10 +4,11 @@ export const packages: Package[] = [
   {
     id: 'start',
     name: 'START',
-    price: '11 900',
+    price: '9 800',
+    originalPrice: '19 600',
     priceNote: 'jednorázově · bez DPH',
     target: 'Landing page nebo jednoduchá prezentace pro živnostníky.',
-    description: 'Hotová jednostránkový web do 24 hodin. Ideální pro rychlý start.',
+    description: 'Hotový jednostránkový web do 24 hodin. Ideální pro rychlý start.',
     features: [
       'Jednostránkový web (landing page)',
       'Moderní responzivní design',
@@ -18,12 +19,13 @@ export const packages: Package[] = [
       'Spuštění do 24 hodin',
     ],
     highlighted: false,
-    cta: 'Chci START web',
+    cta: 'OBJEDNAT TEĎ SE SLEVOU',
   },
   {
-    id: 'business',
-    name: 'BUSINESS',
-    price: '22 900',
+    id: 'profi',
+    name: 'PROFI',
+    price: '19 600',
+    originalPrice: '39 200',
     priceNote: 'jednorázově · bez DPH',
     target: 'Firmy, které chtějí web, který aktivně generuje zákazníky.',
     description: 'Firemní web do 5 stránek s pokročilým SEO a marketingovou výbavou.',
@@ -38,13 +40,14 @@ export const packages: Package[] = [
       'Spuštění do 24 hodin',
     ],
     highlighted: true,
-    badge: 'Nejpopulárnější',
-    cta: 'Chci BUSINESS web',
+    badge: 'Bestseller',
+    cta: 'OBJEDNAT TEĎ SE SLEVOU',
   },
   {
-    id: 'pro',
-    name: 'PRO',
-    price: '42 900',
+    id: 'business',
+    name: 'BUSINESS',
+    price: '39 000',
+    originalPrice: '78 000',
     priceNote: 'jednorázově · bez DPH',
     target: 'Ambiciózní firmy, které potřebují komplexní digitální přítomnost.',
     description: 'Až 10 stránek, e-shop nebo rezervace — spuštění do 48 hodin.',
@@ -60,7 +63,7 @@ export const packages: Package[] = [
       'Spuštění do 48 hodin',
     ],
     highlighted: false,
-    cta: 'Chci PRO web',
+    cta: 'OBJEDNAT TEĎ SE SLEVOU',
   },
 ];
 
@@ -117,7 +120,7 @@ export const benefits: Benefit[] = [
     icon: '⚡',
     title: 'Web do 24 hodin — garantováno',
     description:
-      'Ráno odešlete poptávku — večer máte web online. Pokud nestihneme, vracíme 100 % zálohy.',
+      'Ráno objednáte — večer máte web online. Pokud nestihneme, vracíme 100 % zálohy.',
   },
   {
     icon: '💰',
@@ -166,9 +169,9 @@ export const benefits: Benefit[] = [
 export const steps: Step[] = [
   {
     number: '01',
-    title: 'Odešlete poptávku (5 min)',
+    title: 'Provedete objednávku (5 min)',
     description:
-      'Vyplníte formulář. Řeknete nám o podnikání, cíli a designu. Ihned dostanete potvrzení.',
+      'Vyplníte kalkulačku. Řeknete nám o podnikání, cíli a designu. Ihned dostanete potvrzení.',
     icon: '📋',
   },
   {
@@ -199,7 +202,7 @@ export const testimonials: Testimonial[] = [
     name: 'Tomáš Novák',
     company: 'Řemeslné práce Novák',
     role: 'živnostník',
-    text: 'Ráno jsem odeslal formulář, odpoledne schválil design a druhý den ráno jsem měl web online. Přesně jak slibují. Hned v prvním měsíci mi přišly 3 poptávky přes kontaktní formulář.',
+    text: 'Ráno jsem odeslal objednávku, odpoledne schválil design a druhý den ráno jsem měl web online. Přesně jak slibují. Hned v prvním měsíci mi přišly 3 objednávky přes kontaktní formulář.',
     result: '+3 zakázky v 1. měsíci',
     initials: 'TN',
     color: 'from-orange-500 to-red-500',
@@ -217,7 +220,7 @@ export const testimonials: Testimonial[] = [
     name: 'Martin Blaha',
     company: 'Blaha Účetnictví s.r.o.',
     role: 'ředitel',
-    text: 'Žádné zbytečné schůzky, žádné čekání. Odeslal jsem poptávku v pondělí ráno, v úterý jsem měl hotový web. To je přesně ten přístup, který u dodavatelů hledám.',
+    text: 'Žádné zbytečné schůzky, žádné čekání. Objednal jsem v pondělí ráno, v úterý jsem měl hotový web. To je přesně ten přístup, který u dodavatelů hledám.',
     result: 'Web spuštěn do 24 hodin',
     initials: 'MB',
     color: 'from-red-500 to-orange-500',
@@ -228,7 +231,7 @@ export const faqs: FAQItem[] = [
   {
     question: 'Opravdu do 24 hodin? To není možné.',
     answer:
-      'Je. Pracujeme přesně na to. Ráno obdržíme vaše podklady → do 2 hodin pošleme návrh → po schválení spustíme web. Standardní START a BUSINESS balíčky dodáváme do 24 hodin. PRO balíček do 48 hodin. Pokud termín nedodržíme z naší strany, vracíme 100 % zálohy.',
+      'Je. Pracujeme přesně na to. Ráno obdržíme vaše podklady → do 2 hodin pošleme návrh → po schválení spustíme web. Standardní START a PROFI balíčky dodáváme do 24 hodin. BUSINESS balíček do 48 hodin. Pokud termín nedodržíme z naší strany, vracíme 100 % zálohy.',
   },
   {
     question: 'Co musím mít připraveno před začátkem?',
@@ -268,7 +271,7 @@ export const faqs: FAQItem[] = [
   {
     question: 'Poskytujete e-shop?',
     answer:
-      'Ano, e-shop je součástí balíčku PRO (42 900 Kč). Pro menší katalogy produktů (do 50 položek) ho lze přidat i do BUSINESS balíčku za příplatek.',
+      'Ano, e-shop je součástí balíčku BUSINESS (39 000 Kč po slevě). Pro menší katalogy produktů (do 50 položek) ho lze přidat i do PROFI balíčku za příplatek.',
   },
   {
     question: 'Je garantována záruka na výsledek?',
@@ -278,12 +281,12 @@ export const faqs: FAQItem[] = [
   {
     question: 'Pomůžete mi s texty (copywriting)?',
     answer:
-      'Copywriting klíčových stránek je zahrnutý v BUSINESS a PRO. Kompletní texty pro celý web jsou dostupné jako doplněk (3 900 Kč). Na textu závisí výsledek webu — doporučujeme to neřešit svépomocí.',
+      'Copywriting klíčových stránek je zahrnutý v PROFI a BUSINESS. Kompletní texty pro celý web jsou dostupné jako doplněk (3 900 Kč). Na textu závisí výsledek webu — doporučujeme to neřešit svépomocí.',
   },
   {
     question: 'Optimalizujete web pro Google?',
     answer:
-      'Základní technické SEO je standardem v každém balíčku. Pokročilá SEO strategie s keyword research a obsahovým plánem je součástí BUSINESS a PRO nebo jako samostatná služba.',
+      'Základní technické SEO je standardem v každém balíčku. Pokročilá SEO strategie s keyword research a obsahovým plánem je součástí PROFI a BUSINESS nebo jako samostatná služba.',
   },
   {
     question: 'Jak se liší vaše práce od Wix nebo Webflow šablon?',

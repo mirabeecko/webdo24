@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Poptávka přijata. Ozveme se do 24 hodin.',
+        message: 'Objednávka přijata. Ozveme se do 24 hodin.',
       },
       { status: 200 }
     );

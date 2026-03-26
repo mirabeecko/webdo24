@@ -52,7 +52,7 @@ const goalOptions = [
   'Prodávat online (e-shop)',
   'Budovat značku / důvěru',
   'Informovat o firmě',
-  'Generovat poptávky',
+  'Generovat objednávky',
   'Nahradit stávající starý web',
 ];
 
@@ -312,13 +312,13 @@ export default function OrderForm() {
         <div className="w-20 h-20 rounded-full bg-[#6C63FF]/15 border-2 border-[#6C63FF]/30 flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-10 h-10 text-[#6C63FF]" />
         </div>
-        <h2 className="text-3xl font-black text-white mb-3">Poptávka odeslána!</h2>
+        <h2 className="text-3xl font-black text-white mb-3">Objednávka odeslána!</h2>
         <p className="text-[#A0A0C0] text-lg mb-8 max-w-md mx-auto">
           Děkujeme, {data.name.split(' ')[0]}. Ozveme se vám do 24 hodin na{' '}
           <span className="text-[#8B85FF]">{data.email}</span>.
         </p>
         <div className="glass-card rounded-2xl p-6 max-w-sm mx-auto text-left mb-8">
-          <div className="text-sm text-[#6B6B8A] mb-3 font-semibold">Shrnutí poptávky</div>
+          <div className="text-sm text-[#6B6B8A] mb-3 font-semibold">Shrnutí objednávky</div>
           <div className="flex flex-col gap-2 text-sm">
             <div className="flex justify-between">
               <span className="text-[#6B6B8A]">Jméno:</span>
@@ -394,7 +394,7 @@ export default function OrderForm() {
                 <input
                   className={cn('input-field', errors.phone && 'border-red-500/50')}
                   type="tel"
-                  placeholder="+420 777 123 456"
+                  placeholder="+420 777 734 389"
                   value={data.phone}
                   onChange={(e) => update('phone', e.target.value)}
                 />
@@ -588,7 +588,7 @@ export default function OrderForm() {
 
               {/* Summary */}
               <div className="glass-card rounded-xl p-5">
-                <div className="text-sm font-semibold text-[#6B6B8A] mb-3">Shrnutí poptávky</div>
+                <div className="text-sm font-semibold text-[#6B6B8A] mb-3">Shrnutí objednávky</div>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <span className="text-[#6B6B8A]">Jméno:</span>
                   <span className="text-white">{data.name}</span>
@@ -657,7 +657,7 @@ export default function OrderForm() {
                 </>
               ) : (
                 <>
-                  Odeslat poptávku
+                  Odeslat objednávku
                   <ChevronRight className="w-4 h-4" />
                 </>
               )}
