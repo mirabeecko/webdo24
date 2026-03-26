@@ -18,97 +18,65 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
+    const h = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', h, { passive: true });
+    return () => window.removeEventListener('scroll', h);
   }, []);
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-[#080808]/95 backdrop-blur-xl border-b border-white/[0.05] py-3'
-          : 'bg-transparent py-5'
-      )}
-    >
+    <header className={cn(
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+      scrolled ? 'bg-[#050A08]/95 backdrop-blur-xl border-b border-white/[0.05] py-3' : 'bg-transparent py-5'
+    )}>
       <div className="container-custom">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #FF4D00, #FF8C00)', boxShadow: '0 4px 16px rgba(255,77,0,0.4)' }}>
-              <span className="text-white font-black text-sm">W</span>
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{background:'linear-gradient(135deg,#00C47A,#00E08A)', boxShadow:'0 4px 16px rgba(0,196,122,0.35)'}}>
+              <span className="text-[#050A08] font-black text-sm">W</span>
             </div>
             <span className="font-black text-lg text-white tracking-tight">
-              webdozitra<span className="text-[#FF4D00]">.cz</span>
+              webdozitra<span className="text-[#00C47A]">.cz</span>
             </span>
           </Link>
 
-          {/* Desktop */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-sm font-medium text-[#606060] hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
-              >
-                {link.label}
+            {navLinks.map(l => (
+              <Link key={l.href} href={l.href}
+                className="px-4 py-2 text-sm font-medium text-[#4A6055] hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">
+                {l.label}
               </Link>
             ))}
           </div>
 
-          {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/kontakt"
-              className="text-sm font-medium text-[#606060] hover:text-white transition-colors">
+            <Link href="/kontakt" className="text-sm font-medium text-[#4A6055] hover:text-white transition-colors">
               Kontakt
             </Link>
-            <Link
-              href="/objednat"
-              className="btn-primary flex items-center gap-1.5 px-5 py-2.5 text-sm"
-            >
+            <Link href="/objednat" className="btn-primary flex items-center gap-1.5 px-5 py-2.5 text-sm">
               <Zap className="w-3.5 h-3.5" />
               Web do 24h
             </Link>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
-            aria-label="Toggle menu"
-          >
+          <button onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-white/70 hover:text-white transition-colors">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </nav>
 
-        {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden mt-3 pb-4 border-t border-white/[0.06] pt-4">
             <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-4 py-3 text-[#606060] hover:text-white font-medium transition-colors rounded-lg hover:bg-white/[0.04]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
+              {navLinks.map(l => (
+                <Link key={l.href} href={l.href}
+                  className="px-4 py-3 text-[#4A6055] hover:text-white font-medium transition-colors rounded-lg"
+                  onClick={() => setIsOpen(false)}>{l.label}</Link>
               ))}
-              <Link href="/kontakt"
-                className="px-4 py-3 text-[#606060] hover:text-white font-medium transition-colors rounded-lg hover:bg-white/[0.04]"
-                onClick={() => setIsOpen(false)}>
-                Kontakt
-              </Link>
-              <Link
-                href="/objednat"
+              <Link href="/objednat"
                 className="btn-primary mt-2 flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold"
-                onClick={() => setIsOpen(false)}
-              >
-                <Zap className="w-4 h-4" />
-                Chci web do 24 hodin
+                onClick={() => setIsOpen(false)}>
+                <Zap className="w-4 h-4" />Chci web do 24 hodin
               </Link>
             </div>
           </div>
