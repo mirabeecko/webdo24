@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ChevronRight, ChevronLeft, Zap, Mail, Calculator as CalcIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -36,13 +36,11 @@ export default function Calculator() {
     goal: '',
     email: '',
   });
-  const [calculatedPrice, setCalculatedPrice] = useState(0);
 
-  useEffect(() => {
-    let price = websiteTypes.find(t => t.id === data.type)?.price || 0;
-    const goalMultiplier = goals.find(g => g.id === data.goal)?.multiplier || 1;
-    setCalculatedPrice(Math.round(price * goalMultiplier));
-  }, [data.type, data.goal]);
+  const calculatedPrice = Math.round(
+    (websiteTypes.find((t) => t.id === data.type)?.price || 0) *
+      (goals.find((g) => g.id === data.goal)?.multiplier || 1)
+  );
 
   const handleNext = () => {
     if (step < 5) setStep(step + 1);
@@ -59,7 +57,6 @@ export default function Calculator() {
     // Save email and timestamp to localStorage for the closing page timer
     localStorage.setItem('user_email', data.email);
     localStorage.setItem('calculator_price', calculatedPrice.toString());
-    localStorage.setItem('offer_start_time', Date.now().toString());
     
     router.push('/nabidka');
   };

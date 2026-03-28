@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
+import type { Database } from '@/lib/supabase-types';
 
-let supabaseAdminClient: ReturnType<typeof createClient<any>> | null = null;
+let supabaseAdminClient: ReturnType<typeof createClient<Database>> | null = null;
 
 export function getSupabaseAdmin() {
   if (supabaseAdminClient) {
@@ -15,7 +16,7 @@ export function getSupabaseAdmin() {
   }
 
   // Server-side only — never expose service key to client
-  supabaseAdminClient = createClient<any>(supabaseUrl, supabaseServiceKey, {
+  supabaseAdminClient = createClient<Database>(supabaseUrl, supabaseServiceKey, {
     auth: { autoRefreshToken: false, persistSession: false },
   });
 

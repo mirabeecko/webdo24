@@ -11,7 +11,7 @@ export default function Benefits() {
             <span className="gradient-text">My dodáváme do 24h.</span>
           </h2>
           <p className="text-[#606060] text-lg max-w-xl mx-auto">
-            Žádné "brzy", žádné "pracujeme na tom". Jasný termín, pevná cena, garantovaný výsledek.
+            Žádné &quot;brzy&quot;, žádné &quot;pracujeme na tom&quot;. Jasný termín, pevná cena, garantovaný výsledek.
           </p>
         </div>
 

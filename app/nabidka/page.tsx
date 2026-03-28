@@ -1,56 +1,55 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
-import { ChevronRight, Zap, ShieldCheck, Star, Clock, AlertCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ShieldCheck, Star, Clock, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { packages } from '@/lib/data';
 
 const COUNTDOWN_TIME = 10 * 60; // 10 minutes
 
 export default function NabidkaPage() {
-  const [timeLeft, setTimeLeft] = useState(COUNTDOWN_TIME);
-  const [email, setEmail] = useState('');
-  const [price, setPrice] = useState(0);
-  const [discountActive, setDiscountActive] = useState(true);
-
-  useEffect(() => {
-    // Get stored data
-    const storedEmail = localStorage.getItem('user_email');
-    const storedPrice = localStorage.getItem('calculator_price');
-    const startTime = localStorage.getItem('offer_start_time');
-    
-    if (storedEmail) setEmail(storedEmail);
-    if (storedPrice) setPrice(parseInt(storedPrice));
-    
-    if (startTime) {
-      const elapsed = Math.floor((Date.now() - parseInt(startTime)) / 1000);
-      const remaining = Math.max(0, COUNTDOWN_TIME - elapsed);
-      setTimeLeft(remaining);
-      if (remaining === 0) setDiscountActive(false);
-    } else {
-      localStorage.setItem('offer_start_time', Date.now().toString());
+  const [offerData, setOfferData] = useState(() => {
+    if (typeof window === 'undefined') {
+      return { email: '', price: 0, timeLeft: COUNTDOWN_TIME };
     }
-  }, []);
+
+    const storedEmail = localStorage.getItem('user_email') || '';
+    const storedPrice = Number.parseInt(localStorage.getItem('calculator_price') || '0', 10) || 0;
+    const startTime = localStorage.getItem('offer_start_time');
+
+    if (!startTime) {
+      localStorage.setItem('offer_start_time', Date.now().toString());
+      return { email: storedEmail, price: storedPrice, timeLeft: COUNTDOWN_TIME };
+    }
+
+    const elapsed = Math.floor((Date.now() - Number.parseInt(startTime, 10)) / 1000);
+    const remaining = Math.max(0, COUNTDOWN_TIME - elapsed);
+
+    return { email: storedEmail, price: storedPrice, timeLeft: remaining };
+  });
 
   useEffect(() => {
-    if (timeLeft <= 0) {
-      setDiscountActive(false);
+    if (offerData.timeLeft <= 0) {
       return;
     }
 
     const timer = setInterval(() => {
-      setTimeLeft(prev => prev - 1);
+      setOfferData((prev) => ({
+        ...prev,
+        timeLeft: Math.max(0, prev.timeLeft - 1),
+      }));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timeLeft]);
+  }, [offerData.timeLeft]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
+
+  const discountActive = offerData.timeLeft > 0;
 
   return (
     <main className="min-h-screen bg-[#050A08] pt-32 pb-20">
@@ -70,7 +69,7 @@ export default function NabidkaPage() {
             </h1>
             
             <p className="text-[#909090] text-xl max-w-2xl mx-auto mb-10">
-              Právě jsme vám na e-mail <span className="text-white font-bold">{email || '...'}</span> zaslali standardní kalkulaci. 
+              Právě jsme vám na e-mail <span className="text-white font-bold">{offerData.email || '...'}</span> zaslali standardní kalkulaci.
               Pokud se ale rozhodnete <span className="text-white font-bold">právě teď</span>, získáte web za polovinu.
             </p>
 
@@ -85,7 +84,7 @@ export default function NabidkaPage() {
                 "text-7xl md:text-8xl font-black font-mono transition-all",
                 discountActive ? "text-white" : "text-[#FF4D00] opacity-50"
               )}>
-                {formatTime(timeLeft)}
+                {formatTime(offerData.timeLeft)}
               </div>
               
               {!discountActive && (

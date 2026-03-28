@@ -1,12 +1,6 @@
 import Link from 'next/link';
 import { ChevronRight, Zap, ShieldCheck, Star, Phone } from 'lucide-react';
 
-const proofItems = [
-  { label: '100+ webů spuštěno' },
-  { label: 'Hodnocení 4.9/5' },
-  { label: 'Záruka vrácení zálohy' },
-];
-
 export default function KPHero() {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#050A08]">
