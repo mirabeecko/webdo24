@@ -1,88 +1,84 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Zap } from 'lucide-react';
+import { Zap, Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050505] border-t border-white/5">
+    <footer className="bg-[#030806] border-t border-white/5">
       <div className="container-custom py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-[0_4px_16px_rgba(255,77,0,0.25)]"
-                style={{ background: 'linear-gradient(135deg, #FF4D00, #FF8C00)' }}>
-                <span className="text-white font-black text-sm">W</span>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#00C47A]">
+                <Zap className="w-4 h-4 text-[#050A08]" fill="currentColor" />
               </div>
               <span className="font-black text-lg text-white tracking-tight">
-                webdozitra<span className="text-[#FF4D00]">.cz</span>
+                Do<span className="text-[#00C47A]">24</span>
               </span>
             </Link>
-            <p className="text-[#606060] text-sm leading-relaxed max-w-xs mb-6">
-              Profesionální web do 24 hodin. Pro živnostníky a firmy, které nechtějí čekat.
-              Akční ceny od 4 900 Kč.
+            <p className="text-[#505050] text-sm leading-relaxed max-w-xs mb-5">
+              Web do 24 hodin pro živnostníky a malé firmy. Bez čekání, bez schůzek.
             </p>
-            <div className="flex flex-col gap-2.5">
-              <a href="tel:+420777734389"
-                className="flex items-center gap-2 text-lg font-bold text-white hover:text-[#00C47A] transition-colors">
-                <Phone className="w-5 h-5 text-[#FF4D00]" />
-                +420 777 734 389
+            <div className="flex flex-col gap-2">
+              <a href="mailto:ahoj@do24.cz" className="flex items-center gap-2 text-sm text-[#606060] hover:text-[#00C47A] transition-colors">
+                <Mail className="w-4 h-4" />
+                ahoj@do24.cz
               </a>
-              <a href="mailto:ahoj@webdozitra.cz"
-                className="flex items-center gap-2 text-sm text-[#606060] hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-[#FF4D00]" />
-                ahoj@webdozitra.cz
-              </a>
-              <span className="flex items-center gap-2 text-sm text-[#404040]">
-                <MapPin className="w-4 h-4 text-[#FF4D00]" />
-                Praha · celá ČR
-              </span>
+              <p className="text-sm text-[#454545]">
+                Reagujeme průběžně během dne. Potvrzení objednávky posíláme hned po zaplacení zálohy.
+              </p>
             </div>
           </div>
 
+          {/* Links */}
           <div>
-            <h3 className="font-bold text-white text-sm mb-4 uppercase tracking-widest">Služby</h3>
-            <ul className="flex flex-col gap-2">
+            <h3 className="font-bold text-white text-xs mb-4 uppercase tracking-widest">Navigace</h3>
+            <ul className="flex flex-col gap-2.5">
               {[
-                { href: '/jak-to-funguje', label: 'Jak to funguje' },
-                { href: '/cenik', label: 'Ceník balíčků' },
-                { href: '/pro-koho', label: 'Pro koho to je' },
-                { href: '#kalkulacka', label: 'Spočítat cenu' },
+                { href: '/', label: 'Úvod' },
+                { href: '/#jak-to-funguje', label: 'Jak to funguje' },
+                { href: '/#produkty', label: 'Produkty & ceny' },
+                { href: '/#faq', label: 'FAQ' },
+                { href: '/objednat', label: 'Objednat web' },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href}
-                    className="text-sm text-[#505050] hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-sm text-[#505050] hover:text-white transition-colors">
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* CTA */}
           <div>
-            <h3 className="font-bold text-white text-sm mb-4 uppercase tracking-widest">Info</h3>
-            <ul className="flex flex-col gap-2">
-              {[
-                { href: '/reference', label: 'Reference' },
-                { href: '/faq', label: 'Časté otázky' },
-                { href: '/kontakt', label: 'Kontakt' },
-                { href: '/obchodní-podmínky', label: 'Obchodní podmínky' },
-              ].map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href}
-                    className="text-sm text-[#505050] hover:text-white transition-colors">{l.label}</Link>
-                </li>
-              ))}
-            </ul>
+            <div className="accent-border rounded-2xl p-6">
+              <div className="text-[#00C47A] font-black text-sm uppercase tracking-widest mb-2">Začněte dnes</div>
+              <p className="text-white font-bold text-lg mb-1">Web do 24 hodin.</p>
+              <p className="text-[#606060] text-sm mb-5">Záloha 50 %, doplatek po spuštění.</p>
+              <Link
+                href="/objednat"
+                className="btn-primary flex items-center justify-center gap-2 px-5 py-3 text-sm"
+              >
+                <Zap className="w-4 h-4" />
+                Objednat
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="w-full h-px bg-white/5 mt-10 mb-5" />
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#303030]">© 2024 Webdozitra.cz — Všechna práva vyhrazena</p>
-          <Link href="#kalkulacka"
-            className="flex items-center gap-1.5 text-xs font-black text-[#FF4D00] hover:text-[#FF6B2B] transition-colors uppercase tracking-widest">
-            <Zap className="w-3.5 h-3.5 fill-current" />
-            Objednat prodejní mašinu
-          </Link>
+        <div className="border-t border-white/5 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[#353535] text-xs">
+            © {new Date().getFullYear()} Do24. Všechna práva vyhrazena.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/obchodnipodminky" className="text-[#353535] hover:text-[#606060] text-xs transition-colors">
+              Obchodní podmínky
+            </Link>
+            <Link href="/gdpr" className="text-[#353535] hover:text-[#606060] text-xs transition-colors">
+              GDPR
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

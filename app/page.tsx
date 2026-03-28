@@ -1,33 +1,29 @@
 import type { Metadata } from 'next';
-import KPHero from '@/components/sections/KPHero';
-import SocialProofBar from '@/components/sections/SocialProofBar';
-import Benefits from '@/components/sections/Benefits';
+import Hero from '@/components/sections/Hero';
+import Problem from '@/components/sections/Problem';
+import TrustSection from '@/components/sections/TrustSection';
 import HowItWorks from '@/components/sections/HowItWorks';
-import Calculator from '@/components/sections/Calculator';
-import CompareTable from '@/components/sections/CompareTable';
 import Pricing from '@/components/sections/Pricing';
 import Testimonials from '@/components/sections/Testimonials';
 import FAQ from '@/components/sections/FAQ';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Webdozitra.cz — Web hotový do 24 hodin | od 4 900 Kč',
+  title: 'Do24 — Web do 24 hodin | od 4 990 Kč',
   description:
-    'Profesionální web hotový do 24 hodin — garantovaně nebo vracíme zálohu. Akce: 50% sleva jen dnes. Od 4 900 Kč. Srovnání s konkurencí.',
+    'Profesionální web hotový do 24 hodin. Garantovaně nebo vracíme zálohu. START od 4 990 Kč. Bez schůzek, bez čekání.',
 };
 
-export default function KPPage() {
+export default function HomePage() {
   return (
     <>
-      <KPHero />
-      <SocialProofBar />
-      <Benefits />
+      <Hero />
+      <Problem />
+      <TrustSection />
       <HowItWorks />
-      <Calculator />
-      <CompareTable />
       <Pricing />
       <Testimonials />
-      <FAQ limit={8} />
+      <FAQ />
       <CTASection />
     </>
   );

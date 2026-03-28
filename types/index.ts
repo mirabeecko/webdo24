@@ -1,14 +1,16 @@
 export interface Package {
-  id: string;
+  id: 'start' | 'pro' | 'machine';
   name: string;
-  price: string;
-  originalPrice?: string;
+  price: number;
+  originalPrice?: number;
+  priceFormatted: string;
+  depositFormatted: string;
   priceNote: string;
-  target: string;
   description: string;
   features: string[];
   highlighted: boolean;
   badge?: string;
+  deliveryTime: string;
   cta: string;
 }
 
@@ -20,6 +22,17 @@ export interface Testimonial {
   result?: string;
   initials: string;
   color: string;
+}
+
+export interface TrustPoint {
+  title: string;
+  description: string;
+}
+
+export interface Benefit {
+  title: string;
+  description: string;
+  icon: string;
 }
 
 export interface FAQItem {
@@ -34,12 +47,6 @@ export interface Step {
   icon: string;
 }
 
-export interface Benefit {
-  title: string;
-  description: string;
-  icon: string;
-}
-
 export interface OrderFormData {
   // Step 1 — Kontakt
   name: string;
@@ -47,38 +54,26 @@ export interface OrderFormData {
   email: string;
   phone: string;
 
-  // Step 2 — Podnikání
+  // Step 2 — Produkt
+  selectedPackage: 'start' | 'pro' | 'machine' | '';
+
+  // Step 3 — Byznys
   industry: string;
-  location: string;
   businessDescription: string;
 
-  // Step 3 — Cíl webu
-  goals: string[];
+  // Step 4 — Styl
+  designStyle: string;
+  designInspiration: string;
 
-  // Step 4 — Rozsah
-  websiteType: string;
-
-  // Step 5 — Sekce
-  sections: string[];
-
-  // Step 6 — Obsah
+  // Step 5 — Obsah
   hasLogo: string;
   hasTexts: string;
   hasPhotos: string;
 
-  // Step 7 — Design
-  designStyle: string;
-  designInspiration: string;
-
-  // Step 8 — Marketing
-  seoInterest: string;
-  ppcInterest: string;
-  managementInterest: string;
-
-  // Step 9 — Termín
-  delivery: string;
-  selectedPackage: string;
-
-  // Step 10 — Poznámka
+  // Step 6 — Poznámka
   note: string;
+}
+
+export interface CreateOrderPayload extends OrderFormData {
+  selectedPackage: 'start' | 'pro' | 'machine';
 }
