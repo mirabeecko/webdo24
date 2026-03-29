@@ -11,39 +11,37 @@ async function tryPersistLead(data: {
   paymentMethod?: string;
   vs?: string;
   totalPrice?: number;
-}): Promise<{ leadId: string | null; orderId: string | null }> {
+}): Promise<void> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return { leadId: null, orderId: null };
+  if (!url || !key) return;
 
   try {
     const { getSupabaseAdmin } = await import('@/lib/supabase-admin');
     const supabase = getSupabaseAdmin();
 
-    const { data: lead, error: e1 } = await supabase
-      .from('leads')
-      .insert({ message: data.message, name: data.name, email: data.email, phone: data.phone })
+    const { data: customer, error: e1 } = await supabase
+      .from('do24_customers')
+      .upsert(
+        { name: data.name, email: data.email, phone: data.phone },
+        { onConflict: 'email', ignoreDuplicates: false }
+      )
       .select('id')
       .single();
-    if (e1 || !lead) { console.error('lead insert:', e1); return { leadId: null, orderId: null }; }
+    if (e1 || !customer) { console.error('customer upsert:', e1); return; }
 
-    const { data: order, error: e2 } = await supabase
-      .from('orders')
-      .insert({
-        lead_id: lead.id,
-        price: data.totalPrice ?? data.price,
-        paid: false,
-        payment_method: data.paymentMethod ?? 'unknown',
-        variable_symbol: data.vs ?? null,
-      })
-      .select('id')
-      .single();
-    if (e2 || !order) { console.error('order insert:', e2); return { leadId: lead.id, orderId: null }; }
-
-    return { leadId: lead.id, orderId: order.id };
+    await supabase.from('do24_orders').insert({
+      customer_id: customer.id,
+      package_id: 'pro',
+      package_name: 'Profesionální web na klíč — webdo24.cz',
+      total_price: data.totalPrice ?? data.price,
+      deposit_amount: data.totalPrice ?? data.price,
+      remaining_amount: 0,
+      status: 'pending_payment',
+      note: `${data.message} | VS: ${data.vs ?? ''} | method: ${data.paymentMethod ?? ''}`,
+    });
   } catch (err) {
     console.error('Supabase skipped:', err);
-    return { leadId: null, orderId: null };
   }
 }
 
@@ -65,7 +63,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Chybí povinné pole.' }, { status: 400 });
     }
 
-    // Persist lead & order (best effort — Supabase optional)
+    // Persist order (best effort — Supabase optional)
     await tryPersistLead({ message, name, email, phone, price, paymentMethod, vs, totalPrice });
 
     // For non-card payments, just return success
