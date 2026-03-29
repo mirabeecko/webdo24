@@ -25,7 +25,7 @@ export default function CTASection() {
               <span className="gradient-text">online zítra.</span>
             </h2>
             <p className="text-[#808080] text-lg max-w-xl mx-auto mb-10">
-              Vyplňte formulář za 5 minut. Zaplaťte zálohu 50 %. Zbytek doplatíte, až budete spokojeni s výsledkem.
+              Vyplňte formulář za 2 minuty. Zaplaťte celou cenu — QR kódem, převodem nebo na splátky.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -37,14 +37,14 @@ export default function CTASection() {
                 <ChevronRight className="w-5 h-5" />
               </Link>
               <a
-                href="mailto:ahoj@do24.cz"
+                href="mailto:info@webdo24.cz"
                 className="btn-secondary flex items-center gap-2 px-8 py-4 text-base w-full sm:w-auto justify-center"
               >
                 Napsat e-mail
               </a>
             </div>
             <p className="text-[#404040] text-xs mt-6">
-              Záloha 50 % · Doplatek po spuštění · Bez skrytých poplatků
+              Celá platba předem · 1 revize zdarma · Hosting v ceně · Bez skrytých poplatků
             </p>
           </div>
         </div>

@@ -10,8 +10,8 @@ const problems = [
 const solutions = [
   { text: 'Objednáte dnes, web máte zítra' },
   { text: 'Žádné schůzky — formulář za 5 minut' },
-  { text: 'Pevná cena od 4 990 Kč, záloha 50 %' },
-  { text: 'Neomezené revize do vaší spokojenosti' },
+  { text: 'Pevná cena 9 900 Kč — vše v ceně' },
+  { text: '1 revize webu zdarma po spuštění' },
 ];
 
 export default function Problem() {
@@ -48,7 +48,7 @@ export default function Problem() {
           {/* Solution column */}
           <div className="accent-border rounded-2xl p-7">
             <div className="text-xs font-black text-[#00C47A] uppercase tracking-widest mb-5">
-              Do24
+              webdo24.cz
             </div>
             <ul className="flex flex-col gap-3.5">
               {solutions.map((s) => (

@@ -35,8 +35,8 @@ export default function ReferencePage() {
         <div className="container-custom text-center">
           <p className="text-[#4A4A68] text-sm max-w-lg mx-auto">
             Máte zájem o přímý kontakt s referenčními klienty? Rádi zprostředkujeme — napište nám na{' '}
-            <a href="mailto:ahoj@webdozitra.cz" className="text-[#6C63FF] hover:underline">
-              ahoj@webdozitra.cz
+            <a href="mailto:info@webdo24.cz" className="text-[#6C63FF] hover:underline">
+              info@webdo24.cz
             </a>
           </p>
         </div>

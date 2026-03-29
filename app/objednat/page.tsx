@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import OrderForm from '@/components/sections/OrderForm';
-import { Loader2, ShieldCheck, Zap, Clock, CreditCard, MailCheck, CircleCheckBig } from 'lucide-react';
+import { Loader2, ShieldCheck, Zap, Clock, MailCheck, CircleCheckBig } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Objednat web — Do24',
-  description: 'Objednejte web do 24 hodin. Vyplňte formulář za 5 minut, zaplaťte zálohu 50 % a stavíme hned.',
+  title: 'Objednat web — webdo24.cz',
+  description: 'Objednejte profesionální web do 24 hodin. Vlastní design, hosting v ceně, texty v ceně. Zaplaťte přes QR kód, převodem nebo na splátky.',
 };
 
 export default function OrderPage() {
@@ -20,16 +20,16 @@ export default function OrderPage() {
           <div className="max-w-2xl mx-auto text-center">
             <div className="tag mx-auto mb-6 w-fit">Objednávkový formulář</div>
             <h1 className="text-4xl md:text-5xl font-black text-white mb-5">
-              Začněte svůj projekt
+              Profesionální web na klíč
             </h1>
             <p className="text-[#808080] text-lg mb-8">
-              Vyplnění trvá 5 minut. Stavíme hned po přijetí zálohy.
+              Vyplnění trvá 2 minuty. Celá platba předem — žádná záloha ani doplatek.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-5">
               {[
                 { icon: Clock, text: 'Web do 24 hodin' },
-                { icon: ShieldCheck, text: 'Záruka vrácení zálohy' },
-                { icon: Zap, text: 'Žádné schůzky' },
+                { icon: ShieldCheck, text: 'Garance vrácení peněz' },
+                { icon: Zap, text: 'Hosting a texty v ceně' },
               ].map((b) => (
                 <div key={b.text} className="flex items-center gap-1.5">
                   <b.icon className="w-4 h-4 text-[#00C47A]" />
@@ -57,18 +57,18 @@ export default function OrderPage() {
             <aside className="space-y-4 xl:sticky xl:top-24">
               <div className="accent-border rounded-2xl p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <CreditCard className="w-5 h-5 text-[#00C47A]" />
-                  <h2 className="text-white font-black text-lg">Bezpečná záloha přes Stripe</h2>
+                  <ShieldCheck className="w-5 h-5 text-[#00C47A]" />
+                  <h2 className="text-white font-black text-lg">Vše v ceně webu</h2>
                 </div>
-                <p className="text-[#707070] text-sm leading-relaxed mb-5">
-                  Po odeslání formuláře vás pošleme do zabezpečené Stripe platební brány. Kartou
-                  zaplatíte jen 50 % zálohu, zbytek až po spuštění webu.
-                </p>
                 <div className="space-y-3 text-sm">
                   {[
-                    'Žádné ruční posílání údajů o kartě e-mailem',
-                    'Potvrzení objednávky přijde hned po zaplacení',
-                    'Pokud termín nedodržíme, vracíme zálohu',
+                    'Vlastní design — žádná šablona',
+                    'Hosting a SSL certifikát',
+                    'Texty k webu (copywriting)',
+                    'Základní SEO optimalizace',
+                    'Plně responzivní pro všechny prohlížeče',
+                    'Napojení na vlastní doménu',
+                    '1 revize zdarma po spuštění',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-2.5">
                       <CircleCheckBig className="w-4 h-4 text-[#00C47A] flex-shrink-0 mt-0.5" />
@@ -85,9 +85,9 @@ export default function OrderPage() {
                 </div>
                 <div className="space-y-4">
                   {[
-                    { title: '1. Přijmeme objednávku', text: 'Ihned po platbě založíme projekt a pošleme potvrzení e-mailem.' },
-                    { title: '2. Začneme stavět', text: 'Podle balíčku se pouštíme do návrhu, textů a nasazení bez čekání na schůzky.' },
-                    { title: '3. Předáme hotový web', text: 'Po spuštění doladíme finální připomínky a až potom řešíte doplatek.' },
+                    { title: '1. Přijmeme platbu', text: 'Po přijetí platby vám do 2 hodin pošleme e-mail s návrhem textů stránek.' },
+                    { title: '2. Potvrdíte zadání', text: 'Upravíte návrh a odešlete nám potvrzení. Tím startuje 24hodinový termín.' },
+                    { title: '3. Web je online', text: 'Do 24 hodin od potvrzení pošleme odkaz a instrukce k napojení na vlastní doménu.' },
                   ].map((item) => (
                     <div key={item.title}>
                       <div className="text-white text-sm font-semibold mb-1">{item.title}</div>

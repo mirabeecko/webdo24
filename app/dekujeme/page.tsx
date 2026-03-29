@@ -1,74 +1,56 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { CheckCircle2, Mail, Zap } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: 'Objednávka přijata — Do24',
-  description: 'Vaše objednávka byla přijata. Stavíme váš web.',
-};
+'use client';
 
 export default function DekujemePage() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[#050A08] pt-16">
-      <div className="container-custom">
-        <div className="max-w-xl mx-auto text-center">
-          {/* Icon */}
-          <div
-            className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8"
-            style={{ background: 'rgba(0,196,122,0.1)', border: '1px solid rgba(0,196,122,0.3)' }}
-          >
-            <CheckCircle2 className="w-10 h-10 text-[#00C47A]" />
-          </div>
+    <div className="min-h-screen bg-zinc-950 text-white px-4 py-16">
+      <div className="max-w-xl mx-auto text-center">
+        {/* Icon */}
+        <div className="text-7xl mb-6">🚀</div>
 
-          <div className="tag mx-auto mb-6 w-fit">Objednávka přijata</div>
+        <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
+          Platba potvrzena.
+          <br />
+          <span className="text-yellow-400">Začínáme pracovat.</span>
+        </h1>
 
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-5">
-            Díky!{' '}
-            <span className="gradient-text">Stavíme váš web.</span>
-          </h1>
+        <p className="text-zinc-300 text-lg mb-10">
+          Tým se pustil do práce.
+          <br />
+          Do 24 hodin od potvrzení zadání máš web online.
+        </p>
 
-          <p className="text-[#808080] text-lg mb-10">
-            Záloha byla přijata. Náš tým se pustil do práce. Brzy se ozveme s&nbsp;průběžným reportem.
-          </p>
-
-          {/* Timeline */}
-          <div className="glass-card p-6 mb-10 text-left space-y-4">
-            {[
-              { time: 'Hned', text: 'Přijali jsme vaši zálohu a objednávku' },
-              { time: 'Do 2 hodin', text: 'Ozveme se e-mailem s potvrzením a termínem' },
-              { time: 'V termínu', text: 'Web je live — pošleme odkaz ke schválení' },
-              { time: 'Po schválení', text: 'Doplatíte zbytek, web je váš navždy' },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-4 items-start">
-                <div
-                  className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black text-[#050A08] flex-shrink-0 mt-0.5"
-                  style={{ background: 'linear-gradient(135deg, #00C47A, #00E08A)' }}
-                >
-                  {i + 1}
-                </div>
-                <div>
-                  <div className="text-[#00C47A] font-bold text-xs uppercase tracking-wide">{item.time}</div>
-                  <div className="text-white text-sm">{item.text}</div>
-                </div>
+        {/* Next steps */}
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-12 text-left space-y-5">
+          {[
+            { step: '1', time: 'Do 2 hodin', text: 'Obdržíš e-mail s návrhem textů jednotlivých stránek. Doplň požadavky a pošli nám potvrzen.' },
+            { step: '2', time: 'Hned po potvrzení', text: 'Startuje 24hodinový termín. Logo a fotky zašli na podklady@webdo24.cz.' },
+            { step: '3', time: 'Do 24 hodin', text: 'Web je live. Pošleme odkaz a instrukce pro napojení na vlastní doménu.' },
+            { step: '4', time: 'Po spuštění', text: 'Máš nárok na 1 revizi zdarma — cokoliv upravit podle tvých požadavků.' },
+          ].map((item) => (
+            <div key={item.step} className="flex gap-4 items-start">
+              <div className="w-8 h-8 rounded-full bg-yellow-400 text-black font-black text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+                {item.step}
               </div>
-            ))}
-          </div>
-
-          {/* Contact */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <a href="mailto:ahoj@do24.cz" className="flex items-center gap-2 text-[#606060] hover:text-white transition-colors text-sm">
-              <Mail className="w-4 h-4 text-[#00C47A]" />
-              ahoj@do24.cz
-            </a>
-            <span className="text-[#505050] text-sm">Potvrzení a další kroky posíláme průběžně e-mailem.</span>
-          </div>
-
-          <Link href="/" className="btn-secondary inline-flex items-center gap-2 px-6 py-3 text-sm">
-            <Zap className="w-4 h-4" />
-            Zpět na hlavní stránku
-          </Link>
+              <div>
+                <div className="text-yellow-400 font-bold text-xs uppercase tracking-wide mb-0.5">
+                  {item.time}
+                </div>
+                <div className="text-white font-medium text-sm">{item.text}</div>
+              </div>
+            </div>
+          ))}
         </div>
+
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-8 text-sm text-center">
+          <p className="text-zinc-400">Logo a fotky pošli na:</p>
+          <a href="mailto:podklady@webdo24.cz" className="text-yellow-400 font-black text-lg">podklady@webdo24.cz</a>
+          <p className="text-zinc-500 text-xs mt-1">E-mailem dostaneš výzvu s dalšími instrukcemi.</p>
+        </div>
+
+        <p className="text-zinc-600 text-sm">
+          Dotazy? <a href="mailto:info@webdo24.cz" className="text-yellow-400 underline">info@webdo24.cz</a>
+        </p>
       </div>
-    </section>
+    </div>
   );
 }

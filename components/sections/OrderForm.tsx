@@ -136,7 +136,7 @@ export default function OrderForm() {
         {step === 2 && (
           <div>
             <h2 className="text-2xl font-black text-white mb-2">Vyberte balíček</h2>
-            <p className="text-[#606060] text-sm mb-8">Záloha 50 % předem, doplatek po spuštění webu.</p>
+            <p className="text-[#606060] text-sm mb-8">Celá platba předem. Hosting, texty a SEO v ceně.</p>
             <div className="space-y-3">
               {packages.map((pkg) => (
                 <button
@@ -164,7 +164,7 @@ export default function OrderForm() {
                     </div>
                     <div className="text-right flex-shrink-0">
                       <div className="text-white font-black text-lg">{pkg.priceFormatted}</div>
-                      <div className="text-[#505050] text-xs">záloha {pkg.depositFormatted}</div>
+                      <div className="text-[#505050] text-xs">{pkg.priceNote}</div>
                     </div>
                   </div>
                 </button>
@@ -300,12 +300,12 @@ export default function OrderForm() {
                   <span className="font-black text-[#00C47A] text-xl">{selectedPkg.priceFormatted}</span>
                 </div>
                 <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-sm mb-3">
-                  <span className="text-[#606060]">Záloha (50 %):</span>
-                  <span className="text-white font-semibold">{selectedPkg.depositFormatted}</span>
+                  <span className="text-[#606060]">Celková cena:</span>
+                  <span className="text-white font-semibold">{selectedPkg.priceFormatted}</span>
                   <span className="text-[#606060]">Dodání:</span>
                   <span className="text-white font-semibold">{selectedPkg.deliveryTime}</span>
                 </div>
-                <p className="text-[#505050] text-xs">Doplatek 50 % po spuštění webu.</p>
+                <p className="text-[#505050] text-xs">Celá platba předem. Hosting, texty a SEO v ceně.</p>
               </div>
             )}
 
@@ -367,13 +367,13 @@ export default function OrderForm() {
               ) : (
                 <>
                   <Zap className="w-5 h-5" />
-                  Zaplatit zálohu a objednat
+                  Zaplatit a objednat
                   <ChevronRight className="w-5 h-5" />
                 </>
               )}
             </button>
             <p className="text-center text-[#404040] text-xs mt-3">
-              Budete přesměrováni na Stripe pro bezpečnou platbu zálohy. Žádné údaje o kartě neukládáme.
+              Budete přesměrováni na bezpečnou platební bránu. Žádné údaje o kartě neukládáme.
             </p>
           </div>
         )}
@@ -408,7 +408,7 @@ export default function OrderForm() {
         <a href="/gdpr" className="underline hover:text-[#606060]">zpracováním osobních údajů</a>.
       </p>
       <p className="text-center text-[#404040] text-xs mt-3">
-        Pokud chcete před objednávkou něco ověřit, napište na ahoj@do24.cz. Odpovídáme průběžně během dne.
+        Pokud chcete před objednávkou něco ověřit, napište na info@webdo24.cz. Odpovídáme průběžně během dne.
       </p>
     </div>
   );

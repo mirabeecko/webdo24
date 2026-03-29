@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://webdozitra.cz';
+  const baseUrl = 'https://webdo24.cz';
   const now = new Date();
 
   return [

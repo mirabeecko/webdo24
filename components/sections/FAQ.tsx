@@ -19,7 +19,7 @@ export default function FAQ({ limit }: { limit?: number }) {
             <span className="gradient-text">Odpovídáme rovnou.</span>
           </h2>
           <p className="text-[#606060] text-lg max-w-xl mx-auto">
-            Nenašli jste odpověď? Napište nám na ahoj@do24.cz. Odpovídáme do 2 hodin.
+            Nenašli jste odpověď? Napište nám na info@webdo24.cz. Odpovídáme do 2 hodin.
           </p>
         </div>
 

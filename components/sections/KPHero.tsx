@@ -85,7 +85,7 @@ export default function KPHero() {
               <div>
                 <p className="text-white font-semibold text-sm mb-1">Ujíždějící vlak: Tato cena platí jen pro dnešní objednávky</p>
                 <p className="text-[#4A6055] text-xs leading-relaxed">
-                  Nedodáme do 24 hodin → vracíme zálohu. Pokud e-mail už byl v našem systému použit pro slevu, cena se vrací na 100 %.
+                  Nedodáme do 24 hodin → vracíme celou platbu. 15minutová akční cena platí jen jednou pro každý e-mail.
                 </p>
               </div>
             </div>

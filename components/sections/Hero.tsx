@@ -41,7 +41,7 @@ export default function Hero() {
           </p>
 
           <p className="text-base text-[#505050] mb-10">
-            Pokud nestihneme → vracíme zálohu. Bez diskuze.
+            Pokud nestihneme → vracíme celou platbu. Bez diskuze.
           </p>
 
           {/* CTAs */}
@@ -66,7 +66,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
             {[
               { icon: Clock, text: 'Dodání do 24 hodin' },
-              { icon: ShieldCheck, text: 'Záruka vrácení zálohy' },
+              { icon: ShieldCheck, text: 'Garance vrácení platby' },
               { icon: Zap, text: 'Bez zbytečných schůzek' },
             ].map((b) => (
               <div key={b.text} className="flex items-center gap-2">

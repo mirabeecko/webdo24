@@ -103,7 +103,7 @@ export default function HowItWorksPage() {
               <p className="text-white font-bold text-lg">
                 Celkem: <span className="gradient-text">web live do 24 hodin od objednávky.</span>
               </p>
-              <p className="text-[#505050] text-sm mt-1">Garantovaně — nebo vracíme zálohu.</p>
+              <p className="text-[#505050] text-sm mt-1">Garantovaně — nebo vracíme celou platbu.</p>
             </div>
 
             <div className="text-center mt-8">

@@ -3,7 +3,7 @@ import { Check, X } from 'lucide-react';
 const rows = [
   { feature: 'Spuštění do 24 hodin', us: true, agency: false, wix: false },
   { feature: 'Pevná cena předem', us: true, agency: false, wix: true },
-  { feature: 'Záruka vrácení zálohy', us: true, agency: false, wix: false },
+  { feature: 'Garance vrácení platby při nedodání', us: true, agency: false, wix: false },
   { feature: 'Vlastní kód (ne šablona)', us: true, agency: true, wix: false },
   { feature: 'SEO optimalizace v ceně', us: true, agency: false, wix: false },
   { feature: 'Mobile-first design', us: true, agency: true, wix: true },
@@ -35,7 +35,7 @@ export default function CompareTable() {
                   <div className="inline-flex flex-col items-center gap-1">
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black text-[#050A08]"
                       style={{background:'linear-gradient(135deg,#00C47A,#00E08A)'}}>W</div>
-                    <span className="text-white font-bold text-xs">Webdozitra</span>
+                    <span className="text-white font-bold text-xs">webdo24.cz</span>
                   </div>
                 </th>
                 <th className="pb-4 text-center">

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://webdozitra.cz/sitemap.xml',
+    sitemap: 'https://webdo24.cz/sitemap.xml',
   };
 }

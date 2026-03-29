@@ -56,7 +56,7 @@ export default function HowItWorks() {
           <p className="text-white font-bold text-lg">
             Výsledek: <span className="gradient-text">funkční web do 24 hodin od objednávky.</span>
           </p>
-          <p className="text-[#606060] text-sm mt-1 mb-5">Nebo vracíme zálohu — bez diskuze.</p>
+          <p className="text-[#606060] text-sm mt-1 mb-5">Nebo vracíme celou platbu — bez diskuze.</p>
           <Link href="/objednat" className="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm">
             <Zap className="w-4 h-4" />
             Začít teď

@@ -19,8 +19,8 @@ const contactItems = [
   {
     icon: Mail,
     label: 'E-mail',
-    value: 'ahoj@webdozitra.cz',
-    href: 'mailto:ahoj@webdozitra.cz',
+    value: 'info@webdo24.cz',
+    href: 'mailto:info@webdo24.cz',
     note: 'Odpovídáme do 2 hodin',
   },
   {
@@ -126,8 +126,8 @@ export default function ContactPage() {
                 <p className="text-[#A0A0C0] text-sm mb-5 leading-relaxed">
                   Preferujete email? Napište nám. Odpovídáme do 2 hodin v pracovní dny.
                 </p>
-                <a href="mailto:ahoj@webdozitra.cz" className="btn-secondary flex items-center gap-2 px-6 py-3 text-sm w-fit">
-                  ahoj@webdozitra.cz
+                <a href="mailto:info@webdo24.cz" className="btn-secondary flex items-center gap-2 px-6 py-3 text-sm w-fit">
+                  info@webdo24.cz
                 </a>
               </div>
             </div>

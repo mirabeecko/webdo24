@@ -5,7 +5,7 @@ export default function Benefits() {
     <section className="section-padding" style={{ background: 'linear-gradient(180deg, #080808 0%, #0d0808 100%)' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
-          <div className="tag mb-5">Proč webdozitra.cz</div>
+          <div className="tag mb-5">Proč webdo24.cz</div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
             Jiní slibují.{' '}
             <span className="gradient-text">My dodáváme do 24h.</span>

@@ -4,18 +4,16 @@ import Stripe from 'stripe';
 
 function getStripe() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
-
   if (!secretKey) {
     throw new Error('STRIPE_SECRET_KEY is missing.');
   }
-
   return new Stripe(secretKey);
 }
 
-const PACKAGES = {
-  start: { name: 'Do24 START', price: 4990, deposit: 2495 },
-  pro: { name: 'Do24 PRO', price: 9990, deposit: 4995 },
-  machine: { name: 'Do24 MACHINE', price: 19990, deposit: 9995 },
+const PACKAGE = {
+  id: 'pro',
+  name: 'Profesionální web na klíč — webdo24.cz',
+  price: 9900,
 } as const;
 
 export async function POST(request: NextRequest) {
@@ -26,15 +24,9 @@ export async function POST(request: NextRequest) {
 
     const { name, email, phone, company, selectedPackage, industry, businessDescription, designStyle, designInspiration, hasLogo, hasTexts, hasPhotos, note } = body;
 
-    if (!name || !email || !phone || !selectedPackage) {
+    if (!name || !email || !phone) {
       return NextResponse.json({ error: 'Chybí povinné pole.' }, { status: 400 });
     }
-
-    if (!(selectedPackage in PACKAGES)) {
-      return NextResponse.json({ error: 'Neplatný balíček.' }, { status: 400 });
-    }
-
-    const pkg = PACKAGES[selectedPackage as keyof typeof PACKAGES];
 
     // 1. Uložit zákazníka do Supabase
     const { data: customer, error: customerError } = await supabaseAdmin
@@ -56,11 +48,11 @@ export async function POST(request: NextRequest) {
       .from('do24_orders')
       .insert({
         customer_id: customer.id,
-        package_id: selectedPackage,
-        package_name: pkg.name,
-        total_price: pkg.price,
-        deposit_amount: pkg.deposit,
-        remaining_amount: pkg.price - pkg.deposit,
+        package_id: PACKAGE.id,
+        package_name: PACKAGE.name,
+        total_price: PACKAGE.price,
+        deposit_amount: PACKAGE.price,
+        remaining_amount: 0,
         status: 'pending',
         industry: industry || null,
         business_description: businessDescription || null,
@@ -79,7 +71,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Chyba při vytváření objednávky.' }, { status: 500 });
     }
 
-    // 3. Vytvořit Stripe Checkout Session (50% záloha)
+    // 3. Vytvořit Stripe Checkout Session (celá částka)
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
@@ -89,10 +81,10 @@ export async function POST(request: NextRequest) {
           price_data: {
             currency: 'czk',
             product_data: {
-              name: `${pkg.name} — záloha 50 %`,
-              description: `Web do 24 hodin. Zbytek doplatíte po spuštění webu.`,
+              name: PACKAGE.name,
+              description: 'Vlastní design, hosting v ceně, texty v ceně, základní SEO, 1 revize zdarma.',
             },
-            unit_amount: pkg.deposit * 100, // Stripe uses haléře
+            unit_amount: PACKAGE.price * 100,
           },
           quantity: 1,
         },
@@ -100,7 +92,7 @@ export async function POST(request: NextRequest) {
       metadata: {
         order_id: order.id,
         customer_id: customer.id,
-        package_id: selectedPackage,
+        package_id: PACKAGE.id,
       },
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/dekujeme?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/objednat`,
@@ -111,9 +103,9 @@ export async function POST(request: NextRequest) {
     await supabaseAdmin.from('do24_payments').insert({
       order_id: order.id,
       stripe_session_id: session.id,
-      amount: pkg.deposit,
+      amount: PACKAGE.price,
       currency: 'czk',
-      type: 'deposit',
+      type: 'full',
       status: 'pending',
     });
 

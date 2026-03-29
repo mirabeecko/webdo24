@@ -9,11 +9,11 @@ export default function Pricing() {
         <div className="text-center mb-16">
           <div className="tag mb-5">Produkty & ceny</div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
-            Vyberte si{' '}
-            <span className="gradient-text">svůj balíček.</span>
+            Profesionální web na klíč —{' '}
+            <span className="gradient-text">jedna cena, vše v ceně.</span>
           </h2>
           <p className="text-[#606060] text-lg max-w-xl mx-auto">
-            Pevná cena, žádné skryté poplatky. Záloha 50 % předem, doplatek po spuštění.
+            Pevná cena, žádné skryté poplatky. Hosting, texty a SEO v ceně. 1 revize zdarma.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export default function Pricing() {
           <div className="text-[#00C47A] text-2xl mb-2">🛡️</div>
           <h3 className="font-bold text-white mb-2">100% záruka dodání</h3>
           <p className="text-[#606060] text-sm leading-relaxed">
-            Nestíháme termín? Zálohu vracíme celou, bez otázek. To je naše garance.
+            Nestíháme termín? Vracíme celou platbu, bez otázek. To je naše garance.
           </p>
         </div>
       </div>

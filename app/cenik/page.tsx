@@ -4,9 +4,9 @@ import CTASection from '@/components/sections/CTASection';
 import FAQ from '@/components/sections/FAQ';
 
 export const metadata: Metadata = {
-  title: 'Ceník — Webdozitra.cz | Weby od 11 900 Kč do 24 hodin',
+  title: 'Ceník — webdo24.cz | Profesionální web do 24 hodin',
   description:
-    'Transparentní ceník. START od 11 900 Kč, BUSINESS od 22 900 Kč, PRO od 42 900 Kč. Spuštění do 24 hodin. Žádné skryté poplatky.',
+    'Transparentní ceník. Profesionální web na klíč za 9 900 Kč — vlastní design, hosting v ceně, texty v ceně. Spuštění do 24 hodin.',
 };
 
 export default function PricingPage() {

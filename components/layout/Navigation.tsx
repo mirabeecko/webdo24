@@ -28,7 +28,7 @@ export default function Navigation() {
               <Zap className="w-4 h-4 text-[#050A08]" fill="currentColor" />
             </div>
             <span className="font-black text-lg text-white tracking-tight">
-              Do<span className="text-[#00C47A]">24</span>
+              webdo<span className="text-[#00C47A]">24</span>.cz
             </span>
           </Link>
 
