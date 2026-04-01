@@ -50,28 +50,49 @@ export interface Step {
 export interface OrderFormData {
   // Step 1 — Kontakt
   name: string;
-  company: string;
   email: string;
   phone: string;
+  company: string;
 
-  // Step 2 — Produkt
-  selectedPackage: 'start' | 'pro' | 'machine' | '';
+  // Step 2 — O podnikání
+  whatYouDo: string;
+  targetAudience: string;
+  competitiveAdvantage: string;
 
-  // Step 3 — Byznys
-  industry: string;
-  businessDescription: string;
+  // Step 3 — Cíl webu
+  websiteGoals: string[];
+  mainCta: string;
 
-  // Step 4 — Styl
-  designStyle: string;
-  designInspiration: string;
+  // Step 4 — Struktura webu
+  sections: string[];
+  customSections: string;
 
   // Step 5 — Obsah
-  hasLogo: string;
   hasTexts: string;
   hasPhotos: string;
+  hasLogo: string;
+  contentLinks: string;
 
-  // Step 6 — Poznámka
-  note: string;
+  // Step 6 — Design
+  designStyle: string;
+  colorPreference: string;
+  customColors: string;
+  designInspiration: string;
+
+  // Step 7 — Technické
+  hasDomain: string;
+  domainName: string;
+  language: string[];
+  contactEmail: string;
+  contactPhone: string;
+  contactAddress: string;
+
+  // Step 8 — Instrukce
+  mustHave: string;
+  mustNotHave: string;
+
+  // Interní
+  selectedPackage: 'start' | 'pro' | 'machine' | '';
 }
 
 export interface CreateOrderPayload extends OrderFormData {

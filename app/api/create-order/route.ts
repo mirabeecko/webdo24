@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '@/lib/supabase-admin';
+import { generateBrief, generateJson } from '@/lib/brief';
 import Stripe from 'stripe';
+import type { OrderFormData } from '@/types';
 
 function getStripe() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
-  if (!secretKey) {
-    throw new Error('STRIPE_SECRET_KEY is missing.');
-  }
+  if (!secretKey) throw new Error('STRIPE_SECRET_KEY is missing.');
   return new Stripe(secretKey);
 }
 
@@ -20,11 +20,11 @@ export async function POST(request: NextRequest) {
   try {
     const supabaseAdmin = getSupabaseAdmin();
     const stripe = getStripe();
-    const body = await request.json();
+    const body: OrderFormData = await request.json();
 
-    const { name, email, phone, company, selectedPackage, industry, businessDescription, designStyle, designInspiration, hasLogo, hasTexts, hasPhotos, note } = body;
+    const { name, email, phone, company } = body;
 
-    if (!name || !email || !phone) {
+    if (!name?.trim() || !email?.trim() || !phone?.trim()) {
       return NextResponse.json({ error: 'Chybí povinné pole.' }, { status: 400 });
     }
 
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       .from('webdo24_customers')
       .upsert(
         { name, email, phone, company: company || null },
-        { onConflict: 'email', ignoreDuplicates: false }
+        { onConflict: 'email', ignoreDuplicates: false },
       )
       .select('id')
       .single();
@@ -43,7 +43,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Chyba při ukládání zákazníka.' }, { status: 500 });
     }
 
+    const submittedAt = new Date().toISOString();
+
     // 2. Vytvořit objednávku v Supabase
+    const brief = generateBrief(body, { submittedAt });
+
     const { data: order, error: orderError } = await supabaseAdmin
       .from('webdo24_orders')
       .insert({
@@ -54,14 +58,14 @@ export async function POST(request: NextRequest) {
         deposit_amount: PACKAGE.price,
         remaining_amount: 0,
         status: 'pending',
-        industry: industry || null,
-        business_description: businessDescription || null,
-        design_style: designStyle || null,
-        design_inspiration: designInspiration || null,
-        has_logo: hasLogo || null,
-        has_texts: hasTexts || null,
-        has_photos: hasPhotos || null,
-        note: note || null,
+        industry: null,
+        business_description: body.whatYouDo || null,
+        design_style: body.designStyle || null,
+        design_inspiration: body.designInspiration || null,
+        has_logo: body.hasLogo || null,
+        has_texts: body.hasTexts || null,
+        has_photos: body.hasPhotos || null,
+        note: brief,
       })
       .select('id')
       .single();
@@ -71,7 +75,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Chyba při vytváření objednávky.' }, { status: 500 });
     }
 
-    // 3. Vytvořit Stripe Checkout Session (celá částka)
+    // 3. Vytvořit Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
@@ -109,41 +113,20 @@ export async function POST(request: NextRequest) {
       status: 'pending',
     });
 
-    // 5. Odeslat notifikaci do n8n (fire-and-forget — neblokuje checkout)
+    // 5. Odeslat do n8n (fire-and-forget — neblokuje checkout)
     const n8nUrl = process.env.N8N_WEBHOOK_URL;
     if (n8nUrl) {
-      const n8nPayload = {
-        order_id: order.id,
-        customer_id: customer.id,
-        submitted_at: new Date().toISOString(),
-        contact: {
-          name,
-          email,
-          phone,
-          company: company || null,
-        },
-        order: {
-          package_id: selectedPackage,
-          package_name: PACKAGE.name,
-          total_price: PACKAGE.price,
-          stripe_session_id: session.id,
-        },
-        project: {
-          industry: industry || null,
-          business_description: businessDescription || null,
-          design_style: designStyle || null,
-          design_inspiration: designInspiration || null,
-          has_logo: hasLogo || null,
-          has_texts: hasTexts || null,
-          has_photos: hasPhotos || null,
-          note: note || null,
-        },
-      };
+      const payload = generateJson(body, {
+        orderId: order.id,
+        customerId: customer.id,
+        stripeSessionId: session.id,
+        submittedAt,
+      });
 
       fetch(n8nUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(n8nPayload),
+        body: JSON.stringify({ ...payload, brief }),
       }).catch((err) => console.error('[n8n] webhook error:', err));
     }
 
