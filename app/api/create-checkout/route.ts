@@ -21,7 +21,7 @@ async function tryPersistLead(data: {
     const supabase = getSupabaseAdmin();
 
     const { data: customer, error: e1 } = await supabase
-      .from('do24_customers')
+      .from('webdo24_customers')
       .upsert(
         { name: data.name, email: data.email, phone: data.phone },
         { onConflict: 'email', ignoreDuplicates: false }
@@ -30,7 +30,7 @@ async function tryPersistLead(data: {
       .single();
     if (e1 || !customer) { console.error('customer upsert:', e1); return; }
 
-    await supabase.from('do24_orders').insert({
+    await supabase.from('webdo24_orders').insert({
       customer_id: customer.id,
       package_id: 'pro',
       package_name: 'Profesionální web na klíč — webdo24.cz',

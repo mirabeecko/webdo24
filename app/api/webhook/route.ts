@@ -36,14 +36,14 @@ export async function POST(request: NextRequest) {
 
       // Najdi objednávku podle VS v poznámce a označ jako zaplacenou
       const { data: orders } = await supabase
-        .from('do24_orders')
+        .from('webdo24_orders')
         .select('id')
         .ilike('note', `%VS: ${vs}%`)
         .limit(1);
 
       if (orders && orders.length > 0) {
         await supabase
-          .from('do24_orders')
+          .from('webdo24_orders')
           .update({ status: 'paid', deposit_paid_at: new Date().toISOString() })
           .eq('id', orders[0].id);
         console.log(`[WEBHOOK] Order ${orders[0].id} (VS: ${vs}) marked as paid.`);

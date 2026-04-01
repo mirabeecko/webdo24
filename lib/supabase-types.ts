@@ -1,7 +1,45 @@
 export interface Database {
   public: {
     Tables: {
-      do24_customers: {
+      leads: {
+        Row: {
+          id: string;
+          message: string;
+          name: string;
+          email: string;
+          phone: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          message: string;
+          name: string;
+          email: string;
+          phone: string;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['leads']['Insert']>;
+        Relationships: [];
+      };
+      orders: {
+        Row: {
+          id: string;
+          lead_id: string;
+          price: number;
+          paid: boolean;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          lead_id: string;
+          price: number;
+          paid?: boolean;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['orders']['Insert']>;
+        Relationships: [];
+      };
+      webdo24_customers: {
         Row: {
           id: string;
           name: string;
@@ -25,7 +63,7 @@ export interface Database {
         };
         Relationships: [];
       };
-      do24_orders: {
+      webdo24_orders: {
         Row: {
           id: string;
           customer_id: string;
@@ -64,10 +102,10 @@ export interface Database {
           note?: string | null;
           deposit_paid_at?: string | null;
         };
-        Update: Partial<Database['public']['Tables']['do24_orders']['Insert']>;
+        Update: Partial<Database['public']['Tables']['webdo24_orders']['Insert']>;
         Relationships: [];
       };
-      do24_payments: {
+      webdo24_payments: {
         Row: {
           id: string;
           order_id: string;
@@ -90,10 +128,10 @@ export interface Database {
           status: string;
           paid_at?: string | null;
         };
-        Update: Partial<Database['public']['Tables']['do24_payments']['Insert']>;
+        Update: Partial<Database['public']['Tables']['webdo24_payments']['Insert']>;
         Relationships: [];
       };
-      do24_projects: {
+      webdo24_projects: {
         Row: {
           id: string;
           order_id: string;
@@ -106,7 +144,7 @@ export interface Database {
           status: string;
           started_at?: string | null;
         };
-        Update: Partial<Database['public']['Tables']['do24_projects']['Insert']>;
+        Update: Partial<Database['public']['Tables']['webdo24_projects']['Insert']>;
         Relationships: [];
       };
     };

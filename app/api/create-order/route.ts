@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     // 1. Uložit zákazníka do Supabase
     const { data: customer, error: customerError } = await supabaseAdmin
-      .from('do24_customers')
+      .from('webdo24_customers')
       .upsert(
         { name, email, phone, company: company || null },
         { onConflict: 'email', ignoreDuplicates: false }
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
 
     // 2. Vytvořit objednávku v Supabase
     const { data: order, error: orderError } = await supabaseAdmin
-      .from('do24_orders')
+      .from('webdo24_orders')
       .insert({
         customer_id: customer.id,
         package_id: PACKAGE.id,
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     });
 
     // 4. Uložit platbu do Supabase
-    await supabaseAdmin.from('do24_payments').insert({
+    await supabaseAdmin.from('webdo24_payments').insert({
       order_id: order.id,
       stripe_session_id: session.id,
       amount: PACKAGE.price,

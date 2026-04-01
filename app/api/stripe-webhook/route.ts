@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
 
       // Aktualizovat platbu
       await supabaseAdmin
-        .from('do24_payments')
+        .from('webdo24_payments')
         .update({
           status: 'paid',
           stripe_payment_intent_id: session.payment_intent as string,
@@ -49,12 +49,12 @@ export async function POST(request: NextRequest) {
 
       // Aktualizovat objednávku
       await supabaseAdmin
-        .from('do24_orders')
+        .from('webdo24_orders')
         .update({ status: 'deposit_paid', deposit_paid_at: new Date().toISOString() })
         .eq('id', orderId);
 
       // Vytvořit projekt
-      await supabaseAdmin.from('do24_projects').insert({
+      await supabaseAdmin.from('webdo24_projects').insert({
         order_id: orderId,
         status: 'in_progress',
         started_at: new Date().toISOString(),
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
       const session = event.data.object as Stripe.Checkout.Session;
 
       await supabaseAdmin
-        .from('do24_payments')
+        .from('webdo24_payments')
         .update({ status: 'expired' })
         .eq('stripe_session_id', session.id);
       break;
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
       const pi = event.data.object as Stripe.PaymentIntent;
 
       await supabaseAdmin
-        .from('do24_payments')
+        .from('webdo24_payments')
         .update({ status: 'failed' })
         .eq('stripe_payment_intent_id', pi.id);
       break;

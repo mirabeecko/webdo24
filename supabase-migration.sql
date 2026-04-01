@@ -2,7 +2,7 @@
 -- Spustit v Supabase Dashboard → SQL Editor
 
 -- ─── Zákazníci ────────────────────────────────────────────────────────────
-create table if not exists do24_customers (
+create table if not exists webdo24_customers (
   id         uuid primary key default gen_random_uuid(),
   name       text not null,
   email      text not null unique,
@@ -12,9 +12,9 @@ create table if not exists do24_customers (
 );
 
 -- ─── Objednávky ───────────────────────────────────────────────────────────
-create table if not exists do24_orders (
+create table if not exists webdo24_orders (
   id                   uuid primary key default gen_random_uuid(),
-  customer_id          uuid references do24_customers(id) on delete cascade,
+  customer_id          uuid references webdo24_customers(id) on delete cascade,
   package_id           text not null,
   package_name         text not null,
   total_price          integer not null,
@@ -34,9 +34,9 @@ create table if not exists do24_orders (
 );
 
 -- ─── Platby ───────────────────────────────────────────────────────────────
-create table if not exists do24_payments (
+create table if not exists webdo24_payments (
   id                       uuid primary key default gen_random_uuid(),
-  order_id                 uuid references do24_orders(id) on delete cascade,
+  order_id                 uuid references webdo24_orders(id) on delete cascade,
   stripe_session_id        text not null,
   stripe_payment_intent_id text,
   amount                   integer not null,
@@ -48,16 +48,16 @@ create table if not exists do24_payments (
 );
 
 -- ─── Projekty ─────────────────────────────────────────────────────────────
-create table if not exists do24_projects (
+create table if not exists webdo24_projects (
   id         uuid primary key default gen_random_uuid(),
-  order_id   uuid references do24_orders(id) on delete cascade,
+  order_id   uuid references webdo24_orders(id) on delete cascade,
   status     text not null default 'waiting',
   started_at timestamptz,
   created_at timestamptz default now()
 );
 
 -- ─── RLS (přístup pouze přes service role key) ───────────────────────────
-alter table do24_customers enable row level security;
-alter table do24_orders    enable row level security;
-alter table do24_payments  enable row level security;
-alter table do24_projects  enable row level security;
+alter table webdo24_customers enable row level security;
+alter table webdo24_orders    enable row level security;
+alter table webdo24_payments  enable row level security;
+alter table webdo24_projects  enable row level security;
