@@ -109,6 +109,44 @@ export async function POST(request: NextRequest) {
       status: 'pending',
     });
 
+    // 5. Odeslat notifikaci do n8n (fire-and-forget — neblokuje checkout)
+    const n8nUrl = process.env.N8N_WEBHOOK_URL;
+    if (n8nUrl) {
+      const n8nPayload = {
+        order_id: order.id,
+        customer_id: customer.id,
+        submitted_at: new Date().toISOString(),
+        contact: {
+          name,
+          email,
+          phone,
+          company: company || null,
+        },
+        order: {
+          package_id: selectedPackage,
+          package_name: PACKAGE.name,
+          total_price: PACKAGE.price,
+          stripe_session_id: session.id,
+        },
+        project: {
+          industry: industry || null,
+          business_description: businessDescription || null,
+          design_style: designStyle || null,
+          design_inspiration: designInspiration || null,
+          has_logo: hasLogo || null,
+          has_texts: hasTexts || null,
+          has_photos: hasPhotos || null,
+          note: note || null,
+        },
+      };
+
+      fetch(n8nUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(n8nPayload),
+      }).catch((err) => console.error('[n8n] webhook error:', err));
+    }
+
     return NextResponse.json({ checkoutUrl: session.url }, { status: 200 });
   } catch (error) {
     console.error('create-order error:', error);

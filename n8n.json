@@ -1,0 +1,136 @@
+{
+  "name": "webdo24 — Nová objednávka",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webdo24-order",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "wd24-0001-0001-0001-000000000001",
+      "name": "Webhook — Příchozí objednávka",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "webdo24-order-webhook"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            { "name": "order_id",            "value": "={{ $json.body.order_id }}" },
+            { "name": "customer_id",         "value": "={{ $json.body.customer_id }}" },
+            { "name": "submitted_at",        "value": "={{ $json.body.submitted_at }}" },
+            { "name": "name",                "value": "={{ $json.body.contact.name }}" },
+            { "name": "email",               "value": "={{ $json.body.contact.email }}" },
+            { "name": "phone",               "value": "={{ $json.body.contact.phone }}" },
+            { "name": "company",             "value": "={{ $json.body.contact.company }}" },
+            { "name": "package_id",          "value": "={{ $json.body.order.package_id }}" },
+            { "name": "package_name",        "value": "={{ $json.body.order.package_name }}" },
+            { "name": "total_price",         "value": "={{ $json.body.order.total_price }}" },
+            { "name": "stripe_session_id",   "value": "={{ $json.body.order.stripe_session_id }}" },
+            { "name": "industry",            "value": "={{ $json.body.project.industry }}" },
+            { "name": "business_description","value": "={{ $json.body.project.business_description }}" },
+            { "name": "design_style",        "value": "={{ $json.body.project.design_style }}" },
+            { "name": "design_inspiration",  "value": "={{ $json.body.project.design_inspiration }}" },
+            { "name": "has_logo",            "value": "={{ $json.body.project.has_logo }}" },
+            { "name": "has_texts",           "value": "={{ $json.body.project.has_texts }}" },
+            { "name": "has_photos",          "value": "={{ $json.body.project.has_photos }}" },
+            { "name": "note",                "value": "={{ $json.body.project.note }}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "wd24-0002-0002-0002-000000000002",
+      "name": "Rozbalení dat",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "brief",
+              "value": "=# Nová objednávka — {{ $json.package_name }}\n\n**Datum:** {{ $json.submitted_at }}\n**Order ID:** {{ $json.order_id }}\n**Stripe session:** {{ $json.stripe_session_id }}\n\n## Kontakt\n- **Jméno:** {{ $json.name }}\n- **E-mail:** {{ $json.email }}\n- **Telefon:** {{ $json.phone }}\n- **Firma:** {{ $json.company }}\n\n## Objednávka\n- **Balíček:** {{ $json.package_name }}\n- **Cena:** {{ $json.total_price }} CZK\n\n## Projekt\n- **Obor:** {{ $json.industry }}\n- **O byznysu:** {{ $json.business_description }}\n- **Styl webu:** {{ $json.design_style }}\n- **Inspirace:** {{ $json.design_inspiration }}\n- **Logo:** {{ $json.has_logo }}\n- **Texty:** {{ $json.has_texts }}\n- **Fotky:** {{ $json.has_photos }}\n- **Poznámka:** {{ $json.note }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "wd24-0003-0003-0003-000000000003",
+      "name": "Sestavit brief",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"Order received\", \"order_id\": \"{{ $node[\"Rozbalení dat\"].json.order_id }}\" }",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "wd24-0004-0004-0004-000000000004",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Webhook — Příchozí objednávka": {
+      "main": [
+        [
+          {
+            "node": "Rozbalení dat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rozbalení dat": {
+      "main": [
+        [
+          {
+            "node": "Sestavit brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sestavit brief": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    { "name": "webdo24" },
+    { "name": "orders" }
+  ],
+  "pinData": {},
+  "versionId": "2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "local"
+  }
+}
