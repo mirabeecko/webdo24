@@ -1,7 +1,12 @@
 import { config, fields, singleton } from '@keystatic/core';
 
 export default config({
-  storage: { kind: 'local' },
+  storage: process.env.KEYSTATIC_GITHUB_CLIENT_ID
+    ? {
+        kind: 'github',
+        repo: { owner: 'mirabeecko', name: 'webdo24' },
+      }
+    : { kind: 'local' },
 
   singletons: {
     homepage: singleton({
