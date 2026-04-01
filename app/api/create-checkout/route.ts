@@ -12,9 +12,14 @@ async function tryPersistLead(data: {
   vs?: string;
   totalPrice?: number;
 }): Promise<void> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return;
+  if (!url || !key) {
+    console.error(
+      'Supabase persistence skipped: missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_URL, and/or SUPABASE_SERVICE_ROLE_KEY.'
+    );
+    return;
+  }
 
   try {
     const { getSupabaseAdmin } = await import('@/lib/supabase-admin');

@@ -8,11 +8,13 @@ export function getSupabaseAdmin() {
     return supabaseAdminClient;
   }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl || !supabaseServiceKey) {
-    throw new Error('Supabase admin environment variables are missing.');
+    throw new Error(
+      'Supabase admin environment variables are missing. Expected NEXT_PUBLIC_SUPABASE_URL or SUPABASE_URL, and SUPABASE_SERVICE_ROLE_KEY.'
+    );
   }
 
   // Server-side only — never expose service key to client

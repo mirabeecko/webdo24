@@ -4,6 +4,12 @@ import { generateBrief, generateJson } from '@/lib/brief';
 import Stripe from 'stripe';
 import type { OrderFormData } from '@/types';
 
+function getBaseUrl() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  if (!baseUrl) throw new Error('NEXT_PUBLIC_BASE_URL is missing.');
+  return baseUrl;
+}
+
 function getStripe() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!secretKey) throw new Error('STRIPE_SECRET_KEY is missing.');
@@ -19,7 +25,6 @@ const PACKAGE = {
 export async function POST(request: NextRequest) {
   try {
     const supabaseAdmin = getSupabaseAdmin();
-    const stripe = getStripe();
     const body: OrderFormData = await request.json();
 
     const { name, email, phone, company } = body;
@@ -76,6 +81,8 @@ export async function POST(request: NextRequest) {
     }
 
     // 3. Vytvořit Stripe Checkout Session
+    const stripe = getStripe();
+    const baseUrl = getBaseUrl();
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
@@ -98,8 +105,8 @@ export async function POST(request: NextRequest) {
         customer_id: customer.id,
         package_id: PACKAGE.id,
       },
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/dekujeme?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/objednat`,
+      success_url: `${baseUrl}/dekujeme?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/objednat`,
       locale: 'cs',
     });
 
@@ -132,7 +139,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ checkoutUrl: session.url }, { status: 200 });
   } catch (error) {
-    console.error('create-order error:', error);
+    console.error('create-order error:', error instanceof Error ? error.message : error);
     return NextResponse.json({ error: 'Chyba serveru. Zkuste to znovu.' }, { status: 500 });
   }
 }
