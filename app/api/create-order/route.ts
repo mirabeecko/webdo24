@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
 
     const { name, email, phone, company } = body;
 
-    if (!name?.trim() || !email?.trim() || !phone?.trim()) {
+    if (!name?.trim() || !email?.trim()) {
       return NextResponse.json({ error: 'Chybí povinné pole.' }, { status: 400 });
     }
 
