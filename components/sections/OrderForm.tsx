@@ -2,100 +2,97 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { generateBrief } from '@/lib/brief';
 import type { OrderFormData } from '@/types';
-import {
-  Loader2,
-  Check,
-  ChevronRight,
-  Zap,
-  Copy,
-  CheckCheck,
-} from 'lucide-react';
+import { Loader2, Check, ChevronRight, Zap } from 'lucide-react';
 
 // ─── Konstanty ────────────────────────────────────────────────────────────────
 
-const WEBSITE_GOALS = [
-  { id: 'leads',        label: 'Získávat poptávky',   desc: 'Formuláře, volání, kontakty' },
-  { id: 'sales',        label: 'Prodávat produkt',    desc: 'E-shop nebo přímý prodej' },
-  { id: 'booking',      label: 'Online rezervace',    desc: 'Termíny, schůzky, rezervace' },
-  { id: 'presentation', label: 'Prezentace firmy',    desc: 'Portfolio, about us' },
+const INDUSTRIES = [
+  'Řemesla a stavebnictví',
+  'Gastronomie a pohostinství',
+  'Zdraví a krása',
+  'Obchod a maloobchod',
+  'Vzdělávání a kurzy',
+  'Finance a pojištění',
+  'IT a technologie',
+  'Doprava a logistika',
+  'Reality a bydlení',
+  'Sport a fitness',
+  'Kultura a zábava',
+  'Jiný obor',
 ];
 
-const SECTIONS = [
-  { id: 'hero',       label: 'Úvod / Hero',     desc: 'Hlavní banner s CTA' },
-  { id: 'services',   label: 'Služby',          desc: 'Co nabízíte' },
-  { id: 'about',      label: 'O nás',           desc: 'Příběh a tým' },
-  { id: 'references', label: 'Reference',       desc: 'Hodnocení zákazníků' },
-  { id: 'pricing',    label: 'Ceník',           desc: 'Přehled cen' },
-  { id: 'gallery',    label: 'Galerie',         desc: 'Fotografie prací' },
-  { id: 'contact',    label: 'Kontakt',         desc: 'Formulář a mapa' },
-  { id: 'faq',        label: 'FAQ',             desc: 'Časté otázky' },
+const GOALS = [
+  { id: 'leads',        label: 'Získat poptávky',    desc: 'Formuláře, volání, kontakty' },
+  { id: 'presentation', label: 'Prezentace firmy',   desc: 'Portfolio, o nás, reference' },
+  { id: 'sales',        label: 'Prodávat online',    desc: 'E-shop nebo přímý prodej' },
 ];
 
-const DESIGN_STYLES = [
-  { id: 'modern',    label: 'Moderní',      desc: 'Čistý, vzdušný, aktuální' },
-  { id: 'luxury',    label: 'Luxusní',      desc: 'Prémiový, sofistikovaný' },
-  { id: 'minimal',   label: 'Jednoduchý',   desc: 'Minimalistický, přehledný' },
-  { id: 'playful',   label: 'Hravý',        desc: 'Kreativní, originální' },
-  { id: 'corporate', label: 'Korporátní',   desc: 'Profesionální, důvěryhodný' },
-];
-
-const COLOR_PALETTES = [
-  { id: 'green-white',   label: 'Zelená & bílá',      a: '#00C47A', b: '#FFFFFF' },
-  { id: 'blue-white',    label: 'Modrá & bílá',        a: '#2563EB', b: '#FFFFFF' },
-  { id: 'dark-gold',     label: 'Tmavá & zlatá',       a: '#111827', b: '#F59E0B' },
-  { id: 'orange-dark',   label: 'Oranžová & tmavá',    a: '#F97316', b: '#1C1917' },
-  { id: 'red-white',     label: 'Červená & bílá',      a: '#EF4444', b: '#FFFFFF' },
-  { id: 'purple-white',  label: 'Fialová & bílá',      a: '#8B5CF6', b: '#FFFFFF' },
-  { id: 'neutral-dark',  label: 'Neutrální & tmavá',   a: '#9CA3AF', b: '#111827' },
-  { id: 'custom',        label: 'Vlastní barvy',        a: null,      b: null },
+const TONES = [
+  { id: 'professional', label: 'Profesionální', desc: 'Seriózní, důvěryhodný' },
+  { id: 'modern',       label: 'Moderní',       desc: 'Svěží, aktuální, dynamický' },
+  { id: 'aggressive',   label: 'Agresivní',     desc: 'Razantní, přímý, prodejní' },
+  { id: 'luxury',       label: 'Luxusní',       desc: 'Prémiový, sofistikovaný' },
 ];
 
 const STEPS = [
-  { id: 1, title: 'Kontakt' },
+  { id: 1, title: 'Firma' },
   { id: 2, title: 'Byznys' },
-  { id: 3, title: 'Cíl webu' },
-  { id: 4, title: 'Struktura' },
-  { id: 5, title: 'Obsah' },
-  { id: 6, title: 'Design' },
-  { id: 7, title: 'Technické' },
-  { id: 8, title: 'Instrukce' },
-  { id: 9, title: 'Přehled' },
+  { id: 3, title: 'Cíl' },
+  { id: 4, title: 'Styl' },
+  { id: 5, title: 'Kontakt' },
 ];
 
 const INITIAL: OrderFormData = {
+  // kontakt
   name: '',
   email: '',
   phone: '',
   company: '',
+  // byznys
   whatYouDo: '',
   targetAudience: '',
   competitiveAdvantage: '',
+  // cíl
   websiteGoals: [],
   mainCta: '',
+  // struktura (zachováno pro API)
   sections: ['hero', 'services', 'contact'],
   customSections: '',
+  // obsah
   hasTexts: '',
   hasPhotos: '',
   hasLogo: '',
   contentLinks: '',
+  // design
   designStyle: '',
   colorPreference: '',
   customColors: '',
   designInspiration: '',
+  // technické
   hasDomain: '',
   domainName: '',
   language: ['cs'],
   contactEmail: '',
   contactPhone: '',
   contactAddress: '',
+  // instrukce
   mustHave: '',
   mustNotHave: '',
+  // interní
   selectedPackage: 'pro',
+  // nová pole
+  industry: '',
+  location: '',
+  service1: '',
+  service2: '',
+  service3: '',
+  reference: '',
+  tone: '',
+  note: '',
 };
 
-// ─── Validace kroků ───────────────────────────────────────────────────────────
+// ─── Validace ─────────────────────────────────────────────────────────────────
 
 function isEmailValid(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -103,15 +100,11 @@ function isEmailValid(email: string) {
 
 function canProceed(step: number, form: OrderFormData): boolean {
   switch (step) {
-    case 1: return !!(form.name.trim() && isEmailValid(form.email) && form.phone.trim() && form.company.trim());
-    case 2: return !!(form.whatYouDo.trim() && form.targetAudience.trim());
-    case 3: return form.websiteGoals.length > 0 && !!form.mainCta.trim();
-    case 4: return form.sections.length > 0;
-    case 5: return !!(form.hasTexts && form.hasPhotos && form.hasLogo);
-    case 6: return !!form.designStyle;
-    case 7: return !!(form.hasDomain && form.language.length > 0 && (form.contactEmail || form.email).trim());
-    case 8: return true;
-    case 9: return true;
+    case 1: return !!(form.company.trim() && form.industry);
+    case 2: return !!(form.whatYouDo.trim() && form.service1?.trim() && form.targetAudience.trim());
+    case 3: return form.websiteGoals.length > 0;
+    case 4: return !!(form.tone && form.hasTexts);
+    case 5: return !!(form.name.trim() && isEmailValid(form.email));
     default: return true;
   }
 }
@@ -124,20 +117,9 @@ export default function OrderForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showErrors, setShowErrors] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const set = (key: keyof OrderFormData, value: string) =>
     setForm((f) => ({ ...f, [key]: value }));
-
-  const toggleArray = (key: 'websiteGoals' | 'sections' | 'language', value: string) => {
-    setForm((f) => {
-      const arr = f[key] as string[];
-      return {
-        ...f,
-        [key]: arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value],
-      };
-    });
-  };
 
   const handleNext = () => {
     if (!canProceed(step, form)) {
@@ -154,6 +136,10 @@ export default function OrderForm() {
   };
 
   const handleSubmit = async () => {
+    if (!canProceed(5, form)) {
+      setShowErrors(true);
+      return;
+    }
     setLoading(true);
     setError('');
     try {
@@ -172,60 +158,102 @@ export default function OrderForm() {
     }
   };
 
-  const brief = step === 9 ? generateBrief(form) : '';
-
-  const copyBrief = async () => {
-    await navigator.clipboard.writeText(brief);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   const validationError = showErrors && !canProceed(step, form);
 
   return (
-    <div className="max-w-2xl mx-auto xl:max-w-none">
-      {/* Progress */}
-      <div className="flex items-center gap-0 mb-10 overflow-x-auto pb-1">
-        {STEPS.map((s, i) => (
-          <div key={s.id} className="flex items-center flex-1 min-w-0">
-            <button
-              onClick={() => step > s.id && setStep(s.id)}
-              title={s.title}
+    <div id="orderForm" className="max-w-2xl mx-auto xl:max-w-none">
+
+      {/* ── Progress ─────────────────────────────────────────────────────────── */}
+      <div className="mb-8">
+        <div className="flex items-center mb-3">
+          {STEPS.map((s, i) => (
+            <div key={s.id} className="flex items-center flex-1 min-w-0">
+              <button
+                onClick={() => step > s.id && setStep(s.id)}
+                title={s.title}
+                className={cn(
+                  'w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all flex-shrink-0',
+                  step === s.id
+                    ? 'bg-[#00C47A] text-[#050A08] shadow-[0_0_20px_rgba(0,196,122,0.4)]'
+                    : step > s.id
+                    ? 'bg-[#00C47A]/20 text-[#00C47A] cursor-pointer hover:bg-[#00C47A]/30'
+                    : 'bg-white/5 text-[#404040] cursor-default',
+                )}
+              >
+                {step > s.id ? <Check className="w-3.5 h-3.5" /> : s.id}
+              </button>
+              {i < STEPS.length - 1 && (
+                <div className={cn('flex-1 h-px transition-all mx-1', step > s.id ? 'bg-[#00C47A]/40' : 'bg-white/5')} />
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-between px-0.5">
+          {STEPS.map((s) => (
+            <span
+              key={s.id}
               className={cn(
-                'w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all flex-shrink-0',
-                step === s.id
-                  ? 'bg-[#00C47A] text-[#050A08] shadow-[0_0_20px_rgba(0,196,122,0.4)]'
-                  : step > s.id
-                  ? 'bg-[#00C47A]/20 text-[#00C47A] cursor-pointer hover:bg-[#00C47A]/30'
-                  : 'bg-white/5 text-[#404040] cursor-default',
+                'text-xs transition-colors',
+                step === s.id ? 'text-[#00C47A]' : step > s.id ? 'text-[#00C47A]/50' : 'text-[#404040]',
               )}
             >
-              {step > s.id ? <Check className="w-3.5 h-3.5" /> : s.id}
-            </button>
-            {i < STEPS.length - 1 && (
-              <div className={cn('flex-1 h-px transition-all mx-1', step > s.id ? 'bg-[#00C47A]/40' : 'bg-white/5')} />
-            )}
-          </div>
-        ))}
+              {s.title}
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className="glass-card p-8">
 
-        {/* ── Krok 1: Kontakt ──────────────────────────────────────────────── */}
+        {/* ── Krok 1: Firma ────────────────────────────────────────────────── */}
         {step === 1 && (
           <div>
-            <h2 className="text-2xl font-black text-white mb-1">Kontaktní údaje</h2>
-            <p className="text-[#606060] text-sm mb-8">Jak vás kontaktovat a kdo stojí za projektem.</p>
-            <div className="space-y-4">
-              <Field label="Jméno a příjmení *" value={form.name} onChange={(v) => set('name', v)} placeholder="Jan Novák" error={showErrors && !form.name.trim()} />
-              <Field label="Název firmy / projektu *" value={form.company} onChange={(v) => set('company', v)} placeholder="Novák Řemesla s.r.o. nebo Kavárna U Mostu" error={showErrors && !form.company.trim()} />
-              <Field label="E-mail *" type="email" value={form.email} onChange={(v) => set('email', v)} placeholder="jan@firma.cz" error={showErrors && !isEmailValid(form.email)} />
-              <Field label="Telefon *" type="tel" value={form.phone} onChange={(v) => set('phone', v)} placeholder="+420 777 000 000" error={showErrors && !form.phone.trim()} />
+            <h2 className="text-2xl font-black text-white mb-1">Vaše firma</h2>
+            <p className="text-[#606060] text-sm mb-8">Základní informace o vašem podnikání.</p>
+            <div className="space-y-5">
+              <Field
+                label="Název firmy / projektu *"
+                name="companyName"
+                value={form.company}
+                onChange={(v) => set('company', v)}
+                placeholder="Novák Řemesla s.r.o. nebo Kavárna U Mostu"
+                error={showErrors && !form.company.trim()}
+              />
+              <div>
+                <label className="block text-sm font-semibold text-[#C0C0C0] mb-2">Obor *</label>
+                <select
+                  name="industry"
+                  value={form.industry ?? ''}
+                  onChange={(e) => set('industry', e.target.value)}
+                  className={cn(
+                    'w-full bg-white/5 border rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors appearance-none cursor-pointer',
+                    !form.industry ? 'text-[#404040]' : 'text-white',
+                    showErrors && !form.industry
+                      ? 'border-red-500/50 focus:border-red-500/70'
+                      : 'border-white/10 focus:border-[#00C47A]/60',
+                  )}
+                >
+                  <option value="" disabled className="bg-[#0A0F0D]">Vyberte obor…</option>
+                  {INDUSTRIES.map((ind) => (
+                    <option key={ind} value={ind} className="bg-[#0A0F0D] text-white">{ind}</option>
+                  ))}
+                </select>
+                {showErrors && !form.industry && (
+                  <p className="text-red-400 text-xs mt-1.5">Vyberte obor.</p>
+                )}
+              </div>
+              <Field
+                label="Lokalita / kde působíte"
+                name="location"
+                value={form.location ?? ''}
+                onChange={(v) => set('location', v)}
+                placeholder="Praha, celá ČR, nebo online"
+              />
             </div>
           </div>
         )}
 
-        {/* ── Krok 2: O podnikání ──────────────────────────────────────────── */}
+        {/* ── Krok 2: Byznys ───────────────────────────────────────────────── */}
         {step === 2 && (
           <div>
             <h2 className="text-2xl font-black text-white mb-1">O vašem byznysu</h2>
@@ -233,26 +261,58 @@ export default function OrderForm() {
             <div className="space-y-5">
               <TextareaField
                 label="Co přesně děláte? *"
+                name="whatYouDo"
                 value={form.whatYouDo}
                 onChange={(v) => set('whatYouDo', v)}
-                placeholder="Příklad: Opravujeme a instalujeme klimatizace pro domácnosti a firmy v Praze a Středočeském kraji. Nabízíme servis, montáž i pravidelnou údržbu."
+                placeholder="Příklad: Instalujeme a opravujeme klimatizace pro domácnosti a firmy v Praze. Nabízíme servis, montáž i pravidelnou údržbu."
                 rows={3}
                 error={showErrors && !form.whatYouDo.trim()}
               />
+              <div>
+                <label className="block text-sm font-semibold text-[#C0C0C0] mb-1">
+                  Hlavní služby / produkty *
+                </label>
+                <p className="text-[#505050] text-xs mb-3">Vypište až 3 hlavní položky.</p>
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    name="service1"
+                    value={form.service1 ?? ''}
+                    onChange={(e) => set('service1', e.target.value)}
+                    placeholder="Služba č. 1 (povinné)"
+                    className={cn(
+                      'w-full bg-white/5 border rounded-xl px-4 py-3 text-white text-sm placeholder:text-[#404040] focus:outline-none transition-colors',
+                      showErrors && !form.service1?.trim()
+                        ? 'border-red-500/50 focus:border-red-500/70'
+                        : 'border-white/10 focus:border-[#00C47A]/60',
+                    )}
+                  />
+                  <input
+                    type="text"
+                    name="service2"
+                    value={form.service2 ?? ''}
+                    onChange={(e) => set('service2', e.target.value)}
+                    placeholder="Služba č. 2 (volitelné)"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-[#404040] focus:outline-none focus:border-[#00C47A]/60 transition-colors"
+                  />
+                  <input
+                    type="text"
+                    name="service3"
+                    value={form.service3 ?? ''}
+                    onChange={(e) => set('service3', e.target.value)}
+                    placeholder="Služba č. 3 (volitelné)"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-[#404040] focus:outline-none focus:border-[#00C47A]/60 transition-colors"
+                  />
+                </div>
+              </div>
               <TextareaField
                 label="Kdo jsou vaši zákazníci? *"
+                name="targetAudience"
                 value={form.targetAudience}
                 onChange={(v) => set('targetAudience', v)}
-                placeholder="Příklad: Majitelé bytů a rodinných domů 30–55 let, správci komerčních nemovitostí, drobní podnikatelé v Praze."
-                rows={3}
+                placeholder="Příklad: Majitelé bytů a rodinných domů 30–55 let v Praze a okolí."
+                rows={2}
                 error={showErrors && !form.targetAudience.trim()}
-              />
-              <TextareaField
-                label="Proč si zákazníci vybírají vás a ne konkurenci?"
-                value={form.competitiveAdvantage}
-                onChange={(v) => set('competitiveAdvantage', v)}
-                placeholder="Příklad: Příjezd do 2 hodin, 5 let záruka na práci, pevná cena bez skrytých poplatků, dostupní i o víkendu."
-                rows={3}
               />
             </div>
           </div>
@@ -262,359 +322,178 @@ export default function OrderForm() {
         {step === 3 && (
           <div>
             <h2 className="text-2xl font-black text-white mb-1">Co má web dělat?</h2>
-            <p className="text-[#606060] text-sm mb-8">Vyberte jeden nebo více cílů. Čím jasněji, tím lépe.</p>
+            <p className="text-[#606060] text-sm mb-8">Vyberte hlavní cíl.</p>
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-[#C0C0C0] mb-3">Primární cíl webu * <span className="text-[#505050] font-normal">(lze vybrat více)</span></label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {WEBSITE_GOALS.map((g) => (
-                    <CheckCard
-                      key={g.id}
-                      label={g.label}
-                      desc={g.desc}
-                      selected={form.websiteGoals.includes(g.id)}
-                      onClick={() => toggleArray('websiteGoals', g.id)}
-                    />
-                  ))}
-                </div>
-                {showErrors && form.websiteGoals.length === 0 && (
-                  <p className="text-red-400 text-xs mt-2">Vyberte alespoň jeden cíl.</p>
-                )}
-              </div>
-              <Field
-                label="Hlavní CTA — co má zákazník udělat? *"
-                value={form.mainCta}
-                onChange={(v) => set('mainCta', v)}
-                placeholder="Příklad: Nezávazná poptávka, Objednat termín, Stáhnout ceník, Zavolat nyní"
-                error={showErrors && !form.mainCta.trim()}
-              />
-            </div>
-          </div>
-        )}
-
-        {/* ── Krok 4: Struktura ────────────────────────────────────────────── */}
-        {step === 4 && (
-          <div>
-            <h2 className="text-2xl font-black text-white mb-1">Struktura webu</h2>
-            <p className="text-[#606060] text-sm mb-8">Které sekce má web obsahovat? Předvybrali jsme základ — upravte podle potřeby.</p>
-            <div className="space-y-5">
-              <div>
-                <label className="block text-sm font-semibold text-[#C0C0C0] mb-3">Sekce webu * <span className="text-[#505050] font-normal">(vyberte vše, co chcete)</span></label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {SECTIONS.map((s) => (
-                    <CheckCard
-                      key={s.id}
-                      label={s.label}
-                      desc={s.desc}
-                      selected={form.sections.includes(s.id)}
-                      onClick={() => toggleArray('sections', s.id)}
-                      compact
-                    />
-                  ))}
-                </div>
-                {showErrors && form.sections.length === 0 && (
-                  <p className="text-red-400 text-xs mt-2">Vyberte alespoň jednu sekci.</p>
-                )}
-              </div>
-              <TextareaField
-                label="Vlastní sekce nebo stránky"
-                value={form.customSections}
-                onChange={(v) => set('customSections', v)}
-                placeholder="Příklad: Blog, E-shop, Kalkulačka ceny, Mapa poboček, Stránka pro partnery…"
-                rows={2}
-              />
-            </div>
-          </div>
-        )}
-
-        {/* ── Krok 5: Obsah ────────────────────────────────────────────────── */}
-        {step === 5 && (
-          <div>
-            <h2 className="text-2xl font-black text-white mb-1">Připravené podklady</h2>
-            <p className="text-[#606060] text-sm mb-8">Co máte, co dodáme my. Upřímná odpověď = lepší plánování.</p>
-            <div className="space-y-5">
-              {([
-                { key: 'hasTexts' as const,  label: 'Texty o firmě a službách',       hint: 'Pokud ne, napíšeme je za vás.' },
-                { key: 'hasPhotos' as const, label: 'Fotografie (produkty, prostory)', hint: 'Pokud ne, použijeme stock nebo AI.' },
-                { key: 'hasLogo' as const,   label: 'Logo',                            hint: 'Pokud ne, navrhneme textové logo.' },
-              ] as const).map(({ key, label, hint }) => (
-                <div key={key}>
-                  <label className="block text-sm font-semibold text-[#C0C0C0] mb-1">{label}</label>
-                  <p className="text-[#505050] text-xs mb-2">{hint}</p>
-                  <div className="flex gap-3">
-                    {(['yes', 'no'] as const).map((opt) => (
-                      <button
-                        key={opt}
-                        onClick={() => set(key, opt)}
-                        className={cn(
-                          'flex-1 py-3 rounded-xl border text-sm font-medium transition-all',
-                          form[key] === opt
-                            ? 'border-[#00C47A] bg-[rgba(0,196,122,0.06)] text-white'
-                            : showErrors && !form[key]
-                            ? 'border-red-500/40 bg-white/3 text-[#808080] hover:border-red-500/60'
-                            : 'border-white/8 bg-white/3 text-[#808080] hover:border-white/15',
-                        )}
-                      >
-                        {opt === 'yes' ? 'Ano, mám' : 'Ne, potřebuji pomoct'}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-              <Field
-                label="Odkaz na existující podklady, Disk, web (volitelné)"
-                value={form.contentLinks}
-                onChange={(v) => set('contentLinks', v)}
-                placeholder="https://drive.google.com/... nebo https://existujici-web.cz"
-              />
-            </div>
-          </div>
-        )}
-
-        {/* ── Krok 6: Design ───────────────────────────────────────────────── */}
-        {step === 6 && (
-          <div>
-            <h2 className="text-2xl font-black text-white mb-1">Vizuální styl</h2>
-            <p className="text-[#606060] text-sm mb-8">Jak má web působit na návštěvníky?</p>
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-semibold text-[#C0C0C0] mb-3">Styl webu *</label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {DESIGN_STYLES.map((s) => (
+                <label className="block text-sm font-semibold text-[#C0C0C0] mb-3">Cíl webu *</label>
+                <div className="grid grid-cols-1 gap-3">
+                  {GOALS.map((g) => (
                     <button
-                      key={s.id}
-                      onClick={() => set('designStyle', s.id)}
+                      key={g.id}
+                      type="button"
+                      name="goal"
+                      onClick={() => setForm((f) => ({ ...f, websiteGoals: [g.id] }))}
                       className={cn(
-                        'p-4 rounded-xl border text-left transition-all',
-                        form.designStyle === s.id
+                        'p-4 rounded-xl border text-left transition-all flex items-center gap-4',
+                        form.websiteGoals.includes(g.id)
                           ? 'border-[#00C47A] bg-[rgba(0,196,122,0.06)]'
-                          : showErrors && !form.designStyle
+                          : showErrors && form.websiteGoals.length === 0
                           ? 'border-red-500/20 bg-white/3 hover:border-white/15'
                           : 'border-white/8 bg-white/3 hover:border-white/15',
                       )}
                     >
-                      <div className="font-semibold text-white text-sm">{s.label}</div>
-                      <div className="text-[#606060] text-xs mt-0.5">{s.desc}</div>
+                      <span
+                        className={cn(
+                          'w-4 h-4 rounded-full border-2 flex-shrink-0 transition-all flex items-center justify-center',
+                          form.websiteGoals.includes(g.id)
+                            ? 'border-[#00C47A] bg-[#00C47A]'
+                            : 'border-white/20',
+                        )}
+                      >
+                        {form.websiteGoals.includes(g.id) && <Check className="w-2.5 h-2.5 text-[#050A08]" />}
+                      </span>
+                      <div>
+                        <div className="font-semibold text-white text-sm">{g.label}</div>
+                        <div className="text-[#606060] text-xs mt-0.5">{g.desc}</div>
+                      </div>
                     </button>
                   ))}
                 </div>
-                {showErrors && !form.designStyle && (
-                  <p className="text-red-400 text-xs mt-2">Vyberte styl webu.</p>
+                {showErrors && form.websiteGoals.length === 0 && (
+                  <p className="text-red-400 text-xs mt-2">Vyberte cíl webu.</p>
                 )}
               </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-[#C0C0C0] mb-3">Barevné ladění</label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {COLOR_PALETTES.map((p) => (
-                    <button
-                      key={p.id}
-                      onClick={() => set('colorPreference', p.id)}
-                      className={cn(
-                        'p-3 rounded-xl border text-left transition-all flex items-center gap-2.5',
-                        form.colorPreference === p.id
-                          ? 'border-[#00C47A] bg-[rgba(0,196,122,0.06)]'
-                          : 'border-white/8 bg-white/3 hover:border-white/15',
-                      )}
-                    >
-                      {p.a && p.b ? (
-                        <span
-                          className="w-6 h-6 rounded-full flex-shrink-0"
-                          style={{ background: `linear-gradient(135deg, ${p.a} 50%, ${p.b} 50%)` }}
-                        />
-                      ) : (
-                        <span className="w-6 h-6 rounded-full flex-shrink-0 border border-dashed border-white/20" />
-                      )}
-                      <span className="text-[#C0C0C0] text-xs font-medium leading-tight">{p.label}</span>
-                    </button>
-                  ))}
-                </div>
-                {form.colorPreference === 'custom' && (
-                  <Field
-                    label=""
-                    value={form.customColors}
-                    onChange={(v) => set('customColors', v)}
-                    placeholder="Příklad: firemní modrá #1E3A8A a bílá, nebo tmavě zelená + oranžová"
-                    className="mt-3"
-                  />
-                )}
-              </div>
-
               <Field
-                label="Web, který se vám líbí (inspirace)"
-                value={form.designInspiration}
-                onChange={(v) => set('designInspiration', v)}
-                placeholder="https://example.com — co se vám na něm líbí?"
+                label="Reference / konkurence (URL nebo popis)"
+                name="reference"
+                value={form.reference ?? ''}
+                onChange={(v) => set('reference', v)}
+                placeholder="https://konkurent.cz nebo: chci web jako Apple - cist&#253;, pr&#233;miov&#253;"
               />
             </div>
           </div>
         )}
 
-        {/* ── Krok 7: Technické ────────────────────────────────────────────── */}
-        {step === 7 && (
+        {/* ── Krok 4: Styl komunikace ───────────────────────────────────────── */}
+        {step === 4 && (
           <div>
-            <h2 className="text-2xl font-black text-white mb-1">Technické věci</h2>
-            <p className="text-[#606060] text-sm mb-8">Doména, jazyk a kontaktní údaje, které se zobrazí na webu.</p>
-            <div className="space-y-5">
+            <h2 className="text-2xl font-black text-white mb-1">Styl komunikace</h2>
+            <p className="text-[#606060] text-sm mb-8">Jak má web mluvit na zákazníky?</p>
+            <div className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-[#C0C0C0] mb-2">Máte vlastní doménu? *</label>
+                <label className="block text-sm font-semibold text-[#C0C0C0] mb-3">Tón komunikace *</label>
+                <div className="grid grid-cols-2 gap-3">
+                  {TONES.map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      name="tone"
+                      onClick={() => set('tone', t.id)}
+                      className={cn(
+                        'p-4 rounded-xl border text-left transition-all',
+                        form.tone === t.id
+                          ? 'border-[#00C47A] bg-[rgba(0,196,122,0.06)]'
+                          : showErrors && !form.tone
+                          ? 'border-red-500/20 bg-white/3 hover:border-white/15'
+                          : 'border-white/8 bg-white/3 hover:border-white/15',
+                      )}
+                    >
+                      <div className="font-semibold text-white text-sm">{t.label}</div>
+                      <div className="text-[#606060] text-xs mt-0.5">{t.desc}</div>
+                    </button>
+                  ))}
+                </div>
+                {showErrors && !form.tone && (
+                  <p className="text-red-400 text-xs mt-2">Vyberte tón komunikace.</p>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-[#C0C0C0] mb-1">
+                  Máte texty o firmě? *
+                </label>
+                <p className="text-[#505050] text-xs mb-3">Pokud ne, napíšeme je za vás.</p>
                 <div className="flex gap-3">
                   {(['yes', 'no'] as const).map((opt) => (
                     <button
                       key={opt}
-                      onClick={() => set('hasDomain', opt)}
+                      type="button"
+                      name="hasTexts"
+                      onClick={() => set('hasTexts', opt)}
                       className={cn(
                         'flex-1 py-3 rounded-xl border text-sm font-medium transition-all',
-                        form.hasDomain === opt
+                        form.hasTexts === opt
                           ? 'border-[#00C47A] bg-[rgba(0,196,122,0.06)] text-white'
-                          : showErrors && !form.hasDomain
+                          : showErrors && !form.hasTexts
                           ? 'border-red-500/40 bg-white/3 text-[#808080]'
                           : 'border-white/8 bg-white/3 text-[#808080] hover:border-white/15',
                       )}
                     >
-                      {opt === 'yes' ? 'Ano, mám doménu' : 'Nemám doménu'}
+                      {opt === 'yes' ? 'Ano, mám texty' : 'Ne, potřebuji pomoct'}
                     </button>
                   ))}
                 </div>
-              </div>
-
-              {form.hasDomain === 'yes' && (
-                <Field
-                  label="Název domény"
-                  value={form.domainName}
-                  onChange={(v) => set('domainName', v)}
-                  placeholder="moje-firma.cz"
-                />
-              )}
-
-              <div>
-                <label className="block text-sm font-semibold text-[#C0C0C0] mb-3">Jazyk webu * <span className="text-[#505050] font-normal">(lze vybrat více)</span></label>
-                <div className="flex gap-3">
-                  {[
-                    { id: 'cs', label: '🇨🇿 Čeština' },
-                    { id: 'en', label: '🇬🇧 Angličtina' },
-                    { id: 'sk', label: '🇸🇰 Slovenština' },
-                    { id: 'de', label: '🇩🇪 Němčina' },
-                  ].map((l) => (
-                    <button
-                      key={l.id}
-                      onClick={() => toggleArray('language', l.id)}
-                      className={cn(
-                        'px-4 py-2.5 rounded-xl border text-sm font-medium transition-all',
-                        form.language.includes(l.id)
-                          ? 'border-[#00C47A] bg-[rgba(0,196,122,0.06)] text-white'
-                          : 'border-white/8 bg-white/3 text-[#808080] hover:border-white/15',
-                      )}
-                    >
-                      {l.label}
-                    </button>
-                  ))}
-                </div>
-                {showErrors && form.language.length === 0 && (
-                  <p className="text-red-400 text-xs mt-2">Vyberte alespoň jeden jazyk.</p>
+                {showErrors && !form.hasTexts && (
+                  <p className="text-red-400 text-xs mt-2">Vyberte možnost.</p>
                 )}
               </div>
+            </div>
+          </div>
+        )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Field
-                  label="Kontaktní e-mail na webu *"
-                  type="email"
-                  value={form.contactEmail}
-                  onChange={(v) => set('contactEmail', v)}
-                  placeholder={form.email || 'info@firma.cz'}
-                  error={showErrors && !(form.contactEmail || form.email).trim()}
-                />
-                <Field
-                  label="Kontaktní telefon na webu"
-                  type="tel"
-                  value={form.contactPhone}
-                  onChange={(v) => set('contactPhone', v)}
-                  placeholder={form.phone || '+420 777 000 000'}
-                />
-              </div>
-
+        {/* ── Krok 5: Kontakt + odeslání ────────────────────────────────────── */}
+        {step === 5 && (
+          <div>
+            <h2 className="text-2xl font-black text-white mb-1">Kontaktní údaje</h2>
+            <p className="text-[#606060] text-sm mb-8">Jak vás kontaktovat ohledně webu.</p>
+            <div className="space-y-4">
               <Field
-                label="Adresa / provozovna (volitelné)"
-                value={form.contactAddress}
-                onChange={(v) => set('contactAddress', v)}
-                placeholder="Příklad: Václavské náměstí 1, Praha 1, 110 00"
+                label="Jméno a příjmení *"
+                name="name"
+                value={form.name}
+                onChange={(v) => set('name', v)}
+                placeholder="Jan Novák"
+                error={showErrors && !form.name.trim()}
               />
-            </div>
-          </div>
-        )}
-
-        {/* ── Krok 8: Instrukce ────────────────────────────────────────────── */}
-        {step === 8 && (
-          <div>
-            <h2 className="text-2xl font-black text-white mb-1">Důležité instrukce</h2>
-            <p className="text-[#606060] text-sm mb-8">Vaše speciální požadavky. Pište konkrétně — tato pole přečte AI, která web vytvoří.</p>
-            <div className="space-y-5">
+              <Field
+                label="E-mail *"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={(v) => set('email', v)}
+                placeholder="jan@firma.cz"
+                error={showErrors && !isEmailValid(form.email)}
+              />
+              <Field
+                label="Telefon"
+                name="phone"
+                type="tel"
+                value={form.phone}
+                onChange={(v) => set('phone', v)}
+                placeholder="+420 777 000 000"
+              />
               <TextareaField
-                label="Co MUSÍ na webu být / co je pro vás klíčové?"
-                value={form.mustHave}
-                onChange={(v) => set('mustHave', v)}
-                placeholder="Příklad: Musí být viditelné certifikace ISO 9001, prominentní telefonní číslo v hlavičce, sekce s recenzemi z Googlu, kontaktní formulář s polem na popis projektu."
-                rows={4}
+                label="Poznámka (volitelné)"
+                name="note"
+                value={form.note ?? ''}
+                onChange={(v) => set('note', v)}
+                placeholder="Cokoliv dalšího, co chcete sdělit…"
+                rows={3}
               />
-              <TextareaField
-                label="Co NESMÍ na webu být / co se vám nelíbí?"
-                value={form.mustNotHave}
-                onChange={(v) => set('mustNotHave', v)}
-                placeholder="Příklad: Žádné tmavé pozadí, nechci animace, žádný chatbot, nechci zobrazovat ceny na hlavní stránce."
-                rows={4}
-              />
-            </div>
-          </div>
-        )}
-
-        {/* ── Krok 9: Přehled + odeslání ───────────────────────────────────── */}
-        {step === 9 && (
-          <div>
-            <div className="flex items-center justify-between mb-1">
-              <h2 className="text-2xl font-black text-white">Přehled zadání</h2>
-              <button
-                onClick={copyBrief}
-                className="flex items-center gap-1.5 text-xs text-[#606060] hover:text-[#00C47A] transition-colors"
-              >
-                {copied ? <CheckCheck className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                {copied ? 'Zkopírováno' : 'Kopírovat brief'}
-              </button>
-            </div>
-            <p className="text-[#606060] text-sm mb-6">
-              Toto zadání obdrží AI, která váš web vytvoří. Zkontrolujte a potvrďte.
-            </p>
-
-            <div className="bg-[#0A0F0D] border border-white/8 rounded-xl p-5 mb-6 max-h-80 overflow-y-auto">
-              <pre className="text-[#B0BDB6] text-xs leading-relaxed whitespace-pre-wrap font-mono">
-                {brief}
-              </pre>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-              {[
-                'Platba bezpečně přes Stripe',
-                'Brief jde okamžitě do výroby',
-                'Web do 24 hodin od potvrzení',
-              ].map((item) => (
-                <div key={item} className="rounded-xl border border-white/8 bg-white/3 px-4 py-3 text-xs text-[#B8C2BC]">
-                  {item}
-                </div>
-              ))}
-            </div>
-
-            <div className="accent-border rounded-xl p-5 mb-6 flex items-center justify-between">
-              <div>
-                <div className="text-white font-black text-lg">Profesionální web na klíč</div>
-                <div className="text-[#606060] text-sm mt-0.5">Celá platba předem · Hosting a texty v ceně</div>
-              </div>
-              <div className="text-[#00C47A] font-black text-2xl">9 900 Kč</div>
             </div>
 
             {error && (
-              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 mb-4">
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 mt-6">
                 <p className="text-red-400 text-sm">{error}</p>
               </div>
             )}
+
+            <div className="accent-border rounded-xl p-5 mt-6 mb-4 flex items-center justify-between">
+              <div>
+                <div className="text-white font-black text-lg">Profesionální web na klíč</div>
+                <div className="text-[#606060] text-sm mt-0.5">Hosting a texty v ceně · Web do 24 h</div>
+              </div>
+              <div className="text-[#00C47A] font-black text-2xl">9 900 Kč</div>
+            </div>
 
             <button
               onClick={handleSubmit}
@@ -633,25 +512,21 @@ export default function OrderForm() {
           </div>
         )}
 
-        {/* ── Navigace ─────────────────────────────────────────────────────── */}
+        {/* ── Validační chyba ───────────────────────────────────────────────── */}
         {validationError && (
           <div className="mt-6 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
             <p className="text-red-400 text-sm">Vyplňte prosím všechna povinná pole (*) před pokračováním.</p>
           </div>
         )}
 
+        {/* ── Navigace ─────────────────────────────────────────────────────── */}
         <div className={cn('flex gap-3 mt-8', step === 1 ? 'justify-end' : 'justify-between')}>
-          {step > 1 && step < 9 && (
+          {step > 1 && (
             <button onClick={handleBack} className="btn-secondary px-6 py-3 text-sm">
-              ← Zpět
+              ← {step === 5 ? 'Upravit' : 'Zpět'}
             </button>
           )}
-          {step > 1 && step === 9 && (
-            <button onClick={handleBack} className="btn-secondary px-6 py-3 text-sm">
-              ← Upravit
-            </button>
-          )}
-          {step < 9 && (
+          {step < 5 && (
             <button
               onClick={handleNext}
               className="btn-primary flex items-center gap-2 px-7 py-3 text-sm font-bold"
@@ -680,6 +555,7 @@ export default function OrderForm() {
 
 function Field({
   label,
+  name,
   value,
   onChange,
   placeholder,
@@ -688,6 +564,7 @@ function Field({
   className = '',
 }: {
   label: string;
+  name?: string;
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
@@ -702,6 +579,7 @@ function Field({
       )}
       <input
         type={type}
+        name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
@@ -716,6 +594,7 @@ function Field({
 
 function TextareaField({
   label,
+  name,
   value,
   onChange,
   placeholder,
@@ -723,6 +602,7 @@ function TextareaField({
   error = false,
 }: {
   label: string;
+  name?: string;
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
@@ -733,6 +613,7 @@ function TextareaField({
     <div>
       {label && <label className="block text-sm font-semibold text-[#C0C0C0] mb-2">{label}</label>}
       <textarea
+        name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
@@ -743,40 +624,5 @@ function TextareaField({
         )}
       />
     </div>
-  );
-}
-
-function CheckCard({
-  label,
-  desc,
-  selected,
-  onClick,
-  compact = false,
-}: {
-  label: string;
-  desc: string;
-  selected: boolean;
-  onClick: () => void;
-  compact?: boolean;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={cn(
-        'rounded-xl border text-left transition-all relative',
-        compact ? 'p-3' : 'p-4',
-        selected
-          ? 'border-[#00C47A] bg-[rgba(0,196,122,0.06)]'
-          : 'border-white/8 bg-white/3 hover:border-white/15',
-      )}
-    >
-      {selected && (
-        <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#00C47A] flex items-center justify-center">
-          <Check className="w-2.5 h-2.5 text-[#050A08]" />
-        </span>
-      )}
-      <div className={cn('font-semibold text-white', compact ? 'text-xs' : 'text-sm')}>{label}</div>
-      <div className={cn('text-[#606060] mt-0.5', compact ? 'text-[10px]' : 'text-xs')}>{desc}</div>
-    </button>
   );
 }

@@ -153,13 +153,33 @@ export function generateJson(
     submittedAt?: string;
   },
 ) {
+  const submittedAt = meta?.submittedAt ?? new Date().toISOString();
+  const services = [data.service1, data.service2, data.service3].filter(Boolean) as string[];
+
   return {
+    // ── Pole požadovaná n8n payloadem ──────────────────────────────────────
+    companyName: data.company,
+    industry: data.industry ?? '',
+    location: data.location ?? '',
+    services,
+    goal: data.websiteGoals[0] ?? '',
+    tone: data.tone ?? '',
+    email: data.email,
+    phone: data.phone,
+    submittedAt,
+    source: 'webdo24.cz',
+    note: data.note ?? '',
+    reference: data.reference ?? '',
+
+    // ── Meta ───────────────────────────────────────────────────────────────
     meta: {
       order_id: meta?.orderId,
       customer_id: meta?.customerId,
       stripe_session_id: meta?.stripeSessionId,
-      submitted_at: meta?.submittedAt ?? new Date().toISOString(),
+      submitted_at: submittedAt,
     },
+
+    // ── Ostatní data formuláře ─────────────────────────────────────────────
     contact: {
       name: data.name,
       email: data.email,
@@ -175,33 +195,8 @@ export function generateJson(
       goals: data.websiteGoals,
       main_cta: data.mainCta,
     },
-    structure: {
-      sections: data.sections,
-      custom_sections: data.customSections,
-    },
     content: {
       has_texts: data.hasTexts,
-      has_photos: data.hasPhotos,
-      has_logo: data.hasLogo,
-      content_links: data.contentLinks,
-    },
-    design: {
-      style: data.designStyle,
-      color_preference: data.colorPreference,
-      custom_colors: data.customColors,
-      inspiration_url: data.designInspiration,
-    },
-    technical: {
-      has_domain: data.hasDomain,
-      domain_name: data.domainName,
-      language: data.language,
-      contact_email: data.contactEmail || data.email,
-      contact_phone: data.contactPhone || data.phone,
-      contact_address: data.contactAddress,
-    },
-    instructions: {
-      must_have: data.mustHave,
-      must_not_have: data.mustNotHave,
     },
   };
 }

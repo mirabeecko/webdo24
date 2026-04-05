@@ -93,6 +93,16 @@ export interface OrderFormData {
 
   // Interní
   selectedPackage: 'start' | 'pro' | 'machine' | '';
+
+  // Nová pole (5-krokový formulář)
+  industry?: string;
+  location?: string;
+  service1?: string;
+  service2?: string;
+  service3?: string;
+  reference?: string;
+  tone?: string;
+  note?: string;
 }
 
 export interface CreateOrderPayload extends OrderFormData {
