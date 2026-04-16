@@ -636,7 +636,7 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
         <div class="mt-6 px-1">
           <div class="flex items-center justify-between mb-2">
             <h4 class="text-xl font-black">Ninja Víkend</h4>
-            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(255,189,46,0.12);color:#ffbd2e">Zážitky</span>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(255,51,102,0.1);color:#FF3366">EVENT one page — 9 900 Kč</span>
           </div>
           <p class="text-sm" style="color:rgba(255,255,255,0.4)">Event web · Program · Online přihlášení</p>
           <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 17 hodin</p>
@@ -801,6 +801,13 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
         <h3 class="text-xl font-black mb-6">Základní informace</h3>
         <div class="space-y-5">
           <div>
+            <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Vyberte balíček *</label>
+            <select id="f_package" class="form-input cursor-pointer" onchange="updatePriceDisplay()">
+              <option value="Business 24" data-price="24900" selected>Business 24 — Kompletní web (24 900 Kč)</option>
+              <option value="Event One Page" data-price="9900">Event One Page — Jednostránkový event (9 900 Kč)</option>
+            </select>
+          </div>
+          <div>
             <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Název firmy nebo projektu *</label>
             <input id="f_name" type="text" class="form-input" placeholder="např. Pekárna U Novotných">
             <p id="f_name_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Vyplňte prosím název firmy.</p>
@@ -860,11 +867,11 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
       <div id="step3" class="hidden">
         <h3 class="text-xl font-black mb-6">Souhrn & Pre-autorizace platby</h3>
         <div class="rounded-2xl p-6 mb-6 space-y-3" style="background:#051D2E">
-          <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Balíček</span><span class="font-bold">Business 24</span></div>
+          <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Balíček</span><span class="font-bold" id="s_package">Business 24</span></div>
           <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Firma</span><span class="font-bold" id="s_name">—</span></div>
           <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Cíl webu</span><span class="font-bold" id="s_goal">—</span></div>
           <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:0.75rem;margin-top:0.75rem"></div>
-          <div class="flex justify-between items-center"><span class="text-lg font-black">Celkem k autorizaci</span><span class="text-3xl font-black" style="color:#00C4B5">24 900 Kč</span></div>
+          <div class="flex justify-between items-center"><span class="text-lg font-black">Celkem k autorizaci</span><span class="text-3xl font-black" style="color:#00C4B5" id="s_price">24 900 Kč</span></div>
         </div>
         <div class="rounded-2xl p-6 mb-5" style="background:rgba(0,196,181,0.05);border:1px solid rgba(0,196,181,0.18)">
           <h4 class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Jak funguje Pre-autorizace (Hold)?</h4>
@@ -988,7 +995,7 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 </footer>
 
 <script>
-const WEBHOOK_URL = 'https://n8n.webdo24.cz/webhook/0c86bf37-7708-439c-83b5-93aac9695643';
+const WEBHOOK_URL = 'https://n8n.webdo24.cz/webhook/provision-website';
 
 const wrapLabels = (labels) => labels.map(label => {
   if (typeof label === 'string' && label.length > 16) {
@@ -1064,6 +1071,16 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
+function updatePriceDisplay() {
+  const sel = document.getElementById('f_package');
+  const opt = sel.options[sel.selectedIndex];
+  const price = parseInt(opt.dataset.price).toLocaleString('cs-CZ');
+  const priceSum = document.getElementById('s_price');
+  if (priceSum) priceSum.textContent = price + ' Kč';
+  const pkgSum = document.getElementById('s_package');
+  if (pkgSum) pkgSum.textContent = opt.value;
+}
+
 function toStep(n) {
   [1, 2, 3, 4].forEach(i => { const el = document.getElementById('step' + i); if (el) el.classList.add('hidden'); });
   const target = document.getElementById('step' + n);
@@ -1080,6 +1097,7 @@ function toStep(n) {
     document.getElementById('sl3').className = 'text-sm step-active-lbl';
     document.getElementById('s_name').textContent = (document.getElementById('f_name').value || '').trim() || '—';
     document.getElementById('s_goal').textContent = document.getElementById('f_goal').value || '—';
+    updatePriceDisplay();
   }
   const section = document.getElementById('brief');
   if (section) setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
@@ -1113,6 +1131,10 @@ async function submitBrief() {
   btn.disabled = true;
   btn.style.opacity = '0.6';
   btn.style.cursor = 'not-allowed';
+  
+  const pkgSel = document.getElementById('f_package');
+  const pkgOpt = pkgSel.options[pkgSel.selectedIndex];
+  
   const payload = {
     firma: (document.getElementById('f_name').value || '').trim(),
     email: (document.getElementById('f_email').value || '').trim(),
@@ -1122,8 +1144,8 @@ async function submitBrief() {
     cilova_skupina: (document.getElementById('f_audience').value || '').trim(),
     konkurence: (document.getElementById('f_competition').value || '').trim(),
     reference: (document.getElementById('f_reference').value || '').trim(),
-    balicek: 'Business 24',
-    cena: '24900',
+    balicek: pkgOpt.value,
+    cena: pkgOpt.dataset.price,
     mena: 'CZK',
     timestamp: new Date().toISOString(),
     source: 'webdo24.cz/v11'
