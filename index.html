@@ -1096,7 +1096,7 @@ async function submitBrief() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     toStep(4);
   } catch (err) {
-    console.error('EmailJS error:', err);
+    console.error('Chyba odeslání:', err);
     btn.textContent = 'Chyba odeslání — zkuste znovu';
     btn.disabled = false;
     btn.style.opacity = '1';
