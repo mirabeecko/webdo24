@@ -963,7 +963,7 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 </footer>
 
 <script>
-const WEBHOOK_URL = 'http://localhost:5678/webhook-test/zadani-webu';
+const WEBHOOK_URL = 'http://188.245.67.17:5678/webhook/4340f57b-69ca-4826-9dd3-386d53983504';
 
 const wrapLabels = (labels) => labels.map(label => {
   if (typeof label === 'string' && label.length > 16) {
@@ -1094,7 +1094,7 @@ async function submitBrief() {
     source: 'webdo24.cz/v11'
   };
   try {
-    await emailjs.send('service_x744ne5', 'template_nb1xhil', payload);
+    await fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     toStep(4);
   } catch (err) {
     console.error('EmailJS error:', err);
