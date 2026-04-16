@@ -1117,6 +1117,7 @@ async function submitBrief() {
   
   const payload = {
     firma: (document.getElementById('f_name').value || '').trim(),
+    project_slug: (document.getElementById('f_name').value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
     email: (document.getElementById('f_email').value || '').trim(),
     telefon: (document.getElementById('f_phone').value || '').trim(),
     popis: (document.getElementById('f_desc')?.value || '').trim(),
