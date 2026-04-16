@@ -1092,7 +1092,8 @@ async function submitBrief() {
     source: 'webdo24.cz/v11'
   };
   try {
-    await fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    const res = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     toStep(4);
   } catch (err) {
     console.error('EmailJS error:', err);
