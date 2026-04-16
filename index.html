@@ -1108,7 +1108,7 @@ async function submitBrief() {
     errDiv.id = 'sendError';
     errDiv.className = 'text-xs mt-3 text-center';
     errDiv.style.color = '#FF3366';
-    errDiv.textContent = 'Odeslání se nezdařilo. Napište nám přímo na info@webdo24.cz nebo zavolejte na 735 847 185.';
+    errDiv.textContent = 'Chyba: ' + (err.message || JSON.stringify(err));
     btn.parentNode.insertAdjacentElement('afterend', errDiv);
   }
 }
