@@ -76,10 +76,10 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 @keyframes scrollDot{0%{transform:translateY(0);opacity:1}100%{transform:translateY(12px);opacity:0}}
 .mock-browser{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);transition:transform 0.3s ease}
 .mock-browser:hover{transform:translateY(-4px)}
-.mock-chrome{background:rgba(5,20,35,0.95);padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.mock-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.mock-url{flex:1;background:rgba(255,255,255,0.06);border-radius:4px;height:18px;margin-left:8px}
-.mock-content{height:220px;position:relative;overflow:hidden;background:#030f1a}
+.mock-chrome{background:rgba(5,20,35,0.95);padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mock-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.mock-url{display:none}
+.mock-content{height:320px;position:relative;overflow:hidden;background:#030f1a}
 .mock-content iframe{width:200%;height:200%;transform:scale(0.5);transform-origin:top left;border:none;pointer-events:none;display:block}
 .mock-content-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(3,15,26,0.6) 100%);pointer-events:none}
 .portfolio-card{display:none}
@@ -589,7 +589,7 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
       <button class="tab-btn" onclick="filterPortfolio(this,'wellness')">Wellness & Sport</button>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioGrid">
 
       <!-- autoservis -->
       <div class="portfolio-card visible" data-cat="remeslnici">
@@ -598,19 +598,18 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
-            <div class="mock-url">autoservis-praha.cz</div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo2-autoservis.png" loading="lazy" alt="Autoservis web" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
           </div>
         </div>
-        <div class="mt-4 px-1">
-          <div class="flex items-center justify-between mb-1">
-            <h4 class="font-black">Autoservis Praha</h4>
-            <span class="text-xs px-2.5 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Autoservis Praha</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
           </div>
-          <p class="text-xs" style="color:rgba(255,255,255,0.4)">Firemní web · Ceník · Rezervace</p>
-          <p class="text-xs mt-1 font-bold" style="color:#00C4B5">Dodáno za 20 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Firemní web · Ceník · Rezervace</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 20 hodin</p>
         </div>
       </div>
 
@@ -621,19 +620,18 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
-            <div class="mock-url">selbicky.cz</div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo4-selbicky.png" loading="lazy" alt="Autolakýrnictví Šelbický" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
           </div>
         </div>
-        <div class="mt-4 px-1">
-          <div class="flex items-center justify-between mb-1">
-            <h4 class="font-black">Autolakýrnictví Šelbický</h4>
-            <span class="text-xs px-2.5 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Autolakýrnictví Šelbický</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
           </div>
-          <p class="text-xs" style="color:rgba(255,255,255,0.4)">Prezentační web · Galerie · Poptávka</p>
-          <p class="text-xs mt-1 font-bold" style="color:#00C4B5">Dodáno za 22 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Prezentační web · Galerie · Poptávka</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 22 hodin</p>
         </div>
       </div>
 
@@ -644,111 +642,106 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
-            <div class="mock-url">kadernictvi-maruska.cz</div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo5-kadernictvimaruska.png" loading="lazy" alt="Kadeřnictví Maruška" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
           </div>
         </div>
-        <div class="mt-4 px-1">
-          <div class="flex items-center justify-between mb-1">
-            <h4 class="font-black">Kadeřnictví Maruška</h4>
-            <span class="text-xs px-2.5 py-1 rounded-full font-bold" style="background:rgba(168,85,247,0.12);color:#a855f7">Wellness</span>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Kadeřnictví Maruška</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(168,85,247,0.12);color:#a855f7">Wellness</span>
           </div>
-          <p class="text-xs" style="color:rgba(255,255,255,0.4)">Landing page · Ceník · Online objednání</p>
-          <p class="text-xs mt-1 font-bold" style="color:#00C4B5">Dodáno za 18 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Landing page · Ceník · Online objednání</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 18 hodin</p>
         </div>
       </div>
 
       <!-- elektrikář -->
-      <div class="portfolio-card visible" data-cat="remeslnici">
+      <div class="portfolio-card hidden portfolio-extra" data-cat="remeslnici">
         <div class="mock-browser">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
-            <div class="mock-url">pavel-dousa.cz</div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo8-pavel-dousa-elektrikar.png" loading="lazy" alt="Pavel Douša – elektrikář" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
           </div>
         </div>
-        <div class="mt-4 px-1">
-          <div class="flex items-center justify-between mb-1">
-            <h4 class="font-black">Pavel Douša — Elektrikář</h4>
-            <span class="text-xs px-2.5 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Pavel Douša — Elektrikář</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
           </div>
-          <p class="text-xs" style="color:rgba(255,255,255,0.4)">Firemní web · Ceník · Kontakt</p>
-          <p class="text-xs mt-1 font-bold" style="color:#00C4B5">Dodáno za 19 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Firemní web · Ceník · Kontakt</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 19 hodin</p>
         </div>
       </div>
 
-      <!-- freelancer (hidden by default) -->
-      <div class="portfolio-card portfolio-extra hidden" data-cat="firmy">
+      <!-- freelancer -->
+      <div class="portfolio-card hidden portfolio-extra" data-cat="firmy">
         <div class="mock-browser">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
-            <div class="mock-url">martin-novak.dev</div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo6-freelancer.png" loading="lazy" alt="Freelancer web" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
           </div>
         </div>
-        <div class="mt-4 px-1">
-          <div class="flex items-center justify-between mb-1">
-            <h4 class="font-black">Freelancer Portfolio</h4>
-            <span class="text-xs px-2.5 py-1 rounded-full font-bold" style="background:rgba(255,51,102,0.1);color:#FF3366">B2B / Freelancer</span>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Freelancer Portfolio</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(255,51,102,0.1);color:#FF3366">B2B / Freelancer</span>
           </div>
-          <p class="text-xs" style="color:rgba(255,255,255,0.4)">Portfolio · Služby · Kontakt</p>
-          <p class="text-xs mt-1 font-bold" style="color:#00C4B5">Dodáno za 21 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Portfolio · Služby · Kontakt</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 21 hodin</p>
         </div>
       </div>
 
-      <!-- paddleboardy (hidden by default) -->
-      <div class="portfolio-card portfolio-extra hidden" data-cat="wellness">
+      <!-- paddleboardy -->
+      <div class="portfolio-card hidden portfolio-extra" data-cat="wellness">
         <div class="mock-browser">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
-            <div class="mock-url">paddleboardy-milada.cz</div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo7-paddleboardy-milada.png" loading="lazy" alt="Paddleboardy Milada" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
           </div>
         </div>
-        <div class="mt-4 px-1">
-          <div class="flex items-center justify-between mb-1">
-            <h4 class="font-black">Paddleboardy Milada</h4>
-            <span class="text-xs px-2.5 py-1 rounded-full font-bold" style="background:rgba(34,197,94,0.1);color:#22c55e">Sport</span>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Paddleboardy Milada</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(34,197,94,0.1);color:#22c55e">Sport</span>
           </div>
-          <p class="text-xs" style="color:rgba(255,255,255,0.4)">Landing page · Rezervace · Ceník</p>
-          <p class="text-xs mt-1 font-bold" style="color:#00C4B5">Dodáno za 23 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Landing page · Rezervace · Ceník</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 23 hodin</p>
         </div>
       </div>
 
-      <!-- ninja vikend (hidden by default) -->
-      <div class="portfolio-card portfolio-extra hidden" data-cat="restaurace">
+      <!-- ninja vikend -->
+      <div class="portfolio-card hidden portfolio-extra" data-cat="restaurace">
         <div class="mock-browser">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
-            <div class="mock-url">ninja-vikend.cz</div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo3-ninja-vikend.png" loading="lazy" alt="Ninja víkend" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
           </div>
         </div>
-        <div class="mt-4 px-1">
-          <div class="flex items-center justify-between mb-1">
-            <h4 class="font-black">Ninja Víkend</h4>
-            <span class="text-xs px-2.5 py-1 rounded-full font-bold" style="background:rgba(255,189,46,0.12);color:#ffbd2e">Zážitky</span>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Ninja Víkend</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(255,189,46,0.12);color:#ffbd2e">Zážitky</span>
           </div>
-          <p class="text-xs" style="color:rgba(255,255,255,0.4)">Event web · Program · Online přihlášení</p>
-          <p class="text-xs mt-1 font-bold" style="color:#00C4B5">Dodáno za 17 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Event web · Program · Online přihlášení</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 17 hodin</p>
         </div>
       </div>
 
@@ -807,6 +800,17 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
             <div class="flex gap-3 items-center">
               <input id="f_picker" type="color" value="#00C4B5" class="w-12 h-12 rounded-xl cursor-pointer p-1" style="background:transparent;border:1px solid rgba(255,255,255,0.15)">
               <input id="f_color" type="text" class="form-input" placeholder="#00C4B5 nebo název barvy" value="#00C4B5">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Váš e-mail *</label>
+              <input id="f_email" type="email" class="form-input" placeholder="např. novak@firma.cz">
+              <p id="f_email_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Zadejte platný e-mail.</p>
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Telefon</label>
+              <input id="f_phone" type="tel" class="form-input" placeholder="+420 123 456 789">
             </div>
           </div>
         </div>
@@ -1064,8 +1068,16 @@ function validateStep1() {
   const nameErr = document.getElementById('f_name_err');
   const goal = document.getElementById('f_goal');
   const goalErr = document.getElementById('f_goal_err');
+  const email = document.getElementById('f_email');
+  const emailErr = document.getElementById('f_email_err');
+  
   if (!name.value.trim()) { name.style.borderColor = '#FF3366'; nameErr.classList.remove('hidden'); ok = false; } else { name.style.borderColor = ''; nameErr.classList.add('hidden'); }
   if (!goal.value) { goal.style.borderColor = '#FF3366'; goalErr.classList.remove('hidden'); ok = false; } else { goal.style.borderColor = ''; goalErr.classList.add('hidden'); }
+  
+  const emailVal = email.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailVal)) { email.style.borderColor = '#FF3366'; emailErr.classList.remove('hidden'); ok = false; } else { email.style.borderColor = ''; emailErr.classList.add('hidden'); }
+  
   return ok;
 }
 
@@ -1080,6 +1092,8 @@ async function submitBrief() {
   btn.style.cursor = 'not-allowed';
   const payload = {
     firma: (document.getElementById('f_name').value || '').trim(),
+    email: (document.getElementById('f_email').value || '').trim(),
+    telefon: (document.getElementById('f_phone').value || '').trim(),
     cil: document.getElementById('f_goal').value || '',
     barva: document.getElementById('f_color').value || '',
     cilova_skupina: (document.getElementById('f_audience').value || '').trim(),
@@ -1092,7 +1106,11 @@ async function submitBrief() {
     source: 'webdo24.cz/v11'
   };
   try {
-    const res = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    const res = await fetch(WEBHOOK_URL, { 
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify(payload) 
+    });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     toStep(4);
   } catch (err) {
@@ -1126,25 +1144,51 @@ function switchSpec(btn, panelId) {
   document.getElementById(panelId).classList.add('active');
 }
 
+function showMorePortfolio() {
+  const hidden = Array.from(document.querySelectorAll('.portfolio-card.hidden:not(.filtered-out)'));
+  for (let i = 0; i < 3 && i < hidden.length; i++) {
+    hidden[i].classList.remove('hidden');
+    hidden[i].classList.add('visible');
+  }
+  const stillHidden = document.querySelectorAll('.portfolio-card.hidden:not(.filtered-out)');
+  if (stillHidden.length === 0) {
+    const btn = document.getElementById('showMoreBtn');
+    if (btn) btn.classList.add('hidden');
+  }
+}
+
 function filterPortfolio(btn, cat) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const extrasShown = document.getElementById('showMoreBtn')?.classList.contains('hidden');
-  document.querySelectorAll('.portfolio-card').forEach(card => {
+  
+  const cards = document.querySelectorAll('.portfolio-card');
+  let visibleCount = 0;
+  
+  cards.forEach(card => {
     const matches = cat === 'all' || card.dataset.cat === cat;
-    const isExtra = card.classList.contains('portfolio-extra');
-    if (matches && (!isExtra || extrasShown)) { card.classList.remove('hidden'); card.classList.add('visible'); }
-    else { card.classList.add('hidden'); card.classList.remove('visible'); }
+    if (matches) {
+      card.classList.remove('filtered-out');
+      if (visibleCount < 3) {
+        card.classList.remove('hidden');
+        card.classList.add('visible');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+        card.classList.remove('visible');
+      }
+    } else {
+      card.classList.add('hidden');
+      card.classList.remove('visible');
+      card.classList.add('filtered-out');
+    }
   });
-}
 
-function showMorePortfolio() {
-  document.querySelectorAll('.portfolio-extra').forEach(card => {
-    card.classList.remove('hidden');
-    card.classList.add('visible');
-  });
-  const btn = document.getElementById('showMoreBtn');
-  if (btn) btn.classList.add('hidden');
+  const btnMore = document.getElementById('showMoreBtn');
+  const hasMore = document.querySelectorAll('.portfolio-card.hidden:not(.filtered-out)').length > 0;
+  if (btnMore) {
+    if (hasMore) btnMore.classList.remove('hidden');
+    else btnMore.classList.add('hidden');
+  }
 }
 </script>
 </body>
