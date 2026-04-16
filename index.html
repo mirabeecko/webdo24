@@ -111,7 +111,9 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 
 <nav class="glass-nav fixed top-0 w-full z-50 px-6 py-4">
   <div class="max-w-6xl mx-auto flex justify-between items-center">
-    <div class="text-2xl font-black tracking-tight"><span style="color:#FF3366">WEB</span><span style="color:#00C4B5">DO24</span><span style="color:rgba(255,255,255,0.25)">.cz</span></div>
+    <a href="#hero" class="text-2xl font-black tracking-tight flex items-center gap-1">
+      <span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span>
+    </a>
     <div class="hidden md:flex items-center gap-7 text-sm font-semibold" style="color:rgba(255,255,255,0.5)">
       <a href="#ukazky" class="hover:text-white transition-colors">Ukázky práce</a>
       <a href="#jak-to-funguje" class="hover:text-white transition-colors">Jak to funguje</a>
@@ -591,8 +593,8 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioGrid">
 
-      <!-- autoservis -->
-      <div class="portfolio-card visible" data-cat="remeslnici">
+      <!-- paddleboardy -->
+      <div class="portfolio-card visible" data-cat="wellness">
         <div class="mock-browser glow-t">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
@@ -600,16 +602,44 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
             <div class="mock-dot" style="background:#27c93f"></div>
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
-            <img src="previews/demo2-autoservis.png" loading="lazy" alt="Autoservis web" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <img src="previews/demo7-paddleboardy-milada.png" loading="lazy" alt="Paddleboardy Milada" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/60 absolute inset-0">
+               <a href="https://paddleboardy-milada.cz" target="_blank" class="btn-teal px-6 py-2.5 text-sm font-black">Zobrazit web →</a>
+            </div>
           </div>
         </div>
         <div class="mt-6 px-1">
           <div class="flex items-center justify-between mb-2">
-            <h4 class="text-xl font-black">Autoservis Praha</h4>
-            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
+            <h4 class="text-xl font-black">Paddleboardy Milada</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(34,197,94,0.1);color:#22c55e">Sport</span>
           </div>
-          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Firemní web · Ceník · Rezervace</p>
-          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 20 hodin</p>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Landing page · Rezervace · Ceník</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 23 hodin</p>
+        </div>
+      </div>
+
+      <!-- ninja vikend -->
+      <div class="portfolio-card visible" data-cat="restaurace">
+        <div class="mock-browser">
+          <div class="mock-chrome">
+            <div class="mock-dot" style="background:#ff5f56"></div>
+            <div class="mock-dot" style="background:#ffbd2e"></div>
+            <div class="mock-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="mock-content" style="overflow:hidden;background:#111">
+            <img src="previews/demo3-ninja-vikend.png" loading="lazy" alt="Ninja víkend" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/60 absolute inset-0">
+               <a href="https://ninja-vikend.cz" target="_blank" class="btn-teal px-6 py-2.5 text-sm font-black">Zobrazit web →</a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Ninja Víkend</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(255,189,46,0.12);color:#ffbd2e">Zážitky</span>
+          </div>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Event web · Program · Online přihlášení</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 17 hodin</p>
         </div>
       </div>
 
@@ -623,6 +653,9 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo4-selbicky.png" loading="lazy" alt="Autolakýrnictví Šelbický" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/60 absolute inset-0">
+               <a href="https://selbicky.cz" target="_blank" class="btn-teal px-6 py-2.5 text-sm font-black">Zobrazit web →</a>
+            </div>
           </div>
         </div>
         <div class="mt-6 px-1">
@@ -635,8 +668,33 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
         </div>
       </div>
 
+      <!-- autoservis -->
+      <div class="portfolio-card hidden portfolio-extra" data-cat="remeslnici">
+        <div class="mock-browser">
+          <div class="mock-chrome">
+            <div class="mock-dot" style="background:#ff5f56"></div>
+            <div class="mock-dot" style="background:#ffbd2e"></div>
+            <div class="mock-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="mock-content" style="overflow:hidden;background:#111">
+            <img src="previews/demo2-autoservis.png" loading="lazy" alt="Autoservis web" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/60 absolute inset-0">
+               <a href="https://autoservis-praha.cz" target="_blank" class="btn-teal px-6 py-2.5 text-sm font-black">Zobrazit web →</a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 px-1">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xl font-black">Autoservis Praha</h4>
+            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(0,196,181,0.1);color:#00C4B5">Řemeslník</span>
+          </div>
+          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Firemní web · Ceník · Rezervace</p>
+          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 20 hodin</p>
+        </div>
+      </div>
+
       <!-- kadeřnictví -->
-      <div class="portfolio-card visible" data-cat="wellness">
+      <div class="portfolio-card hidden portfolio-extra" data-cat="wellness">
         <div class="mock-browser">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
@@ -645,6 +703,9 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo5-kadernictvimaruska.png" loading="lazy" alt="Kadeřnictví Maruška" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/60 absolute inset-0">
+               <a href="https://kadernictvi-maruska.cz" target="_blank" class="btn-teal px-6 py-2.5 text-sm font-black">Zobrazit web →</a>
+            </div>
           </div>
         </div>
         <div class="mt-6 px-1">
@@ -667,6 +728,9 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo8-pavel-dousa-elektrikar.png" loading="lazy" alt="Pavel Douša – elektrikář" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/60 absolute inset-0">
+               <a href="https://pavel-dousa.cz" target="_blank" class="btn-teal px-6 py-2.5 text-sm font-black">Zobrazit web →</a>
+            </div>
           </div>
         </div>
         <div class="mt-6 px-1">
@@ -689,6 +753,9 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
           </div>
           <div class="mock-content" style="overflow:hidden;background:#111">
             <img src="previews/demo6-freelancer.png" loading="lazy" alt="Freelancer web" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/60 absolute inset-0">
+               <a href="https://martin-novak.dev" target="_blank" class="btn-teal px-6 py-2.5 text-sm font-black">Zobrazit web →</a>
+            </div>
           </div>
         </div>
         <div class="mt-6 px-1">
@@ -698,50 +765,6 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
           </div>
           <p class="text-sm" style="color:rgba(255,255,255,0.4)">Portfolio · Služby · Kontakt</p>
           <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 21 hodin</p>
-        </div>
-      </div>
-
-      <!-- paddleboardy -->
-      <div class="portfolio-card hidden portfolio-extra" data-cat="wellness">
-        <div class="mock-browser">
-          <div class="mock-chrome">
-            <div class="mock-dot" style="background:#ff5f56"></div>
-            <div class="mock-dot" style="background:#ffbd2e"></div>
-            <div class="mock-dot" style="background:#27c93f"></div>
-          </div>
-          <div class="mock-content" style="overflow:hidden;background:#111">
-            <img src="previews/demo7-paddleboardy-milada.png" loading="lazy" alt="Paddleboardy Milada" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-          </div>
-        </div>
-        <div class="mt-6 px-1">
-          <div class="flex items-center justify-between mb-2">
-            <h4 class="text-xl font-black">Paddleboardy Milada</h4>
-            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(34,197,94,0.1);color:#22c55e">Sport</span>
-          </div>
-          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Landing page · Rezervace · Ceník</p>
-          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 23 hodin</p>
-        </div>
-      </div>
-
-      <!-- ninja vikend -->
-      <div class="portfolio-card hidden portfolio-extra" data-cat="restaurace">
-        <div class="mock-browser">
-          <div class="mock-chrome">
-            <div class="mock-dot" style="background:#ff5f56"></div>
-            <div class="mock-dot" style="background:#ffbd2e"></div>
-            <div class="mock-dot" style="background:#27c93f"></div>
-          </div>
-          <div class="mock-content" style="overflow:hidden;background:#111">
-            <img src="previews/demo3-ninja-vikend.png" loading="lazy" alt="Ninja víkend" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-          </div>
-        </div>
-        <div class="mt-6 px-1">
-          <div class="flex items-center justify-between mb-2">
-            <h4 class="text-xl font-black">Ninja Víkend</h4>
-            <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(255,189,46,0.12);color:#ffbd2e">Zážitky</span>
-          </div>
-          <p class="text-sm" style="color:rgba(255,255,255,0.4)">Event web · Program · Online přihlášení</p>
-          <p class="text-sm mt-2 font-bold" style="color:#00C4B5">Dodáno za 17 hodin</p>
         </div>
       </div>
 
@@ -946,7 +969,7 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 <footer class="py-16 px-6" style="border-top:1px solid rgba(255,255,255,0.08)">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
     <div>
-      <div class="text-2xl font-black tracking-tight mb-3"><span style="color:#FF3366">WEB</span><span style="color:#00C4B5">DO24</span><span style="color:rgba(255,255,255,0.25)">.cz</span></div>
+      <div class="text-2xl font-black tracking-tight mb-3"><span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span></div>
       <p class="text-sm" style="color:rgba(255,255,255,0.35)">Digitální řešení v šibeničním termínu.</p>
       <p class="text-xs mt-2" style="color:rgba(255,255,255,0.18)">© 2026 WebDo24.cz — Všechna práva rozsvícena.</p>
     </div>
