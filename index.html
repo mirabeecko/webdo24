@@ -790,11 +790,9 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
     </div>
     <div class="glass rounded-3xl p-8 md:p-10 glow-t">
       <div class="flex items-center gap-3 mb-10">
-        <div class="flex items-center gap-2.5"><div id="sn1" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-active-num">1</div><span id="sl1" class="text-sm step-active-lbl">Firma</span></div>
+        <div class="flex items-center gap-2.5"><div id="sn1" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-active-num">1</div><span id="sl1" class="text-sm step-active-lbl">Brief</span></div>
         <div class="flex-1 h-px" style="background:rgba(255,255,255,0.1)"></div>
-        <div class="flex items-center gap-2.5"><div id="sn2" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-inactive-num">2</div><span id="sl2" class="text-sm step-inactive-lbl">Kontext</span></div>
-        <div class="flex-1 h-px" style="background:rgba(255,255,255,0.1)"></div>
-        <div class="flex items-center gap-2.5"><div id="sn3" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-inactive-num">3</div><span id="sl3" class="text-sm step-inactive-lbl">Platba</span></div>
+        <div class="flex items-center gap-2.5"><div id="sn3" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-inactive-num">2</div><span id="sl3" class="text-sm step-inactive-lbl">Platba</span></div>
       </div>
 
       <div id="step1">
@@ -807,62 +805,44 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
               <option value="Event One Page" data-price="9900">Event One Page — Jednostránkový event (9 900 Kč)</option>
             </select>
           </div>
-          <div>
-            <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Název firmy nebo projektu *</label>
-            <input id="f_name" type="text" class="form-input" placeholder="např. Pekárna U Novotných">
-            <p id="f_name_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Vyplňte prosím název firmy.</p>
-          </div>
-          <div>
-            <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Hlavní cíl webu *</label>
-            <select id="f_goal" class="form-input cursor-pointer">
-              <option value="" disabled selected>Vyberte hlavní cíl...</option>
-              <option value="Získávání poptávek a telefonátů">Získávání poptávek a telefonátů</option>
-              <option value="Prodej produktů online (e-shop)">Prodej produktů online (e-shop)</option>
-              <option value="Budování značky a důvěry">Budování značky a důvěry</option>
-              <option value="Online rezervace termínů">Online rezervace termínů</option>
-              <option value="Portfolio a prezentace prací">Portfolio a prezentace prací</option>
-              <option value="Jiný cíl">Jiný cíl</option>
-            </select>
-            <p id="f_goal_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Vyberte prosím hlavní cíl.</p>
-          </div>
-          <div>
-            <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Brandová barva</label>
-            <div class="flex gap-3 items-center">
-              <input id="f_picker" type="color" value="#00C4B5" class="w-12 h-12 rounded-xl cursor-pointer p-1" style="background:transparent;border:1px solid rgba(255,255,255,0.15)">
-              <input id="f_color" type="text" class="form-input" placeholder="#00C4B5 nebo název barvy" value="#00C4B5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Název firmy nebo projektu *</label>
+              <input id="f_name" type="text" class="form-input" placeholder="např. Pekárna U Novotných">
+              <p id="f_name_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Vyplňte prosím název firmy.</p>
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Hlavní cíl webu *</label>
+              <select id="f_goal" class="form-input cursor-pointer">
+                <option value="" disabled selected>Vyberte cíl...</option>
+                <option value="Získávání poptávek">Získávání poptávek</option>
+                <option value="Prodej produktů">Prodej produktů</option>
+                <option value="Budování značky">Budování značky</option>
+                <option value="Rezervace termínů">Rezervace termínů</option>
+                <option value="Prezentace prací">Prezentace prací</option>
+              </select>
             </div>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Váš e-mail *</label>
-              <input id="f_email" type="email" class="form-input" placeholder="např. novak@firma.cz">
+              <input id="f_email" type="email" class="form-input" placeholder="novak@firma.cz">
               <p id="f_email_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Zadejte platný e-mail.</p>
             </div>
             <div>
               <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Telefon</label>
-              <input id="f_phone" type="tel" class="form-input" placeholder="+420 123 456 789">
+              <input id="f_phone" type="tel" class="form-input" placeholder="+420 ...">
             </div>
           </div>
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Poznámka (volitelně)</label>
+            <textarea id="f_note" class="form-input" rows="2" placeholder="Barvy, reference nebo cokoliv dalšího..."></textarea>
+          </div>
         </div>
-        <button onclick="toStep(2)" class="btn-coral w-full py-4 mt-8 text-base font-black">Pokračovat: Kontext →</button>
+        <button onclick="toStep(3)" class="btn-coral w-full py-4 mt-8 text-base font-black">Přejít k autorizaci platby →</button>
       </div>
 
-      <div id="step2" class="hidden">
-        <div class="flex items-center gap-3 mb-6">
-          <h3 class="text-xl font-black">Volitelný kontext</h3>
-          <span class="text-xs px-3 py-1 rounded-full font-bold" style="background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)">nepovinné</span>
-        </div>
-        <p class="text-sm leading-relaxed mb-6" style="color:rgba(255,255,255,0.45)">Čím více víme, tím lépe cílíme copy a design. Bez odpovědí pracujeme s daty vašeho oboru.</p>
-        <div class="space-y-5">
-          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Kdo jsou vaši zákazníci?</label><textarea id="f_audience" class="form-input" rows="3" placeholder="např. Ženy 30–50 let, hledají zdravé produkty, žijí v Praze a okolí..."></textarea></div>
-          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Vaše největší konkurence</label><input id="f_competition" type="text" class="form-input" placeholder="URL nebo název firmy..."></div>
-          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Weby, které se vám líbí (reference)</label><input id="f_reference" type="text" class="form-input" placeholder="Vložte URL nebo popište styl..."></div>
-        </div>
-        <div class="flex gap-3 mt-8">
-          <button onclick="toStep(1)" class="btn-outline flex-1 py-4">← Zpět</button>
-          <button onclick="toStep(3)" class="btn-coral flex-1 py-4 font-black">Přejít k platbě →</button>
-        </div>
-      </div>
+      <!-- Krok 2 (step2) odstraněn -->
 
       <div id="step3" class="hidden">
         <h3 class="text-xl font-black mb-6">Souhrn & Pre-autorizace platby</h3>
@@ -891,7 +871,7 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
           </div>
         </div>
         <div class="flex gap-3">
-          <button onclick="toStep(2)" class="btn-outline flex-1 py-4">← Zpět</button>
+          <button onclick="toStep(1)" class="btn-outline flex-1 py-4">← Zpět</button>
           <button id="submitBtn" onclick="submitBrief()" class="btn-coral flex-1 py-4 font-black text-sm">Spustit odpočet a autorizovat Hold</button>
         </div>
         <p class="text-center text-xs mt-4" style="color:rgba(255,255,255,0.25)">Pre-autorizace odpovídá standardům PCI-DSS. Váš web spustíme do 24 hodin.</p>
@@ -1082,21 +1062,21 @@ function updatePriceDisplay() {
 }
 
 function toStep(n) {
-  [1, 2, 3, 4].forEach(i => { const el = document.getElementById('step' + i); if (el) el.classList.add('hidden'); });
+  [1, 3, 4].forEach(i => { const el = document.getElementById('step' + i); if (el) el.classList.add('hidden'); });
   const target = document.getElementById('step' + n);
   if (target) target.classList.remove('hidden');
-  [2, 3].forEach(i => {
-    const num = document.getElementById('sn' + i);
-    const lbl = document.getElementById('sl' + i);
-    if (num) num.className = 'w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-inactive-num';
-    if (lbl) lbl.className = 'text-sm step-inactive-lbl';
-  });
-  if (n >= 2) { document.getElementById('sn2').className = 'w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-active-num'; document.getElementById('sl2').className = 'text-sm step-active-lbl'; }
+  
+  const sn3 = document.getElementById('sn3');
+  const sl3 = document.getElementById('sl3');
+  if (sn3) sn3.className = 'w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-inactive-num';
+  if (sl3) sl3.className = 'text-sm step-inactive-lbl';
+
   if (n >= 3) {
-    document.getElementById('sn3').className = 'w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-active-num';
-    document.getElementById('sl3').className = 'text-sm step-active-lbl';
+    if (sn3) sn3.className = 'w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-active-num';
+    if (sl3) sl3.className = 'text-sm step-active-lbl';
     document.getElementById('s_name').textContent = (document.getElementById('f_name').value || '').trim() || '—';
-    document.getElementById('s_goal').textContent = document.getElementById('f_goal').value || '—';
+    const goalEl = document.getElementById('f_goal');
+    document.getElementById('s_goal').textContent = goalEl ? goalEl.value : '—';
     updatePriceDisplay();
   }
   const section = document.getElementById('brief');
@@ -1107,13 +1087,10 @@ function validateStep1() {
   let ok = true;
   const name = document.getElementById('f_name');
   const nameErr = document.getElementById('f_name_err');
-  const goal = document.getElementById('f_goal');
-  const goalErr = document.getElementById('f_goal_err');
   const email = document.getElementById('f_email');
   const emailErr = document.getElementById('f_email_err');
   
   if (!name.value.trim()) { name.style.borderColor = '#FF3366'; nameErr.classList.remove('hidden'); ok = false; } else { name.style.borderColor = ''; nameErr.classList.add('hidden'); }
-  if (!goal.value) { goal.style.borderColor = '#FF3366'; goalErr.classList.remove('hidden'); ok = false; } else { goal.style.borderColor = ''; goalErr.classList.add('hidden'); }
   
   const emailVal = email.value.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -1123,7 +1100,7 @@ function validateStep1() {
 }
 
 const origToStep = toStep;
-window.toStep = function(n) { if (n === 2 && !validateStep1()) return; origToStep(n); };
+window.toStep = function(n) { if (n === 3 && !validateStep1()) return; origToStep(n); };
 
 async function submitBrief() {
   const btn = document.getElementById('submitBtn');
@@ -1139,11 +1116,8 @@ async function submitBrief() {
     firma: (document.getElementById('f_name').value || '').trim(),
     email: (document.getElementById('f_email').value || '').trim(),
     telefon: (document.getElementById('f_phone').value || '').trim(),
-    cil: document.getElementById('f_goal').value || '',
-    barva: document.getElementById('f_color').value || '',
-    cilova_skupina: (document.getElementById('f_audience').value || '').trim(),
-    konkurence: (document.getElementById('f_competition').value || '').trim(),
-    reference: (document.getElementById('f_reference').value || '').trim(),
+    cil: (document.getElementById('f_goal')?.value || ''),
+    poznamka: (document.getElementById('f_note')?.value || '').trim(),
     balicek: pkgOpt.value,
     cena: pkgOpt.dataset.price,
     mena: 'CZK',
