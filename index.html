@@ -12,8 +12,6 @@
 <meta property="og:title" content="WebDo24.cz | Web do 24 hodin. Nebo ZDARMA.">
 <meta property="og:description" content="Bankovní úschova platby. Platíte až po schválení. Nesplnili jsme? 0 Kč.">
 <meta property="og:locale" content="cs_CZ">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>emailjs.init('7G8fcns3k03J2S41Y');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -1094,7 +1092,7 @@ async function submitBrief() {
     source: 'webdo24.cz/v11'
   };
   try {
-    await emailjs.send('service_x744ne5', 'template_nb1xhil', payload);
+    await fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     toStep(4);
   } catch (err) {
     console.error('EmailJS error:', err);
