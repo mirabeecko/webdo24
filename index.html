@@ -1097,18 +1097,19 @@ async function submitBrief() {
     await emailjs.send('service_x744ne5', 'template_nb1xhil', payload);
     toStep(4);
   } catch (err) {
+    console.error('EmailJS error:', err);
     btn.textContent = 'Chyba odeslání — zkuste znovu';
     btn.disabled = false;
     btn.style.opacity = '1';
     btn.style.cursor = 'pointer';
-    if (!document.getElementById('sendError')) {
-      const errDiv = document.createElement('p');
-      errDiv.id = 'sendError';
-      errDiv.className = 'text-xs mt-3 text-center';
-      errDiv.style.color = '#FF3366';
-      errDiv.textContent = 'Odeslání se nezdařilo. Napište nám přímo na info@webdo24.cz nebo zavolejte na 735 847 185.';
-      btn.parentNode.insertAdjacentElement('afterend', errDiv);
-    }
+    const existing = document.getElementById('sendError');
+    if (existing) existing.remove();
+    const errDiv = document.createElement('p');
+    errDiv.id = 'sendError';
+    errDiv.className = 'text-xs mt-3 text-center';
+    errDiv.style.color = '#FF3366';
+    errDiv.textContent = 'Chyba: ' + (err.text || err.message || JSON.stringify(err));
+    btn.parentNode.insertAdjacentElement('afterend', errDiv);
   }
 }
 
