@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zásady zpracování osobních údajů — webdo24.cz (Soterana Corp s.r.o.)">
+<title>Ochrana osobních údajů | webdo24.cz</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://webdo24.cz/gdpr">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300C4B5'/><text x='16' y='22' font-family='system-ui,sans-serif' font-size='16' font-weight='900' fill='%230B3954' text-anchor='middle'>w</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit-font-smoothing:antialiased;min-height:100vh}
+:root{--navy:#0B3954;--teal:#00C4B5;--coral:#FF3366;--dark:#051D2E}
+
+/* NAV */
+nav{background:rgba(5,29,46,0.88);border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:50;padding:0 24px}
+.nav-inner{max-width:800px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.25rem;font-weight:900;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{color:#00C4B5}
+.nav-back{font-size:.875rem;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:#00C4B5}
+
+/* LAYOUT */
+.page{max-width:800px;margin:0 auto;padding:64px 24px 96px}
+
+/* HEADER */
+.page-header{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.page-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,196,181,.08);border:1px solid rgba(0,196,181,.25);border-radius:100px;padding:5px 14px;font-size:.8rem;font-weight:700;color:#00C4B5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:20px}
+.page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;line-height:1.15;margin-bottom:12px}
+.page-header p{font-size:.95rem;color:rgba(255,255,255,.45)}
+
+/* SECTIONS */
+.gdpr-section{margin-bottom:40px}
+.gdpr-section h2{font-size:1.15rem;font-weight:700;color:#00C4B5;margin-bottom:14px;display:flex;align-items:baseline;gap:10px}
+.gdpr-section h2 .sec-num{font-size:.8rem;font-weight:900;background:rgba(0,196,181,.15);border:1px solid rgba(0,196,181,.3);border-radius:6px;padding:2px 8px;flex-shrink:0}
+.gdpr-section h3{font-size:.95rem;font-weight:700;color:rgba(255,255,255,.8);margin:18px 0 8px}
+.gdpr-section p{font-size:.95rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:10px}
+.gdpr-section ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.gdpr-section ul li{font-size:.95rem;color:rgba(255,255,255,.65);line-height:1.6;padding-left:20px;position:relative}
+.gdpr-section ul li::before{content:'—';position:absolute;left:0;color:rgba(0,196,181,.6)}
+
+/* INFO BOX */
+.info-box{background:rgba(0,196,181,.06);border:1px solid rgba(0,196,181,.18);border-radius:14px;padding:24px 28px;margin-bottom:14px}
+.info-box strong{display:block;font-size:1rem;font-weight:700;margin-bottom:10px;color:#fff}
+.info-box p,.info-box a{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.7}
+.info-box a{color:#00C4B5;text-decoration:none}
+.info-box a:hover{text-decoration:underline}
+
+/* LEGAL LABEL */
+.legal-label{font-size:.8rem;font-weight:700;color:rgba(0,196,181,.7);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.07);padding:32px 24px;text-align:center}
+footer p{font-size:.85rem;color:rgba(255,255,255,.3)}
+footer a{color:rgba(255,255,255,.45);text-decoration:none;margin:0 8px}
+footer a:hover{color:#00C4B5}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">webdo<span>24</span>.cz</a>
+    <a href="/" class="nav-back">← Zpět na hlavní stránku</a>
+  </div>
+</nav>
+
+<main class="page">
+
+  <div class="page-header">
+    <div class="page-tag">Právní informace</div>
+    <h1>Zásady zpracování<br>osobních údajů</h1>
+    <p>Poslední aktualizace: 16. 4. 2026</p>
+  </div>
+
+  <p style="font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:48px">
+    Tyto zásady zpracování osobních údajů vysvětlují, jakým způsobem jsou na webu webdo24.cz zpracovávány osobní údaje návštěvníků webu, zájemců o služby a zákazníků.
+  </p>
+
+  <!-- 1 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">1</span>Správce osobních údajů</h2>
+    <div class="info-box">
+      <strong>Soterana Corp s.r.o.</strong>
+      <p>IČO: 14052326<br>
+      DIČ: CZ14052326<br>
+      Sídlo: U Uranie 1583/21, Praha 7, 170 00<br>
+      E-mail: <a href="mailto:info@webdo24.cz">info@webdo24.cz</a><br>
+      Telefon: <a href="tel:+420735847185">735 847 185</a></p>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">2</span>Jaké osobní údaje zpracováváme</h2>
+    <p>Zpracováváme zejména tyto osobní údaje:</p>
+    <ul>
+      <li>jméno a příjmení</li>
+      <li>e-mail</li>
+      <li>telefonní číslo</li>
+      <li>název společnosti</li>
+      <li>IČO, DIČ a fakturační údaje</li>
+      <li>údaje uvedené ve formuláři nebo v komunikaci</li>
+      <li>informace o objednaných službách</li>
+      <li>technické údaje o používání webu (např. IP adresa, cookies)</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">3</span>Účely a právní základy zpracování</h2>
+
+    <h3>a) Vyřízení poptávky a komunikace</h3>
+    <p>Údaje zpracováváme za účelem odpovědi na poptávku a další komunikace.</p>
+    <p><span class="legal-label">Právní základ</span> Jednání o smlouvě.</p>
+
+    <h3>b) Plnění smlouvy</h3>
+    <p>Údaje zpracováváme pro realizaci objednaných služeb, komunikaci a fakturaci.</p>
+    <p><span class="legal-label">Právní základ</span> Plnění smlouvy.</p>
+
+    <h3>c) Plnění právních povinností</h3>
+    <p>Údaje zpracováváme za účelem plnění zákonných povinností (např. účetnictví).</p>
+    <p><span class="legal-label">Právní základ</span> Právní povinnost.</p>
+
+    <h3>d) Oprávněný zájem</h3>
+    <p>Údaje můžeme zpracovávat za účelem ochrany práv, evidence komunikace a zabezpečení webu.</p>
+    <p><span class="legal-label">Právní základ</span> Oprávněný zájem.</p>
+
+    <h3>e) Obchodní sdělení</h3>
+    <p>Na základě souhlasu nebo oprávněného zájmu můžeme zasílat obchodní sdělení týkající se našich služeb.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">4</span>Doba uchování údajů</h2>
+    <ul>
+      <li>poptávky a komunikace: 12 měsíců</li>
+      <li>smluvní vztahy: po dobu trvání a následně 3 roky</li>
+      <li>účetní doklady: dle zákona (až 10 let)</li>
+      <li>marketing: do odvolání souhlasu</li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">5</span>Příjemci osobních údajů</h2>
+    <p>Osobní údaje mohou být zpřístupněny:</p>
+    <ul>
+      <li>poskytovatelům hostingu a IT služeb</li>
+      <li>poskytovatelům e-mailových služeb</li>
+      <li>poskytovatelům analytických a marketingových nástrojů</li>
+      <li>účetním a daňovým poradcům</li>
+      <li>poskytovatelům CRM, automatizací a cloudových služeb</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">6</span>Předávání do třetích zemí</h2>
+    <p>V případě využívání služeb mimo EU může dojít k předání osobních údajů do třetích zemí, a to v souladu s GDPR.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">7</span>Práva subjektů údajů</h2>
+    <p>Máte právo:</p>
+    <ul>
+      <li>na přístup ke svým údajům</li>
+      <li>na opravu nepřesných údajů</li>
+      <li>na výmaz údajů</li>
+      <li>na omezení zpracování</li>
+      <li>vznést námitku</li>
+      <li>na přenositelnost údajů</li>
+      <li>odvolat souhlas se zpracováním</li>
+    </ul>
+  </div>
+
+  <!-- 8 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">8</span>Právo podat stížnost</h2>
+    <p>Máte právo podat stížnost u:</p>
+    <div class="info-box" style="margin-top:14px">
+      <strong>Úřad pro ochranu osobních údajů</strong>
+      <p>Pplk. Sochora 27, 170 00 Praha 7<br>
+      <a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a></p>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">9</span>Cookies</h2>
+    <p>Web může používat cookies za účelem:</p>
+    <ul>
+      <li>zajištění funkčnosti webu</li>
+      <li>analýzy návštěvnosti</li>
+      <li>marketingových aktivit</li>
+    </ul>
+    <p style="margin-top:12px">Používání cookies je možné upravit prostřednictvím nastavení vašeho prohlížeče nebo cookie lišty.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">10</span>Zabezpečení údajů</h2>
+    <p>Osobní údaje jsou chráněny vhodnými technickými a organizačními opatřeními proti zneužití, ztrátě nebo neoprávněnému přístupu.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="gdpr-section">
+    <h2><span class="sec-num">11</span>Změny zásad</h2>
+    <p>Tyto zásady mohou být aktualizovány. Aktuální verze je vždy zveřejněna na webu webdo24.cz.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    © 2026 webdo24.cz · Soterana Corp s.r.o. ·
+    <a href="/">Hlavní stránka</a>
+    <a href="/gdpr">Ochrana osobních údajů</a>
+  </p>
+</footer>
+
+</body>
+</html>
