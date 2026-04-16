@@ -1094,9 +1094,7 @@ async function submitBrief() {
     source: 'webdo24.cz/v11'
   };
   try {
-    const res = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-    console.log('n8n status:', res.status, res.statusText);
-    if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + res.statusText);
+    await emailjs.send('service_x744ne5', 'template_nb1xhil', payload);
     toStep(4);
   } catch (err) {
     console.error('EmailJS error:', err);
@@ -1110,7 +1108,7 @@ async function submitBrief() {
     errDiv.id = 'sendError';
     errDiv.className = 'text-xs mt-3 text-center';
     errDiv.style.color = '#FF3366';
-    errDiv.textContent = 'Chyba: ' + (err.message || JSON.stringify(err));
+    errDiv.textContent = 'Odeslání se nezdařilo. Napište nám přímo na info@webdo24.cz nebo zavolejte na 735 847 185.';
     btn.parentNode.insertAdjacentElement('afterend', errDiv);
   }
 }
