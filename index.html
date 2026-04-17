@@ -64,6 +64,25 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 /* STEPS */
 .step-num{width:3rem;height:3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;flex-shrink:0;background:rgba(0,196,181,0.12);border:2px solid rgba(0,196,181,0.5);color:#00C4B5}
 
+/* PROCESS */
+.process-grid{display:flex;flex-direction:column;gap:16px}
+@media(min-width:768px){.process-grid{flex-direction:row;align-items:flex-start}}
+.process-step{flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:1.5rem;padding:2rem;text-align:center}
+.process-step-final{background:rgba(255,51,102,0.04);border-color:rgba(255,51,102,0.18)}
+.process-icon-wrap{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto}
+.process-icon-emoji{font-size:2.2rem;line-height:1}
+.process-who{display:inline-flex;align-items:center;padding:5px 14px;border-radius:100px;font-size:.72rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;margin-top:16px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45)}
+.process-connector{display:flex;align-items:center;justify-content:center;color:rgba(0,196,181,0.45);font-size:1.8rem;font-weight:900;padding:0 4px;flex-shrink:0;margin-top:2.5rem}
+@media(max-width:767px){.process-connector{transform:rotate(90deg);margin:0 auto;height:40px;padding:0}}
+.process-bar{height:3px;background:rgba(255,255,255,0.06);border-radius:3px;margin-top:20px;overflow:hidden}
+.process-bar-fill{height:100%;background:linear-gradient(90deg,#00C4B5,#00e0d0);border-radius:3px;animation:barPulse 2.8s ease-in-out infinite alternate}
+@keyframes barPulse{from{width:35%}to{width:88%}}
+.timeline-wrap{margin-top:44px}
+.timeline-track{height:4px;background:rgba(255,255,255,0.07);border-radius:4px;position:relative;margin:0 16px}
+.timeline-fill{position:absolute;inset:0;background:linear-gradient(90deg,#00C4B5,rgba(0,196,181,0.25));border-radius:4px}
+.timeline-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:#00C4B5;border:2px solid #0B1929;box-shadow:0 0 8px rgba(0,196,181,0.6)}
+.timeline-lbl{display:flex;justify-content:space-between;margin:10px 16px 0;font-size:.78rem;font-weight:700;color:rgba(255,255,255,0.35)}
+
 /* CARDS */
 .feature-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:1.25rem;padding:1.75rem;transition:border-color 0.25s,transform 0.25s}
 .feature-card:hover{border-color:rgba(0,196,181,0.3);transform:translateY(-3px)}
@@ -277,37 +296,73 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
      JAK TO PROBÍHÁ
 ═══════════════════════════════════════ -->
 <section id="jak-to-probiha" class="py-24 px-6" style="background:rgba(6,15,26,0.8)">
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-4xl mx-auto">
     <div class="text-center mb-16">
-      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Tři kroky</p>
-      <h2 class="text-4xl md:text-5xl font-black">Jak to probíhá?</h2>
+      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Jak to funguje</p>
+      <h2 class="text-4xl md:text-5xl font-black">Od nápadu k webu<br><span class="grad-teal">za 24 hodin</span></h2>
+      <p class="mt-5 text-base max-w-md mx-auto" style="color:rgba(255,255,255,0.4)">Celý proces probíhá na pozadí. Ty jen zadáš — zbytek je na nás.</p>
     </div>
-    <div class="space-y-6">
-      <div class="glass rounded-2xl p-7 flex items-start gap-6">
-        <div class="step-num shrink-0">1</div>
-        <div>
-          <h3 class="text-xl font-black mb-2">Napíšeš pár vět o svém podnikání</h3>
-          <p class="leading-relaxed" style="color:rgba(255,255,255,0.5)">Řekneš nám, čím se zabýváš a pro koho to děláš. Žádné složité formuláře — opravdu stačí pár vět.</p>
+
+    <div class="process-grid">
+
+      <!-- Krok 1 -->
+      <div class="process-step">
+        <div class="process-icon-wrap">
+          <span class="process-icon-emoji">✍️</span>
         </div>
+        <div class="process-who">TY &nbsp;·&nbsp; ~5 minut</div>
+        <h3 class="text-xl font-black mt-5 mb-3">Napíšeš pár vět</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Čím se zabýváš, pro koho to děláš. Žádné briefy ani prezentace — opravdu stačí pár vět.</p>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);font-size:.8rem;font-weight:700;color:rgba(255,255,255,0.25)">⏱ Formulář vyplníš za 5 minut</div>
       </div>
-      <div class="flex justify-center" style="color:rgba(0,196,181,0.4);font-size:1.5rem">↓</div>
-      <div class="glass rounded-2xl p-7 flex items-start gap-6">
-        <div class="step-num shrink-0">2</div>
-        <div>
-          <h3 class="text-xl font-black mb-2">My vytvoříme návrh webu</h3>
-          <p class="leading-relaxed" style="color:rgba(255,255,255,0.5)">Tým specialistů vezme tvoje zadání a postaví kompletní web — texty, design i funkce.</p>
+
+      <!-- Šipka -->
+      <div class="process-connector">→</div>
+
+      <!-- Krok 2 -->
+      <div class="process-step">
+        <div class="process-icon-wrap" style="background:rgba(0,196,181,0.12);border-color:rgba(0,196,181,0.4)">
+          <span class="process-icon-emoji">⚡</span>
         </div>
+        <div class="process-who" style="background:rgba(0,196,181,0.08);color:#00C4B5;border-color:rgba(0,196,181,0.25)">MY &nbsp;·&nbsp; do 22 hodin</div>
+        <h3 class="text-xl font-black mt-5 mb-3">Stavíme tvůj web</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Design, texty, funkce — vše na míru. Pracujeme, kým ty děláš svoji práci.</p>
+        <div class="process-bar"><div class="process-bar-fill"></div></div>
+        <div style="margin-top:8px;font-size:.78rem;font-weight:700;color:rgba(0,196,181,0.5);text-align:left">Design · Texty · Nasazení&hellip;</div>
       </div>
-      <div class="flex justify-center" style="color:rgba(0,196,181,0.4);font-size:1.5rem">↓</div>
-      <div class="glass rounded-2xl p-7 flex items-start gap-6" style="border-color:rgba(0,196,181,0.25)">
-        <div class="step-num shrink-0" style="background:rgba(0,196,181,0.2);border-color:#00C4B5">3</div>
-        <div>
-          <h3 class="text-xl font-black mb-2">Do 24h máš hotovo</h3>
-          <p class="leading-relaxed" style="color:rgba(255,255,255,0.5)">Web schválíš, spustíme ho online. <strong class="text-white">Zítra ráno jedeš.</strong> Jinak vracíme peníze — bez řečí.</p>
+
+      <!-- Šipka -->
+      <div class="process-connector">→</div>
+
+      <!-- Krok 3 -->
+      <div class="process-step process-step-final">
+        <div class="process-icon-wrap" style="background:rgba(255,51,102,0.12);border-color:rgba(255,51,102,0.45)">
+          <span class="process-icon-emoji">🚀</span>
         </div>
+        <div class="process-who" style="background:rgba(255,51,102,0.08);color:#FF3366;border-color:rgba(255,51,102,0.25)">HOTOVO &nbsp;·&nbsp; do 24h</div>
+        <h3 class="text-xl font-black mt-5 mb-3">Web je live</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Schválíš, spustíme ho online. <strong style="color:#fff">Zítra ráno jedeš.</strong> Jinak vracíme peníze — bez řečí.</p>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,51,102,0.12);font-size:.8rem;font-weight:700;color:rgba(255,51,102,0.5)">✓ Garance nebo vrácení peněz</div>
+      </div>
+
+    </div>
+
+    <!-- 24h osa -->
+    <div class="timeline-wrap">
+      <div class="timeline-track">
+        <div class="timeline-fill"></div>
+        <div class="timeline-dot" style="left:0%"></div>
+        <div class="timeline-dot" style="left:50%;background:rgba(0,196,181,0.7)"></div>
+        <div class="timeline-dot" style="left:100%;background:#FF3366;box-shadow:0 0 10px rgba(255,51,102,0.7)"></div>
+      </div>
+      <div class="timeline-lbl">
+        <span>0h — Odeslání formuláře</span>
+        <span>12h</span>
+        <span>24h — Web live 🎉</span>
       </div>
     </div>
-    <div class="text-center mt-10">
+
+    <div class="text-center mt-12">
       <a href="objednat.html" class="btn-primary px-10 py-4 text-base inline-block">Chci web do 24h →</a>
     </div>
   </div>
@@ -553,7 +608,8 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
     <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs" style="color:rgba(255,255,255,0.35)">
       <a href="#ukazky" class="hover:text-white transition-colors">Ukázky práce</a>
       <a href="#garance" class="hover:text-white transition-colors">Garance</a>
-      <a href="gdpr/index.html" class="hover:text-white transition-colors">Ochrana osobních údajů</a>
+      <a href="vop/" class="hover:text-white transition-colors">VOP</a>
+      <a href="gdpr/" class="hover:text-white transition-colors">Ochrana osobních údajů</a>
       <a href="objednat.html" class="hover:text-white transition-colors" style="color:#00C4B5">Chci web do 24h →</a>
     </div>
   </div>
