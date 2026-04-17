@@ -144,7 +144,15 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
               </div>
             </div>
           </div>
-          <div class="flex items-start gap-3 mt-6 p-4 rounded-xl" style="background:rgba(0,196,181,0.05);border:1px solid rgba(0,196,181,0.15)">
+          <div class="flex items-start gap-3 mt-6 p-4 rounded-xl" style="background:rgba(0,196,181,0.04);border:1px solid rgba(0,196,181,0.12)">
+            <input type="checkbox" id="f_detailni" class="mt-0.5 shrink-0 cursor-pointer" style="accent-color:#00C4B5;width:16px;height:16px">
+            <label for="f_detailni" class="cursor-pointer">
+              <span class="text-sm font-bold" style="color:rgba(255,255,255,0.85)">Chcete poskytnout detailnější informace?</span>
+              <span class="block text-xs leading-relaxed mt-0.5" style="color:rgba(255,255,255,0.45)">Zaškrtněte a pošleme vám e-mailem podrobný dotazník k vašemu businessu, který použijeme jako zadání. E-mail přijde na vaši adresu během pár minut po dokončení objednávky.</span>
+            </label>
+          </div>
+
+          <div class="flex items-start gap-3 mt-3 p-4 rounded-xl" style="background:rgba(0,196,181,0.05);border:1px solid rgba(0,196,181,0.15)">
             <input type="checkbox" id="f_souhlas" class="mt-0.5 shrink-0 cursor-pointer" style="accent-color:#00C4B5;width:16px;height:16px">
             <label for="f_souhlas" class="text-xs leading-relaxed cursor-pointer" style="color:rgba(255,255,255,0.5)">Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky dle <a href="gdpr/index.html" target="_blank" style="color:#00C4B5">zásad ochrany osobních údajů</a>.</label>
           </div>
@@ -412,6 +420,7 @@ async function submitBrief() {
     styl_reference: (document.getElementById('f_style').value || '').trim(),
     balicek: pkgOpt.value,
     cena: pkgOpt.dataset.price,
+    detailni_dotaznik: document.getElementById('f_detailni')?.checked ? true : false,
     mena: 'CZK',
     timestamp: new Date().toISOString(),
     source: 'webdo24.cz/objednat'
