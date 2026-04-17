@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-815XCLCGY8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-815XCLCGY8');</script>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Objednat web do 24 hodin — WebDo24.cz. Vyplňte brief a tým se okamžitě pustí do práce.">
+<title>Objednat web — WebDo24.cz</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { outfit: ['Outfit', 'sans-serif'] },
+      colors: { navy: '#0B3954', teal: '#00C4B5', coral: '#FF3366' }
+    }
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit-font-smoothing:antialiased}
+:root{--navy:#0B3954;--teal:#00C4B5;--coral:#FF3366;--dark:#051D2E}
+.glass{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.glass-nav{background:rgba(5,29,46,0.88);border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.btn-coral{display:inline-block;background:#FF3366;color:#fff;font-weight:900;border-radius:0.875rem;cursor:pointer;transition:all 0.25s ease;box-shadow:0 8px 32px -4px rgba(255,51,102,0.35);border:none;font-family:'Outfit',sans-serif}
+.btn-coral:hover{background:#e52e5a;transform:translateY(-2px);box-shadow:0 16px 40px -4px rgba(255,51,102,0.45)}
+.btn-outline{display:inline-block;background:transparent;color:rgba(255,255,255,0.6);font-weight:700;border-radius:0.875rem;cursor:pointer;transition:all 0.25s ease;border:1px solid rgba(255,255,255,0.15);font-family:'Outfit',sans-serif}
+.btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.4)}
+.grad-coral{background:linear-gradient(135deg,#FF3366,#ff6b8a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad-teal{background:linear-gradient(135deg,#00C4B5,#00e6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glow-t{box-shadow:0 0 60px rgba(0,196,181,0.12)}
+.form-input{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:0.75rem;color:#fff;padding:0.875rem 1.125rem;width:100%;font-family:'Outfit',sans-serif;font-size:1rem;transition:border-color 0.25s;outline:none;-webkit-appearance:none}
+.form-input:focus{border-color:#00C4B5;background:rgba(0,196,181,0.06)}
+.form-input::placeholder{color:rgba(255,255,255,0.28)}
+.form-input option{background:#0B3954;color:#fff}
+.step-active-num{background:#00C4B5;color:#0B3954}
+.step-inactive-num{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.35)}
+.step-active-lbl{color:#00C4B5;font-weight:700}
+.step-inactive-lbl{color:rgba(255,255,255,0.3);font-weight:600}
+.pulse{animation:pulse-ring 1.8s ease-in-out infinite}
+@keyframes pulse-ring{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.3)}}
+.trust-pill{background:rgba(0,196,181,0.08);border:1px solid rgba(0,196,181,0.25);border-radius:100px}
+@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fade-up 0.6s ease-out forwards}
+.sidebar-card{background:rgba(5,29,46,0.6);border:1px solid rgba(255,255,255,0.08);border-radius:1.25rem;padding:1.5rem}
+</style>
+</head>
+<body>
+
+<nav class="glass-nav fixed top-0 w-full z-50 px-6 py-4">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <a href="index.html" class="text-xl font-black tracking-tight flex items-center gap-1">
+      <span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span>
+    </a>
+    <a href="index.html" class="text-sm font-semibold flex items-center gap-1.5 transition-colors hover:text-white" style="color:rgba(255,255,255,0.5)">← Zpět na hlavní stránku</a>
+  </div>
+</nav>
+
+<div id="urgencyBar" class="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3" style="background:#FF3366">
+  <div class="flex items-center gap-3">
+    <span class="pulse inline-block w-2 h-2 rounded-full bg-white"></span>
+    <span class="text-sm font-bold text-white">Dnes zbývá: <strong>1 volné místo</strong> — odpočet do 18:00: <span id="countdown" class="font-black text-white tabular-nums">--:--:--</span></span>
+  </div>
+  <button onclick="document.getElementById('urgencyBar').remove()" class="text-white ml-4 text-lg font-black leading-none opacity-70 hover:opacity-100 transition-opacity bg-transparent border-none cursor-pointer">×</button>
+</div>
+
+<div class="pt-28 pb-32 px-6" style="background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(0,196,181,0.05),transparent 60%)">
+
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-12 fade-up">
+      <div class="trust-pill inline-flex items-center gap-2.5 px-4 py-2 mb-6">
+        <span class="pulse inline-block w-1.5 h-1.5 rounded-full" style="background:#00C4B5"></span>
+        <span class="text-xs font-black uppercase tracking-widest" style="color:#00C4B5">Smart Brief · 2 minuty vyplnění</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black mb-4">Objednat web<br><span class="grad-coral">do 24 hodin</span></h1>
+      <p class="text-lg" style="color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto">Vyplňte zadání — tým se okamžitě pustí do práce. Platba jde do bezpečné úschovy.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+
+      <!-- FORM COLUMN -->
+      <div class="glass rounded-3xl p-8 md:p-10 glow-t">
+        <div class="flex items-center gap-3 mb-10">
+          <div class="flex items-center gap-2.5"><div id="sn1" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-active-num">1</div><span id="sl1" class="text-sm step-active-lbl">Brief</span></div>
+          <div class="flex-1 h-px" style="background:rgba(255,255,255,0.1)"></div>
+          <div class="flex items-center gap-2.5"><div id="sn3" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-inactive-num">2</div><span id="sl3" class="text-sm step-inactive-lbl">Souhrn & Platba</span></div>
+        </div>
+
+        <!-- Step 1: Brief -->
+        <div id="step1">
+          <h2 class="text-xl font-black mb-6">Základní zadání</h2>
+          <div class="space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Vyberte balíček *</label>
+                <select id="f_package" class="form-input cursor-pointer" onchange="updatePriceDisplay()">
+                  <option value="Business 24" data-price="24900" selected>Business 24 — Kompletní web (24 900 Kč)</option>
+                  <option value="Event One Page" data-price="9900">Event One Page — Jednostránkový event (9 900 Kč)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Název firmy nebo projektu *</label>
+                <input id="f_name" type="text" class="form-input" placeholder="např. Pekárna U Novotných">
+                <p id="f_name_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Vyplňte prosím název firmy.</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Váš e-mail *</label>
+                <input id="f_email" type="email" class="form-input" placeholder="novak@firma.cz">
+                <p id="f_email_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Zadejte platný e-mail.</p>
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Telefon</label>
+                <input id="f_phone" type="tel" class="form-input" placeholder="+420 ...">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Čím se zabýváte a v čem jste výjimeční? *</label>
+              <textarea id="f_desc" class="form-input" rows="3" placeholder="Např: Pečeme kváskový chleba podle 100 let starého receptu, doručujeme po celé Praze do 2h."></textarea>
+              <p id="f_desc_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Napište nám prosím pár slov o vašem byznysu.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Kdo je váš typický zákazník?</label>
+                <input id="f_audience" type="text" class="form-input" placeholder="Např. Ženy 30–50, zdravý životní styl">
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Odkaz na web, který se vám líbí</label>
+                <input id="f_style" type="text" class="form-input" placeholder="URL nebo název webu">
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 mt-6 p-4 rounded-xl" style="background:rgba(0,196,181,0.05);border:1px solid rgba(0,196,181,0.15)">
+            <input type="checkbox" id="f_souhlas" class="mt-0.5 shrink-0 cursor-pointer" style="accent-color:#00C4B5;width:16px;height:16px">
+            <label for="f_souhlas" class="text-xs leading-relaxed cursor-pointer" style="color:rgba(255,255,255,0.5)">Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky dle <a href="gdpr/index.html" target="_blank" style="color:#00C4B5">zásad ochrany osobních údajů</a>.</label>
+          </div>
+          <p id="f_souhlas_err" class="text-xs mt-1.5 hidden" style="color:#FF3366">Pro pokračování je nutný souhlas se zpracováním údajů.</p>
+          <button onclick="toStep(3)" class="btn-coral w-full py-4 mt-6 text-base font-black">Přejít k souhrnu a autorizaci platby →</button>
+        </div>
+
+        <!-- Step 2: Souhrn & Platba -->
+        <div id="step3" class="hidden">
+          <h2 class="text-xl font-black mb-6">Souhrn & Pre-autorizace platby</h2>
+          <div class="rounded-2xl p-6 mb-6 space-y-3" style="background:#051D2E">
+            <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Balíček</span><span class="font-bold" id="s_package">Business 24</span></div>
+            <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Firma</span><span class="font-bold" id="s_name">—</span></div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:0.75rem;margin-top:0.75rem"></div>
+            <div class="flex justify-between items-center"><span class="text-lg font-black">Celkem k autorizaci</span><span class="text-3xl font-black" style="color:#00C4B5" id="s_price">24 900 Kč</span></div>
+          </div>
+          <div class="rounded-2xl p-6 mb-5" style="background:rgba(0,196,181,0.05);border:1px solid rgba(0,196,181,0.18)">
+            <h3 class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Jak funguje Pre-autorizace (Hold)?</h3>
+            <div class="space-y-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.65)">
+              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">1.</span><p>Částka se <strong class="text-white">zablokuje</strong> na vaší kartě. <em>Neodchází nikam</em> — zůstává v bankovní úschově.</p></div>
+              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">2.</span><p>Stavíme web a po dokončení vám zašleme náhled v Sandboxu k odsouhlasení.</p></div>
+              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">3.</span><p>Nespokojen s výsledkem? Hold zaniká automaticky. <strong style="color:#00C4B5">Riskujete 0 Kč.</strong></p></div>
+            </div>
+          </div>
+          <div class="rounded-2xl p-5 mb-6" style="background:rgba(255,51,102,0.08);border:2px solid rgba(255,51,102,0.4)">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl shrink-0">🔒</span>
+              <div>
+                <p class="font-black text-base mb-1" style="color:#FF3366">Garance termínu — bez výjimek</p>
+                <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.75)">Pokud náhled nebude v Sandboxu do <strong class="text-white">24 hodin</strong>, Hold se automaticky ruší. <strong class="text-white">Platíte 0 Kč.</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button onclick="toStep(1)" class="btn-outline flex-1 py-4">← Zpět</button>
+            <button id="submitBtn" onclick="submitBrief()" class="btn-coral flex-1 py-4 font-black text-sm">Spustit odpočet a autorizovat Hold</button>
+          </div>
+          <p class="text-center text-xs mt-4" style="color:rgba(255,255,255,0.25)">Pre-autorizace odpovídá standardům PCI-DSS. Váš web spustíme do 24 hodin.</p>
+        </div>
+
+        <!-- Step 4: Úspěch -->
+        <div id="step4" class="hidden">
+          <div class="text-center py-10">
+            <div class="text-6xl mb-6">⚡</div>
+            <h2 class="text-2xl font-black mb-4" style="color:#00C4B5">Odpočet spuštěn!</h2>
+            <p class="leading-relaxed mb-4" style="color:rgba(255,255,255,0.6)">Váš brief jsme přijali. Do 30 minut vás kontaktujeme s potvrzením termínu a instrukcemi k autorizaci platby.</p>
+            <p class="text-sm mb-8" style="color:rgba(255,255,255,0.35)">Web bude hotový do 24 hodin od potvrzení Holdu.</p>
+            <a href="index.html" class="btn-outline px-8 py-3 text-sm font-bold inline-block">← Zpět na hlavní stránku</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="space-y-4 lg:sticky lg:top-24">
+
+        <!-- Urgency -->
+        <div class="sidebar-card" style="border-color:rgba(255,51,102,0.25);background:rgba(255,51,102,0.06)">
+          <div class="flex items-center gap-2.5 mb-2">
+            <span class="pulse inline-block w-2 h-2 rounded-full shrink-0" style="background:#FF3366"></span>
+            <span class="text-xs font-black uppercase tracking-widest" style="color:#FF3366">Dnes zbývá 1 místo</span>
+          </div>
+          <p class="text-sm" style="color:rgba(255,255,255,0.55)">Odpočet do 18:00: <span id="countdown2" class="font-black text-white tabular-nums">--:--:--</span></p>
+        </div>
+
+        <!-- Balíček přehled -->
+        <div class="sidebar-card">
+          <p class="text-xs font-black uppercase tracking-widest mb-3" style="color:#00C4B5">Váš výběr</p>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="font-black text-lg" id="sb_package">Business 24</div>
+              <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">Kompletní firemní web</div>
+            </div>
+            <div class="text-2xl font-black" style="color:#00C4B5" id="sb_price">24 900 Kč</div>
+          </div>
+          <div class="pt-3" style="border-top:1px solid rgba(255,255,255,0.08)">
+            <p class="text-xs font-bold mb-2" style="color:rgba(255,255,255,0.35)">V ceně balíčku:</p>
+            <ul class="space-y-1.5">
+              <li class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.6)"><span style="color:#00C4B5">✓</span> AI copywriting</li>
+              <li class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.6)"><span style="color:#00C4B5">✓</span> Stockové fotografie</li>
+              <li class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.6)"><span style="color:#00C4B5">✓</span> GA4 + Search Console</li>
+              <li class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.6)"><span style="color:#00C4B5">✓</span> 2 kola revizí zdarma</li>
+              <li class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.6)"><span style="color:#00C4B5">✓</span> 30 dní post-launch support</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Garance -->
+        <div class="sidebar-card" style="border-color:rgba(0,196,181,0.2)">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl shrink-0">🔒</span>
+            <div>
+              <p class="font-black text-sm mb-1.5">Platíte 0 Kč, pokud nesplníme</p>
+              <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.5)">Vaše peníze jsou v bankovní úschově. Uvolníte je až po schválení hotového webu v Sandboxu.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="sidebar-card">
+          <div class="grid grid-cols-2 gap-3">
+            <div class="text-center p-3 rounded-xl" style="background:rgba(255,255,255,0.03)">
+              <div class="text-lg font-black mb-0.5" style="color:#00C4B5">PCI-DSS</div>
+              <div class="text-xs" style="color:rgba(255,255,255,0.35)">Zabezpečení platby</div>
+            </div>
+            <div class="text-center p-3 rounded-xl" style="background:rgba(255,255,255,0.03)">
+              <div class="text-lg font-black mb-0.5" style="color:#00C4B5">SSL</div>
+              <div class="text-xs" style="color:rgba(255,255,255,0.35)">Šifrované spojení</div>
+            </div>
+            <div class="text-center p-3 rounded-xl" style="background:rgba(255,255,255,0.03)">
+              <div class="text-lg font-black mb-0.5" style="color:#00C4B5">98 %</div>
+              <div class="text-xs" style="color:rgba(255,255,255,0.35)">Hold uvolněno</div>
+            </div>
+            <div class="text-center p-3 rounded-xl" style="background:rgba(255,255,255,0.03)">
+              <div class="text-lg font-black mb-0.5" style="color:#00C4B5">24 h</div>
+              <div class="text-xs" style="color:rgba(255,255,255,0.35)">Garance termínu</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kontakt -->
+        <div class="sidebar-card">
+          <p class="text-xs font-black uppercase tracking-widest mb-3" style="color:rgba(255,255,255,0.4)">Máte otázku?</p>
+          <a href="tel:+420735847185" class="flex items-center gap-2.5 text-sm font-bold mb-2 hover:text-white transition-colors" style="color:rgba(255,255,255,0.6)">
+            <span style="color:#00C4B5">📞</span> 735 847 185
+          </a>
+          <a href="mailto:info@webdo24.cz" class="flex items-center gap-2.5 text-sm font-bold hover:text-white transition-colors" style="color:rgba(255,255,255,0.6)">
+            <span style="color:#00C4B5">✉</span> info@webdo24.cz
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="py-10 px-6" style="border-top:1px solid rgba(255,255,255,0.08)">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div>
+      <div class="text-lg font-black tracking-tight"><span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span></div>
+      <p class="text-xs mt-1" style="color:rgba(255,255,255,0.18)">© 2026 WebDo24.cz — Soterana Corp s.r.o.</p>
+    </div>
+    <div class="flex gap-4 text-xs" style="color:rgba(255,255,255,0.35)">
+      <a href="index.html#vop" class="hover:text-white transition-colors">VOP & Garance</a>
+      <span>·</span>
+      <a href="gdpr/index.html" class="hover:text-white transition-colors">Ochrana osobních údajů</a>
+      <span>·</span>
+      <a href="index.html" class="hover:text-white transition-colors" style="color:#00C4B5">← Hlavní stránka</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const WEBHOOK_URL = 'https://n8n.webdo24.cz/webhook/provision-website';
+
+function updateCountdown() {
+  const now = new Date();
+  const end = new Date();
+  end.setHours(18, 0, 0, 0);
+  if (now >= end) end.setDate(end.getDate() + 1);
+  const diff = end - now;
+  const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+  const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+  const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+  const t = h + ':' + m + ':' + s;
+  const el1 = document.getElementById('countdown');
+  const el2 = document.getElementById('countdown2');
+  if (el1) el1.textContent = t;
+  if (el2) el2.textContent = t;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+function updatePriceDisplay() {
+  const sel = document.getElementById('f_package');
+  const opt = sel.options[sel.selectedIndex];
+  const price = parseInt(opt.dataset.price).toLocaleString('cs-CZ');
+  const priceEl = document.getElementById('s_price');
+  const pkgEl = document.getElementById('s_package');
+  const sbPrice = document.getElementById('sb_price');
+  const sbPkg = document.getElementById('sb_package');
+  if (priceEl) priceEl.textContent = price + ' Kč';
+  if (pkgEl) pkgEl.textContent = opt.value;
+  if (sbPrice) sbPrice.textContent = price + ' Kč';
+  if (sbPkg) sbPkg.textContent = opt.value;
+  if (sbPkg) {
+    sbPkg.nextElementSibling.textContent = opt.value === 'Event One Page'
+      ? 'Jednostránkový event'
+      : 'Kompletní firemní web';
+  }
+}
+
+function toStep(n) {
+  [1, 3, 4].forEach(i => {
+    const el = document.getElementById('step' + i);
+    if (el) el.classList.add('hidden');
+  });
+  const target = document.getElementById('step' + n);
+  if (target) target.classList.remove('hidden');
+
+  const sn3 = document.getElementById('sn3');
+  const sl3 = document.getElementById('sl3');
+  if (sn3) sn3.className = 'w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-inactive-num';
+  if (sl3) sl3.className = 'text-sm step-inactive-lbl';
+
+  if (n >= 3) {
+    if (sn3) sn3.className = 'w-8 h-8 rounded-full flex items-center justify-center text-sm font-black step-active-num';
+    if (sl3) sl3.className = 'text-sm step-active-lbl';
+    const sName = document.getElementById('s_name');
+    if (sName) sName.textContent = (document.getElementById('f_name').value || '').trim() || '—';
+    updatePriceDisplay();
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function validateStep1() {
+  let ok = true;
+  const name = document.getElementById('f_name');
+  const nameErr = document.getElementById('f_name_err');
+  const email = document.getElementById('f_email');
+  const emailErr = document.getElementById('f_email_err');
+  const desc = document.getElementById('f_desc');
+  const descErr = document.getElementById('f_desc_err');
+  const souhlas = document.getElementById('f_souhlas');
+  const souhlasErr = document.getElementById('f_souhlas_err');
+
+  if (!name.value.trim()) { name.style.borderColor = '#FF3366'; nameErr.classList.remove('hidden'); ok = false; }
+  else { name.style.borderColor = ''; nameErr.classList.add('hidden'); }
+
+  if (!desc.value.trim()) { desc.style.borderColor = '#FF3366'; descErr.classList.remove('hidden'); ok = false; }
+  else { desc.style.borderColor = ''; descErr.classList.add('hidden'); }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) { email.style.borderColor = '#FF3366'; emailErr.classList.remove('hidden'); ok = false; }
+  else { email.style.borderColor = ''; emailErr.classList.add('hidden'); }
+
+  if (!souhlas.checked) { souhlasErr.classList.remove('hidden'); ok = false; }
+  else { souhlasErr.classList.add('hidden'); }
+
+  return ok;
+}
+
+const origToStep = toStep;
+window.toStep = function(n) {
+  if (n === 3 && !validateStep1()) return;
+  origToStep(n);
+};
+
+async function submitBrief() {
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Odesílám...';
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  btn.style.cursor = 'not-allowed';
+
+  const pkgSel = document.getElementById('f_package');
+  const pkgOpt = pkgSel.options[pkgSel.selectedIndex];
+
+  const payload = {
+    firma: (document.getElementById('f_name').value || '').trim(),
+    project_slug: (document.getElementById('f_name').value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+    email: (document.getElementById('f_email').value || '').trim(),
+    telefon: (document.getElementById('f_phone').value || '').trim(),
+    popis: (document.getElementById('f_desc').value || '').trim(),
+    cilova_skupina: (document.getElementById('f_audience').value || '').trim(),
+    styl_reference: (document.getElementById('f_style').value || '').trim(),
+    balicek: pkgOpt.value,
+    cena: pkgOpt.dataset.price,
+    mena: 'CZK',
+    timestamp: new Date().toISOString(),
+    source: 'webdo24.cz/objednat'
+  };
+
+  try {
+    const res = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    toStep(4);
+    gtag('event', 'purchase', { currency: 'CZK', value: parseInt(pkgOpt.dataset.price), items: [{ item_name: pkgOpt.value }] });
+  } catch (err) {
+    console.error('Chyba odeslání:', err);
+    btn.textContent = 'Chyba odeslání — zkuste znovu';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+    const existing = document.getElementById('sendError');
+    if (existing) existing.remove();
+    const errDiv = document.createElement('p');
+    errDiv.id = 'sendError';
+    errDiv.className = 'text-xs mt-3 text-center';
+    errDiv.style.color = '#FF3366';
+    errDiv.textContent = 'Odeslání se nezdařilo. Napište nám přímo na info@webdo24.cz nebo zavolejte na 735 847 185.';
+    btn.parentNode.insertAdjacentElement('afterend', errDiv);
+  }
+}
+
+// Pre-select package from URL param ?balicek=event
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('balicek') === 'event') {
+    const sel = document.getElementById('f_package');
+    if (sel) {
+      sel.value = 'Event One Page';
+      updatePriceDisplay();
+    }
+  }
+})();
+</script>
+</body>
+</html>
