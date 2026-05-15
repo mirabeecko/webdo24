@@ -103,7 +103,12 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
                   <option value="Business" data-price="29900" data-desc="Web, který komunikuje a získává zákazníky" selected>Business — Web s AI a CRM (29 900 Kč)</option>
                   <option value="Automation" data-price="59900" data-desc="Automatizovaný online obchodní systém">Automation — Plná AI automatizace (59 900 Kč)</option>
                 </select>
-                <p class="text-xs mt-2" style="color:rgba(255,255,255,0.4)">Možnost splátek na 12 měsíců bez úroku — řešíme po vyplnění briefu.</p>
+                <div class="flex gap-2 mt-3">
+                  <button type="button" id="pay-single" onclick="selectPayment('single')" style="flex:1;padding:0.7rem 0.5rem;border-radius:0.75rem;font-size:0.85rem;font-weight:900;cursor:pointer;transition:all 0.18s;background:rgba(255,51,102,0.15);border:1.5px solid #FF3366;color:#FF3366">Jednorázově</button>
+                  <button type="button" id="pay-inst" onclick="selectPayment('installment')" style="flex:1;padding:0.7rem 0.5rem;border-radius:0.75rem;font-size:0.85rem;font-weight:900;cursor:pointer;transition:all 0.18s;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4)">Na splátky</button>
+                </div>
+                <p id="pay-sub" class="text-xs mt-2" style="color:rgba(255,255,255,0.3)"></p>
+                <input type="hidden" id="f_payment" value="Jednorázově">
               </div>
               <div>
                 <label class="block text-sm font-bold mb-2" style="color:rgba(255,255,255,0.55)">Název firmy nebo projektu *</label>
@@ -293,6 +298,24 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 <script>
 const WEBHOOK_URL = 'https://api.webdo24.cz/intake';
 
+function selectPayment(type) {
+  const s = document.getElementById('pay-single');
+  const i = document.getElementById('pay-inst');
+  const sub = document.getElementById('pay-sub');
+  const fp = document.getElementById('f_payment');
+  if (type === 'single') {
+    s.style.background = 'rgba(255,51,102,0.15)'; s.style.borderColor = '#FF3366'; s.style.color = '#FF3366';
+    i.style.background = 'rgba(255,255,255,0.04)'; i.style.borderColor = 'rgba(255,255,255,0.1)'; i.style.color = 'rgba(255,255,255,0.4)';
+    if (sub) sub.textContent = '';
+    if (fp) fp.value = 'Jednorázově';
+  } else {
+    i.style.background = 'rgba(0,196,181,0.12)'; i.style.borderColor = 'rgba(0,196,181,0.5)'; i.style.color = '#00C4B5';
+    s.style.background = 'rgba(255,255,255,0.04)'; s.style.borderColor = 'rgba(255,255,255,0.1)'; s.style.color = 'rgba(255,255,255,0.4)';
+    if (sub) sub.textContent = '12 měsíčních plateb bez úroku';
+    if (fp) fp.value = 'Splátky';
+  }
+}
+
 function updatePriceDisplay() {
   const sel = document.getElementById('f_package');
   const opt = sel.options[sel.selectedIndex];
@@ -311,20 +334,26 @@ function updatePriceDisplay() {
   }
 }
 
-// Preselect package from ?plan= query param (start/business/automation)
+// Preselect package and payment type from ?plan= and ?payment= query params
 (function preselectFromQuery() {
   const params = new URLSearchParams(window.location.search);
   const plan = (params.get('plan') || '').toLowerCase();
-  if (!plan) return;
-  const map = { start: 'Start', business: 'Business', automation: 'Automation' };
-  const target = map[plan];
-  if (!target) return;
-  const sel = document.getElementById('f_package');
-  if (!sel) return;
-  for (let i = 0; i < sel.options.length; i++) {
-    if (sel.options[i].value === target) { sel.selectedIndex = i; break; }
+  if (plan) {
+    const map = { start: 'Start', business: 'Business', automation: 'Automation' };
+    const target = map[plan];
+    if (target) {
+      const sel = document.getElementById('f_package');
+      if (sel) {
+        for (let i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === target) { sel.selectedIndex = i; break; }
+        }
+        updatePriceDisplay();
+      }
+    }
   }
-  updatePriceDisplay();
+  const payment = (params.get('payment') || '').toLowerCase();
+  if (payment === 'installment') selectPayment('installment');
+  else selectPayment('single');
 })();
 
 function toStep(n) {
@@ -403,6 +432,7 @@ async function submitBrief() {
     styl_reference: (document.getElementById('f_style').value || '').trim(),
     balicek: pkgOpt.value,
     cena: pkgOpt.dataset.price,
+    platba: (document.getElementById('f_payment')?.value || ''),
     detailni_dotaznik: document.getElementById('f_detailni')?.checked ? true : false,
     mena: 'CZK',
     timestamp: new Date().toISOString(),
@@ -435,6 +465,34 @@ async function submitBrief() {
   }
 }
 
+</script>
+
+<!-- HOTLINE WIDGET -->
+<div id="hw" style="position:fixed;bottom:1.75rem;right:1.75rem;z-index:8900;width:290px;border-radius:1.75rem;padding:1.75rem 2rem;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);font-family:'Outfit',sans-serif">
+  <div style="display:flex;align-items:center;gap:0.85rem;margin-bottom:0.85rem">
+    <div id="hw-dot" style="width:15px;height:15px;border-radius:50%;flex-shrink:0"></div>
+    <span id="hw-status" style="font-size:0.72rem;font-weight:900;text-transform:uppercase;letter-spacing:0.1em"></span>
+  </div>
+  <a href="tel:+420735847185" style="display:block;font-size:1.9rem;font-weight:900;letter-spacing:-0.02em;color:#fff;text-decoration:none;line-height:1;margin-bottom:0.5rem">735 847 185</a>
+  <div id="hw-sub" style="font-size:0.82rem;font-weight:600"></div>
+</div>
+<style>
+@keyframes hw-pulse-g{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.8)}60%{box-shadow:0 0 0 10px rgba(34,197,94,0)}}
+@keyframes hw-pulse-r{0%,100%{box-shadow:0 0 0 0 rgba(255,51,102,0.7)}60%{box-shadow:0 0 0 10px rgba(255,51,102,0)}}
+#hw.hw-avail{background:rgba(3,22,14,0.93);border:1.5px solid rgba(34,197,94,0.4);box-shadow:0 12px 60px rgba(0,0,0,0.6),0 0 50px rgba(34,197,94,0.15)}
+#hw.hw-busy{background:rgba(18,3,10,0.93);border:1.5px solid rgba(255,51,102,0.3);box-shadow:0 12px 60px rgba(0,0,0,0.6),0 0 50px rgba(255,51,102,0.1)}
+#hw-dot.hw-avail{background:#22c55e;animation:hw-pulse-g 1.6s ease-in-out infinite}
+#hw-dot.hw-busy{background:#FF3366;animation:hw-pulse-r 2s ease-in-out infinite}
+</style>
+<script>
+(function(){
+  const n=new Date(),m=n.getUTCMonth(),h=(n.getUTCHours()+(m>=2&&m<=9?2:1))%24,d=n.getUTCDay();
+  const avail=d>=1&&d<=5&&h>=9&&h<18;
+  const w=document.getElementById('hw'),dot=document.getElementById('hw-dot'),st=document.getElementById('hw-status'),sub=document.getElementById('hw-sub');
+  w.classList.add(avail?'hw-avail':'hw-busy');dot.classList.add(avail?'hw-avail':'hw-busy');
+  if(avail){st.style.color='#22c55e';st.textContent='Nyní se dovoláte';sub.style.color='rgba(255,255,255,0.4)';sub.textContent='Po–Pá 9:00–18:00';}
+  else{st.style.color='#FF3366';st.textContent='Teď se nedovoláte';sub.style.color='rgba(255,255,255,0.45)';sub.innerHTML='Napište: <a href="mailto:info@webdo24.cz" style="color:#00C4B5;font-weight:700;text-decoration:none">info@webdo24.cz</a>';}
+})();
 </script>
 </body>
 </html>
