@@ -32,8 +32,9 @@ tailwind.config = {
 </script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
 body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-smoothing:antialiased}
+section{scroll-snap-align:start}
 :root{--navy:#0B1929;--teal:#00C4B5;--coral:#FF3366;--dark:#060f1a}
 
 /* NAV */
@@ -66,10 +67,11 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 
 /* PROCESS */
 .process-grid{display:flex;flex-direction:column;gap:16px}
-@media(min-width:768px){.process-grid{flex-direction:row;align-items:flex-start}}
-.process-step{flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:1.5rem;padding:2rem;text-align:center}
+@media(min-width:768px){.process-grid{flex-direction:row;align-items:stretch}}
+.process-step{flex:1;display:flex;flex-direction:column;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:1.5rem;padding:2rem;text-align:left}
+@media(min-width:768px){.process-step{height:100%}}
 .process-step-final{background:rgba(255,51,102,0.04);border-color:rgba(255,51,102,0.18)}
-.process-icon-wrap{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto}
+.process-icon-wrap{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;margin:0}
 .process-icon-emoji{font-size:2.2rem;line-height:1}
 .process-who{display:inline-flex;align-items:center;padding:5px 14px;border-radius:100px;font-size:.72rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;margin-top:16px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45)}
 .process-connector{display:flex;align-items:center;justify-content:center;color:rgba(0,196,181,0.45);font-size:1.8rem;font-weight:900;padding:0 4px;flex-shrink:0;margin-top:2.5rem}
@@ -172,8 +174,10 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 .dash-dot-ai{width:8px;height:8px;border-radius:50%;background:#FF3366;flex-shrink:0}
 
 /* AI SECTION */
-.ai-feature{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:1.25rem;padding:1.75rem;position:relative;overflow:hidden}
-.ai-feature::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(0,196,181,0.5),transparent)}
+.ai-feature{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:1.25rem;padding:2rem;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.ai-feature:hover{border-color:rgba(0,196,181,0.35);transform:translateY(-3px)}
+.ai-feature::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(0,196,181,0.6),transparent)}
+.ai-num{display:inline-block;font-size:.72rem;font-weight:900;color:#00C4B5;background:rgba(0,196,181,0.08);border:1px solid rgba(0,196,181,0.2);border-radius:6px;padding:4px 10px;margin-bottom:1rem;letter-spacing:.06em}
 
 /* MONTHLY VALUE */
 .monthly-item{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:1rem;transition:border-color .2s}
@@ -260,70 +264,64 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 <style>@keyframes scrollDot{0%{transform:translateY(0);opacity:1}100%{transform:translateY(11px);opacity:0}}</style>
 
 <!-- ═══════════════════════════════════════
-     CO JE TO SYSTÉM
-═══════════════════════════════════════ -->
-<section id="co-je-system" class="py-24 px-6" style="background:rgba(6,15,26,0.8)">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-14">
-      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Nový typ služby</p>
-      <h2 class="text-4xl md:text-5xl font-black">Tohle není klasický web.</h2>
-      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.5)">Je to highend prodejní aplikace — spuštěná za 24 hodin a připravená vydělávat od prvního dne.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-      <div class="feature-card text-center">
-        <h3 class="font-black text-lg mb-2">Vaše online prezentace</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Moderní web připravený na Google. Přizpůsobený vašemu podnikání a zákazníkům.</p>
-      </div>
-      <div class="feature-card text-center" style="border-color:rgba(0,196,181,0.2)">
-        <h3 class="font-black text-lg mb-2">Automatický příjem poptávek</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Zákazníci píšou přímo k vám. Poptávky chodí na e-mail i do vaší zákaznické sekce.</p>
-      </div>
-      <div class="feature-card text-center">
-        <h3 class="font-black text-lg mb-2">Automatický asistent</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">AI odpovídá zákazníkům, navrhuje texty a vytváří příspěvky na sociální sítě.</p>
-      </div>
-    </div>
-    <div class="glass rounded-2xl p-6 md:p-8 text-center" style="border-color:rgba(0,196,181,0.15)">
-      <p class="text-lg font-black mb-2">Žádná agentura. Žádné složitosti. Žádný WordPress.</p>
-      <p class="text-base" style="color:rgba(255,255,255,0.5)">Spustíme systém za vás — web vlastníte, hosting v ceně, péče volitelná.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
      JAK TO PROBÍHÁ
 ═══════════════════════════════════════ -->
 <section id="jak-to-probiha" class="py-24 px-6" style="background:#0d2540">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-16">
       <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Jak to funguje</p>
-      <h2 class="text-4xl md:text-5xl font-black">Od nápadu ke spuštění<br><span class="grad-teal">za 24 hodin</span></h2>
-      <p class="mt-5 text-base max-w-md mx-auto" style="color:rgba(255,255,255,0.4)">Celý proces proběhne na pozadí. Vy jen zadáte — zbytek je na nás.</p>
+      <h2 class="text-4xl md:text-5xl font-black">Řeknete nám 3 věci.<br><span class="grad-teal">Do 24 hodin jste online.</span></h2>
+      <p class="mt-5 text-base max-w-lg mx-auto" style="color:rgba(255,255,255,0.4)">CO PRODÁVÁTE. KOMU TO PRODÁVÁTE. PROČ SI TO OD VÁS MÁ NĚKDO KOUPIT. To je vše.</p>
     </div>
-    <div class="process-grid">
+    <div class="process-grid" style="gap:20px">
       <div class="process-step">
-        <div class="process-icon-wrap"><span class="process-icon-emoji">✍️</span></div>
-        <div class="process-who">VY &nbsp;·&nbsp; ~5 minut</div>
-        <h3 class="text-xl font-black mt-5 mb-3">Pár vět o firmě</h3>
-        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Čím se zabýváte, pro koho to děláte. Žádné briefy ani schůzky — opravdu stačí pár vět.</p>
-        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);font-size:.8rem;font-weight:700;color:rgba(255,255,255,0.25)">⏱ Formulář vyplníte za 5 minut</div>
+        <div class="process-icon-wrap"><span class="process-icon-emoji" style="font-size:1.6rem;font-weight:900;color:#00C4B5">01</span></div>
+        <div class="process-who">Jednoduché a rychlé</div>
+        <h3 class="text-xl font-black mt-5 mb-3">Řeknete nám 3 věci</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;text-align:left">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:.7rem;font-weight:900;color:#00C4B5;background:rgba(0,196,181,0.08);border:1px solid rgba(0,196,181,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0">01</span>
+            <span style="font-size:.9rem;color:rgba(255,255,255,0.7);font-weight:600">CO PRODÁVÁTE</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:.7rem;font-weight:900;color:#00C4B5;background:rgba(0,196,181,0.08);border:1px solid rgba(0,196,181,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0">02</span>
+            <span style="font-size:.9rem;color:rgba(255,255,255,0.7);font-weight:600">KOMU TO PRODÁVÁTE</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:.7rem;font-weight:900;color:#00C4B5;background:rgba(0,196,181,0.08);border:1px solid rgba(0,196,181,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0">03</span>
+            <span style="font-size:.9rem;color:rgba(255,255,255,0.7);font-weight:600">PROČ SI TO OD VÁS MÁ KOUPIT</span>
+          </div>
+        </div>
+        <p class="mt-5" style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">To je vše, co od vás potřebujeme.</p>
       </div>
       <div class="process-connector">→</div>
       <div class="process-step">
-        <div class="process-icon-wrap" style="background:rgba(0,196,181,0.12);border-color:rgba(0,196,181,0.4)"><span class="process-icon-emoji">⚡</span></div>
-        <div class="process-who" style="background:rgba(0,196,181,0.08);color:#00C4B5;border-color:rgba(0,196,181,0.25)">MY &nbsp;·&nbsp; do 22 hodin</div>
-        <h3 class="text-xl font-black mt-5 mb-3">Stavíme váš systém</h3>
-        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Web, poptávkový formulář, AI nastavení — vše na míru. Pracujeme, kým vy děláte svoji práci.</p>
+        <div class="process-icon-wrap" style="background:rgba(0,196,181,0.12);border-color:rgba(0,196,181,0.4)"><span class="process-icon-emoji" style="font-size:1.6rem;font-weight:900;color:#00C4B5">02</span></div>
+        <div class="process-who" style="background:rgba(0,196,181,0.08);color:#00C4B5;border-color:rgba(0,196,181,0.25)">HOTOVO &nbsp;·&nbsp; do 24 hodin</div>
+        <h3 class="text-xl font-black mt-5 mb-3"><span style="color:#00C4B5">Do 24 hodin</span> jste online</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Web, formuláře, automatizace — vše na míru.</p>
         <div class="process-bar"><div class="process-bar-fill"></div></div>
-        <div style="margin-top:8px;font-size:.78rem;font-weight:700;color:rgba(0,196,181,0.5);text-align:left">Web · AI · Poptávky · Nasazení&hellip;</div>
+        <div style="margin-top:8px;font-size:.78rem;font-weight:700;color:rgba(0,196,181,0.5);text-align:left">Web · Formuláře · Automatizace · Nasazení&hellip;</div>
       </div>
       <div class="process-connector">→</div>
       <div class="process-step process-step-final">
-        <div class="process-icon-wrap" style="background:rgba(255,51,102,0.12);border-color:rgba(255,51,102,0.45)"><span class="process-icon-emoji">→</span></div>
-        <div class="process-who" style="background:rgba(255,51,102,0.08);color:#FF3366;border-color:rgba(255,51,102,0.25)">HOTOVO &nbsp;·&nbsp; do 24h</div>
-        <h3 class="text-xl font-black mt-5 mb-3">Systém je live</h3>
-        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Schválíte, spustíme ho online. <strong style="color:#fff">Zítra ráno jedete.</strong> Nestihneme? Vracíme polovinu — bez řečí.</p>
-        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,51,102,0.12);font-size:.8rem;font-weight:700;color:rgba(255,51,102,0.5)">✓ Nestihneme? −50 % zpět</div>
+        <div class="process-icon-wrap" style="background:rgba(255,51,102,0.12);border-color:rgba(255,51,102,0.45)"><span class="process-icon-emoji" style="font-size:1.6rem;font-weight:900;color:#FF3366">03</span></div>
+        <div class="process-who" style="background:rgba(255,51,102,0.08);color:#FF3366;border-color:rgba(255,51,102,0.25)">VÝSLEDEK</div>
+        <h3 class="text-xl font-black mt-5 mb-3">Jste online</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:.7rem;font-weight:900;color:#FF3366;background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0">01</span>
+            <span style="font-size:.9rem;color:rgba(255,255,255,0.7);font-weight:600">PRODÁVÁTE</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:.7rem;font-weight:900;color:#FF3366;background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0">02</span>
+            <span style="font-size:.9rem;color:rgba(255,255,255,0.7);font-weight:600">KOMUNIKUJETE SE ZÁKAZNÍKY</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:.7rem;font-weight:900;color:#FF3366;background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0">03</span>
+            <span style="font-size:.9rem;color:rgba(255,255,255,0.7);font-weight:600">EXISTUJETE</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="timeline-wrap">
@@ -346,13 +344,70 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 </section>
 
 <!-- ═══════════════════════════════════════
+     ZADEJTE A BUĎTE ZÍTRA ONLINE
+═══════════════════════════════════════ -->
+<section class="py-24 px-6" style="background:#060f1a">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-black mb-10">Zadejte. A buďte <span class="grad-teal">zítra online.</span></h2>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:2.5rem">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="color:#FF3366;font-weight:900;font-size:1.2rem;flex-shrink:0">✕</span>
+        <span style="font-size:1.1rem;color:rgba(255,255,255,0.6)">Žádné týdny čekání.</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="color:#FF3366;font-weight:900;font-size:1.2rem;flex-shrink:0">✕</span>
+        <span style="font-size:1.1rem;color:rgba(255,255,255,0.6)">Žádné složité procesy.</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="color:#FF3366;font-weight:900;font-size:1.2rem;flex-shrink:0">✕</span>
+        <span style="font-size:1.1rem;color:rgba(255,255,255,0.6)">Žádné „ozveme se příští týden“.</span>
+      </div>
+    </div>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,0.6);line-height:1.7">Jen jednoduchá cesta od nápadu k hotovému webu.</p>
+    <p class="text-xl font-black mt-2" style="color:#00C4B5">A to vše do 24 hodin.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CO JE TO SYSTÉM
+═══════════════════════════════════════ -->
+<section id="co-je-system" class="py-24 px-6" style="background:rgba(6,15,26,0.8)">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Nový typ služby</p>
+      <h2 class="text-4xl md:text-5xl font-black">Tohle není klasický web.</h2>
+      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.5)">Je to highend prodejní aplikace — spuštěná do 24 hodin a připravená vydělávat od prvního dne.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+      <div class="feature-card">
+        <h3 class="font-black text-lg mb-2">Vaše online prezentace</h3>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Moderní web připravený na Google. Přizpůsobený vašemu podnikání a zákazníkům.</p>
+      </div>
+      <div class="feature-card" style="border-color:rgba(0,196,181,0.2)">
+        <h3 class="font-black text-lg mb-2">Automatický příjem poptávek</h3>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Zákazníci píšou přímo k vám. Poptávky chodí na e-mail i do vaší zákaznické sekce.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="font-black text-lg mb-2">Automatický asistent</h3>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">AI odpovídá zákazníkům, navrhuje texty a vytváří příspěvky na sociální sítě.</p>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6 md:p-8 text-center" style="border-color:rgba(0,196,181,0.15)">
+      <p class="text-lg font-black mb-2">Žádná agentura. Žádné složitosti. Žádný WordPress.</p>
+      <p class="text-base" style="color:rgba(255,255,255,0.5)">Spustíme systém za vás — web vlastníte, hosting v ceně, péče volitelná.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
      UKÁZKY
 ═══════════════════════════════════════ -->
 <section id="ukazky" class="py-24 px-6" style="background:rgba(6,15,26,0.8)">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-14">
       <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Portfolio</p>
-      <h2 class="text-4xl md:text-5xl font-black">Funguje to. Tady jsou výsledky.</h2>
+      <h2 class="text-4xl md:text-5xl font-black">Zajímá vás, jak vypadají<br>naše weby?</h2>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
@@ -364,7 +419,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
             <div class="mock-dot" style="background:#27c93f"></div>
           </div>
           <div class="mock-content">
-            <img src="previews/demo7-paddleboardy-milada.png" loading="lazy" alt="Paddleboardy Milada" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <iframe src="https://paddleboardymilada.cz" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none"></iframe>
             <div class="mock-content-overlay"></div>
             <div class="mock-hover">Zobrazit celý web ↗</div>
           </div>
@@ -418,9 +473,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
             <div class="mock-dot" style="background:#27c93f"></div>
           </div>
           <div class="mock-content">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a3a2f,#0d2a3f);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:3.5rem">🪵</span>
-            </div>
+            <iframe src="https://web.webdo24.cz/truhlarstvi-drevorez/index.html" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none"></iframe>
             <div class="mock-content-overlay"></div>
             <div class="mock-hover">Zobrazit celý web ↗</div>
           </div>
@@ -482,19 +535,23 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <div class="ai-feature">
-        <h3 class="font-black text-lg mb-2">AI odpovědi zákazníkům</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">AI okamžitě odpovídá na dotazy zákazníků — informace o službách, ceník, dostupnost. 24/7.</p>
+        <div class="ai-num">01</div>
+        <h3 class="font-black text-lg mb-2">Odpovědi zákazníkům</h3>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Okamžité odpovědi na dotazy — informace o službách, ceník, dostupnost. 24/7.</p>
       </div>
       <div class="ai-feature">
-        <h3 class="font-black text-lg mb-2">AI návrhy textů</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Potřebujete upravit popis služby nebo přidat novou stránku? AI připraví text za vás.</p>
+        <div class="ai-num">02</div>
+        <h3 class="font-black text-lg mb-2">Návrhy textů</h3>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Úprava popisu služby nebo nová stránka? Texty připravíme za vás.</p>
       </div>
       <div class="ai-feature">
-        <h3 class="font-black text-lg mb-2">AI příspěvky na Facebook</h3>
+        <div class="ai-num">03</div>
+        <h3 class="font-black text-lg mb-2">Příspěvky na Facebook</h3>
         <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Každý týden připravíme příspěvky na sociální sítě přizpůsobené vašemu podnikání.</p>
       </div>
       <div class="ai-feature">
-        <h3 class="font-black text-lg mb-2">Měsíční AI report</h3>
+        <div class="ai-num">04</div>
+        <h3 class="font-black text-lg mb-2">Měsíční report</h3>
         <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Každý měsíc dostanete přehled — návštěvnost, poptávky, doporučení co zlepšit.</p>
       </div>
     </div>
@@ -781,7 +838,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
       <span class="text-xs font-black uppercase tracking-widest" style="color:#00C4B5">Jeden krok k online businessu</span>
     </div>
     <h2 class="text-5xl md:text-6xl font-black leading-tight mb-6">Rezervujte spuštění.<br><span class="grad-coral">Zítra jedete.</span></h2>
-    <p class="text-lg mb-10" style="color:rgba(255,255,255,0.5)">Systém spustíme za 24 hodin. Správu přebíráme my.</p>
+    <p class="text-lg mb-10" style="color:rgba(255,255,255,0.5)">Systém spustíme do 24 hodin. Správu přebíráme my.</p>
     <a href="objednat.html" class="btn-primary px-12 py-5 text-lg inline-block">Rezervovat spuštění →</a>
     <p class="text-xs mt-6" style="color:rgba(255,255,255,0.25)">Expresní spuštění · Doména zůstává vaše · Nestihneme? −50 % zpět</p>
   </div>
