@@ -19,7 +19,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -44,7 +44,7 @@ section{scroll-snap-align:start}
 .btn-primary{display:inline-block;background:#FF3366;color:#fff;font-weight:900;border-radius:1rem;cursor:pointer;transition:all 0.22s ease;box-shadow:0 8px 36px -4px rgba(255,51,102,0.4);border:none;font-family:'Outfit',sans-serif;text-decoration:none}
 .btn-primary:hover{background:#e52e5a;transform:translateY(-2px);box-shadow:0 16px 44px -4px rgba(255,51,102,0.5)}
 .btn-outline{display:inline-block;background:transparent;color:rgba(255,255,255,0.65);font-weight:700;border-radius:1rem;cursor:pointer;transition:all 0.22s ease;border:1px solid rgba(255,255,255,0.18);font-family:'Outfit',sans-serif;text-decoration:none}
-.btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.45)}
+.btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.65)}
 
 /* GRADIENTS */
 .grad-coral{background:linear-gradient(135deg,#FF3366,#ff6b8a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -73,7 +73,7 @@ section{scroll-snap-align:start}
 .process-step-final{background:rgba(255,51,102,0.04);border-color:rgba(255,51,102,0.18)}
 .process-icon-wrap{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;margin:0}
 .process-icon-emoji{font-size:2.2rem;line-height:1}
-.process-who{display:inline-flex;align-items:center;padding:5px 14px;border-radius:100px;font-size:.72rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;margin-top:16px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45)}
+.process-who{display:inline-flex;align-items:center;padding:5px 14px;border-radius:100px;font-size:.72rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;margin-top:16px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.65)}
 .process-connector{display:flex;align-items:center;justify-content:center;color:rgba(0,196,181,0.45);font-size:1.8rem;font-weight:900;padding:0 4px;flex-shrink:0;margin-top:2.5rem}
 @media(max-width:767px){.process-connector{transform:rotate(90deg);margin:0 auto;height:40px;padding:0}}
 .process-bar{height:3px;background:rgba(255,255,255,0.06);border-radius:3px;margin-top:20px;overflow:hidden}
@@ -101,6 +101,21 @@ section{scroll-snap-align:start}
 /* PRICE */
 .price-old{text-decoration:line-through;color:rgba(255,255,255,0.3);font-size:1.75rem;font-weight:700}
 .price-new{font-size:5rem;font-weight:900;line-height:1;color:#00C4B5}
+
+/* ZÁKLAD */
+.zak-item{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;font-size:.95rem;font-weight:700;color:#fff;transition:border-color .2s,background .2s}
+.zak-item:hover{border-color:rgba(255,255,255,0.16);background:rgba(255,255,255,0.05)}
+.zak-icon{width:2.25rem;height:2.25rem;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.zak-icon svg{width:1.25rem;height:1.25rem}
+
+/* GUARANTEE */
+.guarantee-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:1.25rem;padding:2rem 1.75rem;display:flex;flex-direction:column;gap:.75rem;transition:border-color 0.2s,background 0.2s}
+.guarantee-card:hover{border-color:rgba(0,196,181,0.3);background:rgba(0,196,181,0.04)}
+.guarantee-trust{display:flex;align-items:center;gap:1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:1.25rem;padding:1.5rem 1.75rem;transition:border-color 0.2s,background 0.2s}
+.guarantee-trust:hover{border-color:rgba(255,255,255,0.18);background:rgba(255,255,255,0.05)}
+.gti{width:3.75rem;height:3.75rem;border-radius:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gti svg{width:1.75rem;height:1.75rem}
+.guarantee-trust-title{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;font-size:1.2rem;color:#fff;margin:0;line-height:1.25;letter-spacing:.01em}
 
 /* FAQ */
 .faq-item{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;overflow:hidden;transition:border-color 0.2s}
@@ -138,11 +153,11 @@ section{scroll-snap-align:start}
 .plan-card:hover{border-color:rgba(0,196,181,0.3);transform:translateY(-4px)}
 .plan-card.featured{background:linear-gradient(180deg,rgba(0,196,181,0.09),rgba(0,196,181,0.03));border-color:rgba(0,196,181,0.45);box-shadow:0 18px 60px -20px rgba(0,196,181,0.35),0 0 0 1px rgba(0,196,181,0.15) inset}
 .plan-card.featured:hover{border-color:rgba(0,196,181,0.6)}
-.plan-name{font-size:.78rem;font-weight:900;color:rgba(255,255,255,0.5);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem}
+.plan-name{font-size:.78rem;font-weight:900;color:rgba(255,255,255,0.72);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem}
 .plan-card.featured .plan-name{color:#00C4B5}
 .plan-tagline{font-size:.95rem;font-weight:600;color:rgba(255,255,255,0.75);line-height:1.4;margin-bottom:1.5rem;min-height:2.6rem}
 .plan-price{font-size:2.4rem;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
-.plan-price-sub{font-size:.78rem;font-weight:700;color:rgba(255,255,255,0.4);margin-top:.4rem;text-transform:uppercase;letter-spacing:.06em}
+.plan-price-sub{font-size:.78rem;font-weight:700;color:rgba(255,255,255,0.6);margin-top:.4rem;text-transform:uppercase;letter-spacing:.06em}
 .plan-installment{display:inline-flex;align-items:baseline;gap:.4rem;margin-top:.9rem;padding:.55rem .85rem;background:rgba(0,196,181,0.07);border:1px solid rgba(0,196,181,0.18);border-radius:.7rem;font-size:.82rem;color:rgba(255,255,255,0.75);font-weight:600}
 .plan-installment strong{color:#00C4B5;font-weight:900;font-size:.9rem}
 .plan-divider{height:1px;background:rgba(255,255,255,0.07);margin:1.5rem 0 1.25rem}
@@ -159,7 +174,7 @@ section{scroll-snap-align:start}
 .care-card:hover{border-color:rgba(0,196,181,0.25);transform:translateY(-2px)}
 .care-name{font-size:.72rem;font-weight:900;color:rgba(255,255,255,0.55);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.4rem}
 .care-price{font-size:1.5rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.25rem}
-.care-price small{font-size:.78rem;font-weight:600;color:rgba(255,255,255,0.4);margin-left:.25rem}
+.care-price small{font-size:.78rem;font-weight:600;color:rgba(255,255,255,0.6);margin-left:.25rem}
 .care-divider{height:1px;background:rgba(255,255,255,0.06);margin:.9rem 0}
 .care-item{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:rgba(255,255,255,0.65);font-weight:500;padding:.2rem 0}
 .care-item .care-tick{color:#00C4B5;font-weight:900;font-size:.75rem;flex-shrink:0}
@@ -186,7 +201,7 @@ section{scroll-snap-align:start}
 /* CHECK LIST */
 .check-item{display:flex;align-items:flex-start;gap:.75rem;padding:.6rem 0}
 .check-circle{width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(0,196,181,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;color:#00C4B5;font-weight:900;margin-top:1px}
-.hl-h{color:#FF9500;font-weight:900;}
+.hl-h{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;font-size:1.08em;color:#FF9500;letter-spacing:.01em;text-shadow:0 0 18px rgba(255,149,0,0.35)}
 </style>
 </head>
 <body>
@@ -207,7 +222,7 @@ section{scroll-snap-align:start}
     <a href="#hero" class="text-xl font-black tracking-tight">
       <span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span>
     </a>
-    <div class="hidden md:flex items-center gap-6 text-sm font-semibold" style="color:rgba(255,255,255,0.5)">
+    <div class="hidden md:flex items-center gap-6 text-sm font-semibold" style="color:rgba(255,255,255,0.72)">
       <a href="#jak-to-probiha" class="hover:text-white transition-colors">Jak to funguje</a>
       <a href="#cena" class="hover:text-white transition-colors">Balíčky</a>
       <a href="#ai-system" class="hover:text-white transition-colors">AI systém</a>
@@ -238,19 +253,19 @@ section{scroll-snap-align:start}
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto mt-6">
         <div class="glass rounded-xl px-4 py-3">
           <div class="text-sm font-black text-white">⚡ Do 24 hodin</div>
-          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">Spuštění systému</div>
+          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.6)">Spuštění systému</div>
         </div>
         <div class="glass rounded-xl px-4 py-3">
           <div class="text-sm font-black text-white">⚡ Automatizace</div>
-          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">Pracuje za vás</div>
+          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.6)">Pracuje za vás</div>
         </div>
         <div class="glass rounded-xl px-4 py-3">
           <div class="text-sm font-black text-white">📩 Správa za vás</div>
-          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">My řešíme zbytek</div>
+          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.6)">My řešíme zbytek</div>
         </div>
         <div class="glass rounded-xl px-4 py-3">
           <div class="text-sm font-black text-white">🔒 Bez rizika</div>
-          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">Garance výsledku</div>
+          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.6)">Garance výsledku</div>
         </div>
       </div>
     </div>
@@ -271,7 +286,7 @@ section{scroll-snap-align:start}
     <div class="text-center mb-16">
       <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Jak to funguje</p>
       <h2 class="text-4xl md:text-5xl font-black">Řeknete nám 3 věci.<br><span class="grad-teal">Do 24 hodin jste online.</span></h2>
-      <p class="mt-5 text-base max-w-lg mx-auto" style="color:rgba(255,255,255,0.4)">CO PRODÁVÁTE. KOMU TO PRODÁVÁTE. PROČ SI TO OD VÁS MÁ NĚKDO KOUPIT. To je vše.</p>
+      <p class="mt-5 text-base max-w-lg mx-auto" style="color:rgba(255,255,255,0.6)">CO PRODÁVÁTE. KOMU TO PRODÁVÁTE. PROČ SI TO OD VÁS MÁ NĚKDO KOUPIT. To je vše.</p>
     </div>
     <div class="process-grid" style="gap:20px">
       <div class="process-step">
@@ -292,14 +307,14 @@ section{scroll-snap-align:start}
             <span style="font-size:.9rem;color:rgba(255,255,255,0.7);font-weight:600">PROČ SI TO OD VÁS MÁ KOUPIT</span>
           </div>
         </div>
-        <p class="mt-5" style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">To je vše, co od vás potřebujeme.</p>
+        <p class="mt-5" style="color:rgba(255,255,255,0.72);font-size:.93rem;line-height:1.75">To je vše, co od vás potřebujeme.</p>
       </div>
       <div class="process-connector">→</div>
       <div class="process-step">
         <div class="process-icon-wrap" style="background:rgba(0,196,181,0.12);border-color:rgba(0,196,181,0.4)"><span class="process-icon-emoji" style="font-size:1.6rem;font-weight:900;color:#00C4B5">02</span></div>
         <div class="process-who" style="background:rgba(0,196,181,0.08);color:#00C4B5;border-color:rgba(0,196,181,0.25)">HOTOVO &nbsp;·&nbsp; do 24 hodin</div>
         <h3 class="text-xl font-black mt-5 mb-3"><span style="color:#00C4B5">Do 24 hodin</span> jste online</h3>
-        <p style="color:rgba(255,255,255,0.5);font-size:.93rem;line-height:1.75">Web, formuláře, automatizace — vše na míru.</p>
+        <p style="color:rgba(255,255,255,0.72);font-size:.93rem;line-height:1.75">Web, formuláře, automatizace — vše na míru.</p>
         <div class="process-bar"><div class="process-bar-fill"></div></div>
         <div style="margin-top:8px;font-size:.78rem;font-weight:700;color:rgba(0,196,181,0.5);text-align:left">Web · Formuláře · Automatizace · Nasazení&hellip;</div>
       </div>
@@ -374,27 +389,27 @@ section{scroll-snap-align:start}
 <section id="co-je-system" class="py-24 px-6" style="background:rgba(6,15,26,0.8)">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-14">
-      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Nový typ služby</p>
+      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5;display:none">Nový typ služby</p>
       <h2 class="text-4xl md:text-5xl font-black">Tohle není klasický web.</h2>
-      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.5)">Je to highend prodejní aplikace — spuštěná do 24 hodin a připravená vydělávat od prvního dne.</p>
+      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.72)">Je to highend prodejní aplikace — spuštěná do 24 hodin a připravená vydělávat od prvního dne.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
       <div class="feature-card">
         <h3 class="font-black text-lg mb-2">Vaše online prezentace</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Moderní web připravený na Google. Přizpůsobený vašemu podnikání a zákazníkům.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Moderní web připravený na Google. Přizpůsobený vašemu podnikání a zákazníkům.</p>
       </div>
       <div class="feature-card" style="border-color:rgba(0,196,181,0.2)">
         <h3 class="font-black text-lg mb-2">Automatický příjem poptávek</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Zákazníci píšou přímo k vám. Poptávky chodí na e-mail i do vaší zákaznické sekce.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Zákazníci píšou přímo k vám. Poptávky chodí na e-mail i do vaší zákaznické sekce.</p>
       </div>
       <div class="feature-card">
         <h3 class="font-black text-lg mb-2">Automatický asistent</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">AI odpovídá zákazníkům, navrhuje texty a vytváří příspěvky na sociální sítě.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">AI odpovídá zákazníkům, navrhuje texty a vytváří příspěvky na sociální sítě.</p>
       </div>
     </div>
     <div class="glass rounded-2xl p-6 md:p-8 text-center" style="border-color:rgba(0,196,181,0.15)">
       <p class="text-lg font-black mb-2">Žádná agentura. Žádné složitosti. Žádný WordPress.</p>
-      <p class="text-base" style="color:rgba(255,255,255,0.5)">Spustíme systém za vás — web vlastníte, hosting v ceně, péče volitelná.</p>
+      <p class="text-base" style="color:rgba(255,255,255,0.72)">Spustíme systém za vás — web vlastníte, hosting v ceně, péče volitelná.</p>
     </div>
   </div>
 </section>
@@ -490,7 +505,7 @@ section{scroll-snap-align:start}
       <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;background:rgba(6,15,26,0.95)">
         <div style="display:flex;align-items:center;gap:.75rem;min-width:0">
           <span style="width:8px;height:8px;border-radius:50%;background:#00C4B5;display:inline-block;flex-shrink:0"></span>
-          <span id="siteLightboxTitle" style="font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></span>
+          <span id="siteLightboxTitle" style="font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:700;color:rgba(255,255,255,0.72);letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></span>
           <a id="siteLightboxLink" href="#" target="_blank" rel="noopener" style="font-size:.78rem;font-weight:700;color:#00C4B5;text-decoration:none;flex-shrink:0">Otevřít v novém okně ↗</a>
         </div>
         <button onclick="closeSite()" style="display:flex;align-items:center;gap:.6rem;background:#FF3366;border:none;color:#fff;font-size:.92rem;font-weight:900;padding:.75rem 1.6rem;border-radius:.9rem;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.02em;box-shadow:0 6px 24px -4px rgba(255,51,102,0.5);transition:all .18s;flex-shrink:0" onmouseover="this.style.background='#e52e5a';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#FF3366';this.style.transform='translateY(0)'">
@@ -505,19 +520,19 @@ section{scroll-snap-align:start}
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
       <div class="glass-dark rounded-2xl p-5">
         <div class="text-3xl font-black mb-1" style="color:#00C4B5">40+</div>
-        <p class="text-xs" style="color:rgba(255,255,255,0.45)">Spuštěných systémů</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.65)">Spuštěných systémů</p>
       </div>
       <div class="glass-dark rounded-2xl p-5">
         <div class="text-3xl font-black mb-1" style="color:#00C4B5">24h</div>
-        <p class="text-xs" style="color:rgba(255,255,255,0.45)">Průměrná doba spuštění</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.65)">Průměrná doba spuštění</p>
       </div>
       <div class="glass-dark rounded-2xl p-5">
         <div class="text-3xl font-black mb-1" style="color:#FF3366">100%</div>
-        <p class="text-xs" style="color:rgba(255,255,255,0.45)">Dodáno v termínu</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.65)">Dodáno v termínu</p>
       </div>
       <div class="glass-dark rounded-2xl p-5">
         <div class="text-3xl font-black mb-1" style="color:#00C4B5">⭐⭐⭐⭐⭐</div>
-        <p class="text-xs" style="color:rgba(255,255,255,0.45)">Hodnocení klientů</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.65)">Hodnocení klientů</p>
       </div>
     </div>
   </div>
@@ -526,33 +541,35 @@ section{scroll-snap-align:start}
 <!-- ═══════════════════════════════════════
      AI SYSTÉM
 ═══════════════════════════════════════ -->
-<section id="ai-system" class="py-24 px-6" style="background:rgba(6,15,26,0.8)">
-  <div class="max-w-4xl mx-auto">
+<section id="ai-system" class="px-6" style="min-height:100vh;display:flex;align-items:center;padding-top:6rem;padding-bottom:6rem;position:relative;overflow:hidden;background:#060f1a">
+  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=60&auto=format');background-size:cover;background-position:center;opacity:0.07;pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,15,26,0.6) 0%,rgba(6,15,26,0.4) 50%,rgba(6,15,26,0.7) 100%);pointer-events:none"></div>
+  <div class="max-w-4xl mx-auto" style="position:relative;z-index:1">
     <div class="text-center mb-14">
       <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">AI automatizace</p>
       <h2 class="text-4xl md:text-5xl font-black">AI pracuje za vás.</h2>
-      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.5)">Zatímco vy děláte svoji práci, AI se stará o zákazníky, obsah i optimalizaci.</p>
+      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.72)">Zatímco vy děláte svoji práci, AI se stará o zákazníky, obsah i optimalizaci.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <div class="ai-feature">
         <div class="ai-num">01</div>
         <h3 class="font-black text-lg mb-2">Odpovědi zákazníkům</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Okamžité odpovědi na dotazy — informace o službách, ceník, dostupnost. 24/7.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Okamžité odpovědi na dotazy — informace o službách, ceník, dostupnost. 24/7.</p>
       </div>
       <div class="ai-feature">
         <div class="ai-num">02</div>
         <h3 class="font-black text-lg mb-2">Návrhy textů</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Úprava popisu služby nebo nová stránka? Texty připravíme za vás.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Úprava popisu služby nebo nová stránka? Texty připravíme za vás.</p>
       </div>
       <div class="ai-feature">
         <div class="ai-num">03</div>
         <h3 class="font-black text-lg mb-2">Příspěvky na Facebook</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Každý týden připravíme příspěvky na sociální sítě přizpůsobené vašemu podnikání.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Každý týden připravíme příspěvky na sociální sítě přizpůsobené vašemu podnikání.</p>
       </div>
       <div class="ai-feature">
         <div class="ai-num">04</div>
         <h3 class="font-black text-lg mb-2">Měsíční report</h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Každý měsíc dostanete přehled — návštěvnost, poptávky, doporučení co zlepšit.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Každý měsíc dostanete přehled — návštěvnost, poptávky, doporučení co zlepšit.</p>
       </div>
     </div>
   </div>
@@ -561,12 +578,12 @@ section{scroll-snap-align:start}
 <!-- ═══════════════════════════════════════
      DASHBOARD
 ═══════════════════════════════════════ -->
-<section id="dashboard" class="py-24 px-6" style="background:#0d2540">
+<section id="dashboard" class="py-24 px-6" style="background:#0d2540;display:none">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-14">
       <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Vaše zákaznická sekce</p>
       <h2 class="text-4xl md:text-5xl font-black">Vše pod kontrolou.<br><span class="grad-teal">Jednoduše.</span></h2>
-      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.5)">Přístupné z mobilu. Jednoduché jako Shopify. Ne jako WordPress.</p>
+      <p class="mt-5 text-lg max-w-xl mx-auto" style="color:rgba(255,255,255,0.72)">Přístupné z mobilu. Jednoduché jako Shopify. Ne jako WordPress.</p>
     </div>
     <div class="glass rounded-3xl p-6 md:p-10" style="border-color:rgba(0,196,181,0.15);box-shadow:0 0 60px rgba(0,196,181,0.06)">
       <!-- Dashboard mockup header -->
@@ -598,7 +615,7 @@ section{scroll-snap-align:start}
       </div>
       <!-- Recent inquiries -->
       <div style="background:rgba(6,15,26,0.5);border-radius:1rem;padding:1.25rem;border:1px solid rgba(255,255,255,0.06)">
-        <div class="text-sm font-black mb-3" style="color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:.05em">Poslední poptávky</div>
+        <div class="text-sm font-black mb-3" style="color:rgba(255,255,255,0.72);text-transform:uppercase;letter-spacing:.05em">Poslední poptávky</div>
         <div class="dash-row">
           <div class="dash-dot-new"></div>
           <div style="flex:1">
@@ -629,17 +646,17 @@ section{scroll-snap-align:start}
       <div class="feature-card">
         <div class="text-2xl mb-2">📱</div>
         <div class="font-black text-sm">Funguje na mobilu</div>
-        <div class="text-xs mt-1" style="color:rgba(255,255,255,0.4)">Vše zvládnete z telefonu</div>
+        <div class="text-xs mt-1" style="color:rgba(255,255,255,0.6)">Vše zvládnete z telefonu</div>
       </div>
       <div class="feature-card">
         <div class="text-2xl mb-2">✏️</div>
         <div class="font-black text-sm">Jednoduché úpravy</div>
-        <div class="text-xs mt-1" style="color:rgba(255,255,255,0.4)">Změna textu na 2 kliknutí</div>
+        <div class="text-xs mt-1" style="color:rgba(255,255,255,0.6)">Změna textu na 2 kliknutí</div>
       </div>
       <div class="feature-card">
         <div class="text-2xl mb-2">🔔</div>
         <div class="font-black text-sm">Notifikace</div>
-        <div class="text-xs mt-1" style="color:rgba(255,255,255,0.4)">Nová poptávka = okamžité upozornění</div>
+        <div class="text-xs mt-1" style="color:rgba(255,255,255,0.6)">Nová poptávka = okamžité upozornění</div>
       </div>
     </div>
   </div>
@@ -648,21 +665,57 @@ section{scroll-snap-align:start}
 <!-- ═══════════════════════════════════════
      GARANCE
 ═══════════════════════════════════════ -->
-<section id="garance" class="py-24 px-6" style="background:rgba(6,15,26,0.8)">
-  <div class="max-w-4xl mx-auto">
+<section id="garance" class="px-6" style="min-height:100vh;display:flex;align-items:center;background:linear-gradient(160deg,#020f1e 0%,#051929 55%,#020c1b 100%);border-top:1px solid rgba(0,196,181,0.07);border-bottom:1px solid rgba(0,196,181,0.07);padding-top:6rem;padding-bottom:6rem">
+  <div class="max-w-4xl mx-auto w-full">
+
     <div class="text-center mb-14">
       <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#FF3366">100 % jistota</p>
       <h2 class="text-4xl md:text-5xl font-black">Bez rizika</h2>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- hlavní garanční karty -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
       <div class="guarantee-card" style="border-color:rgba(0,196,181,0.2)">
         <h3 class="text-xl font-black mb-3">Nestihneme termín?<br><span class="grad-teal">Vracíme peníze.</span></h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Termín je závazný. Pokud systém nebude spuštěný do 24 hodin, dostanete zpět celou částku. Bez podmínek, bez zdlouhavých reklamací.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Termín je závazný. Pokud systém nebude spuštěný do 24 hodin, dostanete zpět celou částku. Bez podmínek, bez zdlouhavých reklamací.</p>
       </div>
       <div class="guarantee-card" style="border-color:rgba(255,51,102,0.2)">
         <h3 class="text-xl font-black mb-3">Nelíbí se výsledek?<br><span class="grad-coral">Upravíme zdarma.</span></h3>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Chcete změnit texty, barvy nebo obrázky? Jedna úprava je součástí ceny. Neodcházíte s něčím, co nechcete.</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.72)">Chcete změnit texty, barvy nebo obrázky? Jedna úprava je součástí ceny. Neodcházíte s něčím, co nechcete.</p>
       </div>
+    </div>
+
+    <!-- oddělovač -->
+    <div style="display:flex;align-items:center;gap:1.25rem;margin-bottom:1.5rem">
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.07)"></div>
+      <span style="font-size:.65rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.22)">Navíc garantujeme</span>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.07)"></div>
+    </div>
+
+    <!-- ikony důvěry -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <div class="guarantee-trust">
+        <div class="gti" style="background:rgba(0,196,181,0.12);border:1px solid rgba(0,196,181,0.22)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/><line x1="12" y1="15" x2="16" y2="15"/></svg>
+        </div>
+        <h3 class="guarantee-trust-title">Platba až po dodání</h3>
+      </div>
+
+      <div class="guarantee-trust">
+        <div class="gti" style="background:rgba(255,51,102,0.1);border:1px solid rgba(255,51,102,0.22)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF3366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h3 class="guarantee-trust-title">Garance 24 hodin</h3>
+      </div>
+
+      <div class="guarantee-trust">
+        <div class="gti" style="background:rgba(255,149,0,0.1);border:1px solid rgba(255,149,0,0.22)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <h3 class="guarantee-trust-title">Lidská podpora</h3>
+      </div>
+
     </div>
   </div>
 </section>
@@ -676,7 +729,7 @@ section{scroll-snap-align:start}
     <div style="text-align:center;margin-bottom:5rem">
       <p style="font-size:.68rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#00C4B5;margin-bottom:1.5rem">Transparentní ceny</p>
       <h2 style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem">Vyberte si řešení.</h2>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,0.5);max-width:460px;margin:0 auto;line-height:1.85">Jednorázová cena nebo splátky na 12 měsíců. Web od první chvíle vlastníte vy.</p>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.72);max-width:460px;margin:0 auto;line-height:1.85">Jednorázová cena nebo splátky na 12 měsíců. Web od první chvíle vlastníte vy.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3" style="gap:1.5rem;margin-bottom:1.5rem;align-items:stretch">
@@ -755,13 +808,91 @@ section{scroll-snap-align:start}
       <p style="font-size:.65rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);text-align:center;margin-bottom:1.75rem">Společné pro všechny tarify</p>
       <div style="display:flex;flex-wrap:wrap;gap:1.25rem 2.5rem;justify-content:center;align-items:center">
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Web od začátku vlastníte</span></div>
-        <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#FF9500;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;font-weight:900;color:#FF9500">1 rok hostingu zdarma</span></div>
+        <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#FF9500;font-weight:900;font-size:.85rem">✔</span><span class="hl-h" style="font-size:.95rem">1 rok hostingu zdarma</span></div>
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Bez závazků</span></div>
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Rychlé spuštění do 24 h</span></div>
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Možnost péče a AI funkcí</span></div>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ZÁKLAD KAŽDÉ APLIKACE
+═══════════════════════════════════════ -->
+<section class="py-20 px-6" style="background:rgba(4,11,20,0.98);border-top:1px solid rgba(255,255,255,0.05)">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#FF9500">V každém modelu · Vždy v ceně</p>
+      <h2 class="text-4xl md:text-5xl font-black">Základ každé aplikace</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <span>Responzivní web na míru</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M11 8v3l2 2"/></svg>
+        </div>
+        <span>SEO optimalizace</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <span>Kontaktní formuláře</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span>Spuštění do 24 hodin</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <span>Vlastní doména</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <span class="hl-h">1 rok hostingu zdarma</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF3366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>SSL certifikát</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF3366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+        </div>
+        <span>Rychlé načítání stránek</span>
+      </div>
+
+      <div class="zak-item">
+        <div class="zak-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF3366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>
+        </div>
+        <span>Web vlastníte od první chvíle</span>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -838,7 +969,7 @@ section{scroll-snap-align:start}
       <span class="text-xs font-black uppercase tracking-widest" style="color:#00C4B5">Jeden krok k online businessu</span>
     </div>
     <h2 class="text-5xl md:text-6xl font-black leading-tight mb-6">Rezervujte spuštění.<br><span class="grad-coral">Zítra jedete.</span></h2>
-    <p class="text-lg mb-10" style="color:rgba(255,255,255,0.5)">Systém spustíme do 24 hodin. Správu přebíráme my.</p>
+    <p class="text-lg mb-10" style="color:rgba(255,255,255,0.72)">Systém spustíme do 24 hodin. Správu přebíráme my.</p>
     <a href="objednat.html" class="btn-primary px-12 py-5 text-lg inline-block">Rezervovat spuštění →</a>
     <p class="text-xs mt-6" style="color:rgba(255,255,255,0.25)">Expresní spuštění · Doména zůstává vaše · Nestihneme? −50 % zpět</p>
   </div>
@@ -895,7 +1026,7 @@ function toggleFaq(btn) {
 
 /* ── SOCIAL PROOF NOTIFICATIONS ── */
 (function(){
-  const D = [11,3,7,7,3,10,4].map(s => s * 1000);
+  const D = [27.5,7.5,17.5,17.5,7.5,25,10].map(s => s * 1000);
   const E = [
     {t:'order', m:'Tomáš K. si objednal balíček Business'},
     {t:'done',  m:'Web pro Martinu B. spuštěn', h:'14h 07min'},
@@ -975,12 +1106,29 @@ function toggleFaq(btn) {
 </style>
 <script>
 (function(){
-  const n=new Date(),m=n.getUTCMonth(),h=(n.getUTCHours()+(m>=2&&m<=9?2:1))%24,d=n.getUTCDay();
-  const avail=d>=1&&d<=5&&h>=9&&h<18;
-  const w=document.getElementById('hw'),dot=document.getElementById('hw-dot'),st=document.getElementById('hw-status'),sub=document.getElementById('hw-sub');
-  w.classList.add(avail?'hw-avail':'hw-busy');dot.classList.add(avail?'hw-avail':'hw-busy');
-  if(avail){st.style.color='#22c55e';st.textContent='Nyní se dovoláte';sub.style.color='rgba(255,255,255,0.4)';sub.textContent='Po–Pá 9:00–18:00';}
-  else{st.style.color='#FF3366';st.textContent='Teď se nedovoláte';sub.style.color='rgba(255,255,255,0.45)';sub.innerHTML='Napište: <a href="mailto:info@webdo24.cz" style="color:#00C4B5;font-weight:700;text-decoration:none">info@webdo24.cz</a>';}
+  /* ── Hotline override: navštiv ?hw=on / ?hw=off / ?hw=auto ── */
+  const p=new URLSearchParams(location.search).get('hw');
+  if(p==='on')localStorage.setItem('hwOverride','on');
+  else if(p==='off')localStorage.setItem('hwOverride','off');
+  else if(p==='auto')localStorage.removeItem('hwOverride');
+
+  const override=localStorage.getItem('hwOverride');
+  let avail;
+  if(override==='on'){avail=true;}
+  else if(override==='off'){avail=false;}
+  else{
+    const n=new Date(),m=n.getUTCMonth(),h=(n.getUTCHours()+(m>=2&&m<=9?2:1))%24,d=n.getUTCDay();
+    avail=d>=1&&d<=5&&h>=9&&h<18;
+  }
+
+  const w=document.getElementById('hw');
+  if(!avail){w.style.display='none';return;}
+
+  w.classList.add('hw-avail');
+  document.getElementById('hw-dot').classList.add('hw-avail');
+  const st=document.getElementById('hw-status'),sub=document.getElementById('hw-sub');
+  st.style.color='#22c55e';st.textContent='Nyní se dovoláte';
+  sub.style.color='rgba(255,255,255,0.6)';sub.textContent='Po–Pá 9:00–18:00';
 })();
 </script>
 </body>
