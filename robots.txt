@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /objednat.html
+
+Sitemap: https://webdo24.cz/sitemap.xml

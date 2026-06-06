@@ -12,6 +12,15 @@
 <meta property="og:title" content="Model Start · 14 900 Kč · Moderní web do 24 hodin | WebDo24.cz">
 <meta property="og:description" content="Highend prodejní webová aplikace za jednorázovou cenu. Hosting na rok zdarma. Web od první chvíle vlastníte vy.">
 <meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://webdo24.cz/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webdo24.cz/model-start.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Model Start · 14 900 Kč · Moderní web do 24 hodin | WebDo24.cz">
+<meta name="twitter:description" content="Highend prodejní webová aplikace do 24 hodin za 14 900 Kč. Hosting na rok zdarma. Web od první chvíle vlastníte vy.">
+<meta name="twitter:image" content="https://webdo24.cz/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" href="favicon.ico">
@@ -22,6 +31,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{fontFamily:{outfit:['Outfit','sans-serif']}}}}</script>
+<script src="faq-loader.js" defer></script>
+<script src="cyberpunk-effects.js" defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -30,6 +41,34 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 .glass-nav{background:rgba(6,15,26,0.9);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
 .btn-primary{display:inline-block;background:#FF3366;color:#fff;font-weight:900;border-radius:1rem;cursor:pointer;transition:all 0.22s ease;box-shadow:0 8px 36px -4px rgba(255,51,102,0.4);border:none;font-family:'Outfit',sans-serif;text-decoration:none}
 .btn-primary:hover{background:#e52e5a;transform:translateY(-2px);box-shadow:0 16px 44px -4px rgba(255,51,102,0.5)}
+
+/* ═══ CYBERPUNK VIBE ═══ */
+.hero-mesh-bg{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.hero-mesh-bg::before{content:'';position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:radial-gradient(ellipse at 20% 30%,rgba(0,196,181,0.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(255,51,102,0.08) 0%,transparent 50%),radial-gradient(ellipse at 60% 80%,rgba(0,196,181,0.06) 0%,transparent 50%),radial-gradient(ellipse at 30% 70%,rgba(255,149,0,0.05) 0%,transparent 50%);animation:meshMove 20s ease-in-out infinite alternate}
+@keyframes meshMove{0%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-5%,5%) rotate(2deg)}100%{transform:translate(5%,-3%) rotate(-1deg)}}
+.float-shape{position:absolute;pointer-events:none;z-index:1;opacity:.35}
+.float-shape.c1{width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(0,196,181,0.15),transparent 70%);top:10%;left:-5%;animation:float1 18s ease-in-out infinite}
+.float-shape.c2{width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,51,102,0.1),transparent 70%);top:55%;right:-3%;animation:float2 22s ease-in-out infinite}
+.float-shape.c3{width:120px;height:120px;border:1px solid rgba(0,196,181,0.2);border-radius:50%;top:30%;right:15%;animation:float3 15s ease-in-out infinite}
+.float-shape.t1{width:0;height:0;border-left:60px solid transparent;border-right:60px solid transparent;border-bottom:100px solid rgba(255,149,0,0.06);top:70%;left:10%;animation:float1 25s ease-in-out infinite}
+.float-shape.s1{width:80px;height:80px;border:1px solid rgba(255,51,102,0.12);transform:rotate(45deg);top:20%;right:30%;animation:float2 20s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-30px) scale(1.05)}66%{transform:translate(-15px,15px) scale(.95)}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-25px,20px) scale(.95)}66%{transform:translate(15px,-25px) scale(1.03)}}
+@keyframes float3{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(10px,-20px) rotate(180deg)}}
+.neon-glow{position:relative}
+.neon-glow::before{content:'';position:absolute;inset:-3px;border-radius:inherit;background:linear-gradient(135deg,#00C4B5,#FF3366,#00C4B5);z-index:-1;opacity:0;filter:blur(14px);transition:opacity .4s ease}
+.neon-glow:hover::before{opacity:.55;animation:neonPulse 2.2s ease-in-out infinite}
+@keyframes neonPulse{0%,100%{opacity:.4;filter:blur(14px)}50%{opacity:.7;filter:blur(18px)}}
+.glitch-text{position:relative}
+.glitch-text::before,.glitch-text::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;pointer-events:none}
+.glitch-text::before{color:#00C4B5;clip-path:polygon(0 0,100% 0,100% 45%,0 45%);transform:translate(-2px,0)}
+.glitch-text::after{color:#FF3366;clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);transform:translate(2px,0)}
+.glitch-text.active::before{animation:glitch-1 .25s ease-in-out}
+.glitch-text.active::after{animation:glitch-2 .25s ease-in-out}
+@keyframes glitch-1{0%{opacity:0;transform:translate(-2px,0)}20%{opacity:.8;transform:translate(3px,-1px)}40%{opacity:.6;transform:translate(-1px,1px)}60%{opacity:.8;transform:translate(2px,0)}80%{opacity:.4;transform:translate(-3px,-1px)}100%{opacity:0;transform:translate(-2px,0)}}
+@keyframes glitch-2{0%{opacity:0;transform:translate(2px,0)}20%{opacity:.7;transform:translate(-3px,1px)}40%{opacity:.5;transform:translate(1px,-1px)}60%{opacity:.7;transform:translate(-2px,0)}80%{opacity:.3;transform:translate(3px,1px)}100%{opacity:0;transform:translate(2px,0)}}
+#particleCanvas{position:absolute;inset:0;z-index:2;pointer-events:none}
+/* ═══ END CYBERPUNK ═══ */
 .btn-outline{display:inline-block;background:transparent;color:rgba(255,255,255,0.65);font-weight:700;border-radius:1rem;cursor:pointer;transition:all 0.22s ease;border:1px solid rgba(255,255,255,0.18);font-family:'Outfit',sans-serif;text-decoration:none}
 .btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.45)}
 .grad-coral{background:linear-gradient(135deg,#FF3366,#ff6b8a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -67,6 +106,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 #spSub{font-size:.7rem;font-weight:600;color:rgba(0,196,181,0.82);margin-top:3px}
 #spX{background:none;border:none;color:rgba(255,255,255,0.2);font-size:1.1rem;line-height:1;cursor:pointer;padding:0;flex-shrink:0;align-self:flex-start;transition:color .15s}
 #spX:hover{color:rgba(255,255,255,.55)}
+@media(max-width:767px){#spToast{display:none !important}}
 .comp-table{width:100%;border-collapse:collapse}
 .comp-table th,.comp-table td{padding:.85rem 1rem;text-align:center;font-size:.875rem;border-bottom:1px solid rgba(255,255,255,0.05)}
 .comp-table th{font-weight:900;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
@@ -77,6 +117,95 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 .comp-no{color:rgba(255,255,255,0.2)}
 .hl-h{color:#FF9500;font-weight:900;}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Domů", "item": "https://webdo24.cz/"},
+        {"@type": "ListItem", "position": 2, "name": "Model Start", "item": "https://webdo24.cz/model-start.html"}
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://webdo24.cz/model-start.html#service",
+      "name": "Model Start — prodejní web do 24 hodin",
+      "description": "Highend prodejní webová aplikace do 24 hodin za 14 900 Kč. Responzivní design na míru, SEO optimalizace, kontaktní formuláře, hosting první rok zdarma. Web vlastníte od první minuty.",
+      "serviceType": "Tvorba webových stránek",
+      "provider": {
+        "@type": "Organization",
+        "name": "WebDo24.cz",
+        "url": "https://webdo24.cz",
+        "telephone": "+420735847185",
+        "email": "info@webdo24.cz"
+      },
+      "areaServed": {"@type": "Country", "name": "Česká republika"},
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Model Start balíček",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Responzivní design na míru"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO optimalizace + Google Business profil"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kontaktní a poptávkový formulář"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Hosting 1 rok zdarma"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "30 dní bezplatná podpora"}}
+        ]
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Jednorázová platba",
+          "price": "14900",
+          "priceCurrency": "CZK",
+          "availability": "https://schema.org/InStock",
+          "url": "https://webdo24.cz/objednat.html?plan=start&payment=single"
+        },
+        {
+          "@type": "Offer",
+          "name": "Splátky 12 měsíců",
+          "price": "1490",
+          "priceCurrency": "CZK",
+          "availability": "https://schema.org/InStock",
+          "url": "https://webdo24.cz/objednat.html?plan=start&payment=installment",
+          "description": "12 měsíčních splátek po 1 490 Kč bez úroku"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kdy přesně dostanu přístupy k webu?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Ve chvíli, kdy schválíte hotový web a potvrdíte platbu, předáváme vám kompletní přístupy — GitHub repozitář, FTP/SSH, doménový registrátor, Google Analytics i Search Console. Vše najednou, v jednom PDF a videu."}
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké úpravy jsou zahrnuté v ceně modelu Start?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Dvě kola úprav v ceně — změna textů, barev, obrázků, struktury stránek. Další úpravy jsou za 990 Kč/kolo. Větší rozšíření (nové podstránky, nové funkce) si domluvíme zvlášť."}
+        },
+        {
+          "@type": "Question",
+          "name": "Jak fungují splátky u modelu Start?",
+          "acceptedAnswer": {"@type": "Answer", "text": "12 měsíčních splátek po 1 490 Kč. Bez úroku, bez navýšení. Každý měsíc se automaticky strhne z karty. Kdykoli můžete doplatit zbytek najednou a ušetřit."}
+        },
+        {
+          "@type": "Question",
+          "name": "Co potřebuji dodat, abyste mohli začít s webem?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Stačí pár vět o vaší firmě — čím se zabýváte, pro koho a kde působíte. Texty, fotografie i Google Business profil vytvoříme za vás. Formulář vyplníte za 5 minut."}
+        },
+        {
+          "@type": "Question",
+          "name": "Mohu z Start přejít na Business?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Ano, kdykoli. Upgrade na Business nebo Automation provedeme pomocí doplatku rozdílu cen. Váš web zůstane — pouze ho rozšíříme o nové funkce."}
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -101,6 +230,14 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
     <a href="objednat.html?plan=start" class="btn-primary px-5 py-2.5 text-sm">Chci Start →</a>
   </div>
 </nav>
+<!-- BREADCRUMB -->
+<nav aria-label="Drobečková navigace" style="background:rgba(6,15,26,0.95);border-bottom:1px solid rgba(255,255,255,0.05);padding:.6rem 1.5rem">
+  <ol style="max-width:72rem;margin:0 auto;display:flex;align-items:center;gap:.4rem;list-style:none;font-size:.78rem;color:rgba(255,255,255,0.35);font-weight:600">
+    <li><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none" onmouseover="this.style.color='#00C4B5'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">WebDo24.cz</a></li>
+    <li style="color:rgba(255,255,255,0.2)">/</li>
+    <li style="color:#00C4B5">Model Start</li>
+  </ol>
+</nav>
 
 <!-- HERO -->
 <section class="hero-bg relative min-h-screen flex flex-col justify-center overflow-hidden px-6">
@@ -110,7 +247,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
       <span class="pulse inline-block w-1.5 h-1.5 rounded-full" style="background:#00C4B5"></span>
       <span class="text-xs font-black uppercase tracking-widest" style="color:#00C4B5">Model Start · Nejdostupnější vstup online</span>
     </div>
-    <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-4 fade-up delay-1">
+    <h1 class="glitch-text text-5xl md:text-7xl font-black leading-tight tracking-tight mb-4 fade-up delay-1" data-text="Model Start · 14 900 Kč">
       Model Start · <span class="grad-teal">14 900 Kč</span>
     </h1>
     <p class="text-2xl md:text-3xl font-black mb-6 fade-up delay-2" style="color:rgba(255,255,255,0.75)">Prodejní webová aplikace do 24 hodin.</p>
@@ -118,7 +255,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
       Highend prodejní aplikace na vlastní doméně. <span class="hl-h">Hosting na rok zdarma.</span> Web je váš od první minuty.
     </p>
     <div class="fade-up delay-3 flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-      <a href="objednat.html?plan=start" class="btn-primary px-10 py-5 text-lg">Chci Start — 14 900 Kč →</a>
+      <a href="objednat.html?plan=start" class="btn-primary neon-glow px-10 py-5 text-lg">Chci Start — 14 900 Kč →</a>
       <a href="#balicek" class="btn-outline px-8 py-5 text-base">Co je v balíčku</a>
     </div>
     <p class="text-sm fade-up delay-3" style="color:rgba(255,255,255,0.25)">nebo od 1 490 Kč / měsíc · 12 měsíců · bez navýšení</p>
@@ -361,7 +498,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
       <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Otázky</p>
       <h2 class="text-4xl font-black">Nejčastější otázky.</h2>
     </div>
-    <div class="space-y-3">
+    <div id="faq-list" class="space-y-3" data-category="start">
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)">
           <span>Kdy přesně dostanu přístupy k webu?</span>
@@ -437,6 +574,13 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
       <div>
         <div class="text-xl font-black tracking-tight mb-2"><span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span></div>
         <p class="text-sm" style="color:rgba(255,255,255,0.3)">Highend prodejní aplikace do 24 hodin. Garance termínu. 0 Kč riziko.</p>
+        <address style="font-style:normal">
+          <p class="text-xs mt-2" style="color:rgba(255,255,255,0.25)">
+            <a href="tel:+420735847185" style="color:rgba(255,255,255,0.35);text-decoration:none" onmouseover="this.style.color='#00C4B5'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">+420 735 847 185</a>
+            &nbsp;·&nbsp;
+            <a href="mailto:info@webdo24.cz" style="color:rgba(255,255,255,0.35);text-decoration:none" onmouseover="this.style.color='#00C4B5'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">info@webdo24.cz</a>
+          </p>
+        </address>
         <p class="text-xs mt-1" style="color:rgba(255,255,255,0.15)">© 2026 WebDo24.cz — Soterana Corp s.r.o.</p>
       </div>
       <div class="grid grid-cols-2 gap-x-12 gap-y-1 text-sm" style="color:rgba(255,255,255,0.4)">
@@ -517,6 +661,7 @@ function toggleFaq(btn) {
 #hw.hw-busy{background:rgba(18,3,10,0.93);border:1.5px solid rgba(255,51,102,0.3);box-shadow:0 12px 60px rgba(0,0,0,0.6),0 0 50px rgba(255,51,102,0.1)}
 #hw-dot.hw-avail{background:#22c55e;animation:hw-pulse-g 1.6s ease-in-out infinite}
 #hw-dot.hw-busy{background:#FF3366;animation:hw-pulse-r 2s ease-in-out infinite}
+@media(max-width:1023px){#hw{width:auto !important;left:1rem !important;right:auto !important;bottom:1rem !important;padding:1.25rem 1.5rem !important;border-radius:1.25rem !important}#hw a[href^="tel"]{font-size:1.5rem !important}}@media(max-width:767px){#hw{left:50% !important;transform:translateX(-50%) !important;bottom:0.75rem !important;padding:1rem 1.25rem !important;border-radius:1rem !important;max-width:calc(100vw - 2rem) !important}#hw a[href^="tel"]{font-size:1.3rem !important;margin-bottom:0.25rem !important}#hw-status{font-size:0.65rem !important}#hw-sub{font-size:0.75rem !important}}
 </style>
 <script>
 (function(){
