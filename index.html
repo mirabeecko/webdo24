@@ -394,7 +394,7 @@ section{scroll-snap-align:start}
         {
           "@type": "Question",
           "name": "Opravdu spustíte web do 24 hodin?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Ano. Jinak vracíme 50 % ceny zpět. Není to jen slib — je to garance zabudovaná do celého procesu. Do 24 hodin dostanete odkaz na hotový web k odsouhlasení."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Ano. Jinak vracíme celou platbu zpět. Není to jen slib — je to garance zabudovaná do celého procesu. Do 24 hodin dostanete odkaz na hotový web k odsouhlasení."}}
         },
         {
           "@type": "Question",
@@ -703,15 +703,18 @@ section{scroll-snap-align:start}
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
+
+      <!-- 1: Paddleboardy Milada — žádný X-Frame-Options → živý iframe -->
       <div>
-        <div class="mock-browser cursor-pointer" onclick="openSite('https://paddleboardymilada.cz','Paddleboardy Milada')">
+        <div class="mock-browser cursor-pointer" onclick="openSite('https://paddleboardy-milada.cz','Paddleboardy Milada','previews/demo7-paddleboardy-milada.png')">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
           </div>
           <div class="mock-content">
-            <iframe src="https://paddleboardymilada.cz" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none"></iframe>
+            <iframe src="https://paddleboardy-milada.cz" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none" onload="checkIframeLoad(this,'pf-milada-fb')"></iframe>
+            <div id="pf-milada-fb" style="display:none;position:absolute;inset:0;background:#0d1f33;align-items:center;justify-content:center"><img src="previews/demo7-paddleboardy-milada.png" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
             <div class="mock-content-overlay"></div>
             <div class="mock-hover">Zobrazit celý web ↗</div>
           </div>
@@ -721,15 +724,18 @@ section{scroll-snap-align:start}
           <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 23 hodin</p>
         </div>
       </div>
+
+      <!-- 2: Ninja Den pro děti — žádný X-Frame-Options → živý iframe -->
       <div>
-        <div class="mock-browser cursor-pointer" onclick="openSite('https://ninja-tyden.webdo24.cz','Ninja Den pro děti')">
+        <div class="mock-browser cursor-pointer" onclick="openSite('https://ninja-tyden.webdo24.cz','Ninja Den pro děti','previews/demo3-ninja-vikend.png')">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
           </div>
           <div class="mock-content">
-            <img src="previews/demo3-ninja-vikend.png" loading="lazy" alt="Ninja Den pro děti" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+            <iframe src="https://ninja-tyden.webdo24.cz" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none" onload="checkIframeLoad(this,'pf-ninja-fb')"></iframe>
+            <div id="pf-ninja-fb" style="display:none;position:absolute;inset:0;background:#0d1f33;align-items:center;justify-content:center"><img src="previews/demo3-ninja-vikend.png" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
             <div class="mock-content-overlay"></div>
             <div class="mock-hover">Zobrazit celý web ↗</div>
           </div>
@@ -739,46 +745,93 @@ section{scroll-snap-align:start}
           <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 17 hodin</p>
         </div>
       </div>
+
+      <!-- 3: Pavel Douša Elektrikář — žádný X-Frame-Options → živý iframe -->
       <div>
-        <div class="mock-browser cursor-pointer" onclick="openSite('https://dousa-elektro.cz','Pavel Douša — Elektrikář')">
+        <div class="mock-browser cursor-pointer" onclick="openSite('https://dousa-elektro.cz','Pavel Douša — Elektrikář','previews/demo8-pavel-dousa-elektrikar.png')">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
           </div>
           <div class="mock-content">
-            <img src="previews/demo8-pavel-dousa-elektrikar.png" loading="lazy" alt="Pavel Douša — Elektrikář" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <iframe src="https://dousa-elektro.cz" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none" onload="checkIframeLoad(this,'pf-dousa-fb')"></iframe>
+            <div id="pf-dousa-fb" style="display:none;position:absolute;inset:0;background:#0d1f33;align-items:center;justify-content:center"><img src="previews/demo8-pavel-dousa-elektrikar.png" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
             <div class="mock-content-overlay"></div>
             <div class="mock-hover">Zobrazit celý web ↗</div>
           </div>
         </div>
         <div class="mt-4 px-1">
           <h4 class="font-black text-base">Pavel Douša — Elektrikář</h4>
-          <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 20 hodin · Statický náhled</p>
+          <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 20 hodin</p>
         </div>
       </div>
+
+      <!-- 4: Truhlářství Dřevořez — živý iframe (Caddy: frame-ancestors webdo24.cz) -->
       <div>
-        <div class="mock-browser cursor-pointer" onclick="openSite('https://web.webdo24.cz/truhlarstvi-drevorez/index.html#kontakt','Truhlářství Dřevořez')">
+        <div class="mock-browser cursor-pointer" onclick="openSite('https://web.webdo24.cz/truhlarstvi-drevorez','Truhlářství Dřevořez',null)">
           <div class="mock-chrome">
             <div class="mock-dot" style="background:#ff5f56"></div>
             <div class="mock-dot" style="background:#ffbd2e"></div>
             <div class="mock-dot" style="background:#27c93f"></div>
           </div>
           <div class="mock-content">
-            <iframe src="https://web.webdo24.cz/truhlarstvi-drevorez/index.html" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none"></iframe>
+            <iframe src="https://web.webdo24.cz/truhlarstvi-drevorez" loading="lazy" style="width:100%;height:100%;border:none;display:block;pointer-events:none"></iframe>
             <div class="mock-content-overlay"></div>
             <div class="mock-hover">Zobrazit celý web ↗</div>
           </div>
         </div>
         <div class="mt-4 px-1">
           <h4 class="font-black text-base">Truhlářství Dřevořez</h4>
-          <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 18 hodin · Živý náhled v iframe</p>
+          <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 18 hodin</p>
         </div>
       </div>
+
+      <!-- 5: Autoservis — screenshot -->
+      <div>
+        <div class="mock-browser cursor-pointer" onclick="openSite(null,'Autoservis Praha','previews/demo2-autoservis.png')">
+          <div class="mock-chrome">
+            <div class="mock-dot" style="background:#ff5f56"></div>
+            <div class="mock-dot" style="background:#ffbd2e"></div>
+            <div class="mock-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="mock-content">
+            <img src="previews/demo2-autoservis.png" loading="lazy" alt="Autoservis Praha" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay"></div>
+            <div class="mock-hover">Zobrazit náhled ↗</div>
+          </div>
+        </div>
+        <div class="mt-4 px-1">
+          <h4 class="font-black text-base">Autoservis Praha</h4>
+          <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 21 hodin</p>
+        </div>
+      </div>
+
+      <!-- 6: Kadeřnictví Maruška — screenshot -->
+      <div>
+        <div class="mock-browser cursor-pointer" onclick="openSite(null,'Kadeřnictví Maruška','previews/demo5-kadernictvimaruska.png')">
+          <div class="mock-chrome">
+            <div class="mock-dot" style="background:#ff5f56"></div>
+            <div class="mock-dot" style="background:#ffbd2e"></div>
+            <div class="mock-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="mock-content">
+            <img src="previews/demo5-kadernictvimaruska.png" loading="lazy" alt="Kadeřnictví Maruška" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            <div class="mock-content-overlay"></div>
+            <div class="mock-hover">Zobrazit náhled ↗</div>
+          </div>
+        </div>
+        <div class="mt-4 px-1">
+          <h4 class="font-black text-base">Kadeřnictví Maruška</h4>
+          <p class="text-sm mt-0.5 font-bold" style="color:#00C4B5">Dodáno za 19 hodin</p>
+        </div>
+      </div>
+
     </div>
 
     <!-- IFRAME LIGHTBOX -->
     <div id="siteLightbox" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.97);flex-direction:column">
+      <!-- Hlavička -->
       <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;background:rgba(6,15,26,0.95)">
         <div style="display:flex;align-items:center;gap:.75rem;min-width:0">
           <span style="width:8px;height:8px;border-radius:50%;background:#00C4B5;display:inline-block;flex-shrink:0"></span>
@@ -789,10 +842,28 @@ section{scroll-snap-align:start}
           ✕ &nbsp;Zavřít
         </button>
       </div>
-      <div style="flex:1;padding:.75rem;min-height:0;overflow:hidden">
-        <iframe id="siteLightboxFrame" src="" style="width:100%;height:100%;border-radius:.75rem;border:none;display:block;background:#fff"></iframe>
+      <!-- Obsah -->
+      <div style="flex:1;padding:.75rem;min-height:0;overflow:hidden;position:relative">
+        <!-- Loading spinner -->
+        <div id="siteLightboxLoader" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;z-index:2">
+          <div style="width:36px;height:36px;border:3px solid rgba(0,196,181,0.2);border-top-color:#00C4B5;border-radius:50%;animation:spin .8s linear infinite"></div>
+          <span style="font-size:.8rem;color:rgba(255,255,255,0.4);font-family:'Outfit',sans-serif">Načítám web...</span>
+        </div>
+        <!-- Fallback — zobrazí se při blokovaném iframu nebo demo projektu -->
+        <div id="siteLightboxFallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;z-index:2;padding:2rem">
+          <img id="siteLightboxFallbackImg" src="" alt="" style="max-width:100%;max-height:65%;object-fit:contain;border-radius:1rem;box-shadow:0 24px 80px rgba(0,0,0,0.5);display:none">
+          <div style="text-align:center">
+            <p id="siteLightboxFallbackMsg" style="font-size:.95rem;color:rgba(255,255,255,0.55);font-family:'Outfit',sans-serif;margin-bottom:1.25rem"></p>
+            <a id="siteLightboxFallbackBtn" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.75rem;background:#00C4B5;color:#060f1a;font-weight:900;font-size:.9rem;border-radius:.875rem;text-decoration:none;font-family:'Outfit',sans-serif;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+              Otevřít web v novém okně ↗
+            </a>
+          </div>
+        </div>
+        <!-- Iframe -->
+        <iframe id="siteLightboxFrame" src="" style="width:100%;height:100%;border-radius:.75rem;border:none;display:none;background:#fff" onload="onLightboxLoad(this)"></iframe>
       </div>
     </div>
+    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
       <div class="glass-dark rounded-2xl p-5">
@@ -1003,39 +1074,46 @@ section{scroll-snap-align:start}
 <section id="cena" style="padding:7rem 1.5rem 8rem;background:rgba(6,15,26,0.8)">
   <div class="max-w-6xl mx-auto">
 
-    <div style="text-align:center;margin-bottom:5rem">
-      <p style="font-size:.68rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#00C4B5;margin-bottom:1.5rem">Transparentní ceny</p>
-      <h2 style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem">Vyberte si řešení.</h2>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,0.72);max-width:460px;margin:0 auto;line-height:1.85">Jednorázová cena nebo splátky na 12 měsíců. Web od první chvíle vlastníte vy.</p>
+    <!-- HEADER -->
+    <div style="text-align:center;margin-bottom:4rem">
+      <div style="display:inline-flex;align-items:center;gap:1.25rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem;padding:.65rem 1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:100px">
+        <span style="display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,0.55)"><span style="color:#FF9500;letter-spacing:.05em">★★★★★</span>&nbsp;Stovky spokojených klientů</span>
+        <span style="width:1px;height:14px;background:rgba(255,255,255,0.12)"></span>
+        <span style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,0.55)">⚡ Spuštění do 24 hodin</span>
+        <span style="width:1px;height:14px;background:rgba(255,255,255,0.12)"></span>
+        <span style="font-size:.78rem;font-weight:700;color:#00C4B5">✓ Garance spokojenosti</span>
+      </div>
+      <h2 style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem">Kolik stojí web,<br>který skutečně prodává?</h2>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.72);max-width:520px;margin:0 auto;line-height:1.85">Jednorázová cena nebo splátky na 12 měsíců. Web od první chvíle vlastníte vy — bez závazků, bez překvapení.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3" style="gap:1.5rem;margin-bottom:1.5rem;align-items:stretch">
 
       <!-- START -->
       <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:2rem;padding:3rem 2.5rem;display:flex;flex-direction:column;transition:border-color .25s,transform .25s" onmouseover="this.style.borderColor='rgba(0,196,181,0.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
-        <p style="font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:1rem">Start</p>
-        <p style="font-size:1rem;font-weight:600;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2.5rem">Prodejní webová aplikace do 24 hodin.</p>
+        <p style="font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:1rem">Model Start</p>
+        <p style="font-size:1.05rem;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.6;margin-bottom:2.5rem">Moderní web, který zákazníci najdou a rovnou kontaktují vás — spuštěný do&nbsp;24&nbsp;hodin.</p>
         <div style="font-size:2.8rem;font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:.5rem">14 900 Kč</div>
         <p style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:.08em;margin-bottom:1rem">Jednorázově</p>
         <div style="display:inline-flex;align-items:baseline;gap:.4rem;margin-bottom:2.5rem;padding:.5rem .9rem;background:rgba(0,196,181,0.07);border:1px solid rgba(0,196,181,0.18);border-radius:.65rem;font-size:.82rem;color:rgba(255,255,255,0.65);font-weight:600">nebo od <strong style="color:#00C4B5;font-weight:900">1 490 Kč</strong>&nbsp;/ měsíc · 12 měs.</div>
         <div style="height:1px;background:rgba(255,255,255,0.07);margin-bottom:2.5rem"></div>
-        <p style="font-size:.65rem;font-weight:900;color:rgba(255,255,255,0.28);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5rem">Co je v ceně</p>
+        <p style="font-size:.65rem;font-weight:900;color:rgba(255,255,255,0.28);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5rem">Co dostanete</p>
         <div style="display:flex;flex-direction:column;gap:1.15rem;flex:1;margin-bottom:3rem">
           <div style="display:flex;align-items:flex-start;gap:.85rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.9rem;color:rgba(255,255,255,0.7);line-height:1.7">Responzivní web na míru</span></div>
-          <div style="display:flex;align-items:flex-start;gap:.85rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.9rem;color:rgba(255,255,255,0.7);line-height:1.7">SEO optimalizace</span></div>
+          <div style="display:flex;align-items:flex-start;gap:.85rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.9rem;color:rgba(255,255,255,0.7);line-height:1.7">SEO — zákazníci vás najdou</span></div>
           <div style="display:flex;align-items:flex-start;gap:.85rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.9rem;color:rgba(255,255,255,0.7);line-height:1.7">Kontaktní formuláře</span></div>
           <div style="display:flex;align-items:flex-start;gap:.85rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.9rem;color:rgba(255,255,255,0.7);line-height:1.7">Moderní design</span></div>
           <div style="display:flex;align-items:flex-start;gap:.85rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.9rem;color:rgba(255,255,255,0.7);line-height:1.7">Spuštění do 24 hodin</span></div>
         </div>
-        <a href="objednat.html?plan=start" style="width:100%;padding:1rem 1.5rem;text-align:center;display:block;font-size:.9rem;font-weight:900;border-radius:1rem;background:transparent;color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.18);text-decoration:none;transition:all .22s;font-family:'Outfit',sans-serif" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.45)'" onmouseout="this.style.color='rgba(255,255,255,0.65)';this.style.borderColor='rgba(255,255,255,0.18)'">Chci web Start</a>
-        <a href="model-start.html" style="display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:rgba(255,255,255,0.28);text-decoration:none;font-weight:600">Detailní informace →</a>
+        <a href="model-start.html" style="width:100%;padding:1.05rem 1.5rem;text-align:center;display:block;font-size:.9rem;font-weight:900;border-radius:1rem;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.3);text-decoration:none;transition:all .22s;font-family:'Outfit',sans-serif" onmouseover="this.style.borderColor='rgba(0,196,181,0.6)';this.style.background='rgba(0,196,181,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.background='transparent'">Zobrazit co dostanete →</a>
+        <a href="objednat.html?plan=start" style="display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:rgba(255,255,255,0.32);text-decoration:none;font-weight:600;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.32)'">Rovnou objednat →</a>
       </div>
 
       <!-- BUSINESS (featured) -->
       <div style="background:linear-gradient(180deg,rgba(0,196,181,0.09),rgba(0,196,181,0.03));border:1.5px solid rgba(0,196,181,0.45);border-radius:2rem;padding:3rem 2.5rem;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 80px -20px rgba(0,196,181,0.25),0 0 0 1px rgba(0,196,181,0.1) inset;transition:border-color .25s,transform .25s" onmouseover="this.style.borderColor='rgba(0,196,181,0.65)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(0,196,181,0.45)';this.style.transform='translateY(0)'">
-        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#00C4B5,#00e0d0);color:#060f1a;font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 20px;border-radius:100px;white-space:nowrap;box-shadow:0 6px 20px -2px rgba(0,196,181,0.4)">Nejpopulárnější</div>
-        <p style="font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#00C4B5;margin-bottom:1rem">Business</p>
-        <p style="font-size:1rem;font-weight:600;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2.5rem">Prodejní aplikace, která získává zákazníky.</p>
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#00C4B5,#00e0d0);color:#060f1a;font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 20px;border-radius:100px;white-space:nowrap;box-shadow:0 6px 20px -2px rgba(0,196,181,0.4)">Nejčastěji volený</div>
+        <p style="font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#00C4B5;margin-bottom:1rem">Model Business</p>
+        <p style="font-size:1.05rem;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.6;margin-bottom:2.5rem">Web, který sám oslovuje, sleduje a&nbsp;uzavírá zakázky — i&nbsp;když spíte.</p>
         <div style="font-size:2.8rem;font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:.5rem">29 900 Kč</div>
         <p style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:.08em;margin-bottom:1rem">Jednorázově</p>
         <div style="display:inline-flex;align-items:baseline;gap:.4rem;margin-bottom:2.5rem;padding:.5rem .9rem;background:rgba(0,196,181,0.07);border:1px solid rgba(0,196,181,0.18);border-radius:.65rem;font-size:.82rem;color:rgba(255,255,255,0.65);font-weight:600">nebo od <strong style="color:#00C4B5;font-weight:900">2 990 Kč</strong>&nbsp;/ měsíc · 12 měs.</div>
@@ -1051,14 +1129,14 @@ section{scroll-snap-align:start}
           <div style="display:flex;align-items:flex-start;gap:.75rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.875rem;color:rgba(255,255,255,0.7);line-height:1.65">Automatické nabídky</span></div>
           <div style="display:flex;align-items:flex-start;gap:.75rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.875rem;color:rgba(255,255,255,0.7);line-height:1.65">Editace obsahu</span></div>
         </div>
-        <a href="objednat.html?plan=business" style="width:100%;padding:1rem 1.5rem;text-align:center;display:block;font-size:.9rem;font-weight:900;border-radius:1rem;background:#FF3366;color:#fff;border:none;text-decoration:none;transition:all .22s;font-family:'Outfit',sans-serif;box-shadow:0 8px 36px -4px rgba(255,51,102,0.4)" onmouseover="this.style.background='#e52e5a';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#FF3366';this.style.transform='translateY(0)'">Chci Business</a>
-        <a href="model-business.html" style="display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:rgba(0,196,181,0.45);text-decoration:none;font-weight:600">Detailní informace →</a>
+        <a href="model-business.html" style="width:100%;padding:1.05rem 1.5rem;text-align:center;display:block;font-size:.9rem;font-weight:900;border-radius:1rem;background:#FF3366;color:#fff;border:none;text-decoration:none;transition:all .22s;font-family:'Outfit',sans-serif;box-shadow:0 8px 36px -4px rgba(255,51,102,0.4)" onmouseover="this.style.background='#e52e5a';this.style.boxShadow='0 12px 40px -4px rgba(255,51,102,0.55)'" onmouseout="this.style.background='#FF3366';this.style.boxShadow='0 8px 36px -4px rgba(255,51,102,0.4)'">Zobrazit co dostanete →</a>
+        <a href="objednat.html?plan=business" style="display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:rgba(0,196,181,0.5);text-decoration:none;font-weight:600;transition:color .2s" onmouseover="this.style.color='rgba(0,196,181,0.85)'" onmouseout="this.style.color='rgba(0,196,181,0.5)'">Rovnou objednat →</a>
       </div>
 
       <!-- AUTOMATION -->
       <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:2rem;padding:3rem 2.5rem;display:flex;flex-direction:column;transition:border-color .25s,transform .25s" onmouseover="this.style.borderColor='rgba(0,196,181,0.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
-        <p style="font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:1rem">Automation</p>
-        <p style="font-size:1rem;font-weight:600;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2.5rem">Automatizovaný online obchodní systém.</p>
+        <p style="font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:1rem">Model Automation</p>
+        <p style="font-size:1.05rem;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.6;margin-bottom:2.5rem">Celý obchodní provoz na autopilotu. Systém, který vydělává místo vás.</p>
         <div style="font-size:2.8rem;font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:.5rem">59 900 Kč</div>
         <p style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:.08em;margin-bottom:1rem">Jednorázově</p>
         <div style="display:inline-flex;align-items:baseline;gap:.4rem;margin-bottom:2.5rem;padding:.5rem .9rem;background:rgba(0,196,181,0.07);border:1px solid rgba(0,196,181,0.18);border-radius:.65rem;font-size:.82rem;color:rgba(255,255,255,0.65);font-weight:600">nebo od <strong style="color:#00C4B5;font-weight:900">5 990 Kč</strong>&nbsp;/ měsíc · 12 měs.</div>
@@ -1074,22 +1152,31 @@ section{scroll-snap-align:start}
           <div style="display:flex;align-items:flex-start;gap:.75rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.875rem;color:rgba(255,255,255,0.7);line-height:1.65">Automatické faktury</span></div>
           <div style="display:flex;align-items:flex-start;gap:.75rem"><span style="color:#00C4B5;font-weight:900;font-size:.78rem;margin-top:.18rem;flex-shrink:0">✓</span><span style="font-size:.875rem;color:rgba(255,255,255,0.7);line-height:1.65">60 dní podpora</span></div>
         </div>
-        <a href="objednat.html?plan=automation" style="width:100%;padding:1rem 1.5rem;text-align:center;display:block;font-size:.9rem;font-weight:900;border-radius:1rem;background:transparent;color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.18);text-decoration:none;transition:all .22s;font-family:'Outfit',sans-serif" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.45)'" onmouseout="this.style.color='rgba(255,255,255,0.65)';this.style.borderColor='rgba(255,255,255,0.18)'">Chci Automation</a>
-        <a href="model-automation.html" style="display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:rgba(255,255,255,0.28);text-decoration:none;font-weight:600">Detailní informace →</a>
+        <a href="model-automation.html" style="width:100%;padding:1.05rem 1.5rem;text-align:center;display:block;font-size:.9rem;font-weight:900;border-radius:1rem;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.3);text-decoration:none;transition:all .22s;font-family:'Outfit',sans-serif" onmouseover="this.style.borderColor='rgba(0,196,181,0.6)';this.style.background='rgba(0,196,181,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.background='transparent'">Zobrazit co dostanete →</a>
+        <a href="objednat.html?plan=automation" style="display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:rgba(255,255,255,0.32);text-decoration:none;font-weight:600;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.32)'">Rovnou objednat →</a>
       </div>
 
     </div>
 
     <!-- SHARED FEATURES STRIP -->
-    <div style="border:1px solid rgba(255,255,255,0.07);border-radius:1.5rem;padding:2.25rem 2.5rem">
-      <p style="font-size:.65rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);text-align:center;margin-bottom:1.75rem">Společné pro všechny tarify</p>
+    <div style="border:1px solid rgba(255,255,255,0.07);border-radius:1.5rem;padding:2.25rem 2.5rem;margin-bottom:1.5rem">
+      <p style="font-size:.65rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);text-align:center;margin-bottom:1.75rem">Společné pro všechny modely · Vždy v ceně</p>
       <div style="display:flex;flex-wrap:wrap;gap:1.25rem 2.5rem;justify-content:center;align-items:center">
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Web od začátku vlastníte</span></div>
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#FF9500;font-weight:900;font-size:.85rem">✔</span><span class="hl-h" style="font-size:.95rem">1 rok hostingu zdarma</span></div>
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Bez závazků</span></div>
-        <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Rychlé spuštění do 24 h</span></div>
+        <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Spuštění do 24 hodin</span></div>
         <div style="display:flex;align-items:center;gap:.65rem"><span style="color:#00C4B5;font-weight:900;font-size:.85rem">✔</span><span style="font-size:.9rem;color:rgba(255,255,255,0.6);font-weight:600">Možnost péče a AI funkcí</span></div>
       </div>
+    </div>
+
+    <!-- RISK REVERSAL -->
+    <div style="text-align:center;padding:1.75rem 1.5rem">
+      <p style="font-size:.88rem;color:rgba(255,255,255,0.4);line-height:1.9;max-width:560px;margin:0 auto">
+        <strong style="color:rgba(255,255,255,0.65)">Nejste spokojeni? Vrátíme vám peníze.</strong><br>
+        Spolupracujeme jen když to dává smysl oběma stranám. Máte dotaz před objednávkou?<br>
+        Napište na <a href="mailto:info@webdo24.cz" style="color:#00C4B5;text-decoration:none;font-weight:700">info@webdo24.cz</a> — odpovídáme do hodiny.
+      </p>
     </div>
 
   </div>
@@ -1372,17 +1459,106 @@ section{scroll-snap-align:start}
 
 <script>
 /* ── SITE LIGHTBOX ── */
-function openSite(url, title) {
+function openSite(url, title, screenshotUrl) {
+  const frame    = document.getElementById('siteLightboxFrame');
+  const loader   = document.getElementById('siteLightboxLoader');
+  const fallback = document.getElementById('siteLightboxFallback');
+  const fbImg    = document.getElementById('siteLightboxFallbackImg');
+  const fbMsg    = document.getElementById('siteLightboxFallbackMsg');
+  const fbBtn    = document.getElementById('siteLightboxFallbackBtn');
+  const link     = document.getElementById('siteLightboxLink');
+
   document.getElementById('siteLightboxTitle').textContent = title;
-  document.getElementById('siteLightboxFrame').src = url;
-  document.getElementById('siteLightboxLink').href = url;
-  const lb = document.getElementById('siteLightbox');
-  lb.style.display = 'flex';
+
+  // Reset stavu
+  frame.style.display    = 'none';
+  fallback.style.display = 'none';
+  loader.style.display   = 'flex';
+  frame.src = '';
+
+  if (url) link.href = url;
+  else     link.style.display = 'none';
+
+  document.getElementById('siteLightbox').style.display = 'flex';
   document.body.style.overflow = 'hidden';
+
+  if (!url) {
+    // Demo projekt — žádná živá URL, zobrazíme jen screenshot
+    loader.style.display = 'none';
+    if (screenshotUrl) {
+      fbImg.src = screenshotUrl;
+      fbImg.style.display = 'block';
+    }
+    fbMsg.textContent = 'Demo projekt — živý web není veřejně dostupný.';
+    fbBtn.style.display = 'none';
+    fallback.style.display = 'flex';
+    return;
+  }
+
+  // Zkusíme načíst iframe — onLightboxLoad detekuje zda se podařilo
+  frame._screenshotUrl = screenshotUrl;
+  frame._liveUrl       = url;
+  frame.src = url;
 }
+
+function onLightboxLoad(frame) {
+  const loader   = document.getElementById('siteLightboxLoader');
+  const fallback = document.getElementById('siteLightboxFallback');
+  const fbImg    = document.getElementById('siteLightboxFallbackImg');
+  const fbMsg    = document.getElementById('siteLightboxFallbackMsg');
+  const fbBtn    = document.getElementById('siteLightboxFallbackBtn');
+  const link     = document.getElementById('siteLightboxLink');
+
+  loader.style.display = 'none';
+
+  let blocked = false;
+  try {
+    // Pokud je cross-origin stránka načtena OK → toto hodí SecurityError
+    const loc = frame.contentWindow.location.href;
+    // Pokud to nehodí a href je about:blank → iframe byl zablokován
+    if (!loc || loc === 'about:blank') blocked = true;
+  } catch(e) {
+    // SecurityError = cross-origin content načten úspěšně
+    blocked = false;
+  }
+
+  if (blocked) {
+    // Stránka zablokovala embedding — zobrazíme fallback
+    frame.style.display = 'none';
+    const url = frame._liveUrl;
+    const sc  = frame._screenshotUrl;
+    if (sc) { fbImg.src = sc; fbImg.style.display = 'block'; }
+    fbMsg.textContent = 'Tato stránka neumožňuje zobrazení v okně.';
+    fbBtn.href = url;
+    fbBtn.style.display = 'inline-flex';
+    link.style.display  = 'flex';
+    fallback.style.display = 'flex';
+  } else {
+    frame.style.display = 'block';
+  }
+}
+
+// Detekce blokovaného iframu v portfolio kartičce
+function checkIframeLoad(iframe, fallbackId) {
+  try {
+    const loc = iframe.contentWindow.location.href;
+    if (!loc || loc === 'about:blank') {
+      iframe.style.display = 'none';
+      const fb = document.getElementById(fallbackId);
+      if (fb) fb.style.display = 'flex';
+    }
+  } catch(e) {
+    // Cross-origin, ale načteno — iframe funguje
+  }
+}
+
 function closeSite() {
   document.getElementById('siteLightbox').style.display = 'none';
-  document.getElementById('siteLightboxFrame').src = '';
+  const frame = document.getElementById('siteLightboxFrame');
+  frame.src = '';
+  frame._screenshotUrl = null;
+  frame._liveUrl = null;
+  document.getElementById('siteLightboxLink').style.display = 'flex';
   document.getElementById('siteLightboxLink').href = '#';
   document.body.style.overflow = '';
 }
