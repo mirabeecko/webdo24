@@ -184,39 +184,56 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 
         <!-- Step 2: Souhrn & Platba -->
         <div id="step3" class="hidden">
-          <h2 class="text-xl font-black mb-6">Souhrn & Pre-autorizace platby</h2>
-          <div class="rounded-2xl p-6 mb-6 space-y-3" style="background:#051D2E">
-            <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Balíček</span><span class="font-bold" id="s_package">Business</span></div>
-            <div class="flex justify-between items-center"><span class="text-sm" style="color:rgba(255,255,255,0.5)">Firma</span><span class="font-bold" id="s_name">—</span></div>
+          <h2 class="text-xl font-black mb-2">Souhrn objednávky</h2>
+          <p class="text-sm mb-6" style="color:rgba(255,255,255,0.45)">Zkontrolujte zadání a pokračujte na bezpečnou platbu.</p>
+
+          <!-- Souhrn -->
+          <div class="rounded-2xl p-6 mb-5 space-y-3" style="background:#051D2E">
+            <div class="flex justify-between items-center">
+              <span class="text-sm" style="color:rgba(255,255,255,0.5)">Balíček</span>
+              <span class="font-bold" id="s_package">Business</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm" style="color:rgba(255,255,255,0.5)">Firma</span>
+              <span class="font-bold" id="s_name">—</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm" style="color:rgba(255,255,255,0.5)">Typ platby</span>
+              <span class="font-bold" id="s_payment_type">Jednorázově</span>
+            </div>
             <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:0.75rem;margin-top:0.75rem"></div>
-            <div class="flex justify-between items-center"><span class="text-lg font-black">Celkem k autorizaci</span><span class="text-3xl font-black" style="color:#00C4B5" id="s_price">29 900 Kč</span></div>
-          </div>
-          <div class="rounded-2xl p-6 mb-5" style="background:rgba(0,196,181,0.05);border:1px solid rgba(0,196,181,0.18)">
-            <h3 class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Jak funguje Pre-autorizace (Hold)?</h3>
-            <div class="space-y-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.65)">
-              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">1.</span><p>Částka se <strong class="text-white">zablokuje</strong> na vaší kartě. <em>Neodchází nikam</em> — zůstává v bankovní úschově.</p></div>
-              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">2.</span><p>Stavíme web a po dokončení vám zašleme náhled v Sandboxu k odsouhlasení.</p></div>
-              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">3.</span><p>Nespokojen s výsledkem? Hold zaniká automaticky. <strong style="color:#00C4B5">Riskujete 0 Kč.</strong></p></div>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-black">K zaplacení</span>
+              <span class="text-3xl font-black" style="color:#00C4B5" id="s_price">29 900 Kč</span>
             </div>
           </div>
-          <div class="rounded-2xl p-5 mb-6" style="background:rgba(255,51,102,0.08);border:2px solid rgba(255,51,102,0.4)">
+
+          <!-- Jak platba funguje -->
+          <div class="rounded-2xl p-5 mb-5" style="background:rgba(0,196,181,0.05);border:1px solid rgba(0,196,181,0.18)">
+            <h3 class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Co se stane po kliknutí</h3>
+            <div class="space-y-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.65)">
+              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">1.</span><p>Váš brief odešleme týmu — <strong class="text-white">práce začíná okamžitě.</strong></p></div>
+              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">2.</span><p>Přesměrujeme vás na <strong class="text-white">bezpečnou platební stránku Stripe</strong> (karta, Apple Pay, Google Pay).</p></div>
+              <div class="flex gap-3"><span class="font-black text-base shrink-0" style="color:#00C4B5">3.</span><p>Po zaplacení dostanete potvrzení e-mailem a web <strong class="text-white">spustíme do 24 hodin.</strong></p></div>
+            </div>
+          </div>
+
+          <!-- Garance -->
+          <div class="rounded-2xl p-5 mb-6" style="background:rgba(255,51,102,0.07);border:1.5px solid rgba(255,51,102,0.35)">
             <div class="flex items-start gap-3">
               <span class="text-2xl shrink-0">🔒</span>
               <div>
                 <p class="font-black text-base mb-1" style="color:#FF3366">Garance termínu — bez výjimek</p>
-                <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.75)">Pokud náhled nebude v Sandboxu do <strong class="text-white">24 hodin</strong>, Hold se automaticky ruší. <strong class="text-white">Platíte 0 Kč.</strong></p>
+                <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.75)">Nedodržíme termín 24 hodin? <strong class="text-white">Vracíme celou platbu zpět.</strong> Automaticky, bez podmínek.</p>
               </div>
             </div>
           </div>
+
           <div class="flex gap-3">
-            <button onclick="toStep(1)" class="btn-outline flex-1 py-4">← Zpět</button>
-            <button id="submitBtn" onclick="submitBrief()" class="btn-coral flex-1 py-4 font-black text-sm">Autorizovat platbu</button>
+            <button onclick="toStep(1)" class="btn-outline flex-1 py-4">← Upravit</button>
+            <button id="submitBtn" onclick="submitBrief()" class="btn-coral flex-1 py-4 font-black text-sm">Přejít k platbě →</button>
           </div>
-          <p class="text-center text-xs mt-4" style="color:rgba(255,255,255,0.25)">Pre-autorizace odpovídá standardům PCI-DSS. Váš web spustíme do 24 hodin.</p>
-          <div class="flex items-start gap-2.5 mt-4 p-3.5 rounded-xl text-xs leading-relaxed" style="background:rgba(255,180,0,0.07);border:1px solid rgba(255,180,0,0.25);color:rgba(255,200,50,0.8)">
-            <span class="shrink-0 font-black mt-0.5">⚠</span>
-            <span><strong>Pozor</strong> — 24 hodin začíná běžet až ve chvíli, kdy obdržíme vyplněný formulář.</span>
-          </div>
+          <p class="text-center text-xs mt-4" style="color:rgba(255,255,255,0.22)">Platba zpracována přes Stripe · PCI-DSS · SSL šifrování</p>
         </div>
 
         <!-- Step 4: Úspěch -->
@@ -321,6 +338,21 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 <script>
 const WEBHOOK_URL = 'https://api.webdo24.cz/intake';
 
+const PAYMENT_LINKS = {
+  'Start': {
+    'Jednorázově': 'https://buy.stripe.com/test_aFabJ022K8HU0Wk5rq5gc05',
+    'Splátky':     'https://buy.stripe.com/test_3cIeVc8r82jw0Wk8DC5gc06'
+  },
+  'Business': {
+    'Jednorázově': 'https://buy.stripe.com/test_9B6cN40YGe2eeNa9HG5gc07',
+    'Splátky':     'https://buy.stripe.com/test_8x2dR8bDkcYadJ6dXW5gc08'
+  },
+  'Automation': {
+    'Jednorázově': 'https://buy.stripe.com/test_eVq6oG7n4cYa5cA9HG5gc09',
+    'Splátky':     'https://buy.stripe.com/test_14AcN436O2jwfRe9HG5gc0a'
+  }
+};
+
 function selectPayment(type) {
   const s = document.getElementById('pay-single');
   const i = document.getElementById('pay-inst');
@@ -413,6 +445,8 @@ function toStep(n) {
     if (sl3) sl3.className = 'text-sm step-active-lbl';
     const sName = document.getElementById('s_name');
     if (sName) sName.textContent = (document.getElementById('f_name').value || '').trim() || '—';
+    const sPayType = document.getElementById('s_payment_type');
+    if (sPayType) sPayType.textContent = document.getElementById('f_payment')?.value || 'Jednorázově';
     updatePriceDisplay();
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -460,6 +494,23 @@ async function submitBrief() {
 
   const pkgSel = document.getElementById('f_package');
   const pkgOpt = pkgSel.options[pkgSel.selectedIndex];
+  const emailVal = (document.getElementById('f_email').value || '').trim();
+  const phoneVal = (document.getElementById('f_phone').value || '').trim();
+
+  // Enhanced Conversions — email + telefon před přesměrováním na Stripe
+  // GTM si data sám zahashuje (SHA-256) před odesláním do Google Ads
+  dataLayer.push({
+    event: 'user_data_set',
+    user_data: {
+      email:        emailVal,
+      phone_number: phoneVal.replace(/[\s\-]/g, '')
+    }
+  });
+  // Uložit do sessionStorage — success.html je přečte po návratu ze Stripe
+  try {
+    sessionStorage.setItem('wd_email', emailVal);
+    sessionStorage.setItem('wd_phone', phoneVal.replace(/[\s\-]/g, ''));
+  } catch(e) {}
 
   const payload = {
     firma: (document.getElementById('f_name').value || '').trim(),
@@ -485,13 +536,11 @@ async function submitBrief() {
       body: JSON.stringify(payload)
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    toStep(4);
-    // GA4 + Google Ads: purchase konverze
-    const txId = 'WD-' + Date.now();
+
+    // GA4: checkout_started (before Stripe redirect)
     dataLayer.push({
-      event: 'purchase',
+      event: 'begin_checkout',
       ecommerce: {
-        transaction_id: txId,
         currency: 'CZK',
         value: parseInt(pkgOpt.dataset.price),
         items: [{
@@ -504,6 +553,16 @@ async function submitBrief() {
       },
       payment_type: (document.getElementById('f_payment')?.value || 'Jednorázově')
     });
+
+    // Přesměrování na Stripe Payment Link
+    const plan    = pkgOpt.value;
+    const payment = (document.getElementById('f_payment')?.value || 'Jednorázově');
+    const stripeUrl = PAYMENT_LINKS[plan]?.[payment] || PAYMENT_LINKS[plan]?.['Jednorázově'];
+    if (stripeUrl) {
+      window.location.href = stripeUrl;
+    } else {
+      toStep(4); // fallback
+    }
   } catch (err) {
     console.error('Chyba odeslání:', err);
     btn.textContent = 'Chyba odeslání — zkuste znovu';
