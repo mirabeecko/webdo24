@@ -217,7 +217,7 @@
           {"type": "TEMPLATE", "key": "tagId", "value": "G-815XCLCGY8"}
         ],
         "firingTriggerId": ["2147479553"],
-        "tagFiringOption": "oncePerEvent",
+        "tagFiringOption": "ONCE_PER_EVENT",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
@@ -248,7 +248,7 @@
           }
         ],
         "firingTriggerId": ["101"],
-        "tagFiringOption": "oncePerEvent",
+        "tagFiringOption": "ONCE_PER_EVENT",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
@@ -287,7 +287,7 @@
           }
         ],
         "firingTriggerId": ["102"],
-        "tagFiringOption": "oncePerEvent",
+        "tagFiringOption": "ONCE_PER_EVENT",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
@@ -314,7 +314,7 @@
           }
         ],
         "firingTriggerId": ["103"],
-        "tagFiringOption": "oncePerEvent",
+        "tagFiringOption": "ONCE_PER_EVENT",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
@@ -353,7 +353,7 @@
           }
         ],
         "firingTriggerId": ["104"],
-        "tagFiringOption": "oncePerEvent",
+        "tagFiringOption": "ONCE_PER_EVENT",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
@@ -384,7 +384,7 @@
           }
         ],
         "firingTriggerId": ["105"],
-        "tagFiringOption": "oncePerEvent",
+        "tagFiringOption": "ONCE_PER_EVENT",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       }
