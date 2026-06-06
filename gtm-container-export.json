@@ -12,13 +12,15 @@
       "containerId": "0",
       "name": "webdo24.cz",
       "publicId": "GTM-KJNB99JZ",
-      "usageContext": ["WEB"]
+      "usageContext": ["WEB"],
+      "fingerprint": "1749200000000",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/0/containers/0/workspaces/2"
     },
     "variable": [
       {
         "accountId": "0", "containerId": "0", "variableId": "1",
-        "name": "DLV - ecommerce.value",
-        "type": "v",
+        "name": "DLV - ecommerce.value", "type": "v",
+        "fingerprint": "1749200000001",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -27,8 +29,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "2",
-        "name": "DLV - ecommerce.currency",
-        "type": "v",
+        "name": "DLV - ecommerce.currency", "type": "v",
+        "fingerprint": "1749200000002",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "true"},
@@ -38,8 +40,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "3",
-        "name": "DLV - ecommerce.items",
-        "type": "v",
+        "name": "DLV - ecommerce.items", "type": "v",
+        "fingerprint": "1749200000003",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -48,8 +50,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "4",
-        "name": "DLV - ecommerce.transaction_id",
-        "type": "v",
+        "name": "DLV - ecommerce.transaction_id", "type": "v",
+        "fingerprint": "1749200000004",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -58,8 +60,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "5",
-        "name": "DLV - cta_plan",
-        "type": "v",
+        "name": "DLV - cta_plan", "type": "v",
+        "fingerprint": "1749200000005",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -68,8 +70,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "6",
-        "name": "DLV - cta_location",
-        "type": "v",
+        "name": "DLV - cta_location", "type": "v",
+        "fingerprint": "1749200000006",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -78,8 +80,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "7",
-        "name": "DLV - checkout_step",
-        "type": "v",
+        "name": "DLV - checkout_step", "type": "v",
+        "fingerprint": "1749200000007",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -88,8 +90,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "8",
-        "name": "DLV - checkout_step_name",
-        "type": "v",
+        "name": "DLV - checkout_step_name", "type": "v",
+        "fingerprint": "1749200000008",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -98,8 +100,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "9",
-        "name": "DLV - contact_type",
-        "type": "v",
+        "name": "DLV - contact_type", "type": "v",
+        "fingerprint": "1749200000009",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -108,8 +110,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "10",
-        "name": "DLV - contact_value",
-        "type": "v",
+        "name": "DLV - contact_value", "type": "v",
+        "fingerprint": "1749200000010",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -118,8 +120,8 @@
       },
       {
         "accountId": "0", "containerId": "0", "variableId": "11",
-        "name": "DLV - payment_type",
-        "type": "v",
+        "name": "DLV - payment_type", "type": "v",
+        "fingerprint": "1749200000011",
         "parameter": [
           {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
           {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
@@ -129,14 +131,10 @@
     ],
     "trigger": [
       {
-        "accountId": "0", "containerId": "0", "triggerId": "100",
-        "name": "All Pages",
-        "type": "PAGEVIEW"
-      },
-      {
         "accountId": "0", "containerId": "0", "triggerId": "101",
-        "name": "CE — view_item",
+        "name": "CE - view_item",
         "type": "CUSTOM_EVENT",
+        "fingerprint": "1749200000101",
         "customEventFilter": [
           {
             "type": "EQUALS",
@@ -149,8 +147,9 @@
       },
       {
         "accountId": "0", "containerId": "0", "triggerId": "102",
-        "name": "CE — begin_checkout",
+        "name": "CE - begin_checkout",
         "type": "CUSTOM_EVENT",
+        "fingerprint": "1749200000102",
         "customEventFilter": [
           {
             "type": "EQUALS",
@@ -163,8 +162,9 @@
       },
       {
         "accountId": "0", "containerId": "0", "triggerId": "103",
-        "name": "CE — checkout_progress",
+        "name": "CE - checkout_progress",
         "type": "CUSTOM_EVENT",
+        "fingerprint": "1749200000103",
         "customEventFilter": [
           {
             "type": "EQUALS",
@@ -177,8 +177,9 @@
       },
       {
         "accountId": "0", "containerId": "0", "triggerId": "104",
-        "name": "CE — purchase",
+        "name": "CE - purchase",
         "type": "CUSTOM_EVENT",
+        "fingerprint": "1749200000104",
         "customEventFilter": [
           {
             "type": "EQUALS",
@@ -191,8 +192,9 @@
       },
       {
         "accountId": "0", "containerId": "0", "triggerId": "105",
-        "name": "CE — contact_click",
+        "name": "CE - contact_click",
         "type": "CUSTOM_EVENT",
+        "fingerprint": "1749200000105",
         "customEventFilter": [
           {
             "type": "EQUALS",
@@ -207,170 +209,182 @@
     "tag": [
       {
         "accountId": "0", "containerId": "0", "tagId": "1",
-        "name": "GA4 — Configuration G-815XCLCGY8",
+        "name": "GA4 - Configuration G-815XCLCGY8",
         "type": "googtag",
+        "liveOnly": false,
+        "fingerprint": "1749200000201",
         "parameter": [
           {"type": "TEMPLATE", "key": "tagId", "value": "G-815XCLCGY8"}
         ],
-        "firingTriggerId": ["100"],
-        "tagFiringOption": "ONCE_PER_EVENT",
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "oncePerEvent",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
       {
         "accountId": "0", "containerId": "0", "tagId": "2",
-        "name": "GA4 Event — view_item",
+        "name": "GA4 Event - view_item",
         "type": "gaawe",
+        "liveOnly": false,
+        "fingerprint": "1749200000202",
         "parameter": [
           {"type": "TEMPLATE", "key": "eventName", "value": "view_item"},
           {
             "type": "LIST", "key": "eventParameters",
             "list": [
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "currency"},
+                {"type": "TEMPLATE", "key": "name",  "value": "currency"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.currency}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "value"},
+                {"type": "TEMPLATE", "key": "name",  "value": "value"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.value}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "items"},
+                {"type": "TEMPLATE", "key": "name",  "value": "items"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.items}}"}
               ]}
             ]
           }
         ],
         "firingTriggerId": ["101"],
-        "tagFiringOption": "ONCE_PER_EVENT",
+        "tagFiringOption": "oncePerEvent",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
       {
         "accountId": "0", "containerId": "0", "tagId": "3",
-        "name": "GA4 Event — begin_checkout",
+        "name": "GA4 Event - begin_checkout",
         "type": "gaawe",
+        "liveOnly": false,
+        "fingerprint": "1749200000203",
         "parameter": [
           {"type": "TEMPLATE", "key": "eventName", "value": "begin_checkout"},
           {
             "type": "LIST", "key": "eventParameters",
             "list": [
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "currency"},
+                {"type": "TEMPLATE", "key": "name",  "value": "currency"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.currency}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "value"},
+                {"type": "TEMPLATE", "key": "name",  "value": "value"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.value}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "items"},
+                {"type": "TEMPLATE", "key": "name",  "value": "items"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.items}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "cta_plan"},
+                {"type": "TEMPLATE", "key": "name",  "value": "cta_plan"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_plan}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "cta_location"},
+                {"type": "TEMPLATE", "key": "name",  "value": "cta_location"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_location}}"}
               ]}
             ]
           }
         ],
         "firingTriggerId": ["102"],
-        "tagFiringOption": "ONCE_PER_EVENT",
+        "tagFiringOption": "oncePerEvent",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
       {
         "accountId": "0", "containerId": "0", "tagId": "4",
-        "name": "GA4 Event — checkout_progress",
+        "name": "GA4 Event - checkout_progress",
         "type": "gaawe",
+        "liveOnly": false,
+        "fingerprint": "1749200000204",
         "parameter": [
           {"type": "TEMPLATE", "key": "eventName", "value": "checkout_progress"},
           {
             "type": "LIST", "key": "eventParameters",
             "list": [
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "checkout_step"},
+                {"type": "TEMPLATE", "key": "name",  "value": "checkout_step"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - checkout_step}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "checkout_step_name"},
+                {"type": "TEMPLATE", "key": "name",  "value": "checkout_step_name"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - checkout_step_name}}"}
               ]}
             ]
           }
         ],
         "firingTriggerId": ["103"],
-        "tagFiringOption": "ONCE_PER_EVENT",
+        "tagFiringOption": "oncePerEvent",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
       {
         "accountId": "0", "containerId": "0", "tagId": "5",
-        "name": "GA4 Event — purchase ✓ HLAVNÍ KONVERZE",
+        "name": "GA4 Event - purchase (HLAVNI KONVERZE)",
         "type": "gaawe",
+        "liveOnly": false,
+        "fingerprint": "1749200000205",
         "parameter": [
           {"type": "TEMPLATE", "key": "eventName", "value": "purchase"},
           {
             "type": "LIST", "key": "eventParameters",
             "list": [
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "transaction_id"},
+                {"type": "TEMPLATE", "key": "name",  "value": "transaction_id"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.transaction_id}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "value"},
+                {"type": "TEMPLATE", "key": "name",  "value": "value"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.value}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "currency"},
+                {"type": "TEMPLATE", "key": "name",  "value": "currency"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.currency}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "items"},
+                {"type": "TEMPLATE", "key": "name",  "value": "items"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - ecommerce.items}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "payment_type"},
+                {"type": "TEMPLATE", "key": "name",  "value": "payment_type"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - payment_type}}"}
               ]}
             ]
           }
         ],
         "firingTriggerId": ["104"],
-        "tagFiringOption": "ONCE_PER_EVENT",
+        "tagFiringOption": "oncePerEvent",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       },
       {
         "accountId": "0", "containerId": "0", "tagId": "6",
-        "name": "GA4 Event — contact_click",
+        "name": "GA4 Event - contact_click",
         "type": "gaawe",
+        "liveOnly": false,
+        "fingerprint": "1749200000206",
         "parameter": [
           {"type": "TEMPLATE", "key": "eventName", "value": "contact_click"},
           {
             "type": "LIST", "key": "eventParameters",
             "list": [
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "contact_type"},
+                {"type": "TEMPLATE", "key": "name",  "value": "contact_type"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - contact_type}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "contact_value"},
+                {"type": "TEMPLATE", "key": "name",  "value": "contact_value"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - contact_value}}"}
               ]},
               {"type": "MAP", "map": [
-                {"type": "TEMPLATE", "key": "name", "value": "cta_location"},
+                {"type": "TEMPLATE", "key": "name",  "value": "cta_location"},
                 {"type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_location}}"}
               ]}
             ]
           }
         ],
         "firingTriggerId": ["105"],
-        "tagFiringOption": "ONCE_PER_EVENT",
+        "tagFiringOption": "oncePerEvent",
         "monitoringMetadata": {"type": "MAP"},
         "consentSettings": {"consentStatus": "NOT_SET"}
       }
@@ -382,6 +396,6 @@
       {"accountId": "0", "containerId": "0", "type": "REFERRER",      "name": "Referrer"},
       {"accountId": "0", "containerId": "0", "type": "EVENT",         "name": "Event"}
     ],
-    "fingerprint": "1749204600000"
+    "fingerprint": "1749200000999"
   }
 }
