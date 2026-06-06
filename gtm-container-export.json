@@ -228,6 +228,7 @@
         "liveOnly": false,
         "fingerprint": "1749200000202",
         "parameter": [
+          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-815XCLCGY8"},
           {"type": "TEMPLATE", "key": "eventName", "value": "view_item"},
           {
             "type": "LIST", "key": "eventParameters",
@@ -259,6 +260,7 @@
         "liveOnly": false,
         "fingerprint": "1749200000203",
         "parameter": [
+          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-815XCLCGY8"},
           {"type": "TEMPLATE", "key": "eventName", "value": "begin_checkout"},
           {
             "type": "LIST", "key": "eventParameters",
@@ -298,6 +300,7 @@
         "liveOnly": false,
         "fingerprint": "1749200000204",
         "parameter": [
+          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-815XCLCGY8"},
           {"type": "TEMPLATE", "key": "eventName", "value": "checkout_progress"},
           {
             "type": "LIST", "key": "eventParameters",
@@ -325,6 +328,7 @@
         "liveOnly": false,
         "fingerprint": "1749200000205",
         "parameter": [
+          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-815XCLCGY8"},
           {"type": "TEMPLATE", "key": "eventName", "value": "purchase"},
           {
             "type": "LIST", "key": "eventParameters",
@@ -364,6 +368,7 @@
         "liveOnly": false,
         "fingerprint": "1749200000206",
         "parameter": [
+          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-815XCLCGY8"},
           {"type": "TEMPLATE", "key": "eventName", "value": "contact_click"},
           {
             "type": "LIST", "key": "eventParameters",
