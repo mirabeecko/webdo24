@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-815XCLCGY8"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-815XCLCGY8');</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KJNB99JZ');</script>
 <meta name="robots" content="noindex, follow">
 <meta name="description" content="Objednat web do 24 hodin — WebDo24.cz. Vyplňte brief a tým se okamžitě pustí do práce.">
 <title>Objednat web — WebDo24.cz</title>
@@ -58,6 +58,7 @@ body{font-family:'Outfit',sans-serif;background-color:#0B3954;color:#fff;-webkit
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav class="glass-nav fixed top-0 w-full z-50 px-6 py-4">
   <div class="max-w-6xl mx-auto flex justify-between items-center">
@@ -376,9 +377,25 @@ function updatePriceDisplay() {
   const payment = (params.get('payment') || '').toLowerCase();
   if (payment === 'installment') selectPayment('installment');
   else selectPayment('single');
+
+  // GA4: view_item při načtení objednávkové stránky
+  const PLANS = {start:{name:'Model Start',price:14900},business:{name:'Model Business',price:29900},automation:{name:'Model Automation',price:59900}};
+  const planData = PLANS[plan] || null;
+  dataLayer.push({
+    event: 'view_item',
+    ecommerce: planData ? {
+      currency: 'CZK',
+      value: planData.price,
+      items: [{item_id: plan, item_name: planData.name, price: planData.price, quantity: 1, item_category: 'Web'}]
+    } : {currency: 'CZK'}
+  });
 })();
 
 function toStep(n) {
+  // GA4: checkout progress
+  const stepNames = {1:'brief', 3:'payment_review', 4:'thank_you'};
+  dataLayer.push({event: 'checkout_progress', checkout_step: n, checkout_step_name: stepNames[n] || ('step_' + n)});
+
   [1, 3, 4].forEach(i => {
     const el = document.getElementById('step' + i);
     if (el) el.classList.add('hidden');
@@ -469,7 +486,24 @@ async function submitBrief() {
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     toStep(4);
-    gtag('event', 'purchase', { currency: 'CZK', value: parseInt(pkgOpt.dataset.price), items: [{ item_name: pkgOpt.value }] });
+    // GA4 + Google Ads: purchase konverze
+    const txId = 'WD-' + Date.now();
+    dataLayer.push({
+      event: 'purchase',
+      ecommerce: {
+        transaction_id: txId,
+        currency: 'CZK',
+        value: parseInt(pkgOpt.dataset.price),
+        items: [{
+          item_id:       pkgOpt.value.toLowerCase(),
+          item_name:     'Model ' + pkgOpt.value,
+          price:         parseInt(pkgOpt.dataset.price),
+          quantity:      1,
+          item_category: 'Web'
+        }]
+      },
+      payment_type: (document.getElementById('f_payment')?.value || 'Jednorázově')
+    });
   } catch (err) {
     console.error('Chyba odeslání:', err);
     btn.textContent = 'Chyba odeslání — zkuste znovu';

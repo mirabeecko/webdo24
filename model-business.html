@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-815XCLCGY8"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-815XCLCGY8');</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KJNB99JZ');</script>
 <meta name="description" content="Model Business — prodejní aplikace s automatizací za 29 900 Kč. Zákazníci chodí, AI odpovídá, systém pracuje za vás. Dodání do 24 hodin.">
 <title>Model Business · 29 900 Kč · Web s AI automatizací | WebDo24.cz</title>
 <meta property="og:type" content="website">
@@ -178,6 +178,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 </script>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="spToast" role="status" aria-live="polite">
   <div id="spAv"></div>
@@ -724,6 +725,21 @@ function toggleFaq(btn) {
   w.classList.add(avail?'hw-avail':'hw-busy');dot.classList.add(avail?'hw-avail':'hw-busy');
   if(avail){st.style.color='#22c55e';st.textContent='Nyní se dovoláte';sub.style.color='rgba(255,255,255,0.4)';sub.textContent='Po–Pá 9:00–18:00';}
   else{st.style.color='#FF3366';st.textContent='Teď se nedovoláte';sub.style.color='rgba(255,255,255,0.45)';sub.innerHTML='Napište: <a href="mailto:info@webdo24.cz" style="color:#00C4B5;font-weight:700;text-decoration:none">info@webdo24.cz</a>';}
+})();
+</script>
+<script>
+(function(){
+  var _dl = window.dataLayer = window.dataLayer || [];
+  var PLANS = {start:{name:'Model Start',price:14900},business:{name:'Model Business',price:29900},automation:{name:'Model Automation',price:59900}};
+  _dl.push({event:'view_item',ecommerce:{currency:'CZK',value:29900,items:[{item_id:'business',item_name:'Model Business',price:29900,quantity:1,item_category:'Web'}]}});
+  function getSection(el){var s=el.closest('section[id]');if(s)return s.id;if(el.closest('nav'))return 'nav';if(el.closest('footer'))return 'footer';return 'page';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]');if(!a)return;
+    var href=a.getAttribute('href')||'';var loc=getSection(a);
+    if(href.indexOf('objednat')!==-1){var m=href.match(/plan=(\w+)/);var planKey=m?m[1]:'business';var plan=PLANS[planKey];_dl.push({event:'begin_checkout',ecommerce:plan?{currency:'CZK',value:plan.price,items:[{item_id:planKey,item_name:plan.name,price:plan.price,quantity:1,item_category:'Web'}]}:{currency:'CZK'},cta_plan:planKey,cta_location:loc});}
+    if(href.indexOf('tel:')=== 0){_dl.push({event:'contact_click',contact_type:'phone',contact_value:href.replace('tel:',''),cta_location:loc});}
+    if(href.indexOf('mailto:')=== 0){_dl.push({event:'contact_click',contact_type:'email',contact_value:href.replace('mailto:',''),cta_location:loc});}
+  });
 })();
 </script>
 </body>
