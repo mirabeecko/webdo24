@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KJNB99JZ');</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","CLARITY_ID");</script>
+
+<title>Web do 24 hodin | Od 9 900 Kč · Zavolejte dnes, web máte zítra</title>
+<meta name="description" content="Web do 24 hodin od 9 900 Kč. Zavolejte, řekneme si 15 minut co potřebujete a zítra máte funkční web. Bez agentury, bez čekání. +420 735 847 185">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://webdo24.cz/web-do-24-hodin-v2">
+<meta property="og:title" content="Web do 24 hodin od 9 900 Kč | Zítra online">
+<meta property="og:description" content="1 hovor, 15 minut brief, zítra web online. +420 735 847 185">
+<meta property="og:image" content="https://webdo24.cz/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="cs_CZ">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://webdo24.cz/web-do-24-hodin-v2">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","name":"WebDo24.cz","description":"Tvorba webových stránek do 24 hodin od 9 900 Kč.","url":"https://webdo24.cz","telephone":"+420735847185","email":"info@webdo24.cz","address":{"@type":"PostalAddress","addressCountry":"CZ"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"},"priceRange":"Kč Kč","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120"}},{"@type":"Service","name":"Web do 24 hodin","provider":{"@type":"LocalBusiness","name":"WebDo24.cz"},"offers":{"@type":"Offer","price":"9900","priceCurrency":"CZK","description":"Landing page do 24 hodin"}}]}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{outfit:['Outfit','sans-serif']}}}}</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:root{--navy:#0B1929;--teal:#00C4B5;--coral:#FF3366;--dark:#060f1a}
+
+/* ── BUTTONS ───────────────────────────────────────── */
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:#FF3366;color:#fff;font-weight:900;border-radius:1rem;cursor:pointer;transition:background .18s,transform .18s,box-shadow .18s;box-shadow:0 8px 28px -4px rgba(255,51,102,.5);border:none;font-family:'Outfit',sans-serif;text-decoration:none;white-space:nowrap}
+.btn-cta:hover{background:#e52e5a;transform:translateY(-2px);box-shadow:0 16px 40px -4px rgba(255,51,102,.6)}
+.btn-cta:active{transform:translateY(0)}
+.btn-sec{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:transparent;color:rgba(255,255,255,.75);font-weight:700;border-radius:1rem;cursor:pointer;transition:all .18s;border:1.5px solid rgba(255,255,255,.22);font-family:'Outfit',sans-serif;text-decoration:none;white-space:nowrap}
+.btn-sec:hover{color:#fff;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.05)}
+
+/* ── TYPOGRAPHY ────────────────────────────────────── */
+.grad-coral{background:linear-gradient(135deg,#FF3366,#ff7096);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad-teal{background:linear-gradient(135deg,#00C4B5,#00e6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── NAV ───────────────────────────────────────────── */
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,15,26,.94);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);transition:box-shadow .3s}
+.top-nav.scrolled{box-shadow:0 4px 32px rgba(0,0,0,.35)}
+
+/* ── URGENCY BAR ───────────────────────────────────── */
+.urgency-bar{background:linear-gradient(90deg,rgba(255,51,102,.12),rgba(255,51,102,.06));border-bottom:1px solid rgba(255,51,102,.2);padding:.5rem 1.5rem;text-align:center;font-size:.82rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.01em}
+.urgency-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#FF3366;margin-right:.45rem;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── HERO ──────────────────────────────────────────── */
+.hero-wrap{background:radial-gradient(ellipse 100% 80% at 60% 0%,rgba(0,196,181,.07) 0%,transparent 70%),linear-gradient(170deg,#060f1a 0%,#0B1929 45%,#0e2035 100%);padding:0}
+.hero-inner{max-width:1140px;margin:0 auto;padding:5.5rem 1.5rem 3.5rem}
+@media(min-width:960px){.hero-inner{display:grid;grid-template-columns:1fr 440px;gap:4rem;align-items:center;padding:6.5rem 2rem 4.5rem}}
+
+.badge-pill{display:inline-flex;align-items:center;gap:.45rem;background:rgba(0,196,181,.08);border:1px solid rgba(0,196,181,.3);border-radius:100px;padding:.3rem .85rem;font-size:.75rem;font-weight:700;color:#00C4B5;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.25rem}
+
+.hero-stats{display:flex;flex-wrap:wrap;gap:1.75rem;margin-top:2.25rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)}
+.hero-stat-num{font-size:1.55rem;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+.hero-stat-label{font-size:.75rem;color:rgba(255,255,255,.4);font-weight:600;margin-top:.2rem}
+
+/* ── BROWSER CHROME PREVIEW ────────────────────────── */
+.browser{border-radius:14px;overflow:hidden;box-shadow:0 32px 80px -16px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.07);background:#060f1a}
+.browser-bar{background:#0d1e30;padding:10px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(255,255,255,.06)}
+.b-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.browser-url{flex:1;background:rgba(255,255,255,.05);border-radius:5px;height:22px;margin:0 8px;display:flex;align-items:center;padding:0 10px;font-size:.7rem;color:rgba(255,255,255,.3);font-weight:600;overflow:hidden;white-space:nowrap}
+.browser-body{position:relative;height:280px;overflow:hidden}
+.browser-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.browser-slide.active{opacity:1}
+.browser-slide img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.browser-overlay{position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(6,15,26,1),transparent);pointer-events:none}
+
+/* ── SOCIAL PROOF STRIP ────────────────────────────── */
+.proof-strip{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:1.4rem 1.5rem}
+.proof-item{display:flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.5)}
+.proof-icon{font-size:1.1rem}
+
+/* ── COMPARE TABLE ──────────────────────────────────── */
+.compare-wrap{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:720px){.compare-wrap{grid-template-columns:1fr 44px 1fr 44px 1fr;align-items:start}}
+.cmp-col{border-radius:1.5rem;padding:1.75rem 1.5rem}
+.cmp-theirs{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+.cmp-ours{background:rgba(0,196,181,.05);border:1.5px solid rgba(0,196,181,.25)}
+.cmp-result{background:rgba(255,51,102,.04);border:1.5px solid rgba(255,51,102,.18)}
+.cmp-label{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.9rem}
+.cmp-row{display:flex;align-items:flex-start;gap:.5rem;font-size:.88rem;color:rgba(255,255,255,.7);padding:.28rem 0;line-height:1.4}
+.cmp-arrow{display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:rgba(0,196,181,.35);padding:.25rem}
+@media(max-width:719px){.cmp-arrow{transform:rotate(90deg);margin:-.25rem auto}}
+
+/* ── PROCESS ────────────────────────────────────────── */
+.timeline{display:flex;flex-direction:column;gap:0}
+@media(min-width:768px){.timeline{flex-direction:row;align-items:flex-start}}
+.tl-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+@media(min-width:768px){.tl-step:not(:last-child)::after{content:'';position:absolute;top:30px;left:calc(50% + 30px);right:calc(-50% + 30px);height:2px;background:linear-gradient(90deg,rgba(0,196,181,.45),rgba(0,196,181,.1))}}
+@media(max-width:767px){
+  .tl-step{flex-direction:row;align-items:flex-start;gap:1rem;text-align:left;padding-bottom:1.75rem}
+  .tl-step:not(:last-child)::after{content:'';position:absolute;left:24px;top:52px;bottom:-4px;width:2px;background:linear-gradient(180deg,rgba(0,196,181,.45),rgba(0,196,181,.1))}
+  .tl-icon{flex-shrink:0}
+}
+.tl-icon{width:56px;height:56px;border-radius:50%;background:rgba(0,196,181,.09);border:2px solid rgba(0,196,181,.45);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;color:#00C4B5;flex-shrink:0;position:relative;z-index:1;margin-bottom:1rem}
+.tl-icon.done{background:rgba(255,51,102,.09);border-color:rgba(255,51,102,.45);color:#FF3366}
+.tl-time{display:inline-block;font-size:.7rem;font-weight:700;color:rgba(0,196,181,.75);letter-spacing:.04em;margin-bottom:.35rem;background:rgba(0,196,181,.08);border-radius:100px;padding:.15rem .6rem}
+
+/* ── DELIVERABLES GRID ──────────────────────────────── */
+.delivers{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+@media(max-width:500px){.delivers{grid-template-columns:1fr}}
+.del-item{display:flex;align-items:center;gap:.65rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:.875rem;padding:.85rem 1rem;font-size:.88rem;font-weight:600;transition:border-color .2s}
+.del-item:hover{border-color:rgba(0,196,181,.3)}
+.del-check{width:22px;height:22px;border-radius:50%;background:rgba(0,196,181,.12);border:1.5px solid rgba(0,196,181,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.65rem;color:#00C4B5;font-weight:900}
+
+/* ── TESTIMONIALS ───────────────────────────────────── */
+.testi{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:768px){.testi{grid-template-columns:repeat(3,1fr)}}
+.testi-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:1.5rem;padding:1.5rem;display:flex;flex-direction:column;gap:.85rem}
+.testi-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;border:2px solid rgba(255,255,255,.08)}
+.testi-stars{color:#FFAD0A;font-size:.85rem;letter-spacing:.04em}
+
+/* ── TARGET GRID ────────────────────────────────────── */
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+@media(max-width:600px){.who-grid{grid-template-columns:repeat(2,1fr)}}
+.who-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:1rem;padding:1rem .75rem;text-align:center;font-size:.82rem;font-weight:700;transition:border-color .2s,background .2s;cursor:default}
+.who-card:hover{border-color:rgba(0,196,181,.3);background:rgba(0,196,181,.04)}
+
+/* ── PORTFOLIO ──────────────────────────────────────── */
+.port-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:640px){.port-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.port-grid{grid-template-columns:repeat(3,1fr)}}
+.port-card{border-radius:1.25rem;overflow:hidden;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);transition:border-color .2s,transform .2s}
+.port-card:hover{border-color:rgba(0,196,181,.3);transform:translateY(-4px)}
+.port-chrome{background:#0d1e30;padding:8px 12px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.06)}
+.port-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.port-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block}
+.port-tag{display:inline-block;background:rgba(0,196,181,.1);border:1px solid rgba(0,196,181,.2);border-radius:100px;padding:.18rem .65rem;font-size:.7rem;font-weight:700;color:#00C4B5;letter-spacing:.03em}
+.port-result{font-size:.82rem;color:#00C4B5;font-weight:700}
+
+/* ── PRICING ────────────────────────────────────────── */
+.price-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:640px){.price-grid{grid-template-columns:1fr 1fr}}
+.price-card{border-radius:1.5rem;padding:2rem 1.75rem;display:flex;flex-direction:column;gap:1rem}
+.price-base{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}
+.price-featured{background:linear-gradient(160deg,rgba(0,196,181,.08),rgba(0,196,181,.02));border:1.5px solid rgba(0,196,181,.35);box-shadow:0 24px 60px -20px rgba(0,196,181,.25)}
+.price-badge{display:inline-block;background:linear-gradient(90deg,#00C4B5,#00d9c9);color:#060f1a;font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:.3rem 1rem;border-radius:100px;margin-bottom:.25rem}
+.price-chk{display:flex;align-items:center;gap:.55rem;font-size:.88rem;color:rgba(255,255,255,.75);font-weight:600}
+.price-chk::before{content:'✓';color:#00C4B5;font-weight:900;font-size:.9rem;flex-shrink:0}
+
+/* ── FAQ ────────────────────────────────────────────── */
+.faq-wrap{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:1.5rem;overflow:hidden}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;text-align:left;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;background:none;border:none;font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:#fff;cursor:pointer;gap:1rem;transition:background .15s}
+.faq-q:hover{background:rgba(255,255,255,.02)}
+.faq-ico{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;transition:background .2s,transform .3s,border-color .2s}
+.faq-item.open .faq-ico{background:rgba(0,196,181,.12);border-color:rgba(0,196,181,.35);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1),padding .3s;padding:0 1.5rem;color:rgba(255,255,255,.65);font-size:.92rem;line-height:1.72}
+.faq-item.open .faq-a{max-height:300px;padding:0 1.5rem 1.25rem}
+
+/* ── GUARANTEE SEAL ─────────────────────────────────── */
+.guarantee{background:linear-gradient(135deg,rgba(0,196,181,.07),rgba(0,196,181,.02));border:1.5px solid rgba(0,196,181,.2);border-radius:1.5rem;padding:1.75rem;display:flex;align-items:flex-start;gap:1.1rem}
+.guarantee-icon{width:52px;height:52px;border-radius:50%;background:rgba(0,196,181,.12);border:2px solid rgba(0,196,181,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+
+/* ── FINAL CTA ──────────────────────────────────────── */
+.final-grid{display:grid;grid-template-columns:1fr;gap:3rem}
+@media(min-width:900px){.final-grid{grid-template-columns:1fr 1fr;align-items:center}}
+
+/* ── FORM ───────────────────────────────────────────── */
+.field{position:relative}
+.field label{display:block;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.45);margin-bottom:.38rem;letter-spacing:.04em;text-transform:uppercase}
+.finput{width:100%;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);border-radius:.875rem;padding:.9rem 1.1rem;font-family:'Outfit',sans-serif;font-size:.95rem;color:#fff;outline:none;transition:border-color .2s,background .2s}
+.finput::placeholder{color:rgba(255,255,255,.3)}
+.finput:focus{border-color:rgba(0,196,181,.5);background:rgba(255,255,255,.06)}
+.finput.err{border-color:rgba(255,51,102,.5)}
+.form-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:1.75rem;padding:2rem}
+
+/* ── STICKY MOBILE CTA ──────────────────────────────── */
+.m-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:.65rem 1rem;background:rgba(6,15,26,.97);border-top:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);gap:.7rem}
+@media(max-width:768px){.m-cta{display:flex}}
+
+/* ── REVEAL ─────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── DIVIDER ────────────────────────────────────────── */
+.div-line{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent)}
+</style>
+</head>
+
+<body>
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ░░ URGENCY BAR ░░ -->
+<div class="urgency-bar">
+  <span class="urgency-dot"></span>
+  Tento týden: omezená kapacita — <strong>3 volná místa</strong>. Zavolejte ještě dnes.
+</div>
+
+<!-- ░░ STICKY MOBILE CTA ░░ -->
+<div class="m-cta" id="mCta">
+  <a href="tel:+420735847185" class="btn-cta flex-1 py-3 text-sm gap-2" onclick="T('mob_call')">
+    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    735 847 185
+  </a>
+  <a href="#form" class="btn-sec flex-1 py-3 text-sm">Napsat</a>
+</div>
+
+<!-- ░░ TOP NAV ░░ -->
+<nav class="top-nav" id="nav">
+  <div style="max-width:1140px;margin:0 auto;padding:.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem">
+    <a href="https://webdo24.cz" style="text-decoration:none;font-weight:900;font-size:1.1rem;letter-spacing:-.02em;color:#fff">WebDo<span class="grad-teal">24</span></a>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <a href="tel:+420735847185" style="display:flex;align-items:center;gap:.4rem;color:#00C4B5;font-weight:700;font-size:.88rem;text-decoration:none" onclick="T('nav_call')">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        +420 735 847 185
+      </a>
+      <a href="#form" class="btn-cta px-4 py-2 text-sm" id="navCta" style="display:none">Poptávka</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero-wrap" id="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div>
+      <div class="badge-pill">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Web do 24 hodin · od 9 900 Kč
+      </div>
+
+      <h1 style="font-size:clamp(2.5rem,6.5vw,3.85rem);font-weight:900;line-height:1.06;letter-spacing:-.035em;margin-bottom:1.2rem">
+        1 hovor.<br>
+        <span class="grad-coral">Zítra máte</span><br>
+        hotový web.
+      </h1>
+
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.68);line-height:1.68;max-width:510px;margin-bottom:2rem">
+        Žádné týdny čekání. Zavoláme si, řekneme si za&nbsp;15&nbsp;minut co potřebujete — a zítra máte funkční web připravený přivádět zákazníky.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:.85rem;margin-bottom:2rem">
+        <a href="tel:+420735847185" class="btn-cta px-8 py-4 text-lg" onclick="T('hero_call')">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Zavolat teď — zdarma
+        </a>
+        <a href="#form" class="btn-sec px-7 py-4 text-base" onclick="T('hero_form')">Nechat si zavolat zpět</a>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem .75rem">
+        <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6)"><span style="color:#00C4B5;font-weight:900">✓</span>Dodání do 24 hodin</span>
+        <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6)"><span style="color:#00C4B5;font-weight:900">✓</span>Mobilní verze</span>
+        <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6)"><span style="color:#00C4B5;font-weight:900">✓</span>SEO základ</span>
+        <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6)"><span style="color:#00C4B5;font-weight:900">✓</span>Formuláře + analytika</span>
+        <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6)"><span style="color:#00C4B5;font-weight:900">✓</span>Hosting v ceně</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">120+</div>
+          <div class="hero-stat-label">spokojených klientů</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" style="color:#00C4B5">24h</div>
+          <div class="hero-stat-label">garance dodání</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">4.9 <span style="color:#FFAD0A;font-size:1.1rem">★</span></div>
+          <div class="hero-stat-label">hodnocení klientů</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">od 9 900</div>
+          <div class="hero-stat-label">Kč jednorázově</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT – rotating browser preview -->
+    <div style="margin-top:2.5rem" class="reveal">
+      <div class="browser">
+        <div class="browser-bar">
+          <div class="b-dot" style="background:#FF5F57"></div>
+          <div class="b-dot" style="background:#FFBD2E"></div>
+          <div class="b-dot" style="background:#28CA42"></div>
+          <div class="browser-url" id="browserUrl">vasefirma.cz</div>
+        </div>
+        <div class="browser-body">
+          <div class="browser-slide active"><img src="previews/demo8-pavel-dousa-elektrikar.png" alt="Elektrikář web"></div>
+          <div class="browser-slide"><img src="previews/demo2-autoservis.png" alt="Autoservis web"></div>
+          <div class="browser-slide"><img src="previews/demo5-kadernictvimaruska.png" alt="Kadeřnictví web"></div>
+          <div class="browser-slide"><img src="previews/demo7-paddleboardy-milada.png" alt="Sport web"></div>
+          <div class="browser-overlay"></div>
+        </div>
+      </div>
+
+      <!-- Mini trust card below browser -->
+      <div style="margin-top:.85rem;background:rgba(0,196,181,.06);border:1px solid rgba(0,196,181,.2);border-radius:1rem;padding:1rem 1.25rem;display:flex;align-items:center;gap:.9rem">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(0,196,181,.15);border:1.5px solid rgba(0,196,181,.35);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🕐</div>
+        <div>
+          <div style="font-size:.88rem;font-weight:900;color:#fff">Zavolejte ráno</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.5)">Zítra ráno máte hotový web online</div>
+        </div>
+        <a href="tel:+420735847185" class="btn-cta px-4 py-2 text-sm ml-auto" onclick="T('hero_mini_call')" style="flex-shrink:0">Zavolat</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░ SOCIAL PROOF STRIP ░░ -->
+<div class="proof-strip">
+  <div style="max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 3rem">
+    <div class="proof-item"><span class="proof-icon">🔨</span>Řemeslníci</div>
+    <div class="proof-item"><span class="proof-icon">🍽️</span>Restaurace</div>
+    <div class="proof-item"><span class="proof-icon">🚗</span>Autoservisy</div>
+    <div class="proof-item"><span class="proof-icon">🏗️</span>Stavbaři</div>
+    <div class="proof-item"><span class="proof-icon">💼</span>Konzultanti</div>
+    <div class="proof-item"><span class="proof-icon">🏨</span>Ubytování</div>
+    <div class="proof-item"><span class="proof-icon">🛍️</span>E-shopy</div>
+  </div>
+</div>
+
+<!-- ░░ TESTIMONIALS (HNED PO HERO) ░░ -->
+<section style="padding:4rem 1.5rem;background:#0B1929">
+  <div style="max-width:1100px;margin:0 auto">
+    <p style="text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.75rem">Co říkají naši klienti</p>
+    <div class="testi">
+      <div class="testi-card reveal">
+        <div style="display:flex;align-items:center;gap:.75rem">
+          <div class="testi-avatar" style="background:rgba(255,140,0,.12)">👷</div>
+          <div>
+            <div style="font-weight:900;font-size:.88rem">Martin K.</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.4)">Elektroinstalace, Olomouc</div>
+          </div>
+          <div class="testi-stars ml-auto">★★★★★</div>
+        </div>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.65">"Zavolal jsem ráno, odpoledne jsem viděl návrh a druhý den byl web online. <strong style="color:#fff">Do měsíce jsem měl 3× více telefonátů</strong> než předtím."</p>
+      </div>
+      <div class="testi-card reveal">
+        <div style="display:flex;align-items:center;gap:.75rem">
+          <div class="testi-avatar" style="background:rgba(255,20,147,.12)">💇</div>
+          <div>
+            <div style="font-weight:900;font-size:.88rem">Jana R.</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.4)">Kadeřnictví, Brno</div>
+          </div>
+          <div class="testi-stars ml-auto">★★★★★</div>
+        </div>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.65">"Neměla jsem připravené texty ani fotky — vůbec nevadilo. Vše si zjistili sami a <strong style="color:#fff">za 2 týdny byl rezervační kalendář plný</strong>."</p>
+      </div>
+      <div class="testi-card reveal">
+        <div style="display:flex;align-items:center;gap:.75rem">
+          <div class="testi-avatar" style="background:rgba(0,196,181,.12)">🔧</div>
+          <div>
+            <div style="font-weight:900;font-size:.88rem">Petr V.</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.4)">Autoservis, Praha</div>
+          </div>
+          <div class="testi-stars ml-auto">★★★★★</div>
+        </div>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.65">"Předtím jsem byl na Googlu neviditelný. Po spuštění nového webu <strong style="color:#fff">mi začal zvonit telefon do 2 týdnů</strong>. Nelituji ani koruny."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ░░ PROČ JINAK ░░ -->
+<section style="padding:5rem 1.5rem;background:#0B1929" id="proc-jinak">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3rem" class="reveal">
+      <div class="badge-pill" style="margin-bottom:1rem">Náš přístup</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.03em">Proč weby u agentury trvají <span class="grad-coral">měsíce?</span></h2>
+      <p style="color:rgba(255,255,255,.5);margin-top:.75rem;max-width:520px;margin-left:auto;margin-right:auto">A proč u nás máte web zítra.</p>
+    </div>
+    <div class="compare-wrap reveal">
+
+      <div class="cmp-col cmp-theirs">
+        <div class="cmp-label" style="color:rgba(255,255,255,.3)">Klasická agentura</div>
+        <div class="cmp-row"><span style="color:#FF3366;flex-shrink:0;font-weight:900">✗</span>Úvodní schůzka (týden čekání)</div>
+        <div class="cmp-row"><span style="color:#FF3366;flex-shrink:0;font-weight:900">✗</span>Analýza a brief (další týden)</div>
+        <div class="cmp-row"><span style="color:#FF3366;flex-shrink:0;font-weight:900">✗</span>Návrh a layout (2 týdny)</div>
+        <div class="cmp-row"><span style="color:#FF3366;flex-shrink:0;font-weight:900">✗</span>Kola připomínek</div>
+        <div class="cmp-row"><span style="color:#FF3366;flex-shrink:0;font-weight:900">✗</span>Spuštění za 6–12 týdnů</div>
+        <div style="margin-top:1rem;padding:.65rem 1rem;background:rgba(255,51,102,.07);border-radius:.75rem;font-size:.82rem;font-weight:700;color:rgba(255,90,120,.85);text-align:center">Čekáte 2–3 měsíce</div>
+      </div>
+
+      <div class="cmp-arrow">→</div>
+
+      <div class="cmp-col cmp-ours">
+        <div class="cmp-label" style="color:#00C4B5">WebDo24</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>1 telefonát — 15 minut</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>Jasné zadání hned</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>Okamžitě začínáme</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>Průběžné náhledy</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>Spuštění do 24 hodin</div>
+        <div style="margin-top:1rem;padding:.65rem 1rem;background:rgba(0,196,181,.1);border-radius:.75rem;font-size:.82rem;font-weight:700;color:#00C4B5;text-align:center">Hotovo zítra</div>
+      </div>
+
+      <div class="cmp-arrow">→</div>
+
+      <div class="cmp-col cmp-result">
+        <div class="cmp-label" style="color:rgba(255,51,102,.7)">Výsledek</div>
+        <div style="font-size:2rem;margin-bottom:.6rem">🎯</div>
+        <div style="font-weight:900;font-size:1.05rem;color:#fff;margin-bottom:.7rem;line-height:1.3">Web připravený<br>přivádět zákazníky</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>Zákazníci vás najdou</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>Formuláře fungují</div>
+        <div class="cmp-row"><span style="color:#00C4B5;flex-shrink:0;font-weight:900">✓</span>Analytics měří</div>
+        <a href="tel:+420735847185" class="btn-cta w-full py-3 text-sm mt-4" onclick="T('compare_cta')">Zavolat teď</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ░░ JAK TO FUNGUJE ░░ -->
+<section style="padding:5rem 1.5rem;background:linear-gradient(180deg,#060f1a,#0B1929)" id="process">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3.5rem" class="reveal">
+      <div class="badge-pill" style="margin-bottom:1rem">Proces</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.03em">Jak to funguje</h2>
+      <p style="color:rgba(255,255,255,.5);margin-top:.7rem">Od prvního telefonátu po spuštěný web</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-step">
+        <div class="tl-icon">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        </div>
+        <div style="padding-top:.1rem">
+          <div class="tl-time">Ráno</div>
+          <div style="font-weight:900;font-size:.97rem;color:#fff;margin-bottom:.35rem">Zavoláte nám</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:160px;margin:0 auto">Kdykoli 8:00–20:00. Žádná čekací listina.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M8 12h8M8 8h5M4 4h16v4H4zM4 12v8h16v-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding-top:.1rem">
+          <div class="tl-time">+15 minut</div>
+          <div style="font-weight:900;font-size:.97rem;color:#fff;margin-bottom:.35rem">Brief hotov</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:180px;margin:0 auto">Řeknete nám co děláte, komu prodáváte, co má web dělat.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div style="padding-top:.1rem">
+          <div class="tl-time">Celý den</div>
+          <div style="font-weight:900;font-size:.97rem;color:#fff;margin-bottom:.35rem">Pracujeme</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:170px;margin:0 auto">Průběžně posíláme náhledy. Vy schvalujete.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-icon done">🚀</div>
+        <div style="padding-top:.1rem">
+          <div class="tl-time" style="background:rgba(255,51,102,.1);color:rgba(255,90,120,.9)">Zítra ráno</div>
+          <div style="font-weight:900;font-size:.97rem;color:#FF3366;margin-bottom:.35rem">Web je online!</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:170px;margin:0 auto">Vy děláte svoji práci. Web pracuje za vás.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:3.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center" class="reveal">
+      <div style="background:rgba(0,196,181,.05);border:1px solid rgba(0,196,181,.15);border-radius:1rem;padding:1.25rem">
+        <div style="font-size:1.6rem;font-weight:900;color:#00C4B5">24 h</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:.2rem;font-weight:600">Garance dodání</div>
+      </div>
+      <div style="background:rgba(0,196,181,.05);border:1px solid rgba(0,196,181,.15);border-radius:1rem;padding:1.25rem">
+        <div style="font-size:1.6rem;font-weight:900;color:#00C4B5">15 min</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:.2rem;font-weight:600">Délka briefu</div>
+      </div>
+      <div style="background:rgba(0,196,181,.05);border:1px solid rgba(0,196,181,.15);border-radius:1rem;padding:1.25rem">
+        <div style="font-size:1.6rem;font-weight:900;color:#00C4B5">0 Kč</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:.2rem;font-weight:600">Konzultace zdarma</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="tel:+420735847185" class="btn-cta px-10 py-4 text-lg" onclick="T('process_cta')">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Začít teď — +420 735 847 185
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ░░ CO DOSTANETE ░░ -->
+<section style="padding:5rem 1.5rem;background:#0B1929" id="features">
+  <div style="max-width:920px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3rem" class="reveal">
+      <div class="badge-pill" style="margin-bottom:1rem">Co dostanete</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;letter-spacing:-.03em">Vše v ceně, nic navíc</h2>
+      <p style="color:rgba(255,255,255,.5);margin-top:.7rem">Kompletní web připravený ke startu — žádné skryté poplatky</p>
+    </div>
+    <div class="delivers reveal">
+      <div class="del-item"><div class="del-check">✓</div>Moderní design na míru</div>
+      <div class="del-item"><div class="del-check">✓</div>Mobilní verze (responsivní)</div>
+      <div class="del-item"><div class="del-check">✓</div>Kontaktní formulář</div>
+      <div class="del-item"><div class="del-check">✓</div>Google Analytics 4</div>
+      <div class="del-item"><div class="del-check">✓</div>Měření konverzí (GTM)</div>
+      <div class="del-item"><div class="del-check">✓</div>Základní SEO optimalizace</div>
+      <div class="del-item"><div class="del-check">✓</div>SSL zabezpečení (HTTPS)</div>
+      <div class="del-item"><div class="del-check">✓</div>Propojení sociálních sítí</div>
+      <div class="del-item"><div class="del-check">✓</div>Snadná administrace</div>
+      <div class="del-item"><div class="del-check">✓</div>Možnost dalšího rozvoje</div>
+    </div>
+    <div style="text-align:center;margin-top:2rem" class="reveal">
+      <a href="#form" class="btn-sec px-8 py-3.5 text-base" onclick="T('features_cta')">Chci tyto funkce →</a>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ░░ CENÍK ░░ -->
+<section style="padding:5rem 1.5rem;background:linear-gradient(180deg,#060f1a,#0B1929)" id="cenik">
+  <div style="max-width:780px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3rem" class="reveal">
+      <div class="badge-pill" style="margin-bottom:1rem">Ceník</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;letter-spacing:-.03em">Jasné ceny, žádná překvapení</h2>
+      <p style="color:rgba(255,255,255,.5);margin-top:.7rem">Platíte jednou. Web vlastníte napořád.</p>
+    </div>
+    <div class="price-grid reveal">
+      <div class="price-card price-base">
+        <div>
+          <div style="font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.5rem">Landing page</div>
+          <div style="font-size:2.2rem;font-weight:900;letter-spacing:-.03em;line-height:1">9 900 Kč</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.3);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem">Jednorázově</div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.07)"></div>
+        <div style="display:flex;flex-direction:column;gap:.65rem">
+          <div class="price-chk">Jednostránkový web</div>
+          <div class="price-chk">Kontaktní formulář</div>
+          <div class="price-chk">Mobilní verze</div>
+          <div class="price-chk">SEO základ</div>
+          <div class="price-chk">Google Analytics</div>
+          <div class="price-chk">Dodání do 24 hodin</div>
+        </div>
+        <a href="tel:+420735847185" class="btn-sec w-full py-3 text-sm mt-auto" onclick="T('pricing_lp_call')">Mám zájem</a>
+      </div>
+
+      <div class="price-card price-featured" style="position:relative">
+        <div class="price-badge">Nejčastěji volený</div>
+        <div>
+          <div style="font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#00C4B5;margin-bottom:.5rem">Firemní web</div>
+          <div style="font-size:2.2rem;font-weight:900;letter-spacing:-.03em;line-height:1">14 900 Kč</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.3);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem">Jednorázově</div>
+        </div>
+        <div style="height:1px;background:rgba(0,196,181,.18)"></div>
+        <div style="display:flex;flex-direction:column;gap:.65rem">
+          <div class="price-chk">Vícestránkový web</div>
+          <div class="price-chk">Blog / aktuality</div>
+          <div class="price-chk">Pokročilé formuláře</div>
+          <div class="price-chk">Měření konverzí</div>
+          <div class="price-chk">SEO optimalizace</div>
+          <div class="price-chk">Vše z Landing page</div>
+        </div>
+        <a href="tel:+420735847185" class="btn-cta w-full py-3 text-sm mt-auto" onclick="T('pricing_biz_call')">Chci firemní web</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:rgba(255,255,255,.35);font-size:.82rem;margin-top:1.5rem">Nevíte co potřebujete? <a href="tel:+420735847185" style="color:#00C4B5;text-decoration:none;font-weight:700" onclick="T('pricing_help_call')">Zavolejte, poradíme zdarma →</a></p>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ░░ PORTFOLIO ░░ -->
+<section style="padding:5rem 1.5rem;background:#0B1929" id="portfolio">
+  <div style="max-width:1140px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3rem" class="reveal">
+      <div class="badge-pill" style="margin-bottom:1rem">Portfolio</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;letter-spacing:-.03em">Ukázky naší práce</h2>
+      <p style="color:rgba(255,255,255,.5);margin-top:.7rem">Každý web jsme dodali do 24 hodin</p>
+    </div>
+    <div class="port-grid">
+
+      <div class="port-card reveal">
+        <div class="port-chrome">
+          <div class="port-dot" style="background:#FF5F57"></div>
+          <div class="port-dot" style="background:#FFBD2E"></div>
+          <div class="port-dot" style="background:#28CA42"></div>
+          <div style="flex:1;font-size:.65rem;color:rgba(255,255,255,.25);font-weight:600;text-align:center">pavel-dousa-elektrikar.cz</div>
+        </div>
+        <img src="previews/demo8-pavel-dousa-elektrikar.png" alt="Web elektrikář" class="port-img" loading="lazy">
+        <div style="padding:1.1rem">
+          <div class="port-tag" style="margin-bottom:.55rem">Elektrikář</div>
+          <div style="font-weight:900;font-size:.95rem;margin-bottom:.25rem">Pavel Douša – Elektroinstalace</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:.4rem">Cíl: poptávky na elektroinstalace</div>
+          <div class="port-result">↑ 3× více telefonátů za 1. měsíc</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal">
+        <div class="port-chrome">
+          <div class="port-dot" style="background:#FF5F57"></div>
+          <div class="port-dot" style="background:#FFBD2E"></div>
+          <div class="port-dot" style="background:#28CA42"></div>
+          <div style="flex:1;font-size:.65rem;color:rgba(255,255,255,.25);font-weight:600;text-align:center">autoservis-novyjicin.cz</div>
+        </div>
+        <img src="previews/demo2-autoservis.png" alt="Web autoservis" class="port-img" loading="lazy">
+        <div style="padding:1.1rem">
+          <div class="port-tag" style="margin-bottom:.55rem">Autoservis</div>
+          <div style="font-weight:900;font-size:.95rem;margin-bottom:.25rem">Auto servis Nový Jičín</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:.4rem">Cíl: online objednávky na servis</div>
+          <div class="port-result">↑ Online objednávky spuštěny 1. den</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal">
+        <div class="port-chrome">
+          <div class="port-dot" style="background:#FF5F57"></div>
+          <div class="port-dot" style="background:#FFBD2E"></div>
+          <div class="port-dot" style="background:#28CA42"></div>
+          <div style="flex:1;font-size:.65rem;color:rgba(255,255,255,.25);font-weight:600;text-align:center">kadernictvimarusky.cz</div>
+        </div>
+        <img src="previews/demo5-kadernictvimaruska.png" alt="Web kadeřnictví" class="port-img" loading="lazy">
+        <div style="padding:1.1rem">
+          <div class="port-tag" style="margin-bottom:.55rem">Kadeřnictví</div>
+          <div style="font-weight:900;font-size:.95rem;margin-bottom:.25rem">Kadeřnictví u Marušky</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:.4rem">Cíl: online rezervace a nové klientky</div>
+          <div class="port-result">↑ Plná kapacita do 2 týdnů</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal">
+        <div class="port-chrome">
+          <div class="port-dot" style="background:#FF5F57"></div>
+          <div class="port-dot" style="background:#FFBD2E"></div>
+          <div class="port-dot" style="background:#28CA42"></div>
+          <div style="flex:1;font-size:.65rem;color:rgba(255,255,255,.25);font-weight:600;text-align:center">paddleboardy-milada.cz</div>
+        </div>
+        <img src="previews/demo7-paddleboardy-milada.png" alt="Web paddleboardy" class="port-img" loading="lazy">
+        <div style="padding:1.1rem">
+          <div class="port-tag" style="margin-bottom:.55rem">Sport & ubytování</div>
+          <div style="font-weight:900;font-size:.95rem;margin-bottom:.25rem">Paddleboardy Milada</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:.4rem">Cíl: rezervace paddleboardů online</div>
+          <div class="port-result">↑ Sezóna kompletně zaplněna</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal">
+        <div class="port-chrome">
+          <div class="port-dot" style="background:#FF5F57"></div>
+          <div class="port-dot" style="background:#FFBD2E"></div>
+          <div class="port-dot" style="background:#28CA42"></div>
+          <div style="flex:1;font-size:.65rem;color:rgba(255,255,255,.25);font-weight:600;text-align:center">freelancer-konzultant.cz</div>
+        </div>
+        <img src="previews/demo6-freelancer.png" alt="Web freelancer" class="port-img" loading="lazy">
+        <div style="padding:1.1rem">
+          <div class="port-tag" style="margin-bottom:.55rem">Konzultant</div>
+          <div style="font-weight:900;font-size:.95rem;margin-bottom:.25rem">Freelancer & konzultant</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:.4rem">Cíl: poptávky na konzultace</div>
+          <div class="port-result">↑ Nové klienty z Googlu do týdne</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal">
+        <div class="port-chrome">
+          <div class="port-dot" style="background:#FF5F57"></div>
+          <div class="port-dot" style="background:#FFBD2E"></div>
+          <div class="port-dot" style="background:#28CA42"></div>
+          <div style="flex:1;font-size:.65rem;color:rgba(255,255,255,.25);font-weight:600;text-align:center">selbicky-prodej.cz</div>
+        </div>
+        <img src="previews/demo4-selbicky.png" alt="Web šelbičky" class="port-img" loading="lazy">
+        <div style="padding:1.1rem">
+          <div class="port-tag" style="margin-bottom:.55rem">E-shop</div>
+          <div style="font-weight:900;font-size:.95rem;margin-bottom:.25rem">Šelbičky – lokální prodej</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:.4rem">Cíl: online prodej a zákazníci z okolí</div>
+          <div class="port-result">↑ 1. objednávka do 48 hodin</div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="tel:+420735847185" class="btn-cta px-10 py-4 text-lg" onclick="T('port_cta')">Chci web jako tyto →</a>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ░░ FAQ ░░ -->
+<section style="padding:5rem 1.5rem;background:linear-gradient(180deg,#060f1a,#0B1929)" id="faq">
+  <div style="max-width:740px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3rem" class="reveal">
+      <div class="badge-pill" style="margin-bottom:1rem">Otázky</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;letter-spacing:-.03em">Možná vás zajímá</h2>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)"><span>Opravdu do 24 hodin — je to reálné?</span><span class="faq-ico">+</span></button>
+        <div class="faq-a">Ano, je. Je to naše garance, ne marketingový tah. Máme ověřený proces — od briefu přes tvorbu po nasazení. Pokud bychom z objektivního důvodu nestihli, vždy vás informujeme dopředu a domluvíme se na řešení.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)"><span>Musím mít připravené texty nebo fotky?</span><span class="faq-ico">+</span></button>
+        <div class="faq-a">Ne. Texty napíšeme za vás na základě 15minutového telefonátu. Fotografie doplníme z licencovaných fotobank nebo použijeme vaše. Nic vás nebrzdí — stačí, že zavoláte.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)"><span>Budu moci web sám upravovat?</span><span class="faq-ico">+</span></button>
+        <div class="faq-a">Ano. Web předáme s jednoduchým administračním rozhraním, kde zvládnete měnit texty, fotografie i přidávat nové stránky. Případně vám nabídneme naši službu správy webu za pevný měsíční poplatek.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)"><span>Co když nemám doménu ani hosting?</span><span class="faq-ico">+</span></button>
+        <div class="faq-a">Vyřešíme za vás. Doménu zaregistrujeme a hosting zajistíme — rychlý, spolehlivý a buď v ceně dodávky nebo za symbolický měsíční paušál. Nemusíte nic řešit.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)"><span>Kolik přesně to stojí?</span><span class="faq-ico">+</span></button>
+        <div class="faq-a">Landing page od <strong style="color:#fff">9 900 Kč</strong>, firemní web od <strong style="color:#fff">14 900 Kč</strong>. Platíte jednorázově a web vlastníte napořád. Žádné skryté poplatky — vždy řekneme cenu dopředu, před tím než začneme pracovat.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)"><span>Co když s výsledkem nebudu spokojený?</span><span class="faq-ico">+</span></button>
+        <div class="faq-a">Máme jasnou garanční politiku. Drobné úpravy děláme obratem a zdarma. Pokud by byl výsledek zásadně jiný, než jsme se domluvili, vrátíme zálohu — ale za 5 let práce se to ještě nestalo.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem" class="reveal">
+      <p style="color:rgba(255,255,255,.4);font-size:.88rem;margin-bottom:.85rem">Jiná otázka? Zavolejte.</p>
+      <a href="tel:+420735847185" class="btn-sec px-8 py-3.5" onclick="T('faq_call')">+420 735 847 185</a>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ░░ FINÁLNÍ CTA + FORM ░░ -->
+<section style="padding:5rem 1.5rem 7rem;background:linear-gradient(180deg,#060f1a,#080d16)" id="form">
+  <div style="max-width:1060px;margin:0 auto">
+    <div class="final-grid">
+
+      <!-- LEFT -->
+      <div class="reveal">
+        <h2 style="font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-.035em;line-height:1.08;margin-bottom:1.1rem">
+          Potřebujete web<br><span class="grad-coral">co nejrychleji?</span>
+        </h2>
+        <p style="font-size:1.05rem;color:rgba(255,255,255,.6);line-height:1.65;margin-bottom:2rem">Zavolejte nám ještě dnes. Zítra můžete mít web online — a začít získávat zákazníky.</p>
+
+        <a href="tel:+420735847185" class="btn-cta px-9 py-4 text-xl mb-3 w-full justify-center" onclick="T('final_call')" style="max-width:360px;display:flex">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Chci web do 24 hodin
+        </a>
+        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-bottom:2rem">+420 735 847 185 · Po–Pá 8:00–20:00 · Konzultace zdarma</div>
+
+        <div class="guarantee">
+          <div class="guarantee-icon">🛡️</div>
+          <div>
+            <div style="font-weight:900;font-size:.97rem;color:#fff;margin-bottom:.3rem">Garance nebo vrácení zálohy</div>
+            <div style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6">Pokud web nestihneme dodat do 24 hodin z naší strany, vracíme zálohu. Žádné výmluvy.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT – FORM -->
+      <div class="reveal">
+        <div class="form-card">
+          <div style="font-weight:900;font-size:1.1rem;margin-bottom:1.4rem;color:#fff">Zavoláme vám zpět do 30 minut</div>
+          <form id="lpForm" onsubmit="sendForm(event)" novalidate style="display:flex;flex-direction:column;gap:.9rem">
+            <div class="field">
+              <label>Jméno a firma *</label>
+              <input type="text" id="fn" class="finput" placeholder="Jan Novák, Novák Elektro" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label>Telefon *</label>
+              <input type="tel" id="fp" class="finput" placeholder="+420 777 123 456" required autocomplete="tel">
+            </div>
+            <div class="field">
+              <label>E-mail</label>
+              <input type="email" id="fe" class="finput" placeholder="jan@firma.cz" autocomplete="email">
+            </div>
+            <div class="field">
+              <label>Co potřebujete?</label>
+              <input type="text" id="fm" class="finput" placeholder="Web pro autoservis v Praze…" maxlength="200">
+            </div>
+            <button type="submit" id="fBtn" class="btn-cta w-full py-4 text-base">Zavolejte mi zpět</button>
+          </form>
+          <p style="font-size:.73rem;color:rgba(255,255,255,.28);text-align:center;margin-top:.85rem;line-height:1.5">
+            Odesláním souhlasíte se zpracováním osobních údajů dle <a href="gdpr/" style="color:rgba(255,255,255,.4);text-decoration:underline">GDPR</a>. Ozveme se do 30 minut v pracovní době.
+          </p>
+        </div>
+
+        <div id="fSuccess" style="display:none" class="form-card" style="text-align:center;padding:2.5rem">
+          <div style="font-size:2.75rem;margin-bottom:.85rem">✅</div>
+          <div style="font-weight:900;font-size:1.3rem;color:#fff;margin-bottom:.45rem">Přijato!</div>
+          <div style="color:rgba(255,255,255,.6);font-size:.92rem;margin-bottom:1.5rem">Zavoláme vám do 30 minut. Je to urgentní? Volejte přímo.</div>
+          <a href="tel:+420735847185" class="btn-cta px-7 py-3.5 inline-flex" onclick="T('success_call')">+420 735 847 185</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer style="background:#060f1a;border-top:1px solid rgba(255,255,255,.05);padding:2.25rem 1.5rem">
+  <div style="max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.25rem">
+    <div>
+      <div style="font-weight:900;font-size:1.05rem;color:#fff;margin-bottom:.2rem">WebDo<span style="color:#00C4B5">24</span>.cz</div>
+      <div style="font-size:.75rem;color:rgba(255,255,255,.3)">Weby do 24 hodin pro podnikatele · © 2026</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center">
+      <a href="tel:+420735847185" style="color:rgba(255,255,255,.5);font-size:.83rem;font-weight:600;text-decoration:none">+420 735 847 185</a>
+      <a href="mailto:info@webdo24.cz" style="color:rgba(255,255,255,.5);font-size:.83rem;text-decoration:none">info@webdo24.cz</a>
+      <a href="vop/" style="color:rgba(255,255,255,.28);font-size:.75rem;text-decoration:none">VOP</a>
+      <a href="gdpr/" style="color:rgba(255,255,255,.28);font-size:.75rem;text-decoration:none">GDPR</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Event tracking ────────────────────────────────────────────────────────
+function T(a,p){window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:'lp_event',lp_action:a},p||{}))}
+
+// ── Phone tracking ────────────────────────────────────────────────────────
+document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+  el.addEventListener('click',function(){
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'conversion',conversion_type:'phone_call'});
+    T('phone_call');
+  });
+});
+
+// ── Nav shadow on scroll + show CTA ──────────────────────────────────────
+(function(){
+  var nav=document.getElementById('nav'),cta=document.getElementById('navCta'),hero=document.getElementById('hero');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>40);
+  },{passive:true});
+  if(hero){
+    new IntersectionObserver(function(e){cta.style.display=e[0].isIntersecting?'none':'inline-flex'},{threshold:0}).observe(hero);
+  }
+})();
+
+// ── Hide mobile CTA on form ───────────────────────────────────────────────
+(function(){
+  var mc=document.getElementById('mCta'),fs=document.getElementById('form');
+  if(!mc||!fs)return;
+  new IntersectionObserver(function(e){mc.style.display=e[0].isIntersecting?'none':null},{threshold:.05}).observe(fs);
+})();
+
+// ── Scroll reveal ─────────────────────────────────────────────────────────
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+  },{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+})();
+
+// ── Browser preview rotator ───────────────────────────────────────────────
+(function(){
+  var slides=document.querySelectorAll('.browser-slide');
+  var urls=['pavel-dousa.cz','autoservis-nj.cz','kadernictvi-maruska.cz','paddleboardy-milada.cz'];
+  var urlEl=document.getElementById('browserUrl');
+  if(!slides.length)return;
+  var cur=0;
+  setInterval(function(){
+    slides[cur].classList.remove('active');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');
+    if(urlEl)urlEl.textContent=urls[cur]||'vasefirma.cz';
+  },3000);
+})();
+
+// ── FAQ ───────────────────────────────────────────────────────────────────
+function faq(btn){
+  var item=btn.closest('.faq-item'),open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  if(!open)item.classList.add('open');
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────
+function sendForm(e){
+  e.preventDefault();
+  var n=document.getElementById('fn'),p=document.getElementById('fp');
+  var ok=true;
+  [n,p].forEach(function(el){
+    if(!el.value.trim()){el.classList.add('err');ok=false;}
+    else el.classList.remove('err');
+  });
+  if(!ok)return;
+  var btn=document.getElementById('fBtn');
+  btn.disabled=true;btn.textContent='Odesílám…';
+  var data={name:n.value.trim(),phone:p.value.trim(),email:document.getElementById('fe').value.trim(),note:document.getElementById('fm').value.trim(),source:'web-do-24-hodin-v2',url:window.location.href};
+  fetch('https://n8n.webdo24.cz/webhook/new-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+    .then(function(){done()}).catch(function(){done()});
+}
+function done(){
+  document.getElementById('lpForm').style.display='none';
+  document.getElementById('fSuccess').style.display='block';
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push({event:'conversion',conversion_type:'form_submit'});
+  T('form_submit');
+}
+</script>
+
+</body>
+</html>
