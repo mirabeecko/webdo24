@@ -14,163 +14,163 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={theme:{extend:{fontFamily:{outfit:['Outfit','sans-serif']}}}}</script>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#0d9488;--primary-dark:#0f766e;--primary-light:#f0fdfa;
+  --accent:#f43f5e;--accent-dark:#e11d48;
+  --text:#0f172a;--text-soft:#475569;--text-muted:#94a3b8;
+  --bg:#ffffff;--bg-soft:#f8fafc;--border:#e2e8f0;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.05),0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.08),0 8px 10px -6px rgba(0,0,0,0.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-:root{--teal:#00C4B5;--coral:#FF3366}
-.glass-nav{background:rgba(6,15,26,0.9);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(24px)}
-.btn-primary{display:inline-block;background:#FF3366;color:#fff;font-weight:900;border-radius:1rem;cursor:pointer;transition:all 0.22s ease;box-shadow:0 8px 36px -4px rgba(255,51,102,0.4);border:none;font-family:'Outfit',sans-serif;text-decoration:none}
-.btn-primary:hover{background:#e52e5a;transform:translateY(-2px)}
-.btn-outline{display:inline-block;background:transparent;color:rgba(255,255,255,0.65);font-weight:700;border-radius:1rem;cursor:pointer;transition:all 0.22s ease;border:1px solid rgba(255,255,255,0.18);font-family:'Outfit',sans-serif;text-decoration:none}
-.btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.45)}
-.grad-teal{background:linear-gradient(135deg,#00C4B5,#00e6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.grad-coral{background:linear-gradient(135deg,#FF3366,#ff6b8a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.check-circle{width:6rem;height:6rem;border-radius:50%;background:rgba(0,196,181,0.12);border:2px solid rgba(0,196,181,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto}
-.step-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:1.25rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem}
-.step-num{width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(0,196,181,0.12);border:1.5px solid rgba(0,196,181,0.4);color:#00C4B5;font-weight:900;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.15)}}
-.pulse{animation:pulse 2s ease-in-out infinite}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem}
+.nav-logo{font-size:1.2rem;font-weight:900;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--primary)}
+.nav-back{font-size:.9rem;font-weight:700;color:var(--text-soft);text-decoration:none}
+.nav-back:hover{color:var(--primary)}
+
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:6rem 1.5rem 3rem}
+.container{max-width:680px;width:100%;text-align:center}
+
+.check-circle{width:6rem;height:6rem;border-radius:50%;background:var(--primary-light);border:2px solid rgba(13,148,136,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem}
+.check-circle svg{width:40px;height:40px;stroke:var(--primary);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+.kicker{font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:1rem}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.05;margin-bottom:1rem}
+p{color:var(--text-soft);font-size:1.05rem;margin-bottom:1rem}
+.order-detail{font-size:.95rem;font-weight:800;color:var(--primary-dark);margin-bottom:2rem}
+
+.steps{text-align:left;background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.5rem;box-shadow:var(--shadow);margin-bottom:2rem}
+.steps-title{font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem}
+.step{display:flex;align-items:flex-start;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-num{width:2.25rem;height:2.25rem;border-radius:50%;background:var(--primary-light);border:1.5px solid rgba(13,148,136,.2);color:var(--primary);font-weight:900;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step h4{font-size:1rem;font-weight:800;margin-bottom:.2rem}
+.step p{font-size:.85rem;color:var(--text-soft);margin-bottom:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.5rem;border-radius:.85rem;font-weight:800;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-size:.95rem}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px -4px rgba(244,63,94,.35)}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.btn-outline{background:#fff;color:var(--text);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+
+.contact{font-size:.85rem;color:var(--text-muted);margin-top:1.5rem}
+.contact a{color:var(--primary);font-weight:700;text-decoration:none}
+
+footer{padding:1.5rem;text-align:center;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border)}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .6s ease-out both}
 .delay-1{animation-delay:.1s}
 .delay-2{animation-delay:.22s}
 .delay-3{animation-delay:.34s}
-.delay-4{animation-delay:.46s}
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- NAV -->
-<nav class="glass-nav sticky top-0 z-50 px-6 py-4">
-  <div class="max-w-5xl mx-auto flex justify-between items-center">
-    <a href="index.html" class="text-xl font-black tracking-tight">
-      <span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span>
-    </a>
-    <a href="index.html" class="text-sm font-semibold transition-colors hover:text-white" style="color:rgba(255,255,255,0.5)">← Hlavní stránka</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">webdo<span>24</span>.cz</a>
+    <a href="index.html" class="nav-back">← Hlavní stránka</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<main style="flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 1.5rem">
-  <div class="max-w-2xl mx-auto w-full text-center">
-
-    <!-- Ikona úspěchu -->
-    <div class="check-circle mb-8 fade-up">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"/>
-      </svg>
+<main>
+  <div class="container">
+    <div class="check-circle fade-up">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
 
     <div class="fade-up delay-1">
-      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:#00C4B5">Platba úspěšná</p>
-      <h1 class="text-4xl md:text-5xl font-black leading-tight mb-5">
-        Objednávka přijata.<br><span class="grad-coral">Spouštíme do 24 hodin.</span>
-      </h1>
-      <p class="text-lg leading-relaxed mb-3" style="color:rgba(255,255,255,0.65)">
-        Vaše platba proběhla úspěšně. Tým se okamžitě pustí do práce.
-      </p>
-      <p id="order-detail" class="text-sm font-bold mb-10" style="color:rgba(0,196,181,0.8)"></p>
+      <div class="kicker">Platba úspěšná</div>
+      <h1>Objednávka přijata.<br><span style="color:var(--primary)">Spouštíme do 24 hodin.</span></h1>
+      <p>Vaše platba proběhla úspěšně. Tým se okamžitě pustí do práce.</p>
+      <p id="order-detail" class="order-detail"></p>
     </div>
 
-    <!-- Co se děje dál -->
-    <div class="text-left space-y-3 mb-10 fade-up delay-2">
-      <p class="text-xs font-black uppercase tracking-widest mb-4" style="color:rgba(255,255,255,0.35)">Co se děje dál</p>
-      <div class="step-card">
+    <div class="steps fade-up delay-2">
+      <div class="steps-title">Co se děje dál</div>
+      <div class="step">
         <div class="step-num">1</div>
         <div>
-          <p class="font-black text-base mb-1">Do 30 minut</p>
-          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.55)">Potvrdíme přijetí objednávky e-mailem a přiřadíme vám projektového manažera.</p>
+          <h4>Do 30 minut</h4>
+          <p>Potvrdíme přijetí objednávky e-mailem a přiřadíme vám projektového manažera.</p>
         </div>
       </div>
-      <div class="step-card">
+      <div class="step">
         <div class="step-num">2</div>
         <div>
-          <p class="font-black text-base mb-1">Do 24 hodin</p>
-          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.55)">Spustíme váš web v sandboxu a pošleme vám odkaz k odsouhlasení. Sandbox → Live do 1 hodiny.</p>
+          <h4>Do 24 hodin</h4>
+          <p>Připravíme váš web a pošleme vám odkaz na hotový výsledek.</p>
         </div>
       </div>
-      <div class="step-card" style="border-color:rgba(0,196,181,0.2)">
-        <div class="step-num" style="color:#00C4B5">3</div>
+      <div class="step">
+        <div class="step-num">3</div>
         <div>
-          <p class="font-black text-base mb-1">Po schválení</p>
-          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.55)">Předáme vám přístupy — doménu, hosting, GitHub repozitář, Google Analytics. Vše vaše od první minuty.</p>
+          <h4>Po dokončení</h4>
+          <p>Předáme vám přístupy — doménu, hosting, zdrojový kód, analytiku. Vše vaše od první minuty.</p>
         </div>
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up delay-3">
-      <a href="index.html" class="btn-outline px-8 py-4 text-sm font-bold">← Zpět na webdo24.cz</a>
-      <a href="tel:+420735847185" class="btn-primary px-8 py-4 text-sm">Zavolat: 735 847 185</a>
+    <div class="fade-up delay-3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="index.html" class="btn btn-outline">← Zpět na webdo24.cz</a>
+      <a href="tel:+420735847185" class="btn btn-primary">Zavolat: 735 847 185</a>
     </div>
 
-    <p class="text-xs mt-6 fade-up delay-4" style="color:rgba(255,255,255,0.2)">
-      Máte otázku? Napište na <a href="mailto:info@webdo24.cz" style="color:rgba(0,196,181,0.6)">info@webdo24.cz</a>
+    <p class="contact fade-up delay-3">
+      Máte otázku? Napište na <a href="mailto:info@webdo24.cz">info@webdo24.cz</a>
     </p>
-
   </div>
 </main>
 
-<footer class="py-8 px-6 text-center" style="border-top:1px solid rgba(255,255,255,0.06)">
-  <p class="text-xs" style="color:rgba(255,255,255,0.18)">© 2026 WebDo24.cz — Soterana Corp s.r.o.</p>
+<footer>
+  © 2026 WebDo24.cz — Soterana Corp s.r.o. · IČO: 14052326 · U Uranie 1583/21, Praha 7, 170 00
 </footer>
 
 <script>
-// Načtení dat z URL parametrů (Stripe přidá session_id automaticky)
-(function() {
-  const params  = new URLSearchParams(window.location.search);
-  const sessionId = params.get('session_id') || ('WD-' + Date.now());
-  const plan      = (params.get('plan') || 'business').toLowerCase();
-  const amount    = parseInt(params.get('amount') || '0', 10);
+(function(){
+  const params=new URLSearchParams(window.location.search);
+  const sessionId=params.get('session_id')||('WD-'+Date.now());
+  const plan=(params.get('plan')||'business').toLowerCase();
+  const amount=parseInt(params.get('amount')||'0',10);
 
-  const PLANS = {
-    start:      {name: 'Model Start',      price: 14900},
-    business:   {name: 'Model Business',   price: 29900},
-    automation: {name: 'Model Automation', price: 59900}
+  const PLANS={
+    start:{name:'Model Start',price:14900},
+    business:{name:'Model Business',price:29900},
+    automation:{name:'Model Automation',price:59900}
   };
-  const planData = PLANS[plan] || {name: 'WebDo24', price: amount};
-  const value    = amount || planData.price;
+  const planData=PLANS[plan]||{name:'WebDo24',price:amount};
+  const value=amount||planData.price;
 
-  // Zobrazit detail objednávky
-  const detailEl = document.getElementById('order-detail');
-  if (detailEl && value) {
-    detailEl.textContent = planData.name + ' · ' + value.toLocaleString('cs-CZ') + ' Kč · #' + sessionId.slice(-8).toUpperCase();
+  const detailEl=document.getElementById('order-detail');
+  if(detailEl&&value){
+    detailEl.textContent=planData.name+' · '+value.toLocaleString('cs-CZ')+' Kč · #'+sessionId.slice(-8).toUpperCase();
   }
 
-  // GA4 + Google Ads: purchase konverze
   dataLayer.push({
-    event: 'purchase',
-    ecommerce: {
-      transaction_id: sessionId,
-      currency:       'CZK',
-      value:          value,
-      items: [{
-        item_id:       plan,
-        item_name:     planData.name,
-        price:         value,
-        quantity:      1,
-        item_category: 'Web'
-      }]
+    event:'purchase',
+    ecommerce:{
+      transaction_id:sessionId,
+      currency:'CZK',
+      value:value,
+      items:[{item_id:plan,item_name:planData.name,price:value,quantity:1,item_category:'Web'}]
     }
   });
 
-  // Enhanced Conversions — pokud byl email uložen před přesměrováním
-  const savedEmail = sessionStorage.getItem('wd_email');
-  const savedPhone = sessionStorage.getItem('wd_phone');
-  if (savedEmail) {
-    dataLayer.push({
-      event: 'user_data_set',
-      user_data: {
-        email:        savedEmail,
-        phone_number: savedPhone || ''
-      }
-    });
+  const savedEmail=sessionStorage.getItem('wd_email');
+  const savedPhone=sessionStorage.getItem('wd_phone');
+  if(savedEmail){
+    dataLayer.push({event:'user_data_set',user_data:{email:savedEmail,phone_number:savedPhone||''}});
   }
 })();
 </script>
+
 </body>
 </html>

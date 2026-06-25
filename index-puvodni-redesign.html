@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KJNB99JZ');</script>
+<meta name="description" content="Spustíme váš web do 24 hodin. Web, příjem poptávek, AI odpovědi a jednoduchý systém pro vaše zákazníky. Bez agentury. Od 14 900 Kč.">
+<title>WebDo24.cz | Spustíme váš web do 24 hodin</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://webdo24.cz">
+<meta property="og:title" content="Spustíme váš web do 24 hodin | WebDo24.cz">
+<meta property="og:description" content="Web, příjem poptávek, AI odpovědi a správa za vás. Bez agentury. Bez chaosu.">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://webdo24.cz/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webdo24.cz/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spustíme váš web do 24 hodin | WebDo24.cz">
+<meta name="twitter:description" content="Web, příjem poptávek, AI odpovědi a správa za vás. Od 14 900 Kč. Bez agentury.">
+<meta name="twitter:image" content="https://webdo24.cz/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { outfit: ['Outfit','sans-serif'] }
+    }
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:#060f1a;color:#fff;-webkit-font-smoothing:antialiased}
+
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root{
+  --navy:#060f1a;
+  --navy-light:#0B1929;
+  --teal:#00C4B5;
+  --teal-glow:rgba(0,196,181,0.12);
+  --coral:#FF3366;
+  --coral-glow:rgba(255,51,102,0.12);
+  --surface:rgba(255,255,255,0.03);
+  --surface-hover:rgba(255,255,255,0.05);
+  --border:rgba(255,255,255,0.07);
+  --border-hover:rgba(255,255,255,0.14);
+  --muted:rgba(255,255,255,0.55);
+}
+
+/* ═══════════════════════════════════════
+   NAV (inspirováno duvo.ai — floating pill)
+═══════════════════════════════════════ */
+.nav-wrap{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:center;padding:.875rem 1rem;pointer-events:none}
+.nav-inner{pointer-events:auto;display:flex;align-items:center;gap:.25rem;height:3.25rem;padding:.375rem;border-radius:9999px;background:rgba(6,15,26,0.88);border:1px solid var(--border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:box-shadow .4s,background .4s}
+.nav-inner.scrolled{background:rgba(6,15,26,0.96);box-shadow:0 12px 40px rgba(0,0,0,0.5)}
+.nav-logo{display:flex;align-items:center;padding:.5rem .875rem;border-radius:9999px;font-size:1.05rem;font-weight:900;color:#fff;text-decoration:none;transition:background .2s;white-space:nowrap}
+.nav-logo:hover{background:rgba(255,255,255,0.05)}
+.nav-logo span{color:var(--teal)}
+.nav-div{width:1px;height:1.25rem;background:rgba(255,255,255,0.08);margin:0 .25rem}
+.nav-link{display:flex;align-items:center;padding:.5rem .875rem;border-radius:9999px;font-size:.85rem;font-weight:600;color:var(--muted);text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-cta{display:flex;align-items:center;padding:.5rem 1.25rem;border-radius:9999px;font-size:.85rem;font-weight:700;color:#fff;background:var(--coral);text-decoration:none;transition:all .2s;white-space:nowrap;box-shadow:0 4px 16px -4px rgba(255,51,102,0.35)}
+.nav-cta:hover{background:#e52e5a;transform:translateY(-1px);box-shadow:0 8px 24px -4px rgba(255,51,102,0.45)}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:9999px;color:var(--muted);background:none;border:none;cursor:pointer}
+@media(max-width:767px){
+  .nav-links{display:none;position:absolute;top:calc(100% + .5rem);left:.5rem;right:.5rem;flex-direction:column;gap:.25rem;padding:.5rem;background:rgba(6,15,26,0.96);border:1px solid var(--border);border-radius:1rem;backdrop-filter:blur(20px)}
+  .nav-links.open{display:flex}
+  .nav-link{padding:.625rem 1rem}
+  .nav-toggle{display:flex}
+  .nav-div{display:none}
+}
+
+/* ═══════════════════════════════════════
+   HERO (inspirováno duvo.ai — velká typografie, dual CTA)
+═══════════════════════════════════════ */
+.hero{background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(0,196,181,0.06),transparent 60%),linear-gradient(180deg,#060f1a 0%,#0B1929 100%);padding:10rem 1.5rem 6rem}
+@media(min-width:768px){.hero{padding:11rem 2rem 7rem}}
+.hero-kicker{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;background:rgba(0,196,181,0.07);border:1px solid rgba(0,196,181,0.25);border-radius:100px;font-size:.72rem;font-weight:800;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.75rem}
+.hero-h1{font-size:clamp(2.4rem,5.2vw,4.2rem);font-weight:900;line-height:1.05;letter-spacing:-.035em;max-width:18ch}
+.hero-h1 em{font-style:normal;color:var(--teal)}
+.hero-sub{font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.65;color:var(--muted);max-width:50ch;margin-top:1.5rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.875rem;margin-top:2.25rem}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;border-radius:1rem;font-size:1rem;font-weight:800;color:#fff;background:var(--coral);text-decoration:none;transition:all .2s;border:none;cursor:pointer;box-shadow:0 8px 28px -4px rgba(255,51,102,0.4)}
+.btn-primary:hover{background:#e52e5a;transform:translateY(-2px);box-shadow:0 14px 36px -4px rgba(255,51,102,0.5)}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;border-radius:1rem;font-size:1rem;font-weight:700;color:rgba(255,255,255,0.75);background:transparent;text-decoration:none;transition:all .2s;border:1.5px solid rgba(255,255,255,0.18);cursor:pointer}
+.btn-secondary:hover{color:#fff;border-color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.04)}
+.hero-trust{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem;margin-top:2rem;font-size:.8rem;font-weight:600;color:rgba(255,255,255,0.3)}
+.hero-trust span{display:flex;align-items:center;gap:.35rem}
+
+/* ═══════════════════════════════════════
+   LOGO STRIP (duvo.ai inspirace — důvěryhodnost)
+═══════════════════════════════════════ */
+.logo-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,0.015);padding:2.25rem 1.5rem}
+.logo-strip-inner{display:flex;flex-direction:column;align-items:center;gap:1.25rem}
+.logo-strip-label{font-size:.68rem;font-weight:800;color:rgba(255,255,255,0.25);letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.logo-strip-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2rem 2.5rem}
+.logo-item{font-size:.92rem;font-weight:700;color:rgba(255,255,255,0.2);transition:color .3s}
+.logo-item:hover{color:rgba(255,255,255,0.45)}
+@media(min-width:768px){
+  .logo-strip-inner{flex-direction:row;justify-content:space-between;max-width:72rem;margin:0 auto;width:100%}
+  .logo-strip-label{text-align:left;flex-shrink:0}
+  .logo-strip-logos{justify-content:flex-end}
+}
+
+/* ═══════════════════════════════════════
+   METRICS (duvo.ai inspirace — velká čísla)
+═══════════════════════════════════════ */
+.metrics{padding:5rem 1.5rem;background:#060f1a}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 1.5rem;max-width:64rem;margin:0 auto}
+@media(min-width:640px){.metrics-grid{grid-template-columns:repeat(4,1fr)}}
+.metric-num{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1;letter-spacing:-.03em;color:var(--teal)}
+.metric-num.coral{color:var(--coral)}
+.metric-label{font-size:.82rem;font-weight:600;color:var(--muted);margin-top:.5rem;line-height:1.4}
+.metric-desc{font-size:.75rem;color:rgba(255,255,255,0.3);margin-top:.25rem}
+
+/* ═══════════════════════════════════════
+   USE CASES (duvo.ai inspirace — pro koho)
+═══════════════════════════════════════ */
+.section-kicker{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.section-h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.08;letter-spacing:-.03em}
+.usecases{padding:6rem 1.5rem;background:#060f1a}
+.use-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:3rem}
+@media(min-width:640px){.use-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.use-grid{grid-template-columns:repeat(3,1fr)}}
+.use-card{background:var(--surface);border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;transition:border-color .25s,transform .25s,background .25s}
+.use-card:hover{border-color:rgba(0,196,181,0.25);background:var(--surface-hover);transform:translateY(-3px)}
+.use-ico{width:2.5rem;height:2.5rem;border-radius:.75rem;background:rgba(0,196,181,0.08);border:1px solid rgba(0,196,181,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem}
+.use-title{font-size:1.05rem;font-weight:800;margin-bottom:.35rem}
+.use-desc{font-size:.9rem;color:var(--muted);line-height:1.6}
+
+/* ═══════════════════════════════════════
+   PROCESS (duvo.ai inspirace — čistá timeline)
+═══════════════════════════════════════ */
+.process{padding:6rem 1.5rem;background:#0B1929}
+.process-steps{display:flex;flex-direction:column;gap:0;margin-top:3rem;position:relative}
+@media(min-width:768px){
+  .process-steps{flex-direction:row;gap:1.5rem}
+  .process-steps::before{content:'';position:absolute;top:1.75rem;left:2rem;right:2rem;height:2px;background:linear-gradient(90deg,rgba(0,196,181,0.25),rgba(0,196,181,0.08));border-radius:2px}
+}
+.p-step{flex:1;position:relative;z-index:1}
+.p-step-num{width:3.5rem;height:3.5rem;border-radius:50%;background:rgba(0,196,181,0.08);border:2px solid rgba(0,196,181,0.35);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:var(--teal);margin-bottom:1.25rem}
+.p-step-num.final{background:rgba(255,51,102,0.08);border-color:rgba(255,51,102,0.35);color:var(--coral)}
+.p-step-title{font-size:1.15rem;font-weight:800;margin-bottom:.5rem}
+.p-step-desc{font-size:.92rem;color:var(--muted);line-height:1.7}
+.p-step-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.p-step-tag{font-size:.68rem;font-weight:800;color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:100px;padding:.25rem .65rem}
+@media(max-width:767px){
+  .process-steps::before{content:'';position:absolute;left:1.75rem;top:0;bottom:0;width:2px;background:linear-gradient(180deg,rgba(0,196,181,0.25),rgba(0,196,181,0.08))}
+  .p-step{padding-left:3.5rem;padding-bottom:2.5rem}
+  .p-step:last-child{padding-bottom:0}
+  .p-step-num{position:absolute;left:0;top:0}
+}
+
+/* ═══════════════════════════════════════
+   FEATURES
+═══════════════════════════════════════ */
+.features{padding:6rem 1.5rem;background:#060f1a}
+.feat-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:3rem}
+@media(min-width:640px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.feat-grid{grid-template-columns:repeat(3,1fr)}}
+.feat-card{background:var(--surface);border:1px solid var(--border);border-radius:1.25rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:border-color .2s,background .2s}
+.feat-card:hover{border-color:rgba(0,196,181,0.2);background:var(--surface-hover)}
+.feat-ico{width:2.25rem;height:2.25rem;border-radius:.625rem;background:rgba(0,196,181,0.07);border:1px solid rgba(0,196,181,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);font-size:1rem;font-weight:900}
+.feat-body h4{font-size:.95rem;font-weight:800;margin-bottom:.2rem}
+.feat-body p{font-size:.85rem;color:var(--muted);line-height:1.55}
+
+/* ═══════════════════════════════════════
+   COMPARISON (duvo.ai inspirace — srovnání)
+═══════════════════════════════════════ */
+.compare{padding:6rem 1.5rem;background:#0B1929}
+.compare-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem;max-width:56rem;margin-left:auto;margin-right:auto}
+@media(min-width:768px){.compare-grid{grid-template-columns:1fr 1fr 1fr;gap:1rem}}
+.compare-col{background:var(--surface);border:1px solid var(--border);border-radius:1.5rem;padding:1.75rem}
+.compare-col.highlight{background:rgba(0,196,181,0.04);border-color:rgba(0,196,181,0.3)}
+.compare-head{font-size:.65rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem}
+.compare-col.highlight .compare-head{color:var(--teal)}
+.compare-item{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem 0;font-size:.88rem;color:rgba(255,255,255,0.7);font-weight:500;border-bottom:1px solid rgba(255,255,255,0.04)}
+.compare-item:last-child{border-bottom:none}
+.compare-item .check{color:var(--teal);font-weight:900;flex-shrink:0;font-size:.8rem;margin-top:.15rem}
+.compare-item .cross{color:rgba(255,51,102,0.6);font-weight:900;flex-shrink:0;font-size:.8rem;margin-top:.15rem}
+.compare-item .tilde{color:rgba(255,255,255,0.2);font-weight:900;flex-shrink:0;font-size:.8rem;margin-top:.15rem}
+.compare-price{font-size:2rem;font-weight:900;line-height:1;margin-top:1.25rem;letter-spacing:-.02em}
+.compare-price span{font-size:.75rem;font-weight:600;color:var(--muted)}
+
+/* ═══════════════════════════════════════
+   PORTFOLIO
+═══════════════════════════════════════ */
+.portfolio{padding:6rem 1.5rem;background:#060f1a}
+.port-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem}
+@media(min-width:640px){.port-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.port-grid{grid-template-columns:repeat(3,1fr)}}
+.port-card{border-radius:1rem;overflow:hidden;background:var(--surface);border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.port-card:hover{border-color:rgba(0,196,181,0.2);transform:translateY(-3px)}
+.port-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block}
+.port-body{padding:1rem 1.25rem 1.25rem}
+.port-title{font-size:.95rem;font-weight:800}
+.port-meta{font-size:.8rem;font-weight:700;color:var(--teal);margin-top:.25rem}
+
+/* ═══════════════════════════════════════
+   PRICING
+═══════════════════════════════════════ */
+.pricing{padding:6rem 1.5rem;background:#060f1a}
+.price-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem;max-width:64rem;margin-left:auto;margin-right:auto}
+@media(min-width:768px){.price-grid{grid-template-columns:repeat(3,1fr);align-items:start}}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:1.75rem;padding:2rem;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.price-card:hover{border-color:rgba(0,196,181,0.2);transform:translateY(-3px)}
+.price-card.popular{background:rgba(0,196,181,0.04);border-color:rgba(0,196,181,0.4);box-shadow:0 24px 60px -20px rgba(0,196,181,0.2)}
+.price-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .9rem;border-radius:100px;font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+.price-badge.popular{background:var(--teal);color:#060f1a}
+.price-badge.basic{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.4);border:1px solid var(--border)}
+.price-name{font-size:1.5rem;font-weight:900;margin-bottom:.35rem}
+.price-desc{font-size:.92rem;color:var(--muted);line-height:1.5;margin-bottom:1.75rem}
+.price-amount{font-size:2.6rem;font-weight:900;line-height:1;letter-spacing:-.03em}
+.price-note{font-size:.75rem;color:rgba(255,255,255,0.3);font-weight:600;margin-top:.35rem;margin-bottom:1.5rem}
+.price-split{display:inline-flex;align-items:baseline;gap:.35rem;padding:.4rem .75rem;background:rgba(0,196,181,0.06);border:1px solid rgba(0,196,181,0.15);border-radius:.65rem;font-size:.78rem;color:var(--muted);font-weight:600;margin-bottom:1.75rem}
+.price-split strong{color:var(--teal);font-weight:900}
+.price-div{height:1px;background:var(--border);margin-bottom:1.5rem}
+.price-list{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1}
+.price-row{display:flex;align-items:flex-start;gap:.55rem;font-size:.88rem;color:rgba(255,255,255,0.72);font-weight:500}
+.price-row .tick{color:var(--teal);font-weight:900;font-size:.75rem;flex-shrink:0;margin-top:.15rem}
+.price-btn{width:100%;padding:.875rem 1.5rem;text-align:center;border-radius:1rem;font-size:.9rem;font-weight:800;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;border:none;cursor:pointer}
+.price-btn.primary{background:var(--coral);color:#fff;box-shadow:0 8px 24px -4px rgba(255,51,102,0.35)}
+.price-btn.primary:hover{background:#e52e5a;box-shadow:0 12px 32px -4px rgba(255,51,102,0.45)}
+.price-btn.secondary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.2)}
+.price-btn.secondary:hover{border-color:rgba(0,196,181,0.4);background:rgba(0,196,181,0.06)}
+.price-card.popular .price-div{background:rgba(0,196,181,0.15)}
+
+/* shared strip */
+.shared-strip{border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem 2rem;margin-top:2rem;max-width:64rem;margin-left:auto;margin-right:auto}
+.shared-title{font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-align:center;margin-bottom:1.25rem}
+.shared-items{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:center;align-items:center}
+.shared-item{display:flex;align-items:center;gap:.45rem;font-size:.85rem;color:rgba(255,255,255,0.5);font-weight:600}
+.shared-item .dot{color:var(--teal);font-weight:900}
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq{padding:6rem 1.5rem;background:#0B1929}
+.faq-wrap{display:flex;flex-direction:column;gap:.6rem;margin-top:3rem;max-width:44rem;margin-left:auto;margin-right:auto}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:1rem;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:var(--border-hover)}
+.faq-item.open{border-color:rgba(0,196,181,0.25)}
+.faq-q{width:100%;text-align:left;padding:1.1rem 1.35rem;display:flex;align-items:center;justify-content:space-between;background:none;border:none;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;color:#fff;cursor:pointer;gap:1rem}
+.faq-ico{width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;transition:all .3s}
+.faq-item.open .faq-ico{background:rgba(0,196,181,0.1);border-color:rgba(0,196,181,0.3);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),padding .3s;padding:0 1.35rem;color:var(--muted);font-size:.9rem;line-height:1.7}
+.faq-item.open .faq-a{max-height:260px;padding:0 1.35rem 1.1rem}
+
+/* ═══════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════ */
+.final-cta{padding:7rem 1.5rem;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(0,196,181,0.06),transparent 65%),#060f1a;text-align:center}
+.final-cta h2{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.05;letter-spacing:-.035em;margin-bottom:1.25rem}
+.final-cta p{font-size:1.1rem;color:var(--muted);max-width:48ch;margin:0 auto 2.25rem}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:#060f1a}
+.footer-inner{max-width:64rem;margin:0 auto;display:flex;flex-direction:column;gap:2rem}
+@media(min-width:768px){.footer-inner{flex-direction:row;justify-content:space-between;align-items:center}}
+.footer-brand{font-size:1.1rem;font-weight:900}
+.footer-brand span{color:var(--teal)}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,0.25);margin-top:.25rem}
+.footer-links{display:flex;flex-wrap:wrap;gap:1.25rem}
+.footer-links a{font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:#fff}
+
+/* ═══════════════════════════════════════
+   LEAD FORM (měkká konverze — nezávazná poptávka)
+═══════════════════════════════════════ */
+.lead{padding:6rem 1.5rem;background:#0B1929}
+.lead-card{max-width:42rem;margin:3rem auto 0;background:var(--surface);border:1px solid var(--border);border-radius:1.75rem;padding:2.5rem}
+@media(max-width:600px){.lead-card{padding:1.75rem}}
+.lead-form{display:flex;flex-direction:column;gap:1rem}
+.lead-field{display:flex;flex-direction:column;gap:.4rem}
+.lead-label{font-size:.82rem;font-weight:700;color:rgba(255,255,255,0.7)}
+.lead-input{width:100%;padding:.9rem 1.1rem;border-radius:.85rem;background:rgba(255,255,255,0.04);border:1.5px solid var(--border);color:#fff;font-family:'Outfit',sans-serif;font-size:.95rem;transition:border-color .2s}
+.lead-input:focus{outline:none;border-color:rgba(0,196,181,0.5);background:rgba(255,255,255,0.06)}
+.lead-input.err{border-color:var(--coral)}
+.lead-input::placeholder{color:rgba(255,255,255,0.3)}
+.lead-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.lead-row{grid-template-columns:1fr}}
+.lead-hint{font-size:.78rem;color:rgba(255,255,255,0.35);text-align:center;margin-top:.25rem}
+.lead-msg{display:none;padding:1.1rem 1.35rem;border-radius:.85rem;font-size:.92rem;font-weight:600;line-height:1.55}
+.lead-msg.show{display:block}
+.lead-msg.ok{background:rgba(0,196,181,0.1);border:1px solid rgba(0,196,181,0.3);color:#fff}
+.lead-msg.bad{background:rgba(255,51,102,0.1);border:1px solid rgba(255,51,102,0.3);color:#fff}
+
+/* ═══════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════ */
+.container{max-width:72rem;margin:0 auto;width:100%}
+.text-teal{color:var(--teal)}
+.text-coral{color:var(--coral)}
+.text-muted{color:var(--muted)}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://webdo24.cz/#organization",
+      "name": "WebDo24.cz",
+      "legalName": "Soterana Corp s.r.o.",
+      "url": "https://webdo24.cz",
+      "logo": {"@type":"ImageObject","url":"https://webdo24.cz/favicon-96x96.png","width":96,"height":96},
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+420735847185",
+        "contactType": "customer service",
+        "availableLanguage": "Czech"
+      },
+      "email": "info@webdo24.cz",
+      "areaServed": {"@type":"Country","name":"Česká republika"},
+      "aggregateRating": {"@type":"AggregateRating","ratingValue":"5","ratingCount":"40","bestRating":"5","worstRating":"1"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Co když nevím, co napsat?","acceptedAnswer":{"@type":"Answer","text":"Stačí pár vět. Zbytek vytvoříme za vás. Napište třeba: 'Jsem instalatér v Praze, dělám opravy a montáže.' To nám stačí."}},
+        {"@type":"Question","name":"Opravdu spustíte web do 24h?","acceptedAnswer":{"@type":"Answer","text":"Ano. Jinak vracíme 50 % ceny zpět. Není to jen slib — je to garance zabudovaná do celého procesu. Do 24 hodin dostanete odkaz na hotový web k odsouhlasení."}},
+        {"@type":"Question","name":"Komu patří web?","acceptedAnswer":{"@type":"Answer","text":"Vám. Od první chvíle. Doména, obsah i zdrojový kód jsou vaše. Bez lock-inu a bez skrytých podmínek."}},
+        {"@type":"Question","name":"Je v ceně i hosting?","acceptedAnswer":{"@type":"Answer","text":"Ano — 1 rok hostingu zdarma je součástí každého balíčku. EU servery, SSL certifikát, 99,99 % dostupnost a denní zálohy."}},
+        {"@type":"Question","name":"Můžu zaplatit najednou, nebo na splátky?","acceptedAnswer":{"@type":"Answer","text":"Obojí. Můžete zaplatit jednorázově, nebo si cenu rozložit do 12 měsíčních splátek bez úroku."}},
+        {"@type":"Question","name":"Co když se mi výsledek nebude líbit?","acceptedAnswer":{"@type":"Answer","text":"Upravíme to. Neodcházíte s něčím, co nechcete. Platíte až za výsledek, se kterým jste spokojeni."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ═══════════════════════════════════════
+   NAV — floating pill (duvo.ai inspirace)
+═══════════════════════════════════════ -->
+<div class="nav-wrap">
+  <nav class="nav-inner" id="mainNav" aria-label="Hlavní navigace">
+    <a href="#hero" class="nav-logo">webdo<span>.cz</span></a>
+    <span class="nav-div" aria-hidden="true"></span>
+    <div class="nav-links" id="navLinks">
+      <a href="#jak-to-funguje" class="nav-link">Jak to funguje</a>
+      <a href="#pro-koho" class="nav-link">Pro koho</a>
+      <a href="#cenik" class="nav-link">Ceník</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+    <a href="objednat.html" class="nav-cta">Rezervovat →</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg>
+    </button>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════════════
+   HERO — velká typografie, dual CTA (duvo.ai inspirace)
+═══════════════════════════════════════ -->
+<section id="hero" class="hero">
+  <div class="container" style="max-width:64rem">
+    <div class="hero-kicker">
+      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#00C4B5;animation:pulse 1.8s ease-in-out infinite"></span>
+      Spuštění do 24 hodin
+    </div>
+    <h1 class="hero-h1">Web, který vám přinese zákazníky — <em>do 24 hodin.</em></h1>
+    <p class="hero-sub">Žádné čekání, žádná agentura. Řeknete nám 3 věci o svém podnikání a my vám zítra doručíme hotový web s formuláři, SEO a možností AI automatizace.</p>
+    <div class="hero-ctas">
+      <a href="#poptavka" class="btn-primary">Chci nezávaznou nabídku →</a>
+      <a href="#ukazky" class="btn-secondary">Zobrazit ukázky</a>
+    </div>
+    <div class="hero-trust">
+      <span>⭐ 5,0 hodnocení</span>
+      <span>·</span>
+      <span>🛡️ Garance vrácení peněz</span>
+      <span>·</span>
+      <span>📍 České podnikání</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   LOGO STRIP — důvěryhodnost (duvo.ai inspirace)
+═══════════════════════════════════════ -->
+<section class="logo-strip" aria-label="Reference">
+  <div class="logo-strip-inner">
+    <div class="logo-strip-label">Důvěřují nám</div>
+    <div class="logo-strip-logos">
+      <span class="logo-item">Paddleboardy Milada</span>
+      <span class="logo-item">Ninja Den pro děti</span>
+      <span class="logo-item">Pavel Douša Elektrikář</span>
+      <span class="logo-item">Truhlářství Dřevořez</span>
+      <span class="logo-item">Autoservis Praha</span>
+      <span class="logo-item">Kadeřnictví Maruška</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   METRICS — velká čísla (duvo.ai inspirace)
+═══════════════════════════════════════ -->
+<section class="metrics" aria-label="Statistiky">
+  <div class="metrics-grid">
+    <div>
+      <div class="metric-num">40+</div>
+      <div class="metric-label">Spuštěných webů</div>
+      <div class="metric-desc">Včetně e-shopů a rezervačních systémů</div>
+    </div>
+    <div>
+      <div class="metric-num">24h</div>
+      <div class="metric-label">Průměrná doba dodání</div>
+      <div class="metric-desc">Od zadání po spuštění</div>
+    </div>
+    <div>
+      <div class="metric-num coral">100%</div>
+      <div class="metric-label">Dodáno v termínu</div>
+      <div class="metric-desc">Nebo vracíme 50 % ceny</div>
+    </div>
+    <div>
+      <div class="metric-num">⭐ 5,0</div>
+      <div class="metric-label">Hodnocení klientů</div>
+      <div class="metric-desc">Průměr ze všech zakázek</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   PRO KOHO — use cases (duvo.ai inspirace)
+═══════════════════════════════════════ -->
+<section id="pro-koho" class="usecases">
+  <div class="container">
+    <div class="section-kicker">Pro koho to je</div>
+    <h2 class="section-h2">Web potřebují všichni, kdo prodávají.<br><span style="color:var(--teal)">My ho dodáme do 24 hodin.</span></h2>
+    <div class="use-grid">
+      <div class="use-card">
+        <div class="use-ico">🔧</div>
+        <div class="use-title">Řemeslníci a živnostníci</div>
+        <div class="use-desc">Elektrikáři, instalatéři, truhláři — každý, kdo potřebuje, aby ho zákazníci našli online a rovnou napsali.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-ico">✂️</div>
+        <div class="use-title">Služby pro klienty</div>
+        <div class="use-desc">Kadeřnictví, kosmetika, masáže, autoservisy — rezervace i poptávky bez zbytečných telefonátů.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-ico">🏄</div>
+        <div class="use-title">Pronájmy a zážitky</div>
+        <div class="use-desc">Paddleboardy, koloběžky, sportoviště — online rezervace, platba předem, žádné zmeškané hovory.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-ico">🏠</div>
+        <div class="use-title">Stavební firmy</div>
+        <div class="use-desc">Truhlářství, stavební práce, rekonstrukce — profi prezentace, která získává zakázky.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-ico">🎓</div>
+        <div class="use-title">Vzdělávání a kurzy</div>
+        <div class="use-desc">Dětské akce, školení, workshopy — jednoduchá registrace a přehled termínů na jednom místě.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-ico">🚀</div>
+        <div class="use-title">Startupy a projekty</div>
+        <div class="use-desc">Rychlé ověření nápadu, landing page pro kampaně, sběr e-mailů — bez týmu vývojářů.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════
+   JAK TO FUNGUJE — čistý proces (duvo.ai inspirace)
+═══════════════════════════════════════ -->
+<section id="jak-to-funguje" class="process">
+  <div class="container">
+    <div class="section-kicker">Jak to funguje</div>
+    <h2 class="section-h2">Řeknete nám 3 věci.<br><span style="color:var(--teal)">Zítra jste online.</span></h2>
+    <div class="process-steps">
+      <div class="p-step">
+        <div class="p-step-num">01</div>
+        <div class="p-step-title">Řeknete nám 3 věci</div>
+        <div class="p-step-desc">Co prodáváte, komu a proč si to od vás má někdo koupit. To je vše, co potřebujeme. Stačí 15 minut hovoru nebo pár vět e-mailem.</div>
+        <div class="p-step-tags">
+          <span class="p-step-tag">CO prodáváte</span>
+          <span class="p-step-tag">KOMU</span>
+          <span class="p-step-tag">PROČ</span>
+        </div>
+      </div>
+      <div class="p-step">
+        <div class="p-step-num">02</div>
+        <div class="p-step-title">My tvoříme — do 24 hodin</div>
+        <div class="p-step-desc">Navrhneme design, napíšeme texty, připravíme formuláře a SEO. Celý proces máme zoptimalizovaný na rychlost bez kompromisů v kvalitě.</div>
+        <div class="p-step-tags">
+          <span class="p-step-tag">Design</span>
+          <span class="p-step-tag">Texty</span>
+          <span class="p-step-tag">SEO</span>
+        </div>
+      </div>
+      <div class="p-step">
+        <div class="p-step-num final">03</div>
+        <div class="p-step-title">Jste online a prodáváte</div>
+        <div class="p-step-desc">Odkaz na hotový web dostanete do 24 hodin. Odsouhlasíte, my upravíme a spustíme na vaší doméně. Garance vrácení peněz, pokud bychom se zpozdili.</div>
+        <div class="p-step-tags">
+          <span class="p-step-tag" style="color:var(--coral);border-color:rgba(255,51,102,0.2)">Spuštění</span>
+          <span class="p-step-tag" style="color:var(--coral);border-color:rgba(255,51,102,0.2)">Garance</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3.5rem">
+      <a href="#poptavka" class="btn-primary">Chci nezávaznou nabídku →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   CO DOSTANETE — feature grid
+═══════════════════════════════════════ -->
+<section class="features">
+  <div class="container">
+    <div class="section-kicker">Vše v ceně</div>
+    <h2 class="section-h2">Co dostanete v každém balíčku<br><span style="color:var(--teal)">bez příplatků</span></h2>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-ico">W</div>
+        <div class="feat-body">
+          <h4>Responzivní web na míru</h4>
+          <p>Funguje perfektně na mobilu, tabletu i počítači. Každý prvek ladíme podle vašeho oboru.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico">S</div>
+        <div class="feat-body">
+          <h4>SEO optimalizace</h4>
+          <p>Zákazníci vás najdou na Google. Správné nadpisy, rychlost, struktura i meta tagy.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico">F</div>
+        <div class="feat-body">
+          <h4>Kontaktní formuláře</h4>
+          <p>Poptávky chodí přímo na váš e-mail. Žádné zmeškané zprávy, žádný chaos.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico">D</div>
+        <div class="feat-body">
+          <h4>Vlastní doména</h4>
+          <p>Použijeme vaši doménu nebo vám pomůžeme vybrat novou. Web je od začátku váš.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico" style="background:rgba(255,149,0,0.07);border-color:rgba(255,149,0,0.15);color:#FF9500">H</div>
+        <div class="feat-body">
+          <h4>1 rok hostingu zdarma</h4>
+          <p>EU servery, SSL certifikát, 99,99% dostupnost a denní zálohy. Bez výjimek.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico" style="background:rgba(255,51,102,0.07);border-color:rgba(255,51,102,0.15);color:var(--coral)">⚡</div>
+        <div class="feat-body">
+          <h4>Spuštění do 24 hodin</h4>
+          <p>Nestihneme? Vrátíme 50 % ceny. Skutečná garance, ne jen marketingový slib.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   COMPARISON — srovnání (duvo.ai inspirace)
+═══════════════════════════════════════ -->
+<section class="compare">
+  <div class="container">
+    <div class="section-kicker">Srovnání</div>
+    <h2 class="section-h2">Proč WebDo24?<br><span style="color:var(--muted)">Podívejte se na rozdíl.</span></h2>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-head">Samostatná tvorba</div>
+        <div class="compare-item"><span class="tilde">~</span> Týdny učení se nástrojů</div>
+        <div class="compare-item"><span class="tilde">~</span> Šablony, které vypadají stejně</div>
+        <div class="compare-item"><span class="cross">✕</span> Žádná optimalizace pro konverze</div>
+        <div class="compare-item"><span class="cross">✕</span> SEO často zanedbané</div>
+        <div class="compare-item"><span class="tilde">~</span> Samostatný nákup hostingu</div>
+        <div class="compare-item"><span class="cross">✕</span> Žádná garance termínu</div>
+        <div class="compare-price">0–5 000 Kč<span> + váš čas</span></div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-head">Webová agentura</div>
+        <div class="compare-item"><span class="cross">✕</span> Týdny až měsíce čekání</div>
+        <div class="compare-item"><span class="check">✓</span> Profesionální výsledek</div>
+        <div class="compare-item"><span class="tilde">~</span> Cena často 50 000–150 000 Kč</div>
+        <div class="compare-item"><span class="cross">✕</span> Placené úpravy navíc</div>
+        <div class="compare-item"><span class="cross">✕</span> Složitá komunikace</div>
+        <div class="compare-item"><span class="cross">✕</span> Lock-in na jejich platformě</div>
+        <div class="compare-price">50 000+ Kč<span> + měsíce čekání</span></div>
+      </div>
+      <div class="compare-col highlight">
+        <div class="compare-head">WebDo24</div>
+        <div class="compare-item"><span class="check">✓</span> Hotovo do 24 hodin</div>
+        <div class="compare-item"><span class="check">✓</span> Na míru vašemu oboru</div>
+        <div class="compare-item"><span class="check">✓</span> SEO a konverzní prvky</div>
+        <div class="compare-item"><span class="check">✓</span> 1 rok hostingu zdarma</div>
+        <div class="compare-item"><span class="check">✓</span> Web vlastníte vy</div>
+        <div class="compare-item"><span class="check">✓</span> Garance vrácení peněz</div>
+        <div class="compare-price" style="color:var(--teal)">Od 14 900 Kč<span> jednorázově</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   UKÁZKY — portfolio
+═══════════════════════════════════════ -->
+<section id="ukazky" class="portfolio">
+  <div class="container">
+    <div class="section-kicker">Portfolio</div>
+    <h2 class="section-h2">Zajímá vás, jak vypadají<br><span style="color:var(--teal)">naše weby?</span></h2>
+    <div class="port-grid">
+      <div class="port-card">
+        <img src="previews/demo7-paddleboardy-milada.png" alt="Paddleboardy Milada" class="port-img" loading="lazy">
+        <div class="port-body">
+          <div class="port-title">Paddleboardy Milada</div>
+          <div class="port-meta">Dodáno za 23 hodin</div>
+        </div>
+      </div>
+      <div class="port-card">
+        <img src="previews/demo3-ninja-vikend.png" alt="Ninja Den pro děti" class="port-img" loading="lazy">
+        <div class="port-body">
+          <div class="port-title">Ninja Den pro děti</div>
+          <div class="port-meta">Dodáno za 17 hodin</div>
+        </div>
+      </div>
+      <div class="port-card">
+        <img src="previews/demo8-pavel-dousa-elektrikar.png" alt="Pavel Douša Elektrikář" class="port-img" loading="lazy">
+        <div class="port-body">
+          <div class="port-title">Pavel Douša — Elektrikář</div>
+          <div class="port-meta">Dodáno za 20 hodin</div>
+        </div>
+      </div>
+      <div class="port-card">
+        <img src="previews/demo4-selbicky.png" alt="Truhlářství Dřevořez" class="port-img" loading="lazy">
+        <div class="port-body">
+          <div class="port-title">Truhlářství Dřevořez</div>
+          <div class="port-meta">Dodáno za 18 hodin</div>
+        </div>
+      </div>
+      <div class="port-card">
+        <img src="previews/demo2-autoservis.png" alt="Autoservis Praha" class="port-img" loading="lazy">
+        <div class="port-body">
+          <div class="port-title">Autoservis Praha</div>
+          <div class="port-meta">Dodáno za 21 hodin</div>
+        </div>
+      </div>
+      <div class="port-card">
+        <img src="previews/demo5-kadernictvimaruska.png" alt="Kadeřnictví Maruška" class="port-img" loading="lazy">
+        <div class="port-body">
+          <div class="port-title">Kadeřnictví Maruška</div>
+          <div class="port-meta">Dodáno za 19 hodin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   CENÍK — 3 plány
+═══════════════════════════════════════ -->
+<section id="cenik" class="pricing">
+  <div class="container">
+    <div class="section-kicker">Ceník</div>
+    <h2 class="section-h2">Kolik stojí web,<br><span style="color:var(--teal)">který skutečně prodává?</span></h2>
+    <p style="text-align:center;color:var(--muted);max-width:48ch;margin:1rem auto 0;font-size:1rem">Jednorázová cena nebo splátky na 12 měsíců. Web od první chvíle vlastníte vy — bez závazků, bez překvapení.</p>
+
+    <div class="price-grid">
+      <!-- START -->
+      <div class="price-card">
+        <div class="price-badge basic">Model Start</div>
+        <div class="price-name">Základní web</div>
+        <div class="price-desc">Moderní web, který zákazníci najdou a rovnou kontaktují — spuštěný do 24 hodin.</div>
+        <div class="price-amount">14 900 Kč</div>
+        <div class="price-note">Jednorázově</div>
+        <div class="price-split">nebo od <strong>1 490 Kč</strong> / měsíc · 12 měs.</div>
+        <div class="price-div"></div>
+        <div class="price-list">
+          <div class="price-row"><span class="tick">✓</span> Responzivní web na míru</div>
+          <div class="price-row"><span class="tick">✓</span> SEO — zákazníci vás najdou</div>
+          <div class="price-row"><span class="tick">✓</span> Kontaktní formuláře</div>
+          <div class="price-row"><span class="tick">✓</span> Moderní design</div>
+          <div class="price-row"><span class="tick">✓</span> Spuštění do 24 hodin</div>
+        </div>
+        <a href="model-start.html" class="price-btn secondary">Zobrazit detaily →</a>
+        <a href="objednat.html?plan=start" style="display:block;text-align:center;margin-top:.875rem;font-size:.78rem;color:rgba(255,255,255,0.3);text-decoration:none;font-weight:600;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Rovnou objednat →</a>
+      </div>
+
+      <!-- BUSINESS (popular) -->
+      <div class="price-card popular">
+        <div class="price-badge popular">Nejčastěji volený</div>
+        <div class="price-name">Web s AI</div>
+        <div class="price-desc">Web, který sám oslovuje, sleduje a uzavírá zakázky — i když spíte.</div>
+        <div class="price-amount">29 900 Kč</div>
+        <div class="price-note">Jednorázově</div>
+        <div class="price-split">nebo od <strong>2 990 Kč</strong> / měsíc · 12 měs.</div>
+        <div class="price-div"></div>
+        <div class="price-list">
+          <div class="price-row"><span class="tick">✓</span> Vše ze Start</div>
+          <div class="price-row"><span class="tick">✓</span> AI automatizace odpovědí</div>
+          <div class="price-row"><span class="tick">✓</span> Sběr a správa poptávek</div>
+          <div class="price-row"><span class="tick">✓</span> CRM přehled</div>
+          <div class="price-row"><span class="tick">✓</span> Platební brána</div>
+          <div class="price-row"><span class="tick">✓</span> E-mail propojení</div>
+        </div>
+        <a href="model-business.html" class="price-btn primary">Zobrazit detaily →</a>
+        <a href="objednat.html?plan=business" style="display:block;text-align:center;margin-top:.875rem;font-size:.78rem;color:var(--teal);opacity:.6;text-decoration:none;font-weight:600;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">Rovnou objednat →</a>
+      </div>
+
+      <!-- AUTOMATION -->
+      <div class="price-card">
+        <div class="price-badge basic">Model Automation</div>
+        <div class="price-name">Plná automatizace</div>
+        <div class="price-desc">Celý obchodní provoz na autopilotu. Systém, který vydělává místo vás.</div>
+        <div class="price-amount">59 900 Kč</div>
+        <div class="price-note">Jednorázově</div>
+        <div class="price-split">nebo od <strong>5 990 Kč</strong> / měsíc · 12 měs.</div>
+        <div class="price-div"></div>
+        <div class="price-list">
+          <div class="price-row"><span class="tick">✓</span> Vše z Business</div>
+          <div class="price-row"><span class="tick">✓</span> Pokročilé workflow</div>
+          <div class="price-row"><span class="tick">✓</span> Rezervační systém</div>
+          <div class="price-row"><span class="tick">✓</span> SMS + e-mail sekvence</div>
+          <div class="price-row"><span class="tick">✓</span> API integrace</div>
+          <div class="price-row"><span class="tick">✓</span> 60 dní podpora</div>
+        </div>
+        <a href="model-automation.html" class="price-btn secondary">Zobrazit detaily →</a>
+        <a href="objednat.html?plan=automation" style="display:block;text-align:center;margin-top:.875rem;font-size:.78rem;color:rgba(255,255,255,0.3);text-decoration:none;font-weight:600;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Rovnou objednat →</a>
+      </div>
+    </div>
+
+    <div class="shared-strip">
+      <div class="shared-title">Vždy součástí každého balíčku</div>
+      <div class="shared-items">
+        <div class="shared-item"><span class="dot">✔</span> Web vlastníte od začátku</div>
+        <div class="shared-item"><span class="dot">✔</span> 1 rok hostingu zdarma</div>
+        <div class="shared-item"><span class="dot">✔</span> Bez závazků</div>
+        <div class="shared-item"><span class="dot">✔</span> Garance 24 hodin</div>
+        <div class="shared-item"><span class="dot">✔</span> 2 kola úprav zdarma</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ -->
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker" style="display:inline-block">FAQ</div>
+      <h2 class="section-h2">Ptáte se? Tady máte odpovědi.</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Co když nevím, co napsat?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Stačí pár vět. Zbytek vytvoříme za vás. Napište třeba: „Jsem instalatér v Praze, dělám opravy a montáže.“ To nám stačí.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Opravdu spustíte web do 24 hodin?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Ano. Jinak vracíme 50 % ceny zpět. Není to jen slib — je to garance zabudovaná do celého procesu. Do 24 hodin dostanete odkaz na hotový web k odsouhlasení.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Komu patří web?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Vám. Od první chvíle. Doména, obsah i zdrojový kód jsou vaše. Bez lock-inu a bez skrytých podmínek. Kdykoli si můžete web stáhnout a provozovat sami.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Je v ceně i hosting?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Ano — 1 rok hostingu zdarma je součástí každého balíčku. EU servery, SSL certifikát, 99,99 % dostupnost a denní zálohy. Bez výjimek, bez příplatků.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Můžu zaplatit najednou, nebo na splátky?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Obojí. Můžete zaplatit jednorázově, nebo si cenu rozložit do 12 měsíčních splátek bez úroku. Vyberete si při objednávce.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Co když se mi výsledek nebude líbit?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Upravíme to. Neodcházíte s něčím, co nechcete. Platíte až za výsledek, se kterým jste spokojeni. Dvě kola úprav jsou v ceně.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   POPTÁVKA — měkká konverze (nezávazná nabídka)
+═══════════════════════════════════════ -->
+<section id="poptavka" class="lead">
+  <div class="container" style="max-width:42rem">
+    <div class="text-center">
+      <div class="section-kicker" style="display:inline-block">Nezávazná poptávka</div>
+      <h2 class="section-h2">Nechte nám číslo.<br><span style="color:var(--teal)">Ozveme se do hodiny.</span></h2>
+      <p style="color:var(--muted);max-width:46ch;margin:1rem auto 0;font-size:1rem">Bez závazků a bez platby předem. Řekneme si, co potřebujete, a navrhneme řešení i cenu. Teprve potom se rozhodnete.</p>
+    </div>
+    <div class="lead-card">
+      <form id="leadForm" class="lead-form" onsubmit="sendLead(event)" novalidate>
+        <div class="lead-row">
+          <div class="lead-field">
+            <label class="lead-label" for="lead-name">Jméno / firma *</label>
+            <input id="lead-name" class="lead-input" type="text" placeholder="Jan Novák, Novák Elektro" required autocomplete="name">
+          </div>
+          <div class="lead-field">
+            <label class="lead-label" for="lead-phone">Telefon *</label>
+            <input id="lead-phone" class="lead-input" type="tel" placeholder="+420 777 123 456" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="lead-field">
+          <label class="lead-label" for="lead-email">E-mail (nepovinné)</label>
+          <input id="lead-email" class="lead-input" type="email" placeholder="jan@firma.cz" autocomplete="email">
+        </div>
+        <div class="lead-field">
+          <label class="lead-label" for="lead-note">Co potřebujete? (nepovinné)</label>
+          <input id="lead-note" class="lead-input" type="text" placeholder="Web pro autoservis v Praze…" maxlength="200">
+        </div>
+        <button type="submit" id="lead-btn" class="btn-primary" style="width:100%;margin-top:.5rem">Chci nezávaznou nabídku →</button>
+        <p class="lead-hint">Odpovídáme do hodiny (Po–Pá 9–18) · Vaše údaje nikam dál nepředáváme</p>
+      </form>
+      <div id="lead-ok" class="lead-msg ok">✓ Děkujeme! Ozveme se vám co nejdřív na uvedené číslo. Pokud spěcháte, zavolejte na <a href="tel:+420735847185" style="color:var(--teal);font-weight:800">735&nbsp;847&nbsp;185</a>.</div>
+      <div id="lead-bad" class="lead-msg bad">Odeslání se teď nepodařilo. Zavolejte nám prosím na <a href="tel:+420735847185" style="color:var(--teal);font-weight:800">735&nbsp;847&nbsp;185</a> nebo napište na <a href="mailto:info@webdo24.cz" style="color:var(--teal);font-weight:800">info@webdo24.cz</a> — ozveme se hned.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="container" style="max-width:56rem">
+    <div class="hero-kicker" style="margin:0 auto 1.5rem;display:table">
+      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#00C4B5;animation:pulse 1.8s ease-in-out infinite"></span>
+      Jeden krok k online businessu
+    </div>
+    <h2>Rezervujte spuštění.<br><span style="color:var(--coral)">Zítra jedete.</span></h2>
+    <p>Systém spustíme do 24 hodin. Správu přebíráme my — vy se věnujte svému podnikání.</p>
+    <a href="objednat.html" class="btn-primary" style="padding:1.15rem 2.5rem;font-size:1.05rem">Rezervovat spuštění →</a>
+    <p style="font-size:.78rem;color:rgba(255,255,255,0.2);margin-top:1.5rem">Expresní spuštění · Doména zůstává vaše · Nestihneme? −50 % zpět</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">webdo<span>.cz</span></div>
+      <div class="footer-copy">© 2026 WebDo24.cz — Soterana Corp s.r.o.</div>
+    </div>
+    <div class="footer-links">
+      <a href="tel:+420735847185">+420 735 847 185</a>
+      <a href="mailto:info@webdo24.cz">info@webdo24.cz</a>
+      <a href="#ukazky">Ukázky</a>
+      <a href="#cenik">Ceník</a>
+      <a href="vop/">VOP</a>
+      <a href="gdpr/">Ochrana údajů</a>
+      <a href="objednat.html" style="color:var(--teal)">Rezervovat →</a>
+    </div>
+  </div>
+</footer>
+
+<style>@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}</style>
+
+<script>
+/* ── NAV SCROLL ── */
+(function(){
+  const nav=document.getElementById('mainNav');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>40)nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+})();
+
+/* ── MOBILE MENU ── */
+document.getElementById('navToggle').addEventListener('click',function(){
+  const links=document.getElementById('navLinks');
+  const open=links.classList.toggle('open');
+  this.setAttribute('aria-expanded',open);
+});
+
+/* ── FAQ ACCORDION ── */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+/* ── LEAD FORM (měkká konverze) ── */
+function sendLead(e){
+  e.preventDefault();
+  var name=document.getElementById('lead-name');
+  var phone=document.getElementById('lead-phone');
+  var ok=true;
+  [name,phone].forEach(function(el){
+    if(!el.value.trim()){el.classList.add('err');ok=false;}
+    else el.classList.remove('err');
+  });
+  if(!ok){name.value.trim()?phone.focus():name.focus();return;}
+
+  var btn=document.getElementById('lead-btn');
+  var bad=document.getElementById('lead-bad');
+  bad.classList.remove('show');
+  btn.disabled=true;btn.textContent='Odesílám…';
+
+  var data={
+    web_id:'webdo24',
+    name:name.value.trim(),
+    phone:phone.value.trim(),
+    email:document.getElementById('lead-email').value.trim(),
+    note:document.getElementById('lead-note').value.trim(),
+    source:'index-v3-poptavka',
+    url:window.location.href
+  };
+
+  fetch('https://n8n.webdo24.cz/webhook/new-lead',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
+  })
+  .then(function(res){
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    /* úspěch — teprve TEĎ ukážeme díky + pálíme konverzi */
+    document.getElementById('leadForm').style.display='none';
+    document.getElementById('lead-ok').classList.add('show');
+    (window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',lead_source:'index-v3-poptavka'});
+  })
+  .catch(function(){
+    /* selhání — lead se NEZTRATÍ tiše, konverzi NEpálíme, ukážeme fallback */
+    btn.disabled=false;btn.textContent='Chci nezávaznou nabídku →';
+    bad.classList.add('show');
+  });
+}
+
+/* ── CONVERSION TRACKING ── */
+(function(){
+  var _dl=window.dataLayer=window.dataLayer||[];
+  var PLANS={start:{name:'Model Start',price:14900},business:{name:'Model Business',price:29900},automation:{name:'Model Automation',price:59900}};
+  function getSection(el){var s=el.closest('section[id]');if(s)return s.id;if(el.closest('nav'))return 'nav';if(el.closest('footer'))return 'footer';return 'page';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]');if(!a)return;
+    var href=a.getAttribute('href')||'';var loc=getSection(a);
+    if(href.indexOf('objednat')!==-1){
+      var m=href.match(/plan=(\w+)/);var planKey=m?m[1]:'general';var plan=PLANS[planKey];
+      _dl.push({event:'begin_checkout',ecommerce:plan?{currency:'CZK',value:plan.price,items:[{item_id:planKey,item_name:plan.name,price:plan.price,quantity:1,item_category:'Web'}]}:{currency:'CZK'},cta_plan:planKey,cta_location:loc,cta_text:(a.textContent||'').trim().replace(/\s+/g,' ').substring(0,50)});
+    }
+    if(href.indexOf('model-')!==-1&&href.indexOf('objednat')===-1){
+      var modelMatch=href.match(/model-(\w+)/);var modelKey=modelMatch?modelMatch[1]:'';
+      if(PLANS[modelKey]){_dl.push({event:'select_item',ecommerce:{items:[{item_id:modelKey,item_name:PLANS[modelKey].name,price:PLANS[modelKey].price,item_category:'Web'}]},cta_location:loc});}
+    }
+    if(href.indexOf('tel:')===0){_dl.push({event:'contact_click',contact_type:'phone',contact_value:href.replace('tel:',''),cta_location:loc});}
+    if(href.indexOf('mailto:')===0){_dl.push({event:'contact_click',contact_type:'email',contact_value:href.replace('mailto:',''),cta_location:loc});}
+  });
+})();
+</script>
+
+</body>
+</html>

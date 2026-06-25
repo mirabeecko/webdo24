@@ -30,7 +30,7 @@
   "email": "info@webdo24.cz",
   "address": { "@type": "PostalAddress", "addressCountry": "CZ" },
   "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "20:00" },
-  "priceRange": "Kč Kč",
+  "priceRange": "14900 CZK - 59900 CZK",
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "120" }
 }
 </script>
@@ -224,7 +224,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
         <span style="font-size:1.6rem;font-weight:900;color:#00C4B5;letter-spacing:-.04em">24H</span>
       </div>
       <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:.35rem">Garance dodání</div>
-      <div style="font-size:.85rem;color:rgba(255,255,255,.55);margin-bottom:1.75rem">Spustíme do 24 hodin od zadání</div>
+      <div style="font-size:.85rem;color:rgba(255,255,255,.55);margin-bottom:1.75rem">Spustíme do 24 hodin od zaplacení a zadání požadavků</div>
 
       <div style="background:rgba(0,0,0,.25);border-radius:1.25rem;overflow:hidden;margin-bottom:1.5rem">
         <img src="previews/demo8-pavel-dousa-elektrikar.png" alt="Ukázka webu – elektrikář" style="width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top">
@@ -579,7 +579,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
           <span>Kolik to stojí?</span>
           <div class="faq-icon">+</div>
         </button>
-        <div class="faq-body">Cenu domluvíme při telefonátu — závisí na rozsahu. Základní landing page od 9 900 Kč, firemní web od 14 900 Kč. Bez skrytých poplatků, vše domluveno předem.</div>
+        <div class="faq-body">Cenu domluvíme při telefonátu — závisí na rozsahu. Web od 14 900 Kč (Model Start), pokročilejší varianty s AI a automatizací od 29 900 Kč. Bez skrytých poplatků, vše domluveno předem.</div>
       </div>
 
     </div>
@@ -626,7 +626,7 @@ body{font-family:'Outfit',sans-serif;background:#0B1929;color:#fff;-webkit-font-
 
         <div class="testi-card">
           <div style="color:#FF9500;letter-spacing:.05em;margin-bottom:.75rem;font-size:.9rem">★★★★★</div>
-          <p style="font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.65;margin-bottom:1rem">"Neuvěřitelná rychlost. Zavolal jsem ráno, odpoledne jsem viděl návrh a druhý den byl web online. Přesně co jsem potřeboval."</p>
+          <p style="font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.65;margin-bottom:1rem">"Neuvěřitelná rychlost. Zavolal jsem ráno, zaplatil, zadal požadavky a druhý den byl web online. Přesně co jsem potřeboval."</p>
           <div style="font-weight:700;font-size:.85rem;color:#fff">Martin K.</div>
           <div style="font-size:.78rem;color:rgba(255,255,255,.4)">Elektroinstalace, Olomouc</div>
         </div>
@@ -782,7 +782,7 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Odesílám…';
 
-  var data = { name: name, phone: phone, email: email, note: note, source: 'lp-webdo24', url: window.location.href };
+  var data = { web_id: 'webdo24', name: name, phone: phone, email: email, note: note, source: 'lp-webdo24', url: window.location.href };
 
   fetch('https://n8n.webdo24.cz/webhook/new-lead', {
     method: 'POST',
@@ -790,7 +790,8 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     body: JSON.stringify(data)
   })
   .then(function(r) {
-    // Show success regardless (don't block conversions on webhook issues)
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    // Úspěch — teprve TEĎ ukážeme díky + pálíme konverzi
     document.getElementById('leadForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
     trackEvent('form_submit', { name: name, phone: phone });
@@ -798,11 +799,12 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     window.scrollTo({ top: document.getElementById('formSuccess').getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
   })
   .catch(function(err) {
-    // Still show success to not lose the lead
-    document.getElementById('leadForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    trackEvent('form_submit_fallback');
-    window.dataLayer.push({ event: 'conversion', conversion_type: 'form_submit' });
+    // Selhání — lead by se tiše ztratil. NEukazujeme falešné díky, NEpálíme konverzi.
+    btn.disabled = false;
+    btn.textContent = 'Odeslat poptávku';
+    var box = document.getElementById('formErr');
+    if (!box) { box = document.createElement('p'); box.id = 'formErr'; box.style.cssText = 'margin-top:.85rem;font-size:.82rem;font-weight:700;color:#ff6b8a;text-align:center;line-height:1.5'; document.getElementById('leadForm').appendChild(box); }
+    box.innerHTML = 'Odeslání se teď nepodařilo. Zavolejte nám prosím na <a href="tel:+420735847185" style="color:#fff;font-weight:800">735 847 185</a> — ozveme se hned.';
     console.error('Webhook:', err);
   });
 });

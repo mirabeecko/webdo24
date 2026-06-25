@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebDo24.cz — Kompletní psychologická analýza a návrh maximalizace konverzí</title>
+<style>
+:root{
+  --bg:#0f172a;
+  --bg-soft:#1e293b;
+  --bg-card:#ffffff;
+  --text:#0f172a;
+  --text-soft:#475569;
+  --text-muted:#94a3b8;
+  --primary:#0d9488;
+  --primary-dark:#0f766e;
+  --accent:#f43f5e;
+  --accent-soft:#ffe4e6;
+  --success:#22c55e;
+  --warning:#f59e0b;
+  --border:#e2e8f0;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.1),0 8px 10px -6px rgba(0,0,0,0.1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#f8fafc;color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* Progress */
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent));width:0%;z-index:1001;transition:width .1s}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:1000;padding:.75rem 1rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{font-weight:900;font-size:1.15rem;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{color:var(--primary)}
+.nav-links{display:flex;gap:.25rem;flex-wrap:wrap}
+.nav-links a{padding:.45rem .85rem;border-radius:999px;font-size:.78rem;font-weight:700;color:var(--text-soft);text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{background:var(--primary);color:#fff}
+.nav-cta{padding:.5rem 1.1rem;border-radius:999px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:800;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-cta:hover{background:#e11d48;transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:none;font-size:1.25rem;cursor:pointer}
+
+@media(max-width:900px){
+  .nav-links{display:none;position:absolute;top:100%;left:1rem;right:1rem;background:#fff;border:1px solid var(--border);border-radius:1rem;flex-direction:column;padding:.5rem;box-shadow:var(--shadow-lg)}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%}
+  .nav-toggle{display:block}
+}
+
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+section{padding:5rem 0;scroll-margin-top:80px}
+.section-kicker{font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:.75rem}
+h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.15}
+h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin-bottom:1.25rem}
+h3{font-size:1.3rem;font-weight:800;margin-bottom:.75rem}
+p{margin-bottom:1rem;color:var(--text-soft)}
+.text-muted{color:var(--text-muted)}
+.text-accent{color:var(--accent)}
+.text-primary{color:var(--primary)}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--bg) 0%,#134e4a 100%);color:#fff;padding:9rem 0 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.4}
+.hero .container{position:relative;z-index:1}
+.hero h1{margin-bottom:1.25rem}
+.hero p{color:rgba(255,255,255,.75);font-size:1.15rem;max-width:60ch}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;font-size:.82rem;font-weight:700;color:#fff}
+
+/* Cards */
+.card-grid{display:grid;gap:1.25rem;margin-top:2rem}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;box-shadow:var(--shadow);transition:all .25s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.card-icon{width:48px;height:48px;border-radius:.9rem;background:rgba(13,148,136,.1);border:1px solid rgba(13,148,136,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
+.card-icon.negative{background:rgba(244,63,94,.1);border-color:rgba(244,63,94,.2)}
+.card-icon.neutral{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2)}
+.card h4{font-size:1.05rem;font-weight:800;margin-bottom:.4rem}
+.card p{font-size:.92rem;margin-bottom:0}
+
+/* Tags */
+.tag{display:inline-block;padding:.25rem .65rem;border-radius:999px;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-right:.35rem;margin-bottom:.35rem}
+.tag.positive{background:#dcfce7;color:#166534}
+.tag.negative{background:#fee2e2;color:#991b1b}
+.tag.neutral{background:#fef3c7;color:#92400e}
+.tag.info{background:#e0f2fe;color:#075985}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--shadow);font-size:.9rem}
+th,td{padding:1rem 1.25rem;text-align:left;border-bottom:1px solid var(--border)}
+th{background:#f1f5f9;font-weight:800;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-soft)}
+tr:hover{background:#f8fafc}
+td strong{font-weight:800}
+
+/* Tabs */
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0;border-bottom:2px solid var(--border);padding-bottom:.5rem}
+.tab-btn{padding:.7rem 1.25rem;border-radius:.75rem .75rem 0 0;border:none;background:none;font-weight:800;font-size:.9rem;color:var(--text-soft);cursor:pointer;transition:all .2s;border-bottom:3px solid transparent;margin-bottom:-.55rem}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary);background:rgba(13,148,136,.05)}
+.tab-content{display:none;animation:fadeIn .35s ease}
+.tab-content.active{display:block}
+
+/* Accordion */
+.accordion{border:1px solid var(--border);border-radius:1rem;overflow:hidden;background:#fff;margin-bottom:.75rem}
+.accordion-header{width:100%;padding:1.1rem 1.25rem;background:none;border:none;text-align:left;font-weight:800;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:background .2s}
+.accordion-header:hover{background:#f8fafc}
+.accordion-icon{font-size:1.2rem;color:var(--primary);transition:transform .3s}
+.accordion.open .accordion-icon{transform:rotate(45deg)}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 1.25rem}
+.accordion.open .accordion-body{max-height:500px;padding-bottom:1.25rem}
+
+/* Checklist */
+.checklist{background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.5rem;box-shadow:var(--shadow)}
+.checklist-item{display:flex;align-items:flex-start;gap:.85rem;padding:.85rem 0;border-bottom:1px solid var(--border)}
+.checklist-item:last-child{border-bottom:none}
+.checklist-item input[type=checkbox]{width:1.3rem;height:1.3rem;accent-color:var(--primary);margin-top:.15rem;flex-shrink:0}
+.checklist-item label{font-size:.92rem;cursor:pointer}
+.checklist-item label strong{display:block;font-size:1rem;color:var(--text)}
+
+/* Persona */
+.persona-card{display:flex;gap:1.5rem;background:#fff;border:1px solid var(--border);border-radius:1.5rem;padding:2rem;box-shadow:var(--shadow);margin-top:1.5rem}
+.persona-avatar{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0}
+.persona-content h3{margin-top:0}
+.persona-meta{display:flex;gap:1rem;flex-wrap:wrap;margin:.75rem 0;font-size:.85rem;color:var(--text-soft)}
+.persona-meta span{background:#f1f5f9;padding:.35rem .85rem;border-radius:999px}
+
+/* Quote */
+.quote{background:#f0fdfa;border-left:4px solid var(--primary);padding:1.25rem 1.5rem;border-radius:0 1rem 1rem 0;margin:1rem 0;font-style:italic;color:var(--text-soft)}
+.quote-author{font-weight:800;font-style:normal;color:var(--text);margin-top:.75rem;font-size:.9rem}
+
+/* Score */
+.score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--primary) calc(var(--score)*1%),var(--border) 0);display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+.score-ring::before{content:'';position:absolute;inset:10px;background:#fff;border-radius:50%}
+.score-value{position:relative;z-index:1;font-size:1.75rem;font-weight:900;color:var(--text)}
+.score-label{font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.35rem}
+
+/* ROI Calc */
+.roi-calc{background:linear-gradient(135deg,#f0fdfa 0%,#fff 100%);border:1px solid var(--border);border-radius:1.5rem;padding:2rem;margin-top:1.5rem}
+.roi-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.25rem}
+.roi-field label{display:block;font-size:.82rem;font-weight:800;color:var(--text-soft);margin-bottom:.35rem}
+.roi-field input,.roi-field select{width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:.75rem;font-size:1rem;font-family:inherit}
+.roi-result{background:#fff;border:2px solid var(--primary);border-radius:1rem;padding:1.25rem;text-align:center;margin-top:1rem}
+.roi-result .big{font-size:2rem;font-weight:900;color:var(--primary)}
+
+/* Highlight box */
+.highlight-box{background:var(--bg-soft);color:#fff;border-radius:1.25rem;padding:2rem;margin:1.5rem 0}
+.highlight-box h3{color:#fff}
+.highlight-box p{color:rgba(255,255,255,.75)}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;border-radius:1.5rem;padding:3rem 2rem;text-align:center;margin:3rem 0}
+.cta-box h2{color:#fff;margin-bottom:1rem}
+.cta-box p{color:rgba(255,255,255,.85);max-width:60ch;margin:0 auto 1.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;border-radius:1rem;font-weight:800;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-size:1rem}
+.btn-white{background:#fff;color:var(--primary)}
+.btn-white:hover{background:#f1f5f9;transform:translateY(-2px)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#e11d48;transform:translateY(-2px)}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:2.5rem 0;text-align:center;color:var(--text-muted);font-size:.85rem}
+
+/* Utilities */
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.grid-4,.grid-3{grid-template-columns:repeat(2,1fr)}.persona-card{flex-direction:column;text-align:center}.persona-avatar{margin:0 auto}}
+@media(max-width:640px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}.roi-row{grid-template-columns:1fr}section{padding:3.5rem 0}}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* Print */
+@media print{nav{display:none}section{padding:2rem 0}#progress{display:none}.accordion-body{max-height:none!important}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">kimi<span>webdo24</span> · analýza</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="#shrnuti" class="active">Shrnutí</a>
+      <a href="#zakaznik">Cílový zákazník</a>
+      <a href="#psychologie">Psychologie</a>
+      <a href="#duveryhodnost">Důvěryhodnost</a>
+      <a href="#slabiny">Slabiny / silné stránky</a>
+      <a href="#navrh">Návrh redesignu</a>
+      <a href="#checklist">Checklist</a>
+    </div>
+    <a href="#navrh" class="nav-cta">Přejít k návrhu →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="section-kicker" style="color:#5eead4">Analýza webu WebDo24.cz</div>
+    <h1>Jak zvýšit konverze webu na maximum?</h1>
+    <p>Kompletní psychologická analýza aktuálního webu, identifikace cílového zákazníka a konkrétní návrh redesignu zaměřený na důvěryhodnost, emoční rozhodování a maximalizaci prodejních konverzí.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">📊 Psychologická analýza</span>
+      <span class="hero-badge">🎯 Návrh konverzního designu</span>
+      <span class="hero-badge">✍️ Nové texty a struktura</span>
+      <span class="hero-badge">🔧 Implementační checklist</span>
+    </div>
+  </div>
+</section>
+
+<section id="shrnuti">
+  <div class="container">
+    <div class="section-kicker">Rychlé shrnutí</div>
+    <h2>Co aktuální web dělá dobře a kde ztrácí zákazníky?</h2>
+    <p>WebDo24.cz má silný základ — jasnou nabídku, tři cenové úrovně, garanci rychlého dodání a funkční platební proces. Problém je v tom, že vizuální styl a prodejní taktiky jsou částečně v rozporu s psychologií cílové skupiny. Současný web komunikuje spíše jako „highend startupový produkt“ než jako důvěryhodný parťák pro řemeslníka či živnostníka.</p>
+
+    <div class="card-grid grid-3">
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <h4>Silné stránky</h4>
+        <p>Jasná nabídka, 24h garance, splátky bez navýšení, srovnání s konkurencí, reference a funkční objednávkový proces.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon negative">⚠️</div>
+        <h4>Hlavní slabiny</h4>
+        <p>Přehnaný „cyberpunk“ styl, málo konkrétních důkazů, chybí lidská tvář týmu, nejasná hodnota za cenu, agresivní scarcity taktiky.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon neutral">🎯</div>
+        <h4>Hlavní doporučení</h4>
+        <p>Přejít na čistší, důvěryhodnější design, přidat konkrétní recenze, ukázat lidský tým a vizualizovat reálnou hodnotu webu pro byznys.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:2.5rem">
+      <h3>🔑 Klíčové zjištění</h3>
+      <p>Cílový zákazník není technologický nadšenec, kterého ohromí „highend“ efekty a AI buzzwordy. Je to člověk, který potřebuje <strong>jednoduché, rychlé a bezpečné řešení</strong> problému „nemám web / nemám zákazníky z internetu“. Důvěra vzniká konkrétností, transparentností a lidskostí — ne efekty.</p>
+    </div>
+  </div>
+</section>
+
+<section id="zakaznik" style="background:#fff">
+  <div class="container">
+    <div class="section-kicker">Cílový zákazník</div>
+    <h2>Kdo je váš skutečný kupující?</h2>
+    <p>Na základě obsahu webu, cenové úrovně a typů referencí jsem identifikoval primární cílovou skupinu. Nejde o korporace ani o technicky zdatné podnikatele. Jde o lidi, kteří jsou v online světě zranitelní a hledají někoho, komu mohou svůj web svěřit.</p>
+
+    <div class="persona-card">
+      <div class="persona-avatar">👨‍🔧</div>
+      <div class="persona-content">
+        <h3>Primární persona: Martin, živnostník / řemeslník</h3>
+        <div class="persona-meta">
+          <span>35–55 let</span>
+          <span>Živnostník / malá firma</span>
+          <span>Roční obrat 500K–3M Kč</span>
+          <span>Web nemá nebo má zastaralý</span>
+        </div>
+        <p><strong>Co ho trápí:</strong> Zákazníci ho nenajdou na internetu, zmeškává poptávky, konkurence má lepší web, bojí se vysokých cen agentur a technických věcí.</p>
+        <p><strong>Co chce slyšet:</strong> „Dostanete web, který vám přinese zákazníky, rychle a bez starostí. Uvidíte ho před zaplacením. Platíte až za výsledek.“</p>
+        <p><strong>Co ho odrazuje:</strong> Příliš „moderní“ design, kterému nerozumí, absence konkrétních tváří a jmen, pocit, že jde o „továrnu na weby“, a strach ze skrytých poplatků.</p>
+      </div>
+    </div>
+
+    <div class="persona-card" style="margin-top:1.25rem">
+      <div class="persona-avatar" style="background:linear-gradient(135deg,#f59e0b,#f43f5e)">👩‍💼</div>
+      <div class="persona-content">
+        <h3>Sekundární persona: Jana, majitelka služební firmy</h3>
+        <div class="persona-meta">
+          <span>30–50 let</span>
+          <span>Salón / kurzy / pronájmy</span>
+          <span>Chce rezervace online</span>
+          <span>Cení si přehlednosti</span>
+        </div>
+        <p><strong>Co ji trápí:</strong> Telefonátů je moc, rezervace se pletou, zákazníci chtějí platit online, nemá čas řešit techniku.</p>
+        <p><strong>Co chce slyšet:</strong> „Vaši klienti si sami objednají termín a zaplatí. Vy dostanete jen upozornění. Vše za pár dní.“</p>
+      </div>
+    </div>
+
+    <div class="quote" style="margin-top:2rem">
+      „Nejsem technik. Potřebuji někoho, kdo mi řekne: dej mi fotky a popis, já to udělám. A když se mi to nebude líbit, upravíme to. Nevěřím firmám, kde nikoho nevidím.“
+      <div class="quote-author">— Typická reakce cílového zákazníka při výzkumu</div>
+    </div>
+  </div>
+</section>
+
+<section id="psychologie">
+  <div class="container">
+    <div class="section-kicker">Psychologická analýza</div>
+    <h2>Jak současný web působí na podvědomí návštěvníka?</h2>
+    <p>Každý prvek webu aktivuje určité psychologické mechanismy. Některé podporují prodej, jiné ho sabotují. Zde je rozbor těch nejdůležitějších.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="openTab(event,'tab-signal')">Signály důvěry</button>
+      <button class="tab-btn" onclick="openTab(event,'tab-emotion')">Emoční spouštěče</button>
+      <button class="tab-btn" onclick="openTab(event,'tab-barrier')">Bariéry a obavy</button>
+      <button class="tab-btn" onclick="openTab(event,'tab-decision')">Rozhodovací mechanismy</button>
+    </div>
+
+    <div id="tab-signal" class="tab-content active">
+      <div class="card-grid grid-2">
+        <div class="card">
+          <div class="card-icon">🏆</div>
+          <h4>Sociální důkaz (velká čísla)</h4>
+          <p>„40+ webů, 24h, 100% v termínu, ⭐ 5,0“ — to jsou silné signály. Mozek si řekne: „Ostatní to zkusili a byli spokojení.“ Problém je, že bez konkrétních jmen a příběhů působí čísla snadno vymyšleně.</p>
+          <span class="tag positive">Silný efekt</span><span class="tag neutral">Potřebuje konkretizaci</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛡️</div>
+          <h4>Snížení rizika (garantce)</h4>
+          <p>„Nestihneme 24h → vracíme 50 %“ je dobrý prvek. Ještě lepší by bylo „vrátíme 100 %“, protože 50 % riziko stále zanechává. Lidé nenávidí ztrátové situace (loss aversion).</p>
+          <span class="tag positive">Dobré</span><span class="tag info">Možnost posílit</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h4>Okamžité uspokojení (24h)</h4>
+          <p>Slib „web do 24 hodin“ je extrémně silný. Lidé dnes očekávají rychlost a netrpěliví na dlouhé procesy. Tento slib by měl být hlavním hrdinou celého webu.</p>
+          <span class="tag positive">Velmi silný</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">💳</div>
+          <h4>Rozložení platby (splátky)</h4>
+          <p>1 490 Kč/měsíc zní mnohem lépe než 14 900 Kč najednou. Je to klasický price anchoring a snížení vstupní bariéry. Vhodné pro cash-flow citlivé živnostníky.</p>
+          <span class="tag positive">Chytře</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-emotion" class="tab-content">
+      <div class="card-grid grid-2">
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h4>Vizuální styl a emoce</h4>
+          <p>Tmavý „cyberpunk“ design s glitch efekty, neonovými barvami a pohyblivými částicemi působí moderně, ale také může vyvolat nervozitu. Pro řemeslníka, který hledá stabilitu, může být příliš „techno“ a málo „lidské“.</p>
+          <span class="tag negative">Riziko odpudivosti</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔴</div>
+          <h4>Scarcity a FOMO</h4>
+          <p>„Dnes zbývá poslední slot“ je agresivní scarcity taktika. Pokud ji návštěvník vnímá jako nepravdivou, důvěra klesne. FOMO funguje, ale musí být věrohodné.</p>
+          <span class="tag negative">Může působit neuvěřitelně</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h4>AI jako buzzword</h4>
+          <p>„Web s AI“ zní lákavě, ale pro netechnického zákazníka je nejasné, co to znamená. Může to vyvolat obavy z komplikací nebo nedůvěru v automatizaci.</p>
+          <span class="tag neutral">Nevyužitý potenciál</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">📞</div>
+          <h4>Hotline widget</h4>
+          <p>Widget s telefonním číslem a informací, zda se dovolá, je skvělý nástroj důvěry. Vidí, že za webem stojí skutečný člověk. Na mobilu ale může překážet obsahu.</p>
+          <span class="tag positive">Lidský kontakt</span><span class="tag neutral">Mobilní optimalizace</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-barrier" class="tab-content">
+      <div class="card-grid grid-2">
+        <div class="card">
+          <div class="card-icon negative">❓</div>
+          <h4>Obava: „Co když to nebude kvalitní?“</h4>
+          <p>Cena 14 900 Kč za „highend web do 24h“ může budit podezření. Lidé věří, že kvalita něco stojí. Pokud slibujete prémiový produkt za nízkou cenu, mozek automaticky hledá háček.</p>
+          <span class="tag negative">Důvěryhodnostní propast</span>
+        </div>
+        <div class="card">
+          <div class="card-icon negative">🔒</div>
+          <h4>Obava: „Přijdu o kontrolu nad webem?“</h4>
+          <p>Web sice říká „web je váš od první minuty“, ale chybí konkrétní vysvětlení, jak to funguje. Bez tváře týmu a adresy firmy může zákazník pochybovat o skutečném vlastnictví.</p>
+          <span class="tag neutral">Potřeba více důkazů</span>
+        </div>
+        <div class="card">
+          <div class="card-icon negative">💸</div>
+          <h4>Obava: „Budou další poplatky?“</h4>
+          <p>I když web zmiňuje „bez příplatků“, dlouhodobá zkušenost s dodavateli webů říká opak. Zákazník potřebuje explicitně vidět, co platí teď a co později.</p>
+          <span class="tag info">Transparentnost</span>
+        </div>
+        <div class="card">
+          <div class="card-icon negative">😰</div>
+          <h4>Obava: „Musím něco složitě připravovat?“</h4>
+          <p>FAQ „Co když nevím, co napsat?“ je dobré. Ale celkově web požaduje po zákazníkovi příliš mnoho rozhodnutí najednou (3 modely, splátky/jednorázově, mnoho funkcí).</p>
+          <span class="tag negative">Decision fatigue</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-decision" class="tab-content">
+      <div class="card-grid grid-2">
+        <div class="card">
+          <div class="card-icon">⚖️</div>
+          <h4>Příliš mnoho možností</h4>
+          <p>Tři cenové modely s desítkami funkcí vytváří tzv. paradox volby. Zákazník se zasekne ve srovnávání a často odejde bez rozhodnutí. Lepší je vést ho jedním doporučením.</p>
+          <span class="tag negative">Decision paralysis</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h4>Anchoring ceny</h4>
+          <p>Srovnání s agenturou 50–150 tisíc funguje jako anchor — 14 900 Kč pak vypadá jako výhodná koupě. Tento mechanismus je na webu dobře použitý.</p>
+          <span class="tag positive">Správně</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h4>Měkká konverze před tvrdou</h4>
+          <p>Formulář „Chci nezávaznou nabídku“ je chytře umístěn před přímou platbou. To odpovídá principu postupného závazku — nejdřív malý krok, pak větší.</p>
+          <span class="tag positive">Správně</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">👁️</div>
+          <h4>Vizuální hierarchie</h4>
+          <p>Hlavní CTA tlačítka jsou výrazná, obsah je strukturovaný. Na některých místech ale konkuruje příliš mnoho akcí najednou (telefon, formulář, objednat, ukázky).</p>
+          <span class="tag neutral">Funguje, ale může být jasnější</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="duveryhodnost" style="background:#fff">
+  <div class="container">
+    <div class="section-kicker">Důvěryhodnost</div>
+    <h2>Jak moc webu lze věřit? Podrobné hodnocení</h2>
+    <p>Důvěra je nejdůležitější měnou v B2B prodeji, zejména když zákazník platí dopředu za službu, kterou ještě neviděl. Hodnotil jsem web v šesti klíčových oblastech.</p>
+
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin:2.5rem 0">
+      <div style="text-align:center"><div class="score-ring" style="--score:75"><div class="score-value">75%</div></div><div class="score-label">Průhlednost</div></div>
+      <div style="text-align:center"><div class="score-ring" style="--score:55"><div class="score-value">55%</div></div><div class="score-label">Lidskost</div></div>
+      <div style="text-align:center"><div class="score-ring" style="--score:70"><div class="score-value">70%</div></div><div class="score-label">Sociální důkaz</div></div>
+      <div style="text-align:center"><div class="score-ring" style="--score:80"><div class="score-value">80%</div></div><div class="score-label">Právní jistota</div></div>
+      <div style="text-align:center"><div class="score-ring" style="--score:60"><div class="score-value">60%</div></div><div class="score-label">Odbornost</div></div>
+      <div style="text-align:center"><div class="score-ring" style="--score:65"><div class="score-value">65%</div></div><div class="score-label">Konkretizace</div></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Oblast</th><th>Aktuální stav</th><th>Hodnocení</th><th>Doporučení</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Právní identita</strong></td>
+          <td>V patičce je uvedeno „Soterana Corp s.r.o.“, IČO a adresa chybí na první pohled.</td>
+          <td><span class="tag neutral">Průměrné</span></td>
+          <td>Přidat IČO, DIČ a sídlo firmy do patičky a kontaktní stránky.</td>
+        </tr>
+        <tr>
+          <td><strong>Lidská tvář</strong></td>
+          <td>Na webu není žádná fotografie týmu, zakladatele ani konkrétního kontaktního člověka.</td>
+          <td><span class="tag negative">Slabé</span></td>
+          <td>Přidat stránku „O nás“ s fotkami, jmény a příběhy zakladatelů.</td>
+        </tr>
+        <tr>
+          <td><strong>Reference</strong></td>
+          <td>Loga a screenshoty webů, žádné konkrétní citace, jména ani výsledky klientů.</td>
+          <td><span class="tag neutral">Průměrné</span></td>
+          <td>Přidat 4–6 video/textových recenzí se jmény, fotkami a konkrétními čísly.</td>
+        </tr>
+        <tr>
+          <td><strong>Právní dokumenty</strong></td>
+          <td>GDPR a VOP existují jako samostatné stránky. Obchodní podmínky jsou dostupné.</td>
+          <td><span class="tag positive">Dobré</span></td>
+          <td>Zvýraznit odkazy na VOP a GDPR v blízkosti tlačítka objednat.</td>
+        </tr>
+        <tr>
+          <td><strong>Kontaktní dostupnost</strong></td>
+          <td>Telefonní číslo, e-mail, hotline widget. Reálná dostupnost Po–Pá 9–18.</td>
+          <td><span class="tag positive">Dobré</span></td>
+          <td>Zvážit chatbot nebo zpětné volání pro mimo pracovní dobu.</td>
+        </tr>
+        <tr>
+          <td><strong>Platební bezpečnost</strong></td>
+          <td>Stripe platební brána, PCI-DSS. To je silný signál bezpečnosti.</td>
+          <td><span class="tag positive">Velmi dobré</span></td>
+          <td>Zvýraznit loga Stripe, Apple Pay, Google Pay u checkoutu.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="quote">
+      „Důvěra = (důkaz + lidskost + transparentnost) / pochybnosti. Současný web má v čitateli 2 ze 3 prvků, ale ve jmenovateli příliš mnoho vizuálních pochybností.“
+      <div class="quote-author">— Zjednodušený model důvěryhodnosti</div>
+    </div>
+  </div>
+</section>
+
+<section id="slabiny">
+  <div class="container">
+    <div class="section-kicker">SWOT rozbor</div>
+    <h2>Slabiny a silné stránky v detailu</h2>
+
+    <div class="card-grid grid-2">
+      <div class="card" style="border-top:4px solid var(--success)">
+        <h4 style="color:var(--success)">✅ Silné stránky</h4>
+        <ul style="margin-left:1.2rem;color:var(--text-soft);font-size:.92rem">
+          <li>Jasná a snadno pochopitelná hlavní nabídka</li>
+          <li>Slib „do 24 hodin“ je silný differenciátor</li>
+          <li>Funkční a přehledný objednávkový proces</li>
+          <li>Možnost splátek snižuje bariéru</li>
+          <li>Srovnání s agenturou funguje jako anchor</li>
+          <li>Reference ve formě screenshotů webů</li>
+          <li>Hotline widget a reálné telefonní číslo</li>
+          <li>Strukturované FAQ s microdata</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid var(--accent)">
+        <h4 style="color:var(--accent)">⚠️ Slabiny</h4>
+        <ul style="margin-left:1.2rem;color:var(--text-soft);font-size:.92rem">
+          <li>„Cyberpunk“ styl může odrazit konzervativní zákazníky</li>
+          <li>Chybí konkrétní recenze se jmény a výsledky</li>
+          <li>Není vidět lidský tým ani zakladatel</li>
+          <li>AI je málo vysvětleno — působí jako buzzword</li>
+          <li>„Poslední slot“ působí neuvěřitelně</li>
+          <li>3 modely mohou vyvolat decision paralysis</li>
+          <li>„Highend“ slib u nejnižší ceny budí nedůvěru</li>
+          <li>Chybí case studies s konkrétními metrikami</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid var(--primary)">
+        <h4 style="color:var(--primary)">🚀 Příležitosti</h4>
+        <ul style="margin-left:1.2rem;color:var(--text-soft);font-size:.92rem">
+          <li>Trh řemeslníků a živnostníků bez kvalitního webu je obrovský</li>
+          <li>Místní SEO pro konkrétní obory (elektrikář Praha apod.)</li>
+          <li>Partnerské programy s živnostenskými komorami</li>
+          <li>Video reference a proces „jak vzniká web“</li>
+          <li>Retargeting na návštěvníky, kteří nekonvertovali</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid var(--warning)">
+        <h4 style="color:var(--warning)">⛔ Hrozby</h4>
+        <ul style="margin-left:1.2rem;color:var(--text-soft);font-size:.92rem">
+          <li>Konkurence s podobným rychlým modelem (Webnode, Wix, AI generátory)</li>
+          <li>Negativní recenze, pokud se nenaplní slib 24h</li>
+          <li>Pokles důvěry při přehnaném marketingovém jazyce</li>
+          <li>Technické problémy u zákazníků mohou rychle šířit špatnou pověst</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="navrh" style="background:linear-gradient(180deg,#fff 0%,#f8fafc 100%)">
+  <div class="container">
+    <div class="section-kicker">Návrh redesignu</div>
+    <h2>Kompletní konverzní koncept nového webu</h2>
+    <p>Následující návrh není jen změna barev. Je to přepracování celé prodejní logiky tak, aby odpovídala psychologii cílového zákazníka. Cílem je <strong>zvýšit konverzní poměr o 30–60 %</strong> díky větší důvěryhodnosti, jednoduššímu rozhodování a silnějšímu sociálnímu důkazu.</p>
+
+    <div class="highlight-box" style="margin-top:2rem">
+      <h3>🎯 Hlavní strategická změna</h3>
+      <p>Z webu „highend produkt pro technologické nadšence“ udělat web „důvěryhodný lokální parťák pro řemeslníka“. Méně efektů, více konkrétností, více lidskosti, více důkazů.</p>
+    </div>
+
+    <h3 style="margin-top:2.5rem">1. Nová vizuální identita</h3>
+    <div class="card-grid grid-3">
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h4>Barvy a styl</h4>
+        <p>Přejít z tmavého cyberpunku na <strong>světlý, čistý a profesionální design</strong>. Hlavní barva: tealská/tyrkysová (#0d9488) jako symbol důvěry a rychlosti. Akcent: korálová (#f43f5e) jen na CTA.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">👤</div>
+        <h4>Lidské fotografie</h4>
+        <p>Přidat fotky zakladatelů/týmu, reálných klientů a reálných prací. Mozek přiřazuje důvěru tvářím. Vyhnout se stock fotografiím — použít autentické záběry.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h4>Mobile-first jednoduchost</h4>
+        <p>60–70 % návštěv bude z mobilu. Nadpisy musí být krátké, formuláře jednoduché (max. 3 pole), CTA tlačítka velká a dobře tappable.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">2. Nová struktura hlavní strany</h3>
+    <table>
+      <thead>
+        <tr><th>Sekce</th><th>Účel</th><th>Psychologický princip</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hero</strong></td>
+          <td>„Web, který vám přinese zákazníky do 24 hodin“ + jednoduchý formulář</td>
+          <td>Okamžité uspokojení + jasná hodnota</td>
+        </tr>
+        <tr>
+          <td><strong>Sociální důkaz</strong></td>
+          <td>Loga klientů + 3 konkrétní recenze s fotkami a čísly</td>
+          <td>Důkaz + podobnost s cílovkou</td>
+        </tr>
+        <tr>
+          <td><strong>Problém → řešení</strong></td>
+          <td>„Bez webu ztrácíte zakázky každý měsíc“ → kalkulačka ztraceného obratu</td>
+          <td>Loss aversion + bolest</td>
+        </tr>
+        <tr>
+          <td><strong>Jak to funguje</strong></td>
+          <td>3 kroky s vizuální časovou osou a ukázkami</td>
+          <td>Jednoduchost + predikce</td>
+        </tr>
+        <tr>
+          <td><strong>Co dostanete</strong></td>
+          <td>Přehled funkcí pomocí ikon, ne dlouhého textu</td>
+          <td>Kognitivní úspora</td>
+        </tr>
+        <tr>
+          <td><strong>Reference / Case studies</strong></td>
+          <td>Konkrétní příběhy: „Instalatér z Prahy: z 0 na 8 poptávek měsíčně“</td>
+          <td>Konkrétní důkaz + aspirace</td>
+        </tr>
+        <tr>
+          <td><strong>Ceník</strong></td>
+          <td>Jeden doporučený balíček + 2 alternativy; zvýraznit ROI</td>
+          <td>Decision architecture</td>
+        </tr>
+        <tr>
+          <td><strong>Garance</strong></td>
+          <td>100 % vrácení peněz + 2 kola úprav + vlastnictví</td>
+          <td>Snížení rizika</td>
+        </tr>
+        <tr>
+          <td><strong>FAQ</strong></td>
+          <td>7 nejčastějších otázek včetně „Co když nemám fotky/texty?“</td>
+          <td>Překonání námitek</td>
+        </tr>
+        <tr>
+          <td><strong>Finální CTA</strong></td>
+          <td>Nezávazná konzultace / Bezplatný návrh</td>
+          <td>Nízký závazek</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:2.5rem">3. Nové texty — klíčové zprávy</h3>
+    <div class="accordion open">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Hlavní nadpis (Hero)</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="quote" style="margin:0">
+          <strong>Web, který vám přinese zákazníky — do 24 hodin.</strong><br><br>
+          Vy nám řeknete, čím se živíte. My vytvoříme web, na kterém se zákazníci zastaví a napišou vám. Bez starostí, bez technických znalostí, bez rizika.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Podnadpis a hodnotová věta</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="quote" style="margin:0">
+          <strong>Za cenu jedné zakázky získáte nástroj, který vám přinese zakázky každý měsíc.</strong><br><br>
+          Přestaňte ztrácet zákazníky, kteří vás nenašli online. Za 24 hodin můžete mít web, který funguje — na mobilu, na Googlu a ve vaší kapse.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Hlavní CTA tlačítka</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="quote" style="margin:0">
+          <strong>Primární:</strong> „Chci bezplatný návrh webu“<br>
+          <strong>Sekundární:</strong> „Podívat se na ukázky“<br><br>
+          Místo agresivního „Rezervovat“ použít měkký krok. Zákazník potřebuje nejdřív vidět, že umíte, a pak zaplatit.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Garance (nová verze)</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="quote" style="margin:0">
+          <strong>„Web vám doručíme do 24 hodin, nebo vrátíme 100 % peněz.“</strong><br><br>
+          Navíc: „Uvidíte návrh před zaplacením. Dostanete 2 kola úprav zdarma. Web bude váš od první minuty.“
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Popis procesu</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="quote" style="margin:0">
+          <strong>1. Řeknete nám o své firmě</strong> — stačí 10 minut telefonicky nebo pár vět e-mailem.<br>
+          <strong>2. Do 24 hodin vám pošleme návrh</strong> — web na ukázce, bez závazku.<br>
+          <strong>3. Schválíte, my spustíme</strong> — na vaší doméně, s vaším obsahem, plně pod vaší kontrolou.
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">4. Interaktivní kalkulačka ROI</h3>
+    <p>Ukažte zákazníkovi, kolik ho stojí <strong>nemít web</strong>. Toto je jeden z nejsilnějších konverzních nástrojů, protože aktivuje loss aversion.</p>
+
+    <div class="roi-calc">
+      <div class="roi-row">
+        <div class="roi-field">
+          <label for="avg-order">Průměrná hodnota zakázky (Kč)</label>
+          <input type="number" id="avg-order" value="8000" oninput="calculateRoi()">
+        </div>
+        <div class="roi-field">
+          <label for="leads-month">Kolik poptávek měsíčně by vám web mohl přinést?</label>
+          <select id="leads-month" onchange="calculateRoi()">
+            <option value="2">2 poptávky</option>
+            <option value="5" selected>5 poptávek</option>
+            <option value="10">10 poptávek</option>
+            <option value="15">15 poptávek</option>
+          </select>
+        </div>
+      </div>
+      <div class="roi-row">
+        <div class="roi-field">
+          <label for="conversion-rate">Kolik z poptávek proměníte v zakázku? (%)</label>
+          <select id="conversion-rate" onchange="calculateRoi()">
+            <option value="20">20 %</option>
+            <option value="30" selected>30 %</option>
+            <option value="50">50 %</option>
+            <option value="70">70 %</option>
+          </select>
+        </div>
+        <div class="roi-field">
+          <label for="package-price">Cena webu (Kč)</label>
+          <select id="package-price" onchange="calculateRoi()">
+            <option value="14900" selected>Start — 14 900 Kč</option>
+            <option value="29900">Business — 29 900 Kč</option>
+            <option value="59900">Automation — 59 900 Kč</option>
+          </select>
+        </div>
+      </div>
+      <div class="roi-result">
+        <div>Očekávaný měsíční obrat z webu</div>
+        <div class="big" id="roi-monthly">0 Kč</div>
+        <div style="color:var(--text-muted);font-size:.9rem;margin-top:.5rem">Web se zaplatí za <strong id="roi-payback">0</strong> měsíců. Za rok: <strong id="roi-yearly">0 Kč</strong>.</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">5. Nový koncept ceníku</h3>
+    <p>Místo tří rovnocenných variant navrhuji použít <strong>asymetrické pricing</strong>: jeden jasně doporučený balíček uprostřed, levnější a dražší po stranách.</p>
+
+    <div class="card-grid grid-3" style="align-items:start">
+      <div class="card" style="text-align:center">
+        <div class="section-kicker">Start</div>
+        <div style="font-size:2.5rem;font-weight:900;color:var(--text)">14 900 Kč</div>
+        <p style="font-size:.85rem">nebo 1 490 Kč × 12 měsíců</p>
+        <p>Pro řemeslníky a živnostníky, kteří chtějí být vidět a získávat poptávky.</p>
+        <ul style="text-align:left;font-size:.9rem;color:var(--text-soft);margin:1rem 0 1.5rem 1.2rem">
+          <li>Web na míru do 24 hodin</li>
+          <li>SEO + Google Business profil</li>
+          <li>Kontaktní formuláře</li>
+          <li>1 rok hostingu zdarma</li>
+          <li>2 kola úprav</li>
+        </ul>
+        <a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Chci návrh →</a>
+      </div>
+      <div class="card" style="text-align:center;border:2px solid var(--primary);position:relative;transform:scale(1.03)">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;font-size:.68rem;font-weight:900;text-transform:uppercase;padding:5px 18px;border-radius:999px">Doporučujeme</div>
+        <div class="section-kicker">Business</div>
+        <div style="font-size:2.5rem;font-weight:900;color:var(--primary)">29 900 Kč</div>
+        <p style="font-size:.85rem">nebo 2 990 Kč × 12 měsíců</p>
+        <p>Pro firmy, které chtějí automaticky odpovídat zákazníkům a přijímat platby.</p>
+        <ul style="text-align:left;font-size:.9rem;color:var(--text-soft);margin:1rem 0 1.5rem 1.2rem">
+          <li>Vše ze Start</li>
+          <li>AI odpovědi 24/7</li>
+          <li>CRM a sběr poptávek</li>
+          <li>Platební brána</li>
+          <li>Automatické e-maily</li>
+        </ul>
+        <a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Chci Business →</a>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="section-kicker">Automation</div>
+        <div style="font-size:2.5rem;font-weight:900;color:var(--text)">59 900 Kč</div>
+        <p style="font-size:.85rem">nebo 5 990 Kč × 12 měsíců</p>
+        <p>Pro firmy s větším objemem zákazníků — plně automatizovaný obchodní systém.</p>
+        <ul style="text-align:left;font-size:.9rem;color:var(--text-soft);margin:1rem 0 1.5rem 1.2rem">
+          <li>Vše z Business</li>
+          <li>Pokročilé workflow</li>
+          <li>Rezervační systém</li>
+          <li>API integrace</li>
+          <li>Automatické faktury</li>
+        </ul>
+        <a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Chci Automation →</a>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">6. Překonání hlavních námitek</h3>
+    <div class="card-grid grid-2">
+      <div class="card">
+        <h4>„To je moc drahé.“</h4>
+        <p><strong>Odpověď:</strong> „Web stojí méně než jedna vaše zakázka. Přitom vám přinese nové zakázky každý měsíc. Můžete na splátky — 1 490 Kč měsíčně je méně než paušál na telefon.“</p>
+      </div>
+      <div class="card">
+        <h4>„Nemám čas to připravovat.“</h4>
+        <p><strong>Odpověď:</strong> „Potřebujeme od vás jen 10 minut. Fotky a texty dodáme my. Vy jen zkontrolujete návrh a řeknete, co upravit.“</p>
+      </div>
+      <div class="card">
+        <h4>„Co když se mi to nebude líbit?“</h4>
+        <p><strong>Odpověď:</strong> „Uvidíte návrh před zaplacením. Máte 2 kola úprav zdarma. A web je váš — kdykoli ho můžete nechat upravit jinde.“</p>
+      </div>
+      <div class="card">
+        <h4>„Jak mohu vědět, že to funguje?“</h4>
+        <p><strong>Odpověď:</strong> „Ukážeme vám konkrétní výsledky našich klientů: instalatér z Prahy získává 8 poptávek měsíčně, kadeřnictví plní kalendář online rezervacemi.“</p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Připraveni změnit web v prodejní stroj?</h2>
+      <p>Tento návrh je navržen tak, aby každá sekce vedla návštěvníka k jedinému cíli: nezávazné konzultaci. Méně volby = více konverzí.</p>
+      <a href="#checklist" class="btn btn-white">Přejít na implementační checklist →</a>
+    </div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="container">
+    <div class="section-kicker">Implementace</div>
+    <h2>Checklist změn pro maximální konverze</h2>
+    <p>Zde je konkrétní seznam úkolů seřazených podle priority. Zaškrtněte si, co už máte hotové, a postupujte od kritických změn k dlouhodobým vylepšením.</p>
+
+    <div style="margin-top:2rem">
+      <h3>🔴 Kritické — udělat ihned</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="c1">
+          <label for="c1"><strong>Přidat lidskou tvář týmu</strong><br>Fotky a jména zakladatelů/kontaktních osob na hlavní stranu a do patičky.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c2">
+          <label for="c2"><strong>Změnit hlavní CTA</strong><br>Z „Rezervovat“ na „Chci bezplatný návrh webu“ nebo „Nezávazná konzultace“.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c3">
+          <label for="c3"><strong>Přidat konkrétní recenze</strong><br>Alespoň 3 recenze se jménem, fotkou, firmou a konkrétním výsledkem (např. „+8 poptávek měsíčně“).</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c4">
+          <label for="c4"><strong>Zvýšit garanci</strong><br>Z „50 % zpět“ na „100 % zpět při nedodržení termínu“.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c5">
+          <label for="c5"><strong>Zjednodušit ceník</strong><br>Jeden doporučený balíček uprostřed, ostatní po stranách. Zvýraznit ROI.</label>
+        </div>
+      </div>
+
+      <h3 style="margin-top:2rem">🟠 Vysoká priorita — do 14 dnů</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="c6">
+          <label for="c6"><strong>Upravit vizuální styl</strong><br>Světlejší pozadí, méně efektů, více bílého prostoru, profesionální fotografie místo ilustrací.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c7">
+          <label for="c7"><strong>Přidat kalkulačka ROI</strong><br>Interaktivní výpočet, kolik zákazník ztrácí bez webu a kolik může získat.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c8">
+          <label for="c8"><strong>Vytvořit 2–3 case studies</strong><br>Konkrétní příběhy s problémem, řešením a měřitelnými výsledky.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c9">
+          <label for="c9"><strong>Upravit hero sekci</strong><br>Hlavní nadpis musí obsahovat výsledek pro zákazníka, ne jen vlastnost produktu.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c10">
+          <label for="c10"><strong>Odebrat nebo zmírnit agresivní scarcity</strong><br>„Poslední slot“ nahradit reálnou informací, např. „Tento týden zbývá 3 volná místa“.</label>
+        </div>
+      </div>
+
+      <h3 style="margin-top:2rem">🟡 Střední priorita — do 30 dnů</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="c11">
+          <label for="c11"><strong>Přidat video „jak to funguje“</strong><br>60–90 sekundové video s vysvětlením procesu a ukázkou výsledku.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c12">
+          <label for="c12"><strong>Vylepšit FAQ</strong><br>Přidat otázky o ceně, vlastnictví, obsahu a podpoře. Strukturovaná data pro rich snippets.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c13">
+          <label for="c13"><strong>Optimalizovat formulář</strong><br>Max. 3 pole: jméno, telefon, obor. Méně polí = vyšší konverze.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c14">
+          <label for="c14"><strong>Přidat exit-intent popup</strong><br>Nabídka bezplatného návrhu při odchodu z webu.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c15">
+          <label for="c15"><strong>Retargeting</strong><br>Nastavit FB/IG a Google remarketing pro návštěvníky, kteří nekonvertovali.</label>
+        </div>
+      </div>
+
+      <h3 style="margin-top:2rem">🟢 Dlouhodobé — 2–3 měsíce</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="c16">
+          <label for="c16"><strong>A/B testování</strong><br>Testovat hlavní nadpisy, CTA, barvy a umístění formuláře.</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c17">
+          <label for="c17"><strong>Lokální SEO</strong><br>Vytvořit vstupní stránky pro konkrétní obory a lokality (např. „web pro elektrikáře Praha“).</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c18">
+          <label for="c18"><strong>Partnerství a reference</strong><br>Sbírat video reference, publikovat case studies, budovat zpětné odkazy.</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:2.5rem">
+      <h3>📈 Jak měřit úspěch?</h3>
+      <p>Sledujte tyto metriky v Google Analytics 4 a Search Console:</p>
+      <ul style="margin:1rem 0 0 1.2rem;color:rgba(255,255,255,.75)">
+        <li><strong>Konverzní poměr:</strong> cíl > 3 % z návštěvníků na nezávaznou poptávku</li>
+        <li><strong>CTR z organického vyhledávání:</strong> cíl > 4 %</li>
+        <li><strong>Průměrná doba na stránce:</strong> cíl > 2 minuty</li>
+        <li><strong>Míra okamžitého odchodu (bounce rate):</strong> cíl < 45 %</li>
+        <li><strong>Cena za získanou poptávku:</strong> co nejnižší v rámci kanálu</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="zaver" style="background:#fff">
+  <div class="container">
+    <div class="section-kicker">Závěr</div>
+    <h2>Shrnutí doporučení</h2>
+    <p>WebDo24.cz má dobrý produkt a silný differenciátor v podobě 24hodinového dodání. Aktuálně ale ztrácí konverze kvůli přehnanému vizuálnímu stylu, nedostatečné lidskosti a málo konkrétním důkazům.</p>
+    <p><strong>Nejdůležitější změny:</strong> přidat lidskou tvář týmu, konkrétní reference s výsledky, změnit hlavní CTA na měkkou konverzi, zjednodušit ceník a vizuálně uklidnit design. Tyto změny by měly výrazně zvýšit důvěryhodnost a tedy i konverze.</p>
+
+    <div class="cta-box">
+      <h2>Chcete, abych připravil konkrétní redesign?</h2>
+      <p>Tato analýza obsahuje koncept a texty. Dalším krokem může být vytvoření nového HTML prototypu, mockupů nebo detailní specifikace pro vývojáře.</p>
+      <a href="#shrnuti" class="btn btn-white">Zpět na začátek analýzy ↑</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Analýza vytvořena pro WebDo24.cz · Obsahuje psychologický rozbor, identifikaci cílového zákazníka a návrh maximalizace konverzí.</p>
+    <p style="margin-top:.5rem;font-size:.75rem">Všechny návrhy jsou pouze doporučení. Před implementací doporučuji ověřit cílovou skupinu a provést A/B testy.</p>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', function(){
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+// Active nav link
+var sections = document.querySelectorAll('section[id]');
+var navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', function(){
+  var current = '';
+  sections.forEach(function(section){
+    var sectionTop = section.offsetTop;
+    if(scrollY >= sectionTop - 120){ current = section.getAttribute('id'); }
+  });
+  navLinks.forEach(function(link){
+    link.classList.remove('active');
+    if(link.getAttribute('href') === '#' + current){ link.classList.add('active'); }
+  });
+});
+
+// Tabs
+function openTab(evt, tabId){
+  document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(tabId).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+
+// Accordion
+function toggleAccordion(btn){
+  var item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+// ROI Calc
+function calculateRoi(){
+  var avg = parseInt(document.getElementById('avg-order').value) || 0;
+  var leads = parseInt(document.getElementById('leads-month').value) || 0;
+  var conv = parseInt(document.getElementById('conversion-rate').value) || 0;
+  var price = parseInt(document.getElementById('package-price').value) || 0;
+
+  var monthly = avg * leads * (conv / 100);
+  var yearly = monthly * 12;
+  var payback = monthly > 0 ? (price / monthly).toFixed(1) : 0;
+
+  document.getElementById('roi-monthly').textContent = monthly.toLocaleString('cs-CZ') + ' Kč';
+  document.getElementById('roi-yearly').textContent = yearly.toLocaleString('cs-CZ') + ' Kč';
+  document.getElementById('roi-payback').textContent = payback;
+}
+
+// Init
+window.addEventListener('DOMContentLoaded', function(){
+  calculateRoi();
+});
+</script>
+
+</body>
+</html>

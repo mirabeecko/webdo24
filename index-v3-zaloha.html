@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KJNB99JZ');</script>
+<meta name="description" content="Web, který vám přinese zákazníky — do 24 hodin. Bez starostí, bez technických znalostí, bez rizika. Od 14 900 Kč.">
+<title>WebDo24.cz | Web, který vám přinese zákazníky do 24 hodin</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://webdo24.cz">
+<meta property="og:title" content="Web, který vám přinese zákazníky do 24 hodin | WebDo24.cz">
+<meta property="og:description" content="Web, příjem poptávek, SEO a možnost AI automatizace. Bez starostí, bez rizika.">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://webdo24.cz/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webdo24.cz/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0d9488;
+  --primary-dark:#0f766e;
+  --primary-light:#f0fdfa;
+  --accent:#f43f5e;
+  --accent-dark:#e11d48;
+  --accent-light:#fff1f2;
+  --text:#0f172a;
+  --text-soft:#475569;
+  --text-muted:#94a3b8;
+  --bg:#ffffff;
+  --bg-soft:#f8fafc;
+  --bg-warm:#fff7ed;
+  --border:#e2e8f0;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.05),0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-md:0 10px 15px -3px rgba(0,0,0,0.07),0 4px 6px -4px rgba(0,0,0,0.05);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.08),0 8px 10px -6px rgba(0,0,0,0.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Nav */
+.nav-wrap{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;gap:1rem}
+.nav-logo{font-size:1.2rem;font-weight:900;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{color:var(--primary)}
+.nav-links{display:flex;align-items:center;gap:.25rem}
+.nav-links a{padding:.5rem .9rem;border-radius:999px;font-size:.85rem;font-weight:700;color:var(--text-soft);text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
+.nav-cta{padding:.6rem 1.25rem;border-radius:999px;background:var(--accent);color:#fff;font-size:.85rem;font-weight:800;text-decoration:none;transition:all .2s;white-space:nowrap;box-shadow:0 4px 14px -4px rgba(244,63,94,0.35);position:relative;overflow:hidden}
+.nav-cta:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.nav-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s}
+.nav-cta:hover::before{left:100%}
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text)}
+@media(max-width:900px){
+  .nav-links{display:none;position:absolute;top:100%;left:1rem;right:1rem;background:#fff;border:1px solid var(--border);border-radius:1rem;flex-direction:column;padding:.75rem;box-shadow:var(--shadow-lg);gap:.25rem}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:.75rem 1rem}
+  .nav-toggle{display:block}
+}
+
+/* Sections */
+.container{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+section{padding:5rem 0}
+.section-kicker{font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:.75rem}
+.section-h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.section-sub{color:var(--text-soft);font-size:1.1rem;max-width:60ch}
+.text-center{text-align:center}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:9rem 0 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.5}
+.hero .container{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.25rem}
+.hero p{color:rgba(255,255,255,.85);font-size:1.15rem;max-width:52ch;margin-bottom:1.5rem}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:.82rem;font-weight:700;color:#fff}
+
+/* Lead form card */
+.lead-card{background:#fff;border-radius:1.5rem;padding:2rem;box-shadow:var(--shadow-lg);color:var(--text)}
+.lead-card h3{font-size:1.25rem;font-weight:900;margin-bottom:.5rem}
+.lead-card p{font-size:.9rem;color:var(--text-soft);margin-bottom:1.25rem}
+.lead-form{display:flex;flex-direction:column;gap:.9rem}
+.lead-input{width:100%;padding:.9rem 1rem;border:1.5px solid var(--border);border-radius:.85rem;font-family:inherit;font-size:.95rem;transition:border-color .2s}
+.lead-input:focus{outline:none;border-color:var(--primary)}
+.lead-input::placeholder{color:var(--text-muted)}
+.lead-input.err{border-color:var(--accent)}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.5rem;border-radius:.85rem;background:var(--accent);color:#fff;font-size:1rem;font-weight:800;text-decoration:none;transition:all .2s;border:none;cursor:pointer;box-shadow:0 8px 24px -4px rgba(244,63,94,0.35)}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 12px 32px -4px rgba(244,63,94,0.45)}
+.btn-primary:disabled{opacity:.7;cursor:not-allowed;transform:none}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.5rem;border-radius:.85rem;background:#fff;color:var(--text);font-size:1rem;font-weight:700;text-decoration:none;transition:all .2s;border:1.5px solid var(--border);cursor:pointer}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
+.lead-hint{font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.5rem}
+.lead-msg{display:none;padding:1rem 1.25rem;border-radius:.85rem;font-size:.92rem;font-weight:600;margin-top:1rem}
+.lead-msg.show{display:block}
+.lead-msg.ok{background:var(--primary-light);border:1px solid rgba(13,148,136,.2);color:var(--primary-dark)}
+.lead-msg.bad{background:var(--accent-light);border:1px solid rgba(244,63,94,.2);color:var(--accent-dark)}
+
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}.hero{padding:8rem 0 4rem}}
+
+/* Modern visual effects */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(244,63,94,.35)}50%{box-shadow:0 0 0 12px rgba(244,63,94,0)}}
+.animate-fade{animation:fadeInUp .7s ease-out both}
+.delay-1{animation-delay:.1s}
+.delay-2{animation-delay:.2s}
+.delay-3{animation-delay:.3s}
+
+.hero h1 span{background:linear-gradient(90deg,#5eead4,#a7f3d0,#5eead4);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 4s ease infinite}
+.hero-visual{margin-top:2.5rem;position:relative;max-width:620px}
+.browser-mockup{background:#fff;border-radius:1rem;box-shadow:0 30px 60px -15px rgba(0,0,0,.25);overflow:hidden;border:1px solid rgba(255,255,255,.3);transform:perspective(1000px) rotateY(-5deg) rotateX(3deg);transition:transform .4s ease}
+.browser-mockup:hover{transform:perspective(1000px) rotateY(0) rotateX(0) scale(1.02)}
+.browser-bar{height:2.25rem;background:linear-gradient(90deg,#f1f5f9,#e2e8f0);display:flex;align-items:center;gap:.45rem;padding:0 .9rem;border-bottom:1px solid var(--border)}
+.browser-dot{width:.65rem;height:.65rem;border-radius:50%}
+.browser-dot.r{background:#f43f5e}.browser-dot.y{background:#f59e0b}.browser-dot.g{background:#10b981}
+.browser-mockup img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.phone-mockup{position:absolute;right:-30px;bottom:-25px;width:150px;border-radius:1.5rem;overflow:hidden;box-shadow:0 20px 40px -10px rgba(0,0,0,.25);border:6px solid #fff;background:#fff;animation:float 4s ease-in-out infinite}
+.phone-mockup img{width:100%;aspect-ratio:9/19;object-fit:cover}
+@media(max-width:900px){.hero-visual{max-width:100%}.phone-mockup{width:110px;right:-10px;bottom:-15px}}
+
+/* Showcase section */
+.showcase{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);position:relative;overflow:hidden}
+.showcase::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(13,148,136,.12),transparent 70%);border-radius:50%}
+.showcase::after{content:'';position:absolute;bottom:-100px;left:-100px;width:350px;height:350px;background:radial-gradient(circle,rgba(244,63,94,.1),transparent 70%);border-radius:50%}
+.showcase-mockups{position:relative;max-width:900px;margin:3rem auto 0;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap}
+.showcase-browser{flex:1;min-width:300px;max-width:700px;background:#fff;border-radius:1.25rem;box-shadow:0 40px 80px -20px rgba(0,0,0,.2);overflow:hidden;border:1px solid var(--border);transform:perspective(1200px) rotateY(-3deg);transition:transform .4s ease}
+.showcase-browser:hover{transform:perspective(1200px) rotateY(0) scale(1.01)}
+.showcase-phone{width:170px;border-radius:2rem;overflow:hidden;box-shadow:0 25px 50px -10px rgba(0,0,0,.2);border:8px solid #fff;background:#fff;animation:float 5s ease-in-out infinite}
+.showcase-phone img{width:100%;aspect-ratio:9/19;object-fit:cover}
+@media(max-width:768px){.showcase-phone{width:130px}.showcase-browser{transform:none}.showcase-browser:hover{transform:scale(1.01)}}
+
+/* Glass cards */
+.glass-card{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:0 8px 32px -8px rgba(0,0,0,.08)}
+.glass-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px -12px rgba(0,0,0,.12)}
+
+/* Gradient accent text */
+.gradient-text{background:linear-gradient(135deg,var(--primary) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Enhanced buttons */
+.btn-glow{position:relative;overflow:hidden}
+.btn-glow::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s}
+.btn-glow:hover::before{left:100%}
+
+/* Decorative blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;pointer-events:none;z-index:0}
+.blob-1{width:400px;height:400px;background:var(--primary);top:10%;left:-10%}
+.blob-2{width:350px;height:350px;background:var(--accent);bottom:10%;right:-10%}
+
+/* Logo strip */
+.logo-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-soft);padding:2.5rem 0}
+.logo-strip-label{font-size:.7rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);text-align:center;margin-bottom:1.25rem}
+.logo-items{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.5rem 2.5rem}
+.logo-item{font-size:.95rem;font-weight:700;color:var(--text-soft);opacity:.7}
+
+/* Cards */
+.card-grid{display:grid;gap:1.25rem;margin-top:2rem}
+.card{background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;box-shadow:var(--shadow);transition:all .25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.card-icon{width:52px;height:52px;border-radius:.9rem;background:var(--primary-light);border:1px solid rgba(13,148,136,.15);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.1rem}
+.card h4{font-size:1.05rem;font-weight:800;margin-bottom:.35rem}
+.card p{font-size:.92rem;color:var(--text-soft);margin-bottom:0}
+
+/* ROI Calc */
+.roi-section{background:var(--bg-warm)}
+.roi-calc{background:#fff;border:1px solid var(--border);border-radius:1.5rem;padding:2rem;box-shadow:var(--shadow);margin-top:2rem}
+.roi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+.roi-field label{display:block;font-size:.78rem;font-weight:800;color:var(--text-soft);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.roi-field input,.roi-field select{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:.75rem;font-size:1rem;font-family:inherit}
+.roi-result{background:linear-gradient(135deg,var(--primary-light) 0%,#fff 100%);border:2px solid var(--primary);border-radius:1rem;padding:1.5rem;text-align:center}
+.roi-result .big{font-size:2.4rem;font-weight:900;color:var(--primary-dark)}
+.roi-result .label{font-size:.85rem;color:var(--text-soft);margin-bottom:.25rem}
+.roi-highlight{font-weight:800;color:var(--primary-dark)}
+
+/* Process */
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:2rem;left:15%;right:15%;height:3px;background:linear-gradient(90deg,var(--primary),rgba(13,148,136,.2));border-radius:3px}
+.p-step{position:relative;z-index:1;background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;text-align:center;box-shadow:var(--shadow)}
+.p-step-num{width:4rem;height:4rem;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:900;margin:0 auto 1.25rem;border:4px solid #fff;box-shadow:var(--shadow-md)}
+.p-step h4{font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.p-step p{font-size:.9rem;color:var(--text-soft);margin-bottom:0}
+
+/* Features */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
+.feature-card{background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:all .2s}
+.feature-card:hover{border-color:var(--primary);transform:translateY(-3px)}
+.feature-icon{width:44px;height:44px;border-radius:.75rem;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.feature-card h4{font-size:1rem;font-weight:800;margin-bottom:.2rem}
+.feature-card p{font-size:.85rem;color:var(--text-soft);margin-bottom:0}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;align-items:start}
+.price-card{background:#fff;border:1px solid var(--border);border-radius:1.5rem;padding:2rem;display:flex;flex-direction:column;text-align:center;box-shadow:var(--shadow);transition:all .25s;position:relative;overflow:hidden}
+.price-card:hover{transform:translateY(-8px);box-shadow:0 25px 50px -12px rgba(0,0,0,.12)}
+.price-card.popular{border:none;background:linear-gradient(135deg,#fff 0%,var(--primary-light) 100%);transform:scale(1.04);box-shadow:0 25px 50px -12px rgba(13,148,136,.2)}
+.price-card.popular:hover{transform:scale(1.04) translateY(-8px);box-shadow:0 30px 60px -12px rgba(13,148,136,.25)}
+.price-card.popular::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent))}
+.price-badge{display:inline-block;padding:.35rem 1rem;border-radius:999px;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
+.price-badge.popular{background:var(--primary);color:#fff}
+.price-badge.basic{background:#f1f5f9;color:var(--text-soft)}
+.price-name{font-size:1.4rem;font-weight:900;margin-bottom:.35rem}
+.price-desc{font-size:.9rem;color:var(--text-soft);margin-bottom:1.25rem;min-height:3em}
+.price-amount{font-size:2.6rem;font-weight:900;line-height:1;color:var(--text)}
+.price-note{font-size:.8rem;color:var(--text-muted);margin:.35rem 0 1.25rem}
+.price-list{text-align:left;margin:1.25rem 0 1.5rem;flex:1}
+.price-row{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.88rem;color:var(--text-soft)}
+.price-row::before{content:'✓';color:var(--primary);font-weight:900;flex-shrink:0}
+.price-btn{width:100%;justify-content:center}
+.price-btn-outline{width:100%;justify-content:center;background:#fff;color:var(--text);border:1.5px solid var(--border)}
+.price-btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+
+/* Guarantee */
+.guarantee{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff}
+.guarantee h2{color:#fff}
+.guarantee .section-kicker{color:#5eead4}
+.guarantee-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem}
+.guarantee-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:1.25rem;padding:1.75rem;backdrop-filter:blur(8px)}
+.guarantee-card h4{font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+.guarantee-card p{font-size:.9rem;color:rgba(255,255,255,.85);margin-bottom:0}
+
+/* FAQ */
+.faq-wrap{max-width:760px;margin:2rem auto 0}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:1rem;margin-bottom:.75rem;overflow:hidden;box-shadow:var(--shadow)}
+.faq-q{width:100%;padding:1.15rem 1.5rem;background:none;border:none;text-align:left;font-family:inherit;font-size:1rem;font-weight:800;color:var(--text);display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.faq-q:hover{background:var(--bg-soft)}
+.faq-ico{color:var(--primary);font-size:1.3rem;transition:transform .3s}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 1.5rem;color:var(--text-soft);font-size:.92rem;line-height:1.7}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:700px;margin:2rem auto 0}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;text-align:center;box-shadow:var(--shadow)}
+.team-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;margin:0 auto 1rem}
+.team-name{font-size:1.1rem;font-weight:800}
+.team-role{font-size:.85rem;color:var(--primary);font-weight:700;margin-bottom:.5rem}
+.team-card p{font-size:.85rem;color:var(--text-soft);margin-bottom:0}
+
+/* Footer */
+.footer{background:var(--text);color:#fff;padding:3rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-logo{font-size:1.3rem;font-weight:900;margin-bottom:.75rem}
+.footer-logo span{color:#5eead4}
+.footer p{font-size:.85rem;color:rgba(255,255,255,.65);margin-bottom:.25rem}
+.footer h5{font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);margin-bottom:1rem}
+.footer a{display:block;color:rgba(255,255,255,.65);text-decoration:none;font-size:.85rem;padding:.25rem 0;transition:color .2s}
+.footer a:hover{color:#5eead4}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.4)}
+
+/* Exit intent */
+#exitPopup{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px)}
+#exitPopup.show{display:flex}
+.exit-box{background:#fff;border-radius:1.5rem;padding:2.5rem;max-width:500px;width:100%;box-shadow:var(--shadow-lg);position:relative;text-align:center}
+.exit-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;color:var(--text-muted);cursor:pointer}
+.exit-box h3{font-size:1.5rem;font-weight:900;margin-bottom:.75rem}
+.exit-box p{color:var(--text-soft);margin-bottom:1.5rem}
+
+/* Hotline */
+#hw{position:fixed;bottom:1.5rem;right:1.5rem;z-index:150;width:280px;border-radius:1.5rem;padding:1.25rem 1.5rem;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-lg);font-family:'Outfit',sans-serif}
+#hw-top{display:flex;align-items:center;gap:.65rem;margin-bottom:.65rem}
+#hw-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+#hw-status{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+#hw a{display:block;font-size:1.6rem;font-weight:900;color:var(--text);text-decoration:none;line-height:1;margin-bottom:.25rem}
+#hw-sub{font-size:.78rem;font-weight:600;color:var(--text-soft)}
+#hw-close{position:absolute;top:.5rem;right:.75rem;background:none;border:none;color:var(--text-muted);font-size:1.1rem;cursor:pointer}
+@media(max-width:640px){#hw{left:1rem;right:1rem;width:auto;bottom:1rem}#hw a{font-size:1.4rem}}
+
+/* Responsive */
+@media(max-width:900px){
+  .process-steps{grid-template-columns:1fr}.process-steps::before{display:none}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .price-card.popular{transform:none}.price-card.popular:hover{transform:translateY(-5px)}
+  .guarantee-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;text-align:center}
+  .roi-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  section{padding:3.5rem 0}
+  .features-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .roi-grid{grid-template-columns:1fr}
+  .hero-badge{font-size:.75rem}
+}
+/* Portfolio / ukázky */
+.portfolio-section{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);padding:5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
+.portfolio-card{background:#fff;border:1px solid var(--border);border-radius:1.25rem;overflow:hidden;box-shadow:var(--shadow);transition:all .3s;position:relative}
+.portfolio-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 50px -12px rgba(0,0,0,.12)}
+.portfolio-card:hover .portfolio-img img,.portfolio-card:hover .portfolio-iframe{transform:scale(1.05)}
+.portfolio-img{overflow:hidden;position:relative;background:var(--bg-soft)}
+.portfolio-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.5) 100%);opacity:0;transition:opacity .3s}
+.portfolio-card:hover .portfolio-img::after{opacity:1}
+.portfolio-img img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:transform .5s ease}
+.portfolio-browser-bar{height:1.75rem;background:linear-gradient(90deg,#f1f5f9,#e2e8f0);display:flex;align-items:center;gap:.35rem;padding:0 .65rem;border-bottom:1px solid var(--border)}
+.portfolio-browser-bar span{width:.45rem;height:.45rem;border-radius:50%}
+.portfolio-browser-bar span:nth-child(1){background:#f43f5e}
+.portfolio-browser-bar span:nth-child(2){background:#f59e0b}
+.portfolio-browser-bar span:nth-child(3){background:#10b981}
+.portfolio-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.25rem;pointer-events:none;z-index:2}
+.portfolio-view-btn{background:#fff;color:var(--text);padding:.65rem 1.25rem;border-radius:999px;font-weight:800;font-size:.85rem;box-shadow:0 10px 30px -5px rgba(0,0,0,.25);transform:translateY(20px);opacity:0;transition:all .3s ease}
+.portfolio-card:hover .portfolio-view-btn{transform:translateY(0);opacity:1}
+.portfolio-card{cursor:pointer}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(15,23,42,.93);z-index:1000;display:none;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(8px)}
+.lightbox.show{display:flex}
+.lightbox-box{background:#fff;border-radius:1rem;width:100%;max-width:1200px;height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 40px 80px -20px rgba(0,0,0,.4);animation:fadeInUp .3s ease-out}
+.lightbox-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--bg-soft);border-bottom:1px solid var(--border)}
+.lightbox-header h3{font-size:1.1rem;font-weight:800;display:flex;align-items:center;gap:.5rem}
+.lightbox-close{background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--text);line-height:1;padding:0;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s}
+.lightbox-close:hover{background:var(--border)}
+.lightbox-iframe{flex:1;width:100%;border:none;background:#fff}
+.lightbox-footer{padding:1rem 1.25rem;background:var(--bg-soft);border-top:1px solid var(--border);display:flex;gap:1rem;justify-content:flex-end;flex-wrap:wrap}
+@media(max-width:640px){.lightbox{padding:.75rem}.lightbox-box{height:92vh;border-radius:.75rem}.lightbox-footer{flex-direction:column}.lightbox-footer .btn{width:100%}}
+.portfolio-body{padding:1.1rem 1.25rem 1.25rem}
+.portfolio-title{font-weight:800;font-size:1.05rem;color:var(--text);margin-bottom:.2rem}
+.portfolio-meta{font-size:.8rem;color:var(--text-muted);font-weight:600}
+.portfolio-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+.portfolio-tags span{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:.25rem .55rem;background:var(--primary-light);color:var(--primary-dark);border-radius:999px}
+@media(max-width:1024px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.portfolio-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
+
+/* Trust section */
+.trust-section{background:linear-gradient(180deg,var(--bg-soft) 0%,#fff 100%);padding:5rem 0;position:relative;overflow:hidden}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin:2.5rem 0 3rem}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem 1rem;text-align:center;box-shadow:var(--shadow);transition:all .25s}
+.stat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.stat-num{font-size:2.4rem;font-weight:900;color:var(--primary);line-height:1;margin-bottom:.25rem}
+.stat-label{font-size:.9rem;font-weight:700;color:var(--text-soft)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.trust-card{background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;box-shadow:var(--shadow);transition:all .25s}
+.trust-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.trust-icon{width:3rem;height:3rem;border-radius:1rem;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem}
+.trust-card h3{font-size:1.1rem;font-weight:800;margin-bottom:.4rem}
+.trust-card p{font-size:.9rem;color:var(--text-soft)}
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.stats-grid{grid-template-columns:1fr;max-width:300px;margin-left:auto;margin-right:auto}.trust-grid{grid-template-columns:1fr}}
+
+/* Phone promo block */
+.phone-promo{background:var(--bg-warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.phone-promo-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding:1.75rem 0}
+.phone-promo-text{display:flex;align-items:center;gap:1rem;flex:1}
+.phone-promo-icon{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.phone-promo h3{font-size:1.2rem;font-weight:800;margin-bottom:.15rem}
+.phone-promo p{color:var(--text-soft);font-size:.95rem;margin:0}
+.phone-promo .btn{white-space:nowrap}
+@media(max-width:640px){.phone-promo-inner{flex-direction:column;text-align:center}.phone-promo-text{flex-direction:column}.phone-promo .btn{width:100%}}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">webdo<span>24</span>.cz</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="#jak-to-funguje">Jak to funguje</a>
+      <a href="#ukazky">Ukázky</a>
+      <a href="#cenik">Ceník</a>
+      <a href="#faq">FAQ</a>
+      <a href="#tym">O nás</a>
+      <a href="#poptavka" class="nav-cta">Chci web do 24 hodin →</a>
+    </div>
+    <a href="#poptavka" class="nav-cta" style="margin-left:auto">Chci web do 24 hodin →</a>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge" style="margin-bottom:1.25rem;display:inline-flex">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#5eead4;animation:pulse 1.8s infinite"></span>
+          Web do 24 hodin
+        </div>
+        <h1>Web, který vám přinese zákazníky — <span style="color:#5eead4">do 24 hodin.</span></h1>
+        <p>Bez starostí, bez technických znalostí, bez rizika. Vy nám řeknete, čím se živíte. My vytvoříme web, na kterém se zákazníci zastaví a rovnou vám napíšou.</p>
+        <div class="hero-badges">
+          <span class="hero-badge">🛡️ 100 % garance vrácení peněz</span>
+          <span class="hero-badge">⭐ 5,0 hodnocení klientů</span>
+          <span class="hero-badge">📍 České podnikání</span>
+        </div>
+
+        <div class="hero-visual animate-fade delay-3">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <span class="browser-dot r"></span>
+              <span class="browser-dot y"></span>
+              <span class="browser-dot g"></span>
+              <span style="margin-left:auto;font-size:.65rem;color:var(--text-muted)">paddleboardymilada.cz</span>
+            </div>
+            <img src="previews/demo7-paddleboardy-milada.png" alt="Ukázka webu Paddleboardy Milada" loading="eager">
+          </div>
+          <div class="phone-mockup">
+            <img src="previews/demo5-kadernictvimaruska.png" alt="Ukázka webu na mobilu" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="lead-card" id="poptavka">
+        <h3>Chci web do 24 hodin</h3>
+        <p>Zaplaťte, řekněte nám o své firmě a do 24 hodin vám představíme váš nový web.</p>
+        <form id="leadForm" class="lead-form" onsubmit="sendLead(event)" novalidate>
+          <input id="lead-name" class="lead-input" type="text" placeholder="Jméno / firma *" required autocomplete="name">
+          <input id="lead-phone" class="lead-input" type="tel" placeholder="Telefon *" required autocomplete="tel">
+          <input id="lead-business" class="lead-input" type="text" placeholder="Čím se zabýváte? (např. instalatér Praha)">
+          <input id="lead-email" class="lead-input" type="email" placeholder="E-mail (nepovinné)" autocomplete="email">
+          <button type="submit" id="lead-btn" class="btn-primary btn-glow" style="width:100%">Chci web do 24 hodin →</button>
+          <p class="lead-hint">Odpovídáme do 1 hodiny (Po–Pá 9–18) · Údaje nikam nepředáváme</p>
+        </form>
+        <div id="lead-ok" class="lead-msg ok">✓ Děkujeme! Ozveme se vám co nejdřív. Pokud spěcháte, zavolejte na <a href="tel:+420735847185" style="color:var(--primary);font-weight:800">735 847 185</a>.</div>
+        <div id="lead-bad" class="lead-msg bad">Odeslání se nepodařilo. Zavolejte nám na <a href="tel:+420735847185" style="color:var(--accent);font-weight:800">735 847 185</a> nebo napište na <a href="mailto:info@webdo24.cz" style="color:var(--accent);font-weight:800">info@webdo24.cz</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="text-center">
+      <div class="section-kicker">Vizualizace</div>
+      <h2 class="section-h2">Takhle může vypadat <span class="gradient-text">váš nový web</span></h2>
+      <p class="section-sub" style="margin:0 auto">Moderní design, který funguje na počítači i mobilu. Každý web vytváříme na míru konkrétnímu oboru a cílové skupině.</p>
+    </div>
+    <div class="showcase-mockups">
+      <div class="showcase-browser">
+        <div class="browser-bar">
+          <span class="browser-dot r"></span>
+          <span class="browser-dot y"></span>
+          <span class="browser-dot g"></span>
+          <span style="margin-left:auto;font-size:.65rem;color:var(--text-muted)">ninjadenprodeti.cz</span>
+        </div>
+        <img src="previews/demo3-ninja-vikend.png" alt="Ukázka webu Ninja Den pro děti" loading="lazy">
+      </div>
+      <div class="showcase-phone">
+        <img src="previews/demo8-pavel-dousa-elektrikar.png" alt="Ukázka webu na mobilu" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phone-promo">
+  <div class="container">
+    <div class="phone-promo-inner">
+      <div class="phone-promo-text">
+        <div class="phone-promo-icon">📞</div>
+        <div>
+          <h3>Web z telefonu do 24 hodin</h3>
+          <p>Nechcete vyplňovat formulář? Zavolejte nám, řekněte o projektu a zaplaťte — my uděláme zbytek.</p>
+        </div>
+      </div>
+      <a href="web-z-telefonu.html" class="btn btn-primary btn-glow" onclick="dataLayer.push({event:'select_content',content_type:'phone_service_promo',destination:'web-z-telefonu.html'})">Zjistit více →</a>
+    </div>
+  </div>
+</section>
+
+<section class="logo-strip">
+  <div class="container">
+    <div class="logo-strip-label">Důvěřují nám</div>
+    <div class="logo-items">
+      <span class="logo-item">⚡ Elektrikář Praha</span>
+      <span class="logo-item">🌊 Paddleboardy Milada</span>
+      <span class="logo-item">🥷 Ninja Den pro děti</span>
+      <span class="logo-item">🪚 Truhlářství Dřevořez</span>
+      <span class="logo-item">⚡ Pavel Douša — Elektrikář</span>
+      <span class="logo-item">🔧 Autoservis Praha</span>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="ukazky">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Portfolio</div>
+      <h2 class="section-h2">Reálné weby, které jsme vytvořili</h2>
+      <p class="section-sub" style="margin:0 auto">Vybrali jsme 4 nejlepší ukázky napříč obory — od řemeslníků přes služby až po zážitky.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card" onclick="openSite('https://paddleboardy-milada.cz','Paddleboardy Milada')">
+        <div class="portfolio-browser-bar"><span></span><span></span><span></span><span style="margin-left:auto;font-size:.6rem;color:var(--text-muted)">paddleboardy-milada.cz</span></div>
+        <div class="portfolio-img">
+          <img src="previews/demo7-paddleboardy-milada.png" alt="Web Paddleboardy Milada" loading="lazy">
+          <div class="portfolio-overlay"><span class="portfolio-view-btn">👁 Zobrazit web →</span></div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-title">Paddleboardy Milada</div>
+          <div class="portfolio-meta">Dodáno za 23 hodin · Rezervace + platby online</div>
+        </div>
+      </div>
+      <div class="portfolio-card" onclick="openSite('https://ninja-tyden.cz','Ninja Den pro děti')">
+        <div class="portfolio-browser-bar"><span></span><span></span><span></span><span style="margin-left:auto;font-size:.6rem;color:var(--text-muted)">ninja-tyden.cz</span></div>
+        <div class="portfolio-img">
+          <img src="previews/demo3-ninja-vikend.png" alt="Web Ninja Den pro děti" loading="lazy">
+          <div class="portfolio-overlay"><span class="portfolio-view-btn">👁 Zobrazit web →</span></div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-title">Ninja Den pro děti</div>
+          <div class="portfolio-meta">Dodáno za 17 hodin · Registrace na akce</div>
+        </div>
+      </div>
+      <div class="portfolio-card" onclick="openSite('https://web.webdo24.cz/truhlarstvi-drevorez','Truhlářství Dřevořez')">
+        <div class="portfolio-browser-bar"><span></span><span></span><span></span><span style="margin-left:auto;font-size:.6rem;color:var(--text-muted)">web.webdo24.cz</span></div>
+        <div class="portfolio-img">
+          <img src="previews/demo4-selbicky.png" alt="Web Truhlářství Dřevořez" loading="lazy">
+          <div class="portfolio-overlay"><span class="portfolio-view-btn">👁 Zobrazit web →</span></div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-title">Truhlářství Dřevořez</div>
+          <div class="portfolio-meta">Dodáno za 18 hodin · Poptávkový web</div>
+        </div>
+      </div>
+      <div class="portfolio-card" onclick="openSite('https://dousa-elektro.cz','Pavel Douša — Elektrikář')">
+        <div class="portfolio-browser-bar"><span></span><span></span><span></span><span style="margin-left:auto;font-size:.6rem;color:var(--text-muted)">dousa-elektro.cz</span></div>
+        <div class="portfolio-img">
+          <img src="previews/demo8-pavel-dousa-elektrikar.png" alt="Web Pavel Douša Elektrikář" loading="lazy">
+          <div class="portfolio-overlay"><span class="portfolio-view-btn">👁 Zobrazit web →</span></div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-title">Pavel Douša — Elektrikář</div>
+          <div class="portfolio-meta">Dodáno za 20 hodin · Web pro řemeslníka</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-section" id="proc-nam-verit">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Důvěra</div>
+      <h2 class="section-h2">Proč nám klienti svěřují web</h2>
+      <p class="section-sub" style="margin:0 auto">Žádné plané sliby. Jasné podmínky, konkrétní termíny a plná transparentnost.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Spuštěných webů</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Dodání webu</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Garance vrácení peněz</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">⭐ 5,0</div>
+        <div class="stat-label">Hodnocení klientů</div>
+      </div>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🛡️</div>
+        <h3>Bez rizika</h3>
+        <p>Nestihneme 24 hodin? Vrátíme vám peníze. A pokud se vám web nebude líbit, máte 14 dní na odstoupení.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🔑</div>
+        <h3>Web je váš od první minuty</h3>
+        <p>Dostanete přístupy k doméně, hostingu i zdrojovému kódu. Nikdy vás neuzamkneme do žádného systému.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🇨🇿</div>
+        <h3>Česká podpora</h3>
+        <p>Telefon, e-mail, WhatsApp. Reagujeme do 1 hodiny v pracovní době a domluvíme se česky.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">📊</div>
+        <h3>Transparentní ceny</h3>
+        <p>Jednorázová cena nebo splátky bez navýšení. Žádné skryté poplatky, žádné nutné doplňky.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="roi-section" id="kalkulacka">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Výpočet návratnosti</div>
+      <h2 class="section-h2">Kolik vás stojí nemít web?</h2>
+      <p class="section-sub" style="margin:0 auto">Spočítejte si, kolik poptávek a obratu můžete získat, když budete viditelní online.</p>
+    </div>
+    <div class="roi-calc">
+      <div class="roi-grid">
+        <div class="roi-field">
+          <label>Průměrná zakázka</label>
+          <input type="number" id="roi-order" value="8000" oninput="calculateRoi()">
+        </div>
+        <div class="roi-field">
+          <label>Poptávek z webu/měsíc</label>
+          <select id="roi-leads" onchange="calculateRoi()">
+            <option value="2">2</option>
+            <option value="5" selected>5</option>
+            <option value="8">8</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+        <div class="roi-field">
+          <label>Konverze poptávek</label>
+          <select id="roi-conversion" onchange="calculateRoi()">
+            <option value="20">20 %</option>
+            <option value="30" selected>30 %</option>
+            <option value="50">50 %</option>
+          </select>
+        </div>
+        <div class="roi-field">
+          <label>Balíček</label>
+          <select id="roi-package" onchange="calculateRoi()">
+            <option value="14900" selected>Start — 14 900 Kč</option>
+            <option value="29900">Business — 29 900 Kč</option>
+          </select>
+        </div>
+      </div>
+      <div class="roi-result">
+        <div class="label">Očekávaný měsíční obrat z webu</div>
+        <div class="big" id="roi-monthly">12 000 Kč</div>
+        <div style="color:var(--text-soft);font-size:.9rem;margin-top:.5rem">Web se zaplatí za <span class="roi-highlight" id="roi-payback">1,2</span> měsíce. Za rok: <span class="roi-highlight" id="roi-yearly">144 000 Kč</span>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="jak-to-funguje">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Jak to funguje</div>
+      <h2 class="section-h2">Od první zprávy k hotovému webu za 24 hodin</h2>
+      <p class="section-sub" style="margin:0 auto">Celý proces jsme zjednodušili na minimum. Vy řeknete, čím se živíte — my uděláme zbytek.</p>
+    </div>
+    <div class="process-steps">
+      <div class="p-step">
+        <div class="p-step-num">1</div>
+        <h4>Řeknete nám o své firmě</h4>
+        <p>Stačí pár vět telefonicky nebo e-mailem. Co děláte, kde působíte a komu pomáháte.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-step-num">2</div>
+        <h4>Zaplatíte a zadáte požadavky</h4>
+        <p> Vyberete si balíček, zaplatíte a řeknete nám, co potřebujete. My se okamžitě pustíme do práce.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-step-num">3</div>
+        <h4>Do 24 hodin máte nový web</h4>
+        <p>Připravíme web s texty, fotografiemi a formuláři. Upravíme drobnosti a spustíme ho na vaší doméně.</p>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:2.5rem">
+      <a href="#poptavka" class="btn-primary">Chci web do 24 hodin →</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft)" id="co-dostanete">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Vše v ceně</div>
+      <h2 class="section-h2">Co dostanete v každém balíčku</h2>
+      <p class="section-sub" style="margin:0 auto">Žádné skryté poplatky. Žádné překvapení. Vše, co potřebujete pro start online.</p>
+    </div>
+    <div class="features-grid" style="margin-top:2.5rem">
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div>
+          <h4>Responzivní web na míru</h4>
+          <p>Funguje perfektně na mobilu, tabletu i počítači.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <div>
+          <h4>SEO a Google Business</h4>
+          <p>Zákazníci vás najdou na Googlu a v Mapách.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <div>
+          <h4>Kontaktní formuláře</h4>
+          <p>Poptávky chodí přímo na váš e-mail nebo telefon.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <div>
+          <h4>Vlastní doména</h4>
+          <p>Web je váš — kód, doména i obsah od první minuty.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <div>
+          <h4>Spuštění do 24 hodin</h4>
+          <p>Nestihneme? Vrátíme 100 % peněz. Bez výmluv.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div>
+          <h4>1 rok hostingu zdarma</h4>
+          <p>EU servery, SSL certifikát a denní zálohy v ceně.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cenik" style="background:var(--bg-soft)">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Ceník</div>
+      <h2 class="section-h2">Kolik stojí web, který přináší zákazníky?</h2>
+      <p class="section-sub" style="margin:0 auto">Jednorázová platba nebo bezúročné splátky. Web je váš od první chvíle — bez závazků.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <span class="price-badge basic">Start</span>
+        <div class="price-name">Základní web</div>
+        <div class="price-desc">Pro řemeslníky a živnostníky, kteří chtějí být vidět a získávat poptávky.</div>
+        <div class="price-amount">14 900 Kč</div>
+        <div class="price-note">nebo 1 490 Kč × 12 měsíců</div>
+        <div class="price-list">
+          <div class="price-row">Web na míru do 24 hodin</div>
+          <div class="price-row">SEO + Google Business profil</div>
+          <div class="price-row">Kontaktní formuláře</div>
+          <div class="price-row">1 rok hostingu zdarma</div>
+          <div class="price-row">2 kola úprav zdarma</div>
+        </div>
+        <a href="model-start.html" class="btn btn-secondary price-btn-outline">Zobrazit detaily →</a>
+        <a href="objednat.html?plan=start" style="display:block;text-align:center;margin-top:.75rem;font-size:.78rem;color:var(--text-muted);text-decoration:none;font-weight:700">Rovnou objednat →</a>
+      </div>
+
+      <div class="price-card popular">
+        <span class="price-badge popular">Doporučujeme</span>
+        <div class="price-name">Web s AI</div>
+        <div class="price-desc">Pro firmy, které chtějí automaticky odpovídat zákazníkům a přijímat platby.</div>
+        <div class="price-amount" style="color:var(--primary)">29 900 Kč</div>
+        <div class="price-note">nebo 2 990 Kč × 12 měsíců</div>
+        <div class="price-list">
+          <div class="price-row">Vše ze Start</div>
+          <div class="price-row">AI odpovědi 24/7</div>
+          <div class="price-row">CRM a sběr poptávek</div>
+          <div class="price-row">Platební brána v ceně</div>
+          <div class="price-row">Automatické e-maily</div>
+        </div>
+        <a href="objednat.html?plan=business" class="btn btn-primary price-btn">Chci Business →</a>
+      </div>
+
+      <div class="price-card">
+        <span class="price-badge basic">Automation</span>
+        <div class="price-name">Plná automatizace</div>
+        <div class="price-desc">Pro firmy s větším objemem — plně automatizovaný obchodní systém na míru.</div>
+        <div class="price-amount">59 900 Kč</div>
+        <div class="price-note">nebo 5 990 Kč × 12 měsíců</div>
+        <div class="price-list">
+          <div class="price-row">Vše z Business</div>
+          <div class="price-row">Pokročilé workflow</div>
+          <div class="price-row">Rezervační systém</div>
+          <div class="price-row">API integrace</div>
+          <div class="price-row">Automatické faktury</div>
+        </div>
+        <a href="model-automation.html" class="btn btn-secondary price-btn-outline">Zobrazit detaily →</a>
+        <a href="objednat.html?plan=automation" style="display:block;text-align:center;margin-top:.75rem;font-size:.78rem;color:var(--text-muted);text-decoration:none;font-weight:700">Rovnou objednat →</a>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:2rem">
+      <p style="font-size:.85rem;color:var(--text-muted)">Všechny balíčky obsahují: vlastnictví webu · 1 rok hostingu · 100 % garanci termínu · 2 kola úprav</p>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">100 % jistota</div>
+      <h2 class="section-h2">Bez rizika. Bez háčků.</h2>
+      <p style="color:rgba(255,255,255,.8);max-width:60ch;margin:0 auto;font-size:1.05rem">Víme, že svěřovat svůj web někomu jinému není snadné. Proto jsme garance postavili tak, abyste nemuseli riskovat.</p>
+    </div>
+    <div class="guarantee-grid">
+      <div class="guarantee-card">
+        <h4>🛡️ Nestihneme 24 hodin? Vrátíme 100 %.</h4>
+        <p>Termín je pro nás závazný. Pokud vám web nedodáme do 24 hodin od zadání, vrátíme vám celou částku.</p>
+      </div>
+      <div class="guarantee-card">
+        <h4>🚀 Web do 24 hodin od zadání</h4>
+        <p>Zaplatíte, zadáte požadavky a my vám do 24 hodin představíme hotový web. Termín je pro nás závazný.</p>
+      </div>
+      <div class="guarantee-card">
+        <h4>✏️ 2 kola úprav zdarma</h4>
+        <p>Neodcházíte s něčím, co nechcete. Změníme texty, barvy i fotky podle vašich představ.</p>
+      </div>
+      <div class="guarantee-card">
+        <h4>🔑 Web je váš od první minuty</h4>
+        <p>Doména, kód i obsah patří vám. Žádný lock-in, žádné skryté podmínky.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tym">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Kdo jsme</div>
+      <h2 class="section-h2">Za webem stojí reální lidé</h2>
+      <p class="section-sub" style="margin:0 auto">Nejsme anonymí. Jsme česká firma, která pomáhá živnostníkům a malým firmám uspět online.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">👨‍💻</div>
+        <div class="team-name">Marek Blažek</div>
+        <div class="team-role">Zakladatel & vývoj</div>
+        <p>„Věřím, že každý řemeslník si zaslouží web, který mu přinese zákazníky — bez zbytečného čekání a technických starostí.“</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#f59e0b,#f43f5e)">👩‍💼</div>
+        <div class="team-name">Tereza Svobodová</div>
+        <div class="team-role">Copywriting & UX</div>
+        <p>„Texty na webu musí mluvit jazykem zákazníka. Pomáhám firmám najít slova, která prodávají.“</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--bg-soft)">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-kicker">Časté otázky</div>
+      <h2 class="section-h2">Co vás nejvíce zajímá?</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Co když nevím, co na web napsat?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">To je úplně běžné. Stačí nám říct, čím se zabýváte, pro koho a kde působíte. Texty, fotografie i strukturu webu připravíme my. Vy jen zkontrolujete hotový web a řeknete, co upravit.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Opravdu dostanu web do 24 hodin?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Ano. Do 24 hodin od zaplacení a zadání požadavků vám pošleme odkaz na hotový web. Nestihneme to? Vrátíme vám 100 % ceny. Tato garance platí pro balíčky Start a Business.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Komu bude web patřit?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Vám. Od první minuty. Doména, obsah i zdrojový kód jsou vaše. Předáme vám všechny přístupy — doménu, hosting, analytiku. Bez lock-inu a bez skrytých podmínek.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Je v ceně i hosting?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Ano — 1 rok hostingu zdarma je součástí každého balíčku. EU servery, SSL certifikát, 99,99 % dostupnost a denní zálohy. Po roce si hosting můžete nechat u nás nebo převést jinam.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Mohu zaplatit na splátky?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Ano. U každého balíčku si můžete vybrat jednorázovou platbu nebo 12 měsíčních splátek bez úroku a bez navýšení. Vyberete si při objednávce.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Co když se mi výsledek nebude líbit?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">Upravíme to. Dvě kola úprav jsou v ceně každého balíčku. Po zaplacení připravíme web a doladíme ho podle vašich připomínek. A pokud bychom termín nestihli, vrátíme vám peníze.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Co je to AI automatizace v balíčku Business?</span>
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">AI automaticky odpovídá na běžné dotazy zákazníků (ceník, dostupnost, služby) 24 hodin denně. Vy dostanete notifikaci a můžete se soustředit na zakázky, ne na opakující se zprávy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);border-radius:1.5rem;padding:3rem 2rem;text-align:center;color:#fff">
+      <h2 style="color:#fff;margin-bottom:1rem">Začněte ještě dnes — bez rizika</h2>
+      <p style="color:rgba(255,255,255,.85);max-width:55ch;margin:0 auto 1.5rem;font-size:1.05rem">Zaplaťte, zadejte požadavky a do 24 hodin vám představíme váš nový web. Nestihneme termín? Vrátíme 100 % peněz.</p>
+      <a href="#poptavka" class="btn btn-white" style="font-size:1.05rem;padding:1.1rem 2rem">Chci web do 24 hodin →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">webdo<span>24</span>.cz</div>
+        <p>Web, který vám přinese zákazníky do 24 hodin.</p>
+        <p style="margin-top:.75rem">Soterana Corp s.r.o.</p>
+        <p>IČO: 14052326 · Sídlo: U Uranie 1583/21, Praha 7, 170 00</p>
+        <p style="margin-top:.5rem"><a href="tel:+420735847185" style="display:inline;color:#5eead4;font-weight:800;font-size:1rem">+420 735 847 185</a></p>
+        <p><a href="mailto:info@webdo24.cz" style="display:inline;color:#5eead4;font-weight:700">info@webdo24.cz</a></p>
+      </div>
+      <div>
+        <h5>Služby</h5>
+        <a href="model-start.html">Model Start</a>
+        <a href="model-business.html">Model Business</a>
+        <a href="model-automation.html">Model Automation</a>
+        <a href="#cenik">Ceník</a>
+      </div>
+      <div>
+        <h5>Firma</h5>
+        <a href="#tym">O nás</a>
+        <a href="#ukazky">Ukázky</a>
+        <a href="vop/">VOP</a>
+        <a href="gdpr/">Ochrana osobních údajů</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 WebDo24.cz — Soterana Corp s.r.o. Všechna práva vyhrazena.
+    </div>
+  </div>
+</footer>
+
+<!-- Exit intent popup -->
+<div id="exitPopup">
+  <div class="exit-box">
+    <button class="exit-close" onclick="closeExitPopup()">×</button>
+    <div style="font-size:3rem;margin-bottom:.75rem">🎁</div>
+    <h3>Než odejdete...</h3>
+    <p>Zaplaťte, zadejte požadavky a do 24 hodin vám představíme váš nový web. Garance vrácení peněz, pokud termín nestihneme.</p>
+    <a href="#poptavka" class="btn btn-primary" onclick="closeExitPopup()" style="width:100%;justify-content:center">Chci web do 24 hodin →</a>
+  </div>
+</div>
+
+<!-- Hotline widget -->
+<div id="hw">
+  <button id="hw-close" onclick="document.getElementById('hw').style.display='none'">×</button>
+  <div id="hw-top">
+    <div id="hw-dot"></div>
+    <span id="hw-status"></span>
+  </div>
+  <a href="tel:+420735847185">735 847 185</a>
+  <div id="hw-sub"></div>
+</div>
+
+<style>@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://webdo24.cz/#organization",
+      "name": "WebDo24.cz",
+      "legalName": "Soterana Corp s.r.o.",
+      "url": "https://webdo24.cz",
+      "logo": {"@type":"ImageObject","url":"https://webdo24.cz/favicon-96x96.png","width":96,"height":96},
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+420735847185",
+        "contactType": "customer service",
+        "availableLanguage": "Czech"
+      },
+      "email": "info@webdo24.cz",
+      "areaServed": {"@type": "Country", "name": "Česká republika"},
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5", "ratingCount": "40", "bestRating": "5", "worstRating": "1"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Co když nevím, co na web napsat?","acceptedAnswer":{"@type":"Answer","text":"To je úplně běžné. Stačí nám říct, čím se zabýváte, pro koho a kde působíte. Texty, fotografie i strukturu webu připravíme my."}},
+        {"@type":"Question","name":"Opravdu dostanu web do 24 hodin?","acceptedAnswer":{"@type":"Answer","text":"Ano. Do 24 hodin od zaplacení a zadání požadavků vám pošleme odkaz na hotový web. Nestihneme to? Vrátíme vám 100 % ceny."}},
+        {"@type":"Question","name":"Komu bude web patřit?","acceptedAnswer":{"@type":"Answer","text":"Vám. Od první minuty. Doména, obsah i zdrojový kód jsou vaše. Předáme vám všechny přístupy."}},
+        {"@type":"Question","name":"Je v ceně i hosting?","acceptedAnswer":{"@type":"Answer","text":"Ano — 1 rok hostingu zdarma je součástí každého balíčku. EU servery, SSL certifikát, 99,99 % dostupnost a denní zálohy."}},
+        {"@type":"Question","name":"Mohu zaplatit na splátky?","acceptedAnswer":{"@type":"Answer","text":"Ano. U každého balíčku si můžete vybrat jednorázovou platbu nebo 12 měsíčních splátek bez úroku a bez navýšení."}},
+        {"@type":"Question","name":"Co když se mi výsledek nebude líbit?","acceptedAnswer":{"@type":"Answer","text":"Upravíme to. Dvě kola úprav jsou v ceně každého balíčku. Po zaplacení připravíme web a doladíme ho podle vašich připomínek."}},
+        {"@type":"Question","name":"Co je to AI automatizace v balíčku Business?","acceptedAnswer":{"@type":"Answer","text":"AI automaticky odpovídá na běžné dotazy zákazníků 24 hodin denně. Vy dostanete notifikaci a můžete se soustředit na zakázky."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+/* Mobile nav */
+document.querySelector('.nav-toggle').addEventListener('click',function(){
+  document.querySelector('.nav-links').classList.toggle('open');
+});
+
+/* FAQ */
+function toggleFaq(btn){
+  var item=btn.closest('.faq-item');
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if(!wasOpen) item.classList.add('open');
+}
+
+/* Lead form */
+function sendLead(e){
+  e.preventDefault();
+  var name=document.getElementById('lead-name');
+  var phone=document.getElementById('lead-phone');
+  var ok=true;
+  [name,phone].forEach(function(el){
+    if(!el.value.trim()){ el.classList.add('err'); ok=false; }
+    else el.classList.remove('err');
+  });
+  if(!ok){ name.value.trim()?phone.focus():name.focus(); return; }
+
+  var btn=document.getElementById('lead-btn');
+  var bad=document.getElementById('lead-bad');
+  bad.classList.remove('show');
+  btn.disabled=true; btn.textContent='Odesílám…';
+
+  var data={
+    web_id:'webdo24',
+    name:name.value.trim(),
+    phone:phone.value.trim(),
+    email:document.getElementById('lead-email').value.trim(),
+    business:document.getElementById('lead-business').value.trim(),
+    note:'',
+    source:'index-v4-poptavka',
+    url:window.location.href
+  };
+
+  fetch('https://n8n.webdo24.cz/webhook/new-lead',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
+  })
+  .then(function(res){
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    document.getElementById('leadForm').style.display='none';
+    document.getElementById('lead-ok').classList.add('show');
+    (window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',lead_source:'index-v4-poptavka'});
+  })
+  .catch(function(){
+    btn.disabled=false; btn.textContent='Chci web do 24 hodin →';
+    bad.classList.add('show');
+  });
+}
+
+/* ROI Calc */
+function calculateRoi(){
+  var avg=parseInt(document.getElementById('roi-order').value)||0;
+  var leads=parseInt(document.getElementById('roi-leads').value)||0;
+  var conv=parseInt(document.getElementById('roi-conversion').value)||0;
+  var price=parseInt(document.getElementById('roi-package').value)||0;
+  var monthly=avg*leads*(conv/100);
+  var yearly=monthly*12;
+  var payback=monthly>0?(price/monthly).toFixed(1):0;
+  document.getElementById('roi-monthly').textContent=monthly.toLocaleString('cs-CZ')+' Kč';
+  document.getElementById('roi-yearly').textContent=yearly.toLocaleString('cs-CZ')+' Kč';
+  document.getElementById('roi-payback').textContent=payback;
+}
+
+/* Hotline widget */
+(function(){
+  var n=new Date(),m=n.getUTCMonth(),h=(n.getUTCHours()+(m>=2&&m<=9?2:1))%24,d=n.getUTCDay();
+  var avail=d>=1&&d<=5&&h>=9&&h<18;
+  var dot=document.getElementById('hw-dot'),st=document.getElementById('hw-status'),sub=document.getElementById('hw-sub');
+  if(avail){
+    dot.style.background='#22c55e'; dot.style.boxShadow='0 0 0 0 rgba(34,197,94,0.7)';
+    st.textContent='Nyní se dovoláte'; st.style.color='#22c55e';
+    sub.textContent='Po–Pá 9:00–18:00';
+  }else{
+    dot.style.background='var(--accent)';
+    st.textContent='Teď se nedovoláte'; st.style.color='var(--accent)';
+    sub.innerHTML='Napište: <a href="mailto:info@webdo24.cz" style="color:var(--primary);font-weight:700;text-decoration:none">info@webdo24.cz</a>';
+  }
+})();
+
+/* Exit intent */
+var exitShown=false;
+document.addEventListener('mouseleave',function(e){
+  if(e.clientY<10 && !exitShown){
+    document.getElementById('exitPopup').classList.add('show');
+    exitShown=true;
+  }
+});
+function closeExitPopup(){ document.getElementById('exitPopup').classList.remove('show'); }
+
+/* Conversion tracking */
+(function(){
+  var _dl=window.dataLayer=window.dataLayer||[];
+  var PLANS={start:{name:'Model Start',price:14900},business:{name:'Model Business',price:29900},automation:{name:'Model Automation',price:59900}};
+  function getSection(el){
+    var s=el.closest('section[id]');
+    if(s) return s.id;
+    if(el.closest('nav')) return 'nav';
+    if(el.closest('footer')) return 'footer';
+    return 'page';
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]'); if(!a) return;
+    var href=a.getAttribute('href')||''; var loc=getSection(a);
+    if(href.indexOf('objednat')!==-1){
+      var m=href.match(/plan=(\w+)/); var planKey=m?m[1]:'general'; var plan=PLANS[planKey];
+      _dl.push({event:'begin_checkout',ecommerce:plan?{currency:'CZK',value:plan.price,items:[{item_id:planKey,item_name:plan.name,price:plan.price,quantity:1,item_category:'Web'}]}:{currency:'CZK'},cta_plan:planKey,cta_location:loc,cta_text:(a.textContent||'').trim().replace(/\s+/g,' ').substring(0,50)});
+    }
+    if(href.indexOf('model-')!==-1 && href.indexOf('objednat')===-1){
+      var modelMatch=href.match(/model-(\w+)/); var modelKey=modelMatch?modelMatch[1]:'';
+      if(PLANS[modelKey]) _dl.push({event:'select_item',ecommerce:{items:[{item_id:modelKey,item_name:PLANS[modelKey].name,price:PLANS[modelKey].price,item_category:'Web'}]},cta_location:loc});
+    }
+    if(href.indexOf('tel:')===0) _dl.push({event:'contact_click',contact_type:'phone',contact_value:href.replace('tel:',''),cta_location:loc});
+    if(href.indexOf('mailto:')===0) _dl.push({event:'contact_click',contact_type:'email',contact_value:href.replace('mailto:',''),cta_location:loc});
+  });
+})();
+
+/* Scroll reveal animation */
+(function(){
+  var selectors='section > .container, .step, .feature-card, .price-card, .portfolio-card, .trust-card, .stat-card, .guarantee-box, .faq-item';
+  var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var style=document.createElement('style');
+  style.textContent='.reveal-item{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.reveal-item.revealed{opacity:1!important;transform:translateY(0)!important}';
+  document.head.appendChild(style);
+  function reveal(el){ el.classList.add('revealed'); }
+  if(reduced){
+    document.querySelectorAll(selectors).forEach(reveal);
+    return;
+  }
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        reveal(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  var viewportH=window.innerHeight || document.documentElement.clientHeight;
+  document.querySelectorAll(selectors).forEach(function(el){
+    el.classList.add('reveal-item');
+    observer.observe(el);
+    var rect=el.getBoundingClientRect();
+    if(rect.top < viewportH && rect.bottom > 0) reveal(el);
+  });
+})();
+
+/* Portfolio lightbox */
+function openSite(url, title) {
+  var lb = document.getElementById('siteLightbox');
+  var iframe = document.getElementById('lightboxIframe');
+  var ttl = document.getElementById('lightboxTitle');
+  var ext = document.getElementById('lightboxExternal');
+  iframe.src = url;
+  ttl.textContent = title || 'Ukázka webu';
+  ext.href = url;
+  lb.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  dataLayer.push({ event: 'select_content', content_type: 'portfolio_preview', content_id: url, content_title: title });
+}
+function closeSite(e) {
+  if (e && e.target !== e.currentTarget) return;
+  var lb = document.getElementById('siteLightbox');
+  var iframe = document.getElementById('lightboxIframe');
+  lb.classList.remove('show');
+  iframe.src = '';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeSite();
+});
+
+/* Init */
+calculateRoi();
+</script>
+
+<!-- Portfolio lightbox -->
+<div id="siteLightbox" class="lightbox" onclick="closeSite(event)">
+  <div class="lightbox-box" onclick="event.stopPropagation()">
+    <div class="lightbox-header">
+      <h3>🌐 <span id="lightboxTitle">Ukázka webu</span></h3>
+      <button class="lightbox-close" onclick="closeSite()" aria-label="Zavřít">×</button>
+    </div>
+    <iframe id="lightboxIframe" class="lightbox-iframe" src="" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+    <div class="lightbox-footer">
+      <a id="lightboxExternal" href="#" target="_blank" rel="noopener" class="btn btn-secondary">Otevřít v novém okně ↗</a>
+      <a href="objednat.html?plan=business" class="btn btn-primary btn-glow" onclick="closeSite();dataLayer.push({event:'begin_checkout',ecommerce:{currency:'CZK',value:29900,items:[{item_id:'business',item_name:'Model Business',price:29900,quantity:1,item_category:'Web'}]},cta_location:'portfolio-lightbox'})">Chci podobný web →</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

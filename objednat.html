@@ -6,7 +6,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KJNB99JZ');</script>
 <meta name="robots" content="noindex, follow">
-<meta name="description" content="Objednat web do 24 hodin — WebDo24.cz">
+<meta name="description" content="Objednejte si web do 24 hodin — WebDo24.cz. 100 % garance vrácení peněz při nedodržení termínu.">
 <title>Objednat web — WebDo24.cz</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" href="favicon.ico">
@@ -14,273 +14,255 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#0d9488;--primary-dark:#0f766e;--primary-light:#f0fdfa;
+  --accent:#f43f5e;--accent-dark:#e11d48;--accent-light:#fff1f2;
+  --text:#0f172a;--text-soft:#475569;--text-muted:#94a3b8;
+  --bg:#ffffff;--bg-soft:#f8fafc;--border:#e2e8f0;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.05),0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-md:0 10px 15px -3px rgba(0,0,0,0.07),0 4px 6px -4px rgba(0,0,0,0.05);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.08),0 8px 10px -6px rgba(0,0,0,0.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:#060f1a;color:#fff;-webkit-font-smoothing:antialiased}
-.glass-nav{background:rgba(5,29,46,0.88);border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(20px)}
-.grad-coral{background:linear-gradient(135deg,#FF3366,#ff6b8a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.grad-teal{background:linear-gradient(135deg,#00C4B5,#00e6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fade-up 0.55s ease-out forwards}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* Přepínač platby */
-.pay-toggle{display:inline-flex;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:4px;gap:4px}
-.pay-btn{padding:.55rem 1.4rem;border-radius:.75rem;font-weight:700;font-size:.88rem;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:all .2s}
-.pay-btn.active{background:#FF3366;color:#fff;box-shadow:0 4px 16px -2px rgba(255,51,102,0.4)}
-.pay-btn.inactive{background:transparent;color:rgba(255,255,255,0.45)}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
+.nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem}
+.nav-logo{font-size:1.2rem;font-weight:900;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--primary)}
+.nav-back{font-size:.9rem;font-weight:700;color:var(--text-soft);text-decoration:none}
+.nav-back:hover{color:var(--primary)}
 
-/* Karta plánu */
-.plan-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:2rem;padding:2.5rem 2rem;display:flex;flex-direction:column;cursor:default;transition:border-color .25s,transform .25s}
-.plan-card:hover{border-color:rgba(0,196,181,0.3);transform:translateY(-3px)}
-.plan-card.featured{background:linear-gradient(180deg,rgba(0,196,181,0.09),rgba(0,196,181,0.03));border:1.5px solid rgba(0,196,181,0.45);box-shadow:0 24px 80px -20px rgba(0,196,181,0.2)}
-.plan-card.featured:hover{border-color:rgba(0,196,181,0.65)}
-.feature-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.85rem;color:rgba(255,255,255,0.68);line-height:1.6}
-.feature-check{color:#00C4B5;font-weight:900;font-size:.75rem;margin-top:.2rem;flex-shrink:0}
+.container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+.page{padding:7rem 0 4rem;background:linear-gradient(180deg,var(--primary-light) 0%,#fff 40%)}
 
-/* Tlačítko platby */
-.btn-pay{width:100%;padding:1rem 1.5rem;border-radius:1rem;font-weight:900;font-size:.95rem;font-family:'Outfit',sans-serif;cursor:pointer;border:none;transition:all .22s;text-align:center;text-decoration:none;display:block}
-.btn-pay-primary{background:#FF3366;color:#fff;box-shadow:0 8px 32px -4px rgba(255,51,102,0.4)}
-.btn-pay-primary:hover{background:#e52e5a;box-shadow:0 12px 40px -4px rgba(255,51,102,0.55);transform:translateY(-2px)}
-.btn-pay-ghost{background:transparent;color:rgba(255,255,255,0.75);border:1.5px solid rgba(255,255,255,0.22)}
-.btn-pay-ghost:hover{border-color:rgba(0,196,181,0.55);background:rgba(0,196,181,0.07);color:#fff}
+.steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:2.5rem;max-width:420px;margin-left:auto;margin-right:auto}
+.step{flex:1;text-align:center;position:relative}
+.step-circle{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-weight:900;font-size:.85rem}
+.step.active .step-circle{background:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(244,63,94,.15)}
+.step:not(.active) .step-circle{background:#fff;border:2px solid var(--border);color:var(--text-muted)}
+.step-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.step.active .step-label{color:var(--accent)}
+.step:not(.active) .step-label{color:var(--text-muted)}
+.step-line{flex:.5;height:2px;background:var(--border);margin-bottom:24px}
 
-/* Trust strip */
-.trust-item{display:flex;align-items:center;gap:.55rem;font-size:.82rem;color:rgba(255,255,255,0.5);font-weight:600}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;line-height:1.1;text-align:center;margin-bottom:.75rem}
+.page-sub{text-align:center;color:var(--text-soft);max-width:480px;margin:0 auto 2rem;font-size:1rem}
+
+.pay-toggle{display:inline-flex;background:#fff;border:1px solid var(--border);border-radius:1rem;padding:4px;gap:4px;margin-bottom:2rem;width:100%;max-width:420px}
+.pay-btn{flex:1;padding:.7rem 1rem;border-radius:.8rem;font-weight:800;font-size:.85rem;cursor:pointer;border:none;font-family:inherit;transition:all .2s;background:transparent;color:var(--text-soft)}
+.pay-btn.active{background:var(--accent);color:#fff;box-shadow:0 4px 14px -4px rgba(244,63,94,.35)}
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:start;margin-bottom:2rem}
+.plan-card{background:#fff;border:1px solid var(--border);border-radius:1.5rem;padding:1.75rem;display:flex;flex-direction:column;transition:all .25s;box-shadow:var(--shadow)}
+.plan-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.plan-card.featured{border:2px solid var(--primary);transform:scale(1.03);position:relative}
+.plan-card.featured:hover{transform:scale(1.03) translateY(-4px)}
+.plan-badge{display:inline-block;padding:.3rem .9rem;border-radius:999px;font-size:.65rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
+.plan-badge.popular{background:var(--primary);color:#fff}
+.plan-badge.basic{background:#f1f5f9;color:var(--text-soft)}
+.plan-name{font-size:1.25rem;font-weight:900;margin-bottom:.35rem}
+.plan-desc{font-size:.88rem;color:var(--text-soft);margin-bottom:1.25rem;min-height:2.8em}
+.plan-price{font-size:2.4rem;font-weight:900;line-height:1;margin-bottom:.25rem}
+.plan-note{font-size:.75rem;color:var(--text-muted);margin-bottom:1.25rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.plan-list{flex:1;margin-bottom:1.5rem}
+.plan-item{display:flex;align-items:flex-start;gap:.6rem;padding:.35rem 0;font-size:.85rem;color:var(--text-soft)}
+.plan-item::before{content:'✓';color:var(--primary);font-weight:900;flex-shrink:0}
+.btn-pay{width:100%;padding:.9rem 1.25rem;border-radius:.85rem;font-weight:900;font-size:.95rem;border:none;cursor:pointer;font-family:inherit;transition:all .2s;text-align:center;text-decoration:none}
+.btn-pay-primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px -4px rgba(244,63,94,.35)}
+.btn-pay-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.btn-pay-outline{background:#fff;color:var(--text);border:1.5px solid var(--border)}
+.btn-pay-outline:hover{border-color:var(--primary);color:var(--primary)}
+
+.guarantee-box{background:#fff;border:1px solid var(--border);border-radius:1.25rem;padding:1.5rem 2rem;margin-top:1.5rem;box-shadow:var(--shadow)}
+.guarantee-title{font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--primary);margin-bottom:1rem;text-align:center}
+.guarantee-items{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem}
+.guarantee-item{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--text-soft);font-weight:600}
+.guarantee-item svg{width:18px;height:18px;flex-shrink:0}
+
+.contact{text-align:center;margin-top:2rem;font-size:.85rem;color:var(--text-soft)}
+.contact a{color:var(--primary);font-weight:800;text-decoration:none}
+
+.footer{text-align:center;padding:2rem 0;border-top:1px solid var(--border);font-size:.78rem;color:var(--text-muted)}
+
+@media(max-width:900px){
+  .plans{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .plan-card.featured{transform:none}.plan-card.featured:hover{transform:translateY(-4px)}
+}
+@media(max-width:640px){
+  .pay-toggle{flex-direction:column}.pay-btn{text-align:center}
+  .guarantee-items{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<nav class="glass-nav fixed top-0 w-full z-50 px-6 py-4">
-  <div class="max-w-5xl mx-auto flex justify-between items-center">
-    <a href="index.html" class="text-xl font-black tracking-tight">
-      <span style="color:#fff">webdo24</span><span style="color:#00C4B5">.cz</span>
-    </a>
-    <a href="index.html" class="text-sm font-semibold hover:text-white transition-colors" style="color:rgba(255,255,255,0.45)">← Zpět</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">webdo<span>24</span>.cz</a>
+    <a href="index.html" class="nav-back">← Zpět na hlavní stranu</a>
   </div>
 </nav>
 
-<div class="pt-28 pb-24 px-6" style="background:radial-gradient(ellipse 60% 35% at 50% 0%,rgba(0,196,181,0.06),transparent 65%)">
-  <div class="max-w-5xl mx-auto">
+<div class="page">
+  <div class="container">
 
-    <!-- Kroky -->
-    <div class="fade-up flex items-center justify-center gap-0 mb-12 max-w-sm mx-auto">
-      <div style="text-align:center;flex:1">
-        <div style="width:32px;height:32px;background:#FF3366;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:900;font-size:.8rem;box-shadow:0 0 0 4px rgba(255,51,102,0.15)">1</div>
-        <p style="font-size:.72rem;font-weight:700;color:#FF3366">Platba</p>
+    <div class="steps">
+      <div class="step active">
+        <div class="step-circle">1</div>
+        <div class="step-label">Výběr</div>
       </div>
-      <div style="flex:1;height:1px;background:rgba(255,255,255,0.1);margin-bottom:18px"></div>
-      <div style="text-align:center;flex:1">
-        <div style="width:32px;height:32px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:900;font-size:.8rem;color:rgba(255,255,255,0.35)">2</div>
-        <p style="font-size:.72rem;font-weight:600;color:rgba(255,255,255,0.3)">Zadání</p>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <div class="step-label">Zadání</div>
       </div>
-      <div style="flex:1;height:1px;background:rgba(255,255,255,0.1);margin-bottom:18px"></div>
-      <div style="text-align:center;flex:1">
-        <div style="width:32px;height:32px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:900;font-size:.8rem;color:rgba(255,255,255,0.35)">3</div>
-        <p style="font-size:.72rem;font-weight:600;color:rgba(255,255,255,0.3)">Spuštění</p>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <div class="step-label">Spuštění</div>
       </div>
     </div>
 
-    <!-- Heading -->
-    <div class="text-center mb-10 fade-up" style="animation-delay:.08s">
-      <h1 style="font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:.75rem">
-        Vyberte plán a zaplaťte
-      </h1>
-      <p style="font-size:1rem;color:rgba(255,255,255,0.5);max-width:440px;margin:0 auto">
-        Zadání webu vyplníte po zaplacení — žádné formuláře předem.
-      </p>
-    </div>
+    <h1>Vyberte si balíček a zaplaťte</h1>
+    <p class="page-sub">Zadáte požadavky a do 24 hodin vám představíme hotový web. Máte 100 % garanci vrácení peněz, pokud bychom termín nedodrželi.</p>
 
-    <!-- Přepínač platby -->
-    <div class="text-center mb-10 fade-up" style="animation-delay:.14s">
-      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:.85rem">Vyberte způsob platby</p>
-      <div class="pay-toggle inline-flex">
-        <button id="btn-jednor" class="pay-btn active" onclick="setPayment('jednor')">Varianta A — jednorázově</button>
-        <button id="btn-splatky" class="pay-btn inactive" onclick="setPayment('splatky')">Varianta B — rozdělit platbu</button>
+    <div style="text-align:center">
+      <div class="pay-toggle">
+        <button id="btn-jednor" class="pay-btn active" onclick="setPayment('jednor')">Jednorázově</button>
+        <button id="btn-splatky" class="pay-btn" onclick="setPayment('splatky')">Na splátky (12×)</button>
       </div>
-      <p id="toggle-note" style="font-size:.78rem;color:rgba(255,255,255,0.35);margin-top:.75rem;font-weight:600">Celá částka · rezervace peněz, ne okamžitý výběr</p>
     </div>
 
-    <!-- Plány -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10 fade-up" style="animation-delay:.2s;align-items:start">
-
-      <!-- Start -->
+    <div class="plans">
       <div class="plan-card">
-        <p style="font-size:.62rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:.75rem">Model Start</p>
-        <p style="font-size:.95rem;font-weight:700;color:rgba(255,255,255,0.8);line-height:1.55;margin-bottom:1.75rem">Moderní web, který zákazníci najdou a rovnou vás kontaktují.</p>
-        <div id="price-start" style="font-size:2.6rem;font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:.3rem">14 900 Kč</div>
-        <p id="note-start" style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.28);letter-spacing:.08em;margin-bottom:1.5rem">JEDNORÁZOVĚ</p>
-        <div style="height:1px;background:rgba(255,255,255,0.07);margin-bottom:1.5rem"></div>
-        <div style="display:flex;flex-direction:column;gap:.9rem;flex:1;margin-bottom:2rem">
-          <div class="feature-item"><span class="feature-check">✓</span>Responzivní web na míru</div>
-          <div class="feature-item"><span class="feature-check">✓</span>SEO optimalizace</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Kontaktní formuláře</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Spuštění do 24 hodin</div>
+        <span class="plan-badge basic">Start</span>
+        <div class="plan-name">Základní web</div>
+        <div class="plan-desc">Moderní web, který zákazníci najdou a rovnou kontaktují.</div>
+        <div class="plan-price" id="price-start">14 900 Kč</div>
+        <div class="plan-note" id="note-start">Jednorázově</div>
+        <div class="plan-list">
+          <div class="plan-item">Responzivní web na míru</div>
+          <div class="plan-item">SEO optimalizace</div>
+          <div class="plan-item">Kontaktní formuláře</div>
+          <div class="plan-item">1 rok hostingu zdarma</div>
         </div>
-        <button class="btn-pay btn-pay-ghost" onclick="pay('Start')">Zaplatit Start →</button>
+        <button class="btn-pay btn-pay-outline" onclick="pay('Start')">Zaplatit Start →</button>
       </div>
 
-      <!-- Business (featured) -->
-      <div class="plan-card featured" style="position:relative">
-        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#00C4B5,#00e0d0);color:#060f1a;font-size:.62rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:4px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 16px -2px rgba(0,196,181,0.4)">Nejčastěji volený</div>
-        <p style="font-size:.62rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#00C4B5;margin-bottom:.75rem">Model Business</p>
-        <p style="font-size:.95rem;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.55;margin-bottom:1.75rem">Web, který sám oslovuje a uzavírá zakázky — i&nbsp;když spíte.</p>
-        <div id="price-business" style="font-size:2.6rem;font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:.3rem">29 900 Kč</div>
-        <p id="note-business" style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.28);letter-spacing:.08em;margin-bottom:1.5rem">JEDNORÁZOVĚ</p>
-        <div style="height:1px;background:rgba(0,196,181,0.18);margin-bottom:1.5rem"></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem 1.2rem;flex:1;margin-bottom:2rem">
-          <div class="feature-item"><span class="feature-check">✓</span>Vše ze Start</div>
-          <div class="feature-item"><span class="feature-check">✓</span>AI automatizace</div>
-          <div class="feature-item"><span class="feature-check">✓</span>CRM přehled</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Platební brána</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Sběr poptávek</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Auto. odpovědi</div>
+      <div class="plan-card featured">
+        <span class="plan-badge popular">Doporučujeme</span>
+        <div class="plan-name">Web s AI</div>
+        <div class="plan-desc">Web, který sám odpovídá zákazníkům a přijímá platby.</div>
+        <div class="plan-price" id="price-business" style="color:var(--primary)">29 900 Kč</div>
+        <div class="plan-note" id="note-business">Jednorázově</div>
+        <div class="plan-list">
+          <div class="plan-item">Vše ze Start</div>
+          <div class="plan-item">AI automatizace odpovědí</div>
+          <div class="plan-item">CRM a sběr poptávek</div>
+          <div class="plan-item">Platební brána v ceně</div>
+          <div class="plan-item">Automatické e-maily</div>
         </div>
         <button class="btn-pay btn-pay-primary" onclick="pay('Business')">Zaplatit Business →</button>
       </div>
 
-      <!-- Automation -->
       <div class="plan-card">
-        <p style="font-size:.62rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:.75rem">Model Automation</p>
-        <p style="font-size:.95rem;font-weight:700;color:rgba(255,255,255,0.8);line-height:1.55;margin-bottom:1.75rem">Celý obchodní provoz na autopilotu.</p>
-        <div id="price-automation" style="font-size:2.6rem;font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:.3rem">59 900 Kč</div>
-        <p id="note-automation" style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.28);letter-spacing:.08em;margin-bottom:1.5rem">JEDNORÁZOVĚ</p>
-        <div style="height:1px;background:rgba(255,255,255,0.07);margin-bottom:1.5rem"></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem 1.2rem;flex:1;margin-bottom:2rem">
-          <div class="feature-item"><span class="feature-check">✓</span>Vše z Business</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Pokročilé workflow</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Rezervační systém</div>
-          <div class="feature-item"><span class="feature-check">✓</span>SMS + e-mail seq.</div>
-          <div class="feature-item"><span class="feature-check">✓</span>Auto. faktury</div>
-          <div class="feature-item"><span class="feature-check">✓</span>60 dní podpora</div>
+        <span class="plan-badge basic">Automation</span>
+        <div class="plan-name">Plná automatizace</div>
+        <div class="plan-desc">Celý obchodní provoz na autopilotu pro větší firmy.</div>
+        <div class="plan-price" id="price-automation">59 900 Kč</div>
+        <div class="plan-note" id="note-automation">Jednorázově</div>
+        <div class="plan-list">
+          <div class="plan-item">Vše z Business</div>
+          <div class="plan-item">Pokročilé workflow</div>
+          <div class="plan-item">Rezervační systém</div>
+          <div class="plan-item">API integrace</div>
+          <div class="plan-item">Automatické faktury</div>
         </div>
-        <button class="btn-pay btn-pay-ghost" onclick="pay('Automation')">Zaplatit Automation →</button>
+        <button class="btn-pay btn-pay-outline" onclick="pay('Automation')">Zaplatit Automation →</button>
       </div>
-
     </div>
 
-    <!-- Trust strip -->
-    <div class="fade-up" style="animation-delay:.28s">
-      <div style="display:flex;flex-wrap:wrap;gap:1rem 2.5rem;justify-content:center;padding:1.5rem 2rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:1.25rem">
-        <div class="trust-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Rezervace — peníze zůstávají u vás
+    <div class="guarantee-box">
+      <div class="guarantee-title">🛡️ 100 % garance</div>
+      <div class="guarantee-items">
+        <div class="guarantee-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Nestihneme 24h → vracíme 100 %
         </div>
-        <div class="trust-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Web hotový do 24 hodin
+        <div class="guarantee-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Hotový web do 24 hodin od zadání
         </div>
-        <div class="trust-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF3366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Nestihneme termín → rezervace se ruší, neplatíte nic
+        <div class="guarantee-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Web je váš od první minuty
         </div>
-        <div class="trust-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Web vlastníte od první chvíle · bez závazků
-        </div>
-        <div class="trust-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00C4B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="guarantee-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           Stripe · PCI-DSS · Apple Pay · Google Pay
         </div>
       </div>
-
-      <p style="text-align:center;font-size:.8rem;color:rgba(255,255,255,0.22);margin-top:1.25rem">
-        Máte otázku?
-        <a href="tel:+420735847185" style="color:#00C4B5;text-decoration:none;font-weight:700">735 847 185</a>
-        &nbsp;·&nbsp;
-        <a href="mailto:info@webdo24.cz" style="color:#00C4B5;text-decoration:none;font-weight:700">info@webdo24.cz</a>
-      </p>
     </div>
+
+    <p class="contact">
+      Máte otázku? Zavolejte nám na <a href="tel:+420735847185">735 847 185</a> nebo napište na <a href="mailto:info@webdo24.cz">info@webdo24.cz</a>.
+    </p>
 
   </div>
 </div>
 
+<footer class="footer">
+  © 2026 WebDo24.cz — Soterana Corp s.r.o. · IČO: 14052326 · Sídlo: U Uranie 1583/21, Praha 7, 170 00 · <a href="vop/" style="color:var(--text-muted)">VOP</a> · <a href="gdpr/" style="color:var(--text-muted)">Ochrana údajů</a>
+</footer>
+
 <script>
-const PAYMENT_LINKS = {
-  'Start': {
-    'Varianta A': 'https://buy.stripe.com/test_5kQ00i8r81fs0Wk4nm5gc0e',
-    'Varianta B': 'https://buy.stripe.com/test_4gMcN436O1fs20ocTS5gc0h'
-  },
-  'Business': {
-    'Varianta A': 'https://buy.stripe.com/test_5kQ00idLs4rE20odXW5gc0f',
-    'Varianta B': 'https://buy.stripe.com/test_6oUcN4bDkaQ2awU3ji5gc0i'
-  },
-  'Automation': {
-    'Varianta A': 'https://buy.stripe.com/test_cNi7sKdLs1fsfRe9HG5gc0g',
-    'Varianta B': 'https://buy.stripe.com/test_14A14m22KbU6gVi4nm5gc0j'
-  }
+const PAYMENT_LINKS={
+  'Start':{'Varianta A':'https://buy.stripe.com/28E00igWn4fx7Tm1st9EI0b','Varianta B':'https://buy.stripe.com/dRm28q5dFeUba1u1st9EI0e'},
+  'Business':{'Varianta A':'https://buy.stripe.com/9B600i49BcM3ddG3AB9EI0c','Varianta B':'https://buy.stripe.com/3cI8wO21t27pehKdbb9EI0d'},
+  'Automation':{'Varianta A':'https://buy.stripe.com/eVq6oG5dF13l0qU1st9EI0a','Varianta B':'https://buy.stripe.com/aFabJ0bC327p0qU2wx9EI0f'}
 };
-
-const PRICES = {
-  jednor:  { Start: '14 900 Kč', Business: '29 900 Kč', Automation: '59 900 Kč' },
-  splatky: { Start: '1 490 Kč',  Business: '2 990 Kč',  Automation: '5 990 Kč'  }
+const PRICES={
+  jednor:{Start:'14 900 Kč',Business:'29 900 Kč',Automation:'59 900 Kč'},
+  splatky:{Start:'1 490 Kč',Business:'2 990 Kč',Automation:'5 990 Kč'}
 };
-const NOTES = {
-  jednor:  'JEDNORÁZOVĚ',
-  splatky: 'ZA MĚSÍC · 12 SPLÁTEK'
-};
+const NOTES={jednor:'Jednorázově',splatky:'Za měsíc · 12 splátek'};
+let currentPayment='Varianta A';
 
-let currentPayment = 'Varianta A';
-
-function setPayment(type) {
-  currentPayment = type === 'jednor' ? 'Varianta A' : 'Varianta B';
-  const isJednor = type === 'jednor';
-
-  document.getElementById('btn-jednor').className = 'pay-btn ' + (isJednor ? 'active' : 'inactive');
-  document.getElementById('btn-splatky').className = 'pay-btn ' + (!isJednor ? 'active' : 'inactive');
-  document.getElementById('toggle-note').textContent = isJednor
-    ? 'Celá částka · rezervace peněz, ne okamžitý výběr'
-    : '12 měsíčních plateb bez navýšení · web vlastníte od 1. platby';
-
-  ['Start','Business','Automation'].forEach(plan => {
-    const k = plan.toLowerCase();
-    document.getElementById('price-' + k).textContent = PRICES[type][plan];
-    document.getElementById('note-' + k).textContent  = NOTES[type];
+function setPayment(type){
+  currentPayment=type==='jednor'?'Varianta A':'Varianta B';
+  var isJednor=type==='jednor';
+  document.getElementById('btn-jednor').className='pay-btn '+(isJednor?'active':'');
+  document.getElementById('btn-splatky').className='pay-btn '+(!isJednor?'active':'');
+  ['Start','Business','Automation'].forEach(function(plan){
+    var k=plan.toLowerCase();
+    document.getElementById('price-'+k).textContent=PRICES[type][plan];
+    document.getElementById('note-'+k).textContent=NOTES[type];
   });
 }
 
-function pay(plan) {
-  const url = PAYMENT_LINKS[plan]?.[currentPayment];
-  if (!url) return;
-
-  // GA4
-  const RAWPRICES = { Start: 14900, Business: 29900, Automation: 59900 };
+function pay(plan){
+  var url=PAYMENT_LINKS[plan]?.[currentPayment];
+  if(!url) return;
+  var RAWPRICES={Start:14900,Business:29900,Automation:59900};
   dataLayer.push({
-    event: 'begin_checkout',
-    ecommerce: {
-      currency: 'CZK',
-      value: RAWPRICES[plan],
-      items: [{ item_id: plan.toLowerCase(), item_name: 'Model ' + plan, price: RAWPRICES[plan], quantity: 1, item_category: 'Web' }]
-    },
-    payment_type: currentPayment
+    event:'begin_checkout',
+    ecommerce:{currency:'CZK',value:RAWPRICES[plan],items:[{item_id:plan.toLowerCase(),item_name:'Model '+plan,price:RAWPRICES[plan],quantity:1,item_category:'Web'}]},
+    payment_type:currentPayment
   });
-
-  // Uložit do localStorage — brief vyplní zákazník na dekujeme.html
-  try {
-    localStorage.setItem('wd_order', JSON.stringify({
-      balicek: plan,
-      platba: currentPayment,
-      timestamp: new Date().toISOString()
-    }));
-  } catch(e) {}
-
-  window.location.href = url;
+  try{localStorage.setItem('wd_order',JSON.stringify({balicek:plan,platba:currentPayment,timestamp:new Date().toISOString()}));}catch(e){}
+  window.location.href=url;
 }
 
-// Pre-select plán z URL parametru (?plan=business)
-(function() {
-  const p = (new URLSearchParams(window.location.search).get('plan') || '').toLowerCase();
-  // Plány jsou vizuálně odlišeny, není třeba dalšího pre-selectu
-  // Pokud ?payment=installment, přepneme na splátky
-  if (new URLSearchParams(window.location.search).get('payment') === 'installment') {
-    setPayment('splatky');
-  }
-
-  // GA4: view_item
-  dataLayer.push({ event: 'view_item', ecommerce: { currency: 'CZK' } });
+(function(){
+  var p=(new URLSearchParams(window.location.search).get('plan')||'').toLowerCase();
+  if(new URLSearchParams(window.location.search).get('payment')==='installment') setPayment('splatky');
+  dataLayer.push({event:'view_item',ecommerce:{currency:'CZK'}});
 })();
 </script>
+
 </body>
 </html>

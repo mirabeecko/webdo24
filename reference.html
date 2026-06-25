@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KJNB99JZ');</script>
+<meta name="robots" content="index, follow">
+<meta name="description" content="Prohlédněte si reference webů vytvořených na WebDo24.cz — 340+ webů napříč 47 obory. Web do 24 hodin.">
+<title>Reference — WebDo24.cz</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#f0fdfa;--accent:#f43f5e;--accent-dark:#e11d48;--text:#0f172a;--text-soft:#475569;--text-muted:#94a3b8;--bg:#ffffff;--bg-soft:#f8fafc;--border:#e2e8f0;--shadow:0 4px 6px -1px rgba(0,0,0,0.05),0 2px 4px -2px rgba(0,0,0,0.05);--shadow-lg:0 20px 25px -5px rgba(0,0,0,0.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem}
+.nav-logo{font-size:1.2rem;font-weight:900;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--primary)}
+.nav-back{font-size:.9rem;font-weight:700;color:var(--text-soft);text-decoration:none}
+.nav-back:hover{color:var(--primary)}
+.nav-cta{padding:.6rem 1.25rem;border-radius:999px;background:var(--accent);color:#fff;font-size:.85rem;font-weight:800;text-decoration:none}
+.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:8rem 0 4rem;text-align:center}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:1rem}
+.hero p{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:60ch;margin:0 auto}
+.section{padding:4rem 0}
+.text-center{text-align:center}
+.section-kicker{font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:.75rem}
+.section-h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:900;line-height:1.1;margin-bottom:1rem}
+.section-sub{color:var(--text-soft);font-size:1.1rem;max-width:70ch;margin:0 auto}
+
+.masonry-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:1rem;margin-top:2.5rem}
+.masonry-item{border-radius:1rem;overflow:hidden;box-shadow:var(--shadow);transition:all .3s;background:#fff;border:1px solid var(--border)}
+.masonry-item:hover{transform:translateY(-5px) scale(1.01);box-shadow:var(--shadow-lg)}
+.masonry-item img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.masonry-item.tall{grid-row:span 3}
+.masonry-item.wide{grid-row:span 2;grid-column:span 2}
+.masonry-item.square{grid-row:span 2}
+.masonry-item.small{grid-row:span 2}
+
+.filter-bar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.5rem}
+.filter-btn{padding:.5rem 1rem;border-radius:999px;border:1px solid var(--border);background:#fff;font-family:inherit;font-size:.85rem;font-weight:700;color:var(--text-soft);cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.5rem;border-radius:.85rem;background:var(--accent);color:#fff;font-size:1rem;font-weight:800;text-decoration:none}
+.btn-primary:hover{background:var(--accent-dark)}
+
+.footer{background:var(--text);color:#fff;padding:2.5rem 0 1.5rem;text-align:center}
+.footer-logo{font-size:1.2rem;font-weight:900;margin-bottom:.5rem}
+.footer-logo span{color:#5eead4}
+.footer p{font-size:.85rem;color:rgba(255,255,255,.6);margin-bottom:.25rem}
+.footer a{color:#5eead4;text-decoration:none;font-weight:700}
+
+@media(max-width:1024px){.masonry-grid{grid-template-columns:repeat(3,1fr)}.masonry-item.wide{grid-column:span 2}}
+@media(max-width:768px){.masonry-grid{grid-template-columns:repeat(2,1fr)}.masonry-item.wide{grid-column:span 2}}
+@media(max-width:480px){.masonry-grid{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}.masonry-item.wide{grid-column:span 1}}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJNB99JZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">webdo<span>24</span>.cz</a>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <a href="index.html" class="nav-back">← Zpět</a>
+      <a href="index.html#poptavka" class="nav-cta">Chci web →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="section-kicker" style="color:#5eead4">Reference</div>
+    <h1>340+ webů napříč 47 obory</h1>
+    <p>Každý web je originál. Prohlédněte si náhledy webů, které jsme spustili pro řemeslníky, služby, obchody, kluby i profesionály napříč Českem.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterRefs('all')">Všechny</button>
+        <button class="filter-btn" onclick="filterRefs('zdravi')">Zdraví</button>
+        <button class="filter-btn" onclick="filterRefs('remeslo')">Řemeslo</button>
+        <button class="filter-btn" onclick="filterRefs('sluzby')">Služby</button>
+        <button class="filter-btn" onclick="filterRefs('obchod')">Obchod</button>
+        <button class="filter-btn" onclick="filterRefs('spolky')">Spolky & sport</button>
+      </div>
+    </div>
+
+    <div class="masonry-grid" id="refGrid">
+      <div class="masonry-item tall" data-cat="zdravi"><img src="previews/generated/doktor.png" alt="Web pro doktora" loading="eager"></div>
+      <div class="masonry-item square" data-cat="zdravi"><img src="previews/generated/zubar.png" alt="Web pro zubaře" loading="eager"></div>
+      <div class="masonry-item small" data-cat="zdravi"><img src="previews/generated/veterinar.png" alt="Web pro veterináře" loading="eager"></div>
+      <div class="masonry-item wide" data-cat="remeslo"><img src="previews/generated/truhlar.png" alt="Web pro truhláře" loading="eager"></div>
+      <div class="masonry-item tall" data-cat="remeslo"><img src="previews/generated/instalater.png" alt="Web pro instalatéra" loading="eager"></div>
+      <div class="masonry-item square" data-cat="remeslo"><img src="previews/generated/elektrikar.png" alt="Web pro elektrikáře" loading="eager"></div>
+      <div class="masonry-item small" data-cat="remeslo"><img src="previews/generated/autoservis.png" alt="Web pro autoservis" loading="eager"></div>
+      <div class="masonry-item wide" data-cat="remeslo"><img src="previews/generated/stavebni.png" alt="Web pro stavební firmu" loading="eager"></div>
+      <div class="masonry-item tall" data-cat="sluzby"><img src="previews/generated/architekt.png" alt="Web pro architekta" loading="eager"></div>
+      <div class="masonry-item square" data-cat="sluzby"><img src="previews/generated/reklamka.png" alt="Web pro reklamku" loading="eager"></div>
+      <div class="masonry-item small" data-cat="sluzby"><img src="previews/generated/grafik.png" alt="Web pro grafika" loading="eager"></div>
+      <div class="masonry-item wide" data-cat="spolky"><img src="previews/generated/fotbal.png" alt="Web pro fotbalový klub" loading="eager"></div>
+      <div class="masonry-item tall" data-cat="spolky"><img src="previews/generated/spolek.png" alt="Web pro spolek" loading="eager"></div>
+      <div class="masonry-item square" data-cat="sluzby"><img src="previews/generated/kadernictvi.png" alt="Web pro kadeřnictví" loading="eager"></div>
+      <div class="masonry-item small" data-cat="sluzby"><img src="previews/generated/kosmetika.png" alt="Web pro kosmetiku" loading="eager"></div>
+      <div class="masonry-item wide" data-cat="obchod"><img src="previews/generated/restaurace.png" alt="Web pro restauraci" loading="eager"></div>
+      <div class="masonry-item tall" data-cat="obchod"><img src="previews/generated/kavarna.png" alt="Web pro kavárnu" loading="eager"></div>
+      <div class="masonry-item square" data-cat="sluzby"><img src="previews/generated/pravnik.png" alt="Web pro právníka" loading="eager"></div>
+      <div class="masonry-item small" data-cat="sluzby"><img src="previews/generated/ucetni.png" alt="Web pro účetní" loading="eager"></div>
+      <div class="masonry-item wide" data-cat="obchod"><img src="previews/generated/eshop.png" alt="Web pro e-shop" loading="eager"></div>
+      <div class="masonry-item tall" data-cat="obchod"><img src="previews/generated/prodejna.png" alt="Web pro prodejnu" loading="eager"></div>
+      <div class="masonry-item square" data-cat="spolky"><img src="previews/generated/fitness.png" alt="Web pro fitness" loading="eager"></div>
+      <div class="masonry-item small" data-cat="spolky"><img src="previews/generated/skola.png" alt="Web pro školu" loading="eager"></div>
+      <div class="masonry-item wide" data-cat="obchod"><img src="previews/generated/ubytovani.png" alt="Web pro ubytování" loading="eager"></div>
+      <div class="masonry-item tall" data-cat="zdravi"><img src="previews/demo7-paddleboardy-milada.png" alt="Paddleboardy Milada" loading="eager"></div>
+      <div class="masonry-item square" data-cat="spolky"><img src="previews/demo3-ninja-vikend.png" alt="Ninja Den pro děti" loading="eager"></div>
+      <div class="masonry-item small" data-cat="remeslo"><img src="previews/demo4-selbicky.png" alt="Truhlářství Dřevořez" loading="eager"></div>
+      <div class="masonry-item wide" data-cat="remeslo"><img src="previews/demo8-pavel-dousa-elektrikar.png" alt="Pavel Douša Elektrikář" loading="eager"></div>
+    </div>
+
+    <div class="text-center" style="margin-top:3rem">
+      <a href="index.html#poptavka" class="btn-primary">Chci web do 24 hodin →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">webdo<span>24</span>.cz</div>
+    <p>Web, který vám přinese zákazníky do 24 hodin.</p>
+    <p>Soterana Corp s.r.o. · IČO: 14052326 · Praha 7</p>
+    <p style="margin-top:.5rem"><a href="tel:+420735847185">+420 735 847 185</a> · <a href="mailto:info@webdo24.cz">info@webdo24.cz</a></p>
+    <p style="margin-top:1rem;font-size:.75rem;color:rgba(255,255,255,.4)">© 2026 WebDo24.cz</p>
+  </div>
+</footer>
+
+<script>
+function filterRefs(cat){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.masonry-item').forEach(item=>{
+    item.style.display = (cat==='all' || item.dataset.cat===cat) ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>
